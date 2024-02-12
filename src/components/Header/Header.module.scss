@@ -1,0 +1,48 @@
+.container {
+  align-items: center;
+  display: flex;
+  font-family: 'HelveticaNeue';
+  font-weight: 500;
+  justify-content: space-between;
+  left: 0;
+  margin: 0 auto;
+  padding-top: 26px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 95%;
+
+  .left {
+    align-items: center;
+    display: flex;
+    gap: 40px;
+
+    .nav {
+      align-items: center;
+      color: #ffffff;
+      display: flex;
+      gap: 24px;
+      font-size: 20px;
+    }
+  }
+
+  .right {
+    display: flex;
+    gap: 24px;
+
+    .btn {
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'HelveticaNeue';
+      font-weight: 500;
+      font-size: 16px;
+      padding: 10px 22px;
+    }
+
+    .enter {
+      background-color: #333217;
+      color: #EAD40C;
+    }
+
+  }
+}

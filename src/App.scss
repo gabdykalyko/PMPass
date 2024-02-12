@@ -1,0 +1,29 @@
+@import url('./assets/fonts/fonts.scss');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li {
+    list-style-type: none;
+}
+
+a {
+    color: unset;
+    text-decoration: none;
+}
+
+body {
+    background-color: #1B1E23;
+}
+
+button {
+    background-color: unset;
+    border: none;
+    outline: none;
+}

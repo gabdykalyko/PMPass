@@ -1,0 +1,48 @@
+.wrapper {
+  background-image: url('../../assets/images/banner.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-items: center;
+  display: flex;
+  height: 100vh;
+
+  .container {
+    color: #ffffff;
+    font-family: 'AlbertusNova';
+    margin: 0 auto;
+    width: 80%;
+
+    .title {
+      font-size: 64px;
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      font-family: 'HelveticaNeue';
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'HelveticaNeue';
+      font-weight: 500;
+      font-size: 16px;
+      padding: 10px 22px;
+    }
+
+    .reg {
+      background-color: #EAD40C;
+      color: #1B1E23;
+    }
+
+    .platforms {
+      align-items: center;
+      display: flex;
+      gap: 32px;
+      margin-top: 40px;
+    }
+  }
+}
