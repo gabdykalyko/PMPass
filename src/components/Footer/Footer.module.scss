@@ -1,0 +1,38 @@
+.wrapper {
+  margin-top: 200px;
+  margin-bottom: 50px;
+
+  .container {
+    margin: 0 auto;
+    width: 80%;
+
+    .social {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 60px;
+
+      .left {
+        align-items: center;
+        display: flex;
+        gap: 24px;
+      }
+
+      .right {
+        align-items: center;
+        display: flex;
+        gap: 24px;
+      }
+    }
+
+    .license {
+      color: #E0E0E0;
+      font-family: 'HelveticaNeue';
+      font-size: 12px;
+      font-weight: 400;
+      margin: 0 auto;
+      text-align: center;
+      width: 70%;
+    }
+  }
+}
