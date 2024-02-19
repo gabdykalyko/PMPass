@@ -13,8 +13,9 @@
   .wrapper {
     align-items: start;
     display: grid;
-    gap: 24px;
+    column-gap: 24px;
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 50px;
+    row-gap: 100px;
   }
 }

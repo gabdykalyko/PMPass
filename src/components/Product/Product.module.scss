@@ -1,0 +1,43 @@
+.container {
+  background-color: rgba(0, 0, 0, .3);
+  border-radius: 8px;
+  padding: 20px 16px;
+
+  img {
+    width: 100%;
+  }
+
+  .productName {
+    border-bottom: 1px solid rgba(220, 220, 220, .1);
+    color: #ffffff;
+    font-family: 'HelveticaNeue';
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 24px;
+    padding-bottom: 19px;
+  }
+
+  .productPrice {
+    color: #0CDCEA;
+    font-family: 'HelveticaNeue';
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 24px;
+  }
+
+  .btn {
+
+    button {
+      background-color: #EAD40C;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'HelveticaNeue';
+      font-size: 16px;
+      font-weight: 500;
+      margin-top: 37px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      width: 100%;
+    }
+  }
+}

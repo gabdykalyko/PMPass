@@ -23,7 +23,7 @@ const Header = () => {
             </NavLink>
           </div>
           <div>
-            <NavLink>
+            <NavLink to="/quests">
               Квесты
             </NavLink>
           </div>
