@@ -1,5 +1,5 @@
 .wrapper {
-  background-image: url('../../assets/images/banner.jpg');
+  // background-image: url('../../assets/images/banner.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   align-items: center;
@@ -9,8 +9,6 @@
   .container {
     color: #ffffff;
     font-family: 'AlbertusNova';
-    margin: 0 auto;
-    width: 80%;
 
     .title {
       font-size: 64px;
@@ -43,6 +41,44 @@
       display: flex;
       gap: 32px;
       margin-top: 40px;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .wrapper {
+
+    .container {
+
+      .title {
+        font-size: 48px;
+      }
+
+      .platforms {
+
+        img {
+          width: 180px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+
+    .container {
+
+      .title {
+        font-size: 48px;
+      }
+
+      .platforms {
+
+        img {
+          width: 150px;
+        }
+      }
     }
   }
 }

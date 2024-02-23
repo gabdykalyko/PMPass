@@ -27,7 +27,7 @@ const rules = [
 
 const Rules = () => {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} container-main`}>
       <div className={styles.title}>
         Правила Aкции
       </div>

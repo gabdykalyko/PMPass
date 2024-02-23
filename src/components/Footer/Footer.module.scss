@@ -3,8 +3,6 @@
   margin-bottom: 50px;
 
   .container {
-    margin: 0 auto;
-    width: 80%;
 
     .social {
       align-items: center;
@@ -33,6 +31,31 @@
       margin: 0 auto;
       text-align: center;
       width: 70%;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .wrapper {
+
+    .container {
+      
+      .social {
+        display: block;
+
+        .left {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          margin: 0 auto;
+          width: 300px;
+        }
+
+        .right {
+          justify-content: end;
+          margin: 24px auto;
+          width: 300px;
+        }
+      }
     }
   }
 }

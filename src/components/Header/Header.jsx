@@ -1,6 +1,6 @@
 import styles from './Header.module.scss'
 import logo from '../../assets/images/logo.svg'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import Button from '../Button/Button'
 
 const Header = () => {
@@ -8,7 +8,9 @@ const Header = () => {
     <div className={styles.container}>
       <div className={styles.left}>
         <div>
-          <img src={logo} alt="" />
+          <NavLink to="/">
+            <img src={logo} alt="Parimatch" />
+          </NavLink>
         </div>
 
         <div className={styles.nav}>
@@ -32,10 +34,10 @@ const Header = () => {
 
       <div className={styles.right}>
         <div>
-          <Button title="Вход" color="brown"/>
+          <Button title="Вход" color="brown" />
         </div>
         <div>
-          <Button title="Регистрация"/>
+          <Button title="Регистрация" />
         </div>
       </div>
     </div>

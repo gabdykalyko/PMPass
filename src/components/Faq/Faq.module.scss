@@ -1,6 +1,5 @@
 .container {
   margin: 160px auto 0;
-  width: 80%;
 
   .title {
     color: #ffffff;
@@ -53,5 +52,29 @@
       display: flex;
       gap: 8px;
     }
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+
+   .item {
+
+    .question {
+      font-size: 20px;
+    }
+
+    .answer {
+      font-size: 16px;
+    }
+
+    .paragraph {
+      margin-bottom: 8px;
+    }
+    
+    .listItem {
+      margin-bottom: 8px;
+    }
+   }
   }
 }

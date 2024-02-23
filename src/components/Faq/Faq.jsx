@@ -11,11 +11,11 @@ const Faq = () => {
     {
       id: 1,
       question: 'Как связать аккаунты Parimatch и Steam?',
-      answer: `Убедитесь, что вы выставили настройки приватности в Dota 2 следующим образом, чтобы была открыта ваша история игр.<br/>
-      Также вам необходимо быть зарегистрированным клиентом на сайте или в приложении <a class="${styles.link}" href="">parimatch.kz</a> <br/>
-      Если вы не зарегистрированы, перейдите по этой ссылке <a class="${styles.link}" href="">https://parimatch.kz/ru/regtel/3</a> и создайте учетную запись в Parimatch. <br/>
-      Далее вам необходимо на этой странице нажать на кнопку “Участвовать”. Введите в форму ваш ID Parimatch и пароль, с которым вы зарегистрировались. <br/>
-      Скопировать свой ID можно в разделе “Мой аккаунт” - <a class="${styles.link}" href="">https://parimatch.kz/ru/my-account</a> <br/>
+      answer: `<div class="${styles.paragraph}">Убедитесь, что вы выставили настройки приватности в Dota 2 следующим образом, чтобы была открыта ваша история игр.</div>
+      <div class="${styles.paragraph}">Также вам необходимо быть зарегистрированным клиентом на сайте или в приложении <a class="${styles.link}" href="">parimatch.kz</a> </div>
+      <div class="${styles.paragraph}">Если вы не зарегистрированы, перейдите по этой ссылке <a class="${styles.link}" href="">https://parimatch.kz/ru/regtel/3</a> и создайте учетную запись в Parimatch. </div>
+      <div class="${styles.paragraph}">Далее вам необходимо на этой странице нажать на кнопку “Участвовать”. Введите в форму ваш ID Parimatch и пароль, с которым вы зарегистрировались. </div>
+      <div class="${styles.paragraph}">Скопировать свой ID можно в разделе “Мой аккаунт” - <a class="${styles.link}" href="">https://parimatch.kz/ru/my-account</a> </div>
       `
     },
     {
@@ -26,14 +26,14 @@ const Faq = () => {
     {
       id: 3,
       question: 'Могу ли я принять учавстие без аккаунта Steam?',
-      answer: `Да, вы можете участвовать, выполняя квесты, не связанные с Dota 2. Для этого вам нужен только аккаунт Parimatch. <br/>
+      answer: `<div class="${styles.paragraph}">Да, вы можете участвовать, выполняя квесты, не связанные с Dota 2. Для этого вам нужен только аккаунт Parimatch.</div>
       Переходите в раздел геймификации PM Hero и начинайте играть прямо сейчас.
       `
     },
     {
       id: 4,
       question: 'Как принять участие?',
-      answer: `Чтобы принять участие: <br/>
+      answer: `<div class="${styles.paragraph}">Чтобы принять участие:</div>
       <div class="${styles.listItem}">
         <img src="${list}" />Авторизуйтесь и перейдите на страницу;
       </div>
@@ -71,7 +71,7 @@ const Faq = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} container-main`}>
       <div className={styles.title}>
         FAQ
       </div>

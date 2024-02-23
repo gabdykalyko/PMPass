@@ -27,3 +27,14 @@ button {
     border: none;
     outline: none;
 }
+
+.container-main {
+  margin: 0 auto;
+  width: 80%;
+}
+
+@media (max-width: 1200px) {
+  .container-main {
+    width: 90%;
+  }
+}
