@@ -1,7 +1,7 @@
 # PMPass
 
 - node version - 20.5.1
-- react 18.2.0
+- react - 18.2.0
 
 ## Available Scripts
 
