@@ -1,4 +1,5 @@
 import Header from '../../components/Header/Header'
+import HeaderMob from '../../components/HeaderMob/HeaderMob'
 import styles from './Quests.module.scss'
 import pudge from '../../assets/images/pudge.jpg'
 import Quest from '../../components/Quest/Quest'
@@ -64,7 +65,8 @@ const Quests = () => {
   return (
     <div>
       <Header />
-      <div className={styles.container}>
+      <HeaderMob />
+      <div className={`${styles.container} container-main`}>
         <div className={styles.title}>
           Квесты
         </div>

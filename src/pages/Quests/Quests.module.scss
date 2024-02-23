@@ -1,7 +1,5 @@
 .container {
-  margin: 0 auto;
   padding-top: 180px;
-  width: 80%;
 
   .title {
     color: #ffffff;
@@ -17,5 +15,23 @@
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 50px;
     row-gap: 100px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    
+    .wrapper {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .container {
+    
+    .wrapper {
+      grid-template-columns: 1fr;
+    }
   }
 }

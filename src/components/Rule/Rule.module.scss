@@ -3,7 +3,13 @@
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 20px;
+  position: relative;
   text-align: center;
+
+  .img {
+    display: flex;
+    justify-content: center;
+  }
 
   .title {
     color: #ffffff;
@@ -17,5 +23,11 @@
     color: #E0E0E0;
     font-weight: 400;
     font-size: 16px;
+  }
+}
+
+@media (max-width: 850px) {
+  .rule {
+    padding-top: 0;
   }
 }

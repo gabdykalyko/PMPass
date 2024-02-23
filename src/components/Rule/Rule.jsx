@@ -3,7 +3,7 @@ import styles from './Rule.module.scss'
 const Rule = (props) => {
   return (
     <div className={styles.rule}>
-      <div>
+      <div className={styles.img}>
         <img src={props.src} alt="" />
       </div>
       <div className={styles.title}>

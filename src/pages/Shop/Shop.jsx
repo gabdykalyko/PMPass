@@ -1,5 +1,6 @@
 import styles from './Shop.module.scss'
 import Header from "../../components/Header/Header"
+import HeaderMob from '../../components/HeaderMob/HeaderMob'
 import Product from "../../components/Product/Product"
 import Footer from "../../components/Footer/Footer"
 import pudge from '../../assets/images/pudge.jpg'
@@ -41,7 +42,8 @@ const Shop = () => {
   return (
     <div>
       <Header />
-      <div className={styles.container}>
+      <HeaderMob />
+      <div className={`${styles.container} container-main`}>
         <div className={styles.title}>
           Магазин
         </div>
