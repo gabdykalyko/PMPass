@@ -9,3 +9,4 @@ git add .
 git commit -m "deploy"
 git push origin deployment --force
 git checkout master
+npm install
