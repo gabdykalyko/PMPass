@@ -3,7 +3,7 @@ import logo from '../../assets/images/logo.svg'
 import { NavLink } from 'react-router-dom'
 import Button from '../Button/Button'
 
-const Header = () => {
+const Header = ({ onLoginClick, onRegisterClick }) => {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -33,11 +33,12 @@ const Header = () => {
       </div>
 
       <div className={styles.right}>
-        <div>
-          <Button title="Вход" color="brown" />
+        <div onClick={onLoginClick}>
+          <Button title="Вход"
+                  color="brown"/>
         </div>
-        <div>
-          <Button title="Регистрация" />
+        <div onClick={onRegisterClick}>
+          <Button title="Регистрация"/>
         </div>
       </div>
     </div>

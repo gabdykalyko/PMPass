@@ -5,8 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from './Rules.module.scss'
 import defaultImg from '../../assets/images/default.jpg'
 import Rule from '../Rule/Rule'
-import nextArrow from '../../assets/images/nextarrow.svg'
-import prevArrowImg from '../../assets/images/prevarrow.svg'
+import nextArrow from '../../assets/images/icons/nextarrow.svg'
+import prevArrowImg from '../../assets/images/icons/prevarrow.svg'
 
 const rules = [
   {

@@ -1,12 +1,12 @@
 import { NavLink } from 'react-router-dom'
 import styles from './Footer.module.scss'
-import android from '../../assets/images/android.svg'
-import gallery from '../../assets/images/gallery.svg'
-import store from '../../assets/images/store.svg'
-import ios from '../../assets/images/ios.svg'
-import tg from '../../assets/images/tg.svg'
-import inst from '../../assets/images/inst.svg'
-import youtube from '../../assets/images/youtube.svg'
+import android from '../../assets/images/social/android.svg'
+import gallery from '../../assets/images/social/gallery.svg'
+import store from '../../assets/images/social/store.svg'
+import ios from '../../assets/images/social/ios.svg'
+import tg from '../../assets/images/social/tg.svg'
+import inst from '../../assets/images/social/inst.svg'
+import youtube from '../../assets/images/social/youtube.svg'
 
 const Footer = () => {
   return (

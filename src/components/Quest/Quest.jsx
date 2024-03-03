@@ -30,7 +30,8 @@ const Quest = (props) => {
 
       <div className={styles.labels}>
         {props.labels.map((label, index) => (
-          <div className={`${styles.label} ${label === 'Parimatch' ? styles.pm : styles.dota}`}>
+          <div className={`${styles.label} ${label === 'Parimatch' ? styles.pm : styles.dota}`}
+               key={index}>
             {label}
           </div>
         ))}

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import styles from './Faq.module.scss'
-import arrowup from '../../assets/images/arrowup.svg'
-import arrowdown from '../../assets/images/arrowdown.svg'
-import list from '../../assets/images/list.svg'
+import arrowup from '../../assets/images/icons/arrowup.svg'
+import arrowdown from '../../assets/images/icons/arrowdown.svg'
+import list from '../../assets/images/icons/list.svg'
 
 const Faq = () => {
   const [openItems, setOpenItems] = useState({});

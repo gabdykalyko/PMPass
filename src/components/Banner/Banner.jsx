@@ -1,6 +1,6 @@
 import styles from './Banner.module.scss'
-import steam from '../../assets/images/steam.svg'
-import dota from '../../assets/images/dota.svg'
+import steam from '../../assets/images/social/steam.svg'
+import dota from '../../assets/images/social/dota.svg'
 import Button from '../Button/Button'
 
 const Banner = () => {
