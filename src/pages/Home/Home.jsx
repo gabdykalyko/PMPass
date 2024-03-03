@@ -13,6 +13,7 @@ import Form from '../../components/modals/Form/Form'
 const Home = () => {
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [showLogin, setShowLogin] = useState(true)
+  const [showHelp, setShowHelp] = useState(false)
 
   const handleLoginClick = () => {
     document.body.style.overflow = 'hidden'
@@ -26,9 +27,14 @@ const Home = () => {
     setShowLogin(false)
   }
 
+  const handleHelpClick = () => {
+    setShowHelp(true)
+  }
+
   const closeForm = () => {
     document.body.style.overflow = 'auto'
     setIsFormOpen(false)
+    setShowHelp(false)
   }
 
   return (
@@ -45,7 +51,10 @@ const Home = () => {
       <Footer />
       {isFormOpen && <Form showLogin={showLogin}
                            closeForm={closeForm}
-                           onLoginClick={handleLoginClick}/>}
+                           onLoginClick={handleLoginClick}
+                           onRegisterClick={handleRegisterClick}
+                           onHelpClick={handleHelpClick}
+                           showHelp={showHelp}/>}
     </div>
   )
 }

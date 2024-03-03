@@ -57,8 +57,6 @@ const Register = ({ onLoginClick }) => {
   const onPasswordChange = (value) => {
     setPassword(value)
 
-    console.log(/\d/.test(value), value)
-
     setPasswordHasNum(/\d/.test(value))
     setPasswordMin(/^.{6,}$/.test(value))
   };
@@ -72,7 +70,7 @@ const Register = ({ onLoginClick }) => {
         <div className={styles.label}>
           Номер телефона<span>*</span>
         </div>
-        <div className={`${styles.input} ${styles.inputPhone} ${isPhoneValid ? '' : styles.error}`}>
+        <div className={`${styles.input} ${isPhoneValid ? '' : styles.error}`}>
           <div className={styles.inputWrapper}>
             <IMaskInput mask='+{7}(000) 000 - 00 - 00'
                         lazy={false}
@@ -89,7 +87,7 @@ const Register = ({ onLoginClick }) => {
         <div className={styles.label}>
           Пароль<span>*</span>
         </div>
-        <div className={`${styles.input} ${styles.inputPassword} ${isPasswordHasNum && isPasswordMin ? '' : styles.error}`}>
+        <div className={`${styles.input} ${isPasswordHasNum && isPasswordMin ? '' : styles.error}`}>
           <div className={styles.inputWrapper}>
             <input type={isPasswordVisible ? 'text' : 'password'}
                    placeholder='Пароль'
@@ -112,6 +110,9 @@ const Register = ({ onLoginClick }) => {
           </div>
         </div>
 
+      </div>
+
+      <div className={styles.row}>
         <div className={`${styles.offer} ${isOfferValid ? '' : styles.error}`}>
           <div>
             Мне больше 21 года <span>Я соглашаюсь с договором оферты</span>
@@ -123,7 +124,9 @@ const Register = ({ onLoginClick }) => {
             <img src={getOfferSrc()} alt="" />
           </label>
         </div>
+      </div>
 
+      <div className={styles.row}>
         <div className={styles.offer}>
           <div>
             Активировать бонус на первый депозит <span>Условия бонусного предложения</span>
@@ -135,11 +138,15 @@ const Register = ({ onLoginClick }) => {
             <img src={getBonusrSrc()} alt="" />
           </label>
         </div>
+      </div>
 
+      <div className={styles.row}>
         <div className={styles.btn}>
           <Button title='Регистрация'/>
         </div>
+      </div>
 
+      <div className={styles.row}>
         <div className={styles.enter}>
           Есть аккаунт? <span onClick={onLoginClick}>Войти</span>
         </div>
