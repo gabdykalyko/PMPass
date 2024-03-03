@@ -44,7 +44,8 @@ const Home = () => {
       <Faq />
       <Footer />
       {isFormOpen && <Form showLogin={showLogin}
-                           closeForm={closeForm} />}
+                           closeForm={closeForm}
+                           onLoginClick={handleLoginClick}/>}
     </div>
   )
 }

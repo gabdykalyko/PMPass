@@ -3,7 +3,7 @@ import Register from '../Register/Register'
 import close from '../../../assets/images/icons/close-btn.svg'
 import styles from './Form.module.scss'
 
-const Form = ({ showLogin, closeForm }) => {
+const Form = ({ showLogin, closeForm, onLoginClick }) => {
   const handleOutsideClick = (event) => {
     if (event.target === event.currentTarget) {
       closeForm()
@@ -14,10 +14,11 @@ const Form = ({ showLogin, closeForm }) => {
     <div className={styles.wrapper}
          onClick={handleOutsideClick}>
       <div className={styles.container}>
-        <div className={styles.closeBtn}>
+        <div className={styles.closeBtn}
+             onClick={closeForm}>
           <img src={close} alt="" />
         </div>
-        {showLogin ? <Login /> : <Register />}
+        {showLogin ? <Login /> : <Register onLoginClick={onLoginClick}/>}
       </div>
     </div>
   )
