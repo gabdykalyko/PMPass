@@ -4,6 +4,8 @@ import HeaderMob from '../../components/HeaderMob/HeaderMob'
 import Product from "../../components/Product/Product"
 import Footer from "../../components/Footer/Footer"
 import pudge from '../../assets/images/pudge.jpg'
+import Form from '../../components/modals/Form/Form'
+import { useState } from 'react'
 
 const products = [
   {
@@ -39,10 +41,38 @@ const products = [
 ]
 
 const Shop = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false)
+  const [showLogin, setShowLogin] = useState(true)
+  const [showHelp, setShowHelp] = useState(false)
+
+  const handleLoginClick = () => {
+    document.body.style.overflow = 'hidden'
+    setIsFormOpen(true)
+    setShowLogin(true)
+  }
+
+  const handleRegisterClick = () => {
+    document.body.style.overflow = 'hidden'
+    setIsFormOpen(true)
+    setShowLogin(false)
+  }
+
+  const handleHelpClick = () => {
+    setShowHelp(true)
+  }
+
+  const closeForm = () => {
+    document.body.style.overflow = 'auto'
+    setIsFormOpen(false)
+    setShowHelp(false)
+  }
+
   return (
     <div>
-      <Header />
-      <HeaderMob />
+      <Header onLoginClick={handleLoginClick}
+              onRegisterClick={handleRegisterClick}/>
+      <HeaderMob onLoginClick={handleLoginClick}
+                 onRegisterClick={handleRegisterClick}/>
       <div className={`${styles.container} container-main`}>
         <div className={styles.title}>
           Магазин
@@ -57,6 +87,12 @@ const Shop = () => {
         </div>
       </div>
       <Footer />
+      {isFormOpen && <Form showLogin={showLogin}
+                           closeForm={closeForm}
+                           onLoginClick={handleLoginClick}
+                           onRegisterClick={handleRegisterClick}
+                           onHelpClick={handleHelpClick}
+                           showHelp={showHelp}/>}
     </div>
   )
 }

@@ -32,7 +32,57 @@ const Login = ({ onRegisterClick,
 
     setPasswordHasNum(/\d/.test(value))
     setPasswordMin(/^.{6,}$/.test(value))
-  };
+  }
+
+  const login = async (login, password) => {
+    try {
+      const response = await fetch(process.env.REACT_APP_API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ login, password })
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Login successful', data);
+      } else {
+        console.error('Login failed', response.status);
+      }
+    } catch (error) {
+      console.error('Error during login', error);
+    }
+  }
+
+  const auth = async () => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/me`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Login successful', data);
+      } else {
+        console.error('Login failed', response.status);
+      }
+    } catch (error) {
+      console.error('Error during login', error);
+    }
+  }
+
+  const Enter = () => {
+    if (!password.length || !id.length || !isPasswordHasNum || !isPasswordMin) {
+      return
+    }
+
+    login(id, password)
+    auth()
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -98,7 +148,8 @@ const Login = ({ onRegisterClick,
       </div>
 
       <div className={styles.row}>
-        <div className={styles.btn}>
+        <div className={styles.btn}
+             onClick={Enter}>
           <Button title='Войти' />
         </div>
       </div>
