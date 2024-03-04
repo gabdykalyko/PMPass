@@ -7,25 +7,29 @@ import defaultImg from '../../assets/images/default.jpg'
 import Rule from '../Rule/Rule'
 import nextArrow from '../../assets/images/icons/nextarrow.svg'
 import prevArrowImg from '../../assets/images/icons/prevarrow.svg'
+import phone from '../../assets/images/rules/phone.png'
+import chest from '../../assets/images/rules/chest.png'
+import weapon from '../../assets/images/rules/weapon.png'
+import check from '../../assets/images/rules/check.png'
 
 const rules = [
   {
-    src: defaultImg,
+    src: phone,
     title: 'Свяжите Aккаунты',
     txt: 'Свяжите аккаунты Parimatch и Steam.'
   },
   {
-    src: defaultImg,
+    src: chest,
     title: 'Бонусы и Очки',
     txt: 'Получайте бонусы и очки за каждый квест, выполняя ежедневные квесты в Dota2 и Parimatch.'
   },
   {
-    src: defaultImg,
+    src: weapon,
     title: 'Призы',
     txt: 'Выигрывайте призы в конце мероприятия!'
   },
   {
-    src: defaultImg,
+    src: check,
     title: 'Меняйте Баллы',
     txt: 'Меняйте баллы на бонусы, когда захотите!'
   },

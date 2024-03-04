@@ -1,13 +1,14 @@
 import Button from '../Button/Button'
 import styles from './Quests.module.scss'
 import defaultImg from '../../assets/images/default-img.jpg'
+import quests from '../../assets/images/quests.png'
 
 const Quests = () => {
   return (
     <div className={styles.wrapper}>
       <div className={`${styles.container} container-main`}>
         <div className={styles.img}>
-          <img src={defaultImg} alt="" />
+          <img src={quests} alt="" />
         </div>
         <div className={styles.info}>
           <div>

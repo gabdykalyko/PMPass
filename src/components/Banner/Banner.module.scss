@@ -1,7 +1,9 @@
 .wrapper {
-  // background-image: url('../../assets/images/banner.jpg');
-  background-size: cover;
+  background-image: url('../../assets/images/banner.png');
+  background-size: contain;
   background-repeat: no-repeat;
+  background-position: right;
+  background-position-y: 50px;
   align-items: center;
   display: flex;
   height: 100vh;

@@ -1,6 +1,7 @@
 import Button from '../Button/Button'
 import styles from './Prizes.module.scss'
 import defaultImg from '../../assets/images/default-img.jpg'
+import prizes from '../../assets/images/prizes.png'
 
 const Prizes = () => {
   return (
@@ -25,7 +26,7 @@ const Prizes = () => {
         </div>
         
         <div className={styles.img}>
-          <img src={defaultImg} alt="" />
+          <img src={prizes} alt="" />
         </div>
 
       </div>
