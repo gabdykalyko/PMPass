@@ -6,35 +6,40 @@ import Footer from "../../components/Footer/Footer"
 import pudge from '../../assets/images/pudge.jpg'
 import Form from '../../components/modals/Form/Form'
 import { useState } from 'react'
+import ak from '../../assets/images/prizes/ak.png'
+import gun from '../../assets/images/prizes/gun.png'
+import akRed from '../../assets/images/prizes/ak-red.png'
+import akPink from '../../assets/images/prizes/ak-pink.png'
+import gunPink from '../../assets/images/prizes/gun-pink.png'
 
 const products = [
   {
-    img: pudge,
+    img: ak,
     name: 'FreeBet 5 S/',
     price: '10000 GG Points'
   },
   {
-    img: pudge,
+    img: gun,
     name: 'FreeBet 5 S/',
     price: 'Free'
   },
   {
-    img: pudge,
+    img: gun,
     name: 'FreeBet 5 S/',
     price: '20000 GG Points'
   },
   {
-    img: pudge,
+    img: akRed,
     name: 'FreeBet 5 S/',
     price: '50000 GG Points'
   },
   {
-    img: pudge,
+    img: akPink,
     name: 'FreeBet 5 S/',
     price: '10000 GG Points'
   },
   {
-    img: pudge,
+    img: gunPink,
     name: 'FreeBet 5 S/',
     price: '20000 GG Points'
   },

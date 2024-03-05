@@ -10,11 +10,21 @@
 .yellow {
   background-color: #EAD40C;
   color: #1B1E23;
+  transition: all .2s linear;
+
+  &:hover {
+    background-color: #FFEB31;
+  }
 }
 
 .brown {
   background-color: #333217;
   color: #EAD40C;
+  transition: all .2s linear;
+
+  &:hover {
+    background-color: #494711;
+  }
 }
 
 @media (max-width: 850px) {

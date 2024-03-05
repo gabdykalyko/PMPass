@@ -3,8 +3,15 @@ import styles from './Quest.module.scss'
 const Quest = (props) => {
   return (
     <div className={styles.container}>
-      <div>
+      <div className={styles.img}>
         <img src={props.img} alt="" />
+
+        <div className={styles.chestPrice}>
+          {props.price}
+        </div>
+        <div className={styles.price}>
+            {props.price}
+          </div>
       </div>
 
       <div className={styles.chestTitleWrapper}>
@@ -15,9 +22,6 @@ const Quest = (props) => {
           <div className={`${styles.chestStatus} ${props.status === 'Активен' ? styles.chestStatusActive : props.status === 'Скоро' ? styles.chestStatusSoon : styles.chestStatusCompleted}`}>
             {props.status}
           </div>
-        </div>
-        <div className={styles.chestPrice}>
-          {props.price}
         </div>
       </div>
 
@@ -31,16 +35,16 @@ const Quest = (props) => {
       <div className={styles.labels}>
         {props.labels.map((label, index) => (
           <div className={`${styles.label} ${label === 'Parimatch' ? styles.pm : styles.dota}`}
-               key={index}>
+            key={index}>
             {label}
           </div>
         ))}
       </div>
 
       <div className={styles.btn}>
-          <button>
-            Начать квест
-          </button>
+        <button>
+          Начать квест
+        </button>
       </div>
     </div>
   )

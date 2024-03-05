@@ -6,56 +6,66 @@ import Quest from '../../components/Quest/Quest'
 import Footer from '../../components/Footer/Footer'
 import { useState } from 'react'
 import Form from '../../components/modals/Form/Form'
+import huskar from '../../assets/images/quests/huskar.png'
+import chestGold from '../../assets/images/quests/chest-gold.png'
+import chestBlue from '../../assets/images/quests/chest-blue.png'
+import cs from '../../assets/images/quests/cs.png'
+import clock from '../../assets/images/quests/clock.png'
 
 const quests = [
   {
-    img: pudge,
+    img: huskar,
     chest: 'Сундук Аркана',
     status: 'Активен',
-    price: '10000 Points',
+    price: 50,
     name: 'Становление Героя',
     task: 'Сделайте 3 депозита от 2000 до 4999 тг.',
     labels: ['Parimatch', 'Dota 2'],
   },
   {
-    img: pudge,
+    img: chestGold,
     chest: 'Сундук Аркана',
     status: 'Скоро',
+    price: 50000,
     name: 'Становление Героя',
     task: 'Сделайте 3 депозита от 2000 до 4999 тг.',
     pm: 'Parimatch',
     labels: ['Parimatch', 'Dota 2']
   },
   {
-    img: pudge,
+    img: chestBlue,
     chest: 'Сундук Аркана',
     status: 'Завершён',
+    price: 500,
     name: 'Становление Героя',
     task: 'Сделайте 3 депозита от 2000 до 4999 тг.',
     pm: 'Parimatch',
     labels: ['Parimatch', 'Dota 2']
   },
   {
-    img: pudge,
+    img: cs,
     chest: 'Сундук Аркана',
     status: 'Активен',
+    price: 5000,
     name: 'Становление Героя',
     task: 'Сделайте 3 депозита от 2000 до 4999 тг.',
     labels: ['Parimatch', 'Dota 2'],
   },
   {
-    img: pudge,
+    img: clock,
     chest: 'Сундук Аркана',
     status: 'Скоро',
+    price: 50000,
     name: 'Становление Героя',
     task: 'Сделайте 3 депозита от 2000 до 4999 тг.',
     pm: 'Parimatch',
     labels: ['Parimatch', 'Dota 2']
   },
   {
-    img: pudge,
+    img: chestGold,
     chest: 'Сундук Аркана',
     status: 'Завершён',
+    price: 50000,
     name: 'Становление Героя',
     task: 'Сделайте 3 депозита от 2000 до 4999 тг.',
     pm: 'Parimatch',
