@@ -28,11 +28,16 @@ const MobMenu = ({ closeMenu,
     onRegisterClick()
   }
 
+  const AllowScroll = () => {
+    closeMenu()
+    document.body.style.overflow = 'auto'
+  }
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <div>
+          <div onClick={AllowScroll}>
             <NavLink to="/">
               <img src={logo} alt="Parimatch" />
             </NavLink>
@@ -59,19 +64,22 @@ const MobMenu = ({ closeMenu,
         </div>
 
         <div className={styles.menu}>
-          <div className={styles.menuItem}>
+          <div className={styles.menuItem}
+               onClick={AllowScroll}>
             <NavLink to="/">
               Главная
             </NavLink>
           </div>
 
-          <div className={styles.menuItem}>
+          <div className={styles.menuItem}
+               onClick={AllowScroll}>
             <NavLink to="/shop">
               Магазин
             </NavLink>
           </div>
 
-          <div className={styles.menuItem}>
+          <div className={styles.menuItem}
+               onClick={AllowScroll}>
             <NavLink to="/quests">
               Квесты
             </NavLink>

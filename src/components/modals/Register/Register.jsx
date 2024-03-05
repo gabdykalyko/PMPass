@@ -61,6 +61,15 @@ const Register = ({ onLoginClick }) => {
     setPasswordMin(/^.{6,}$/.test(value))
   };
 
+  const Enter = () => {
+    if (!password.length || !phoneNumber.length || !isPasswordHasNum || !isPasswordMin) {
+      return
+    }
+
+    // login(id, password)
+    // auth()
+  }
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>

@@ -132,3 +132,27 @@
     }
   }
 }
+
+@media (max-width: 850px) {
+  .wrapper {
+    
+    .title {
+      font-size: 32px;
+    }
+
+    .row {
+
+      .condition {
+        font-size: 14px;
+      }
+
+      .offer {
+        font-size: 14px;
+      }
+
+      .enter {
+        font-size: 16px;
+      }
+    }
+  }
+}

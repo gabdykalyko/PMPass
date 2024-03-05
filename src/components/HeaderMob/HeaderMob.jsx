@@ -4,6 +4,7 @@ import burger from '../../assets/images/icons/burger-menu.svg'
 import Button from '../Button/Button'
 import { useState } from 'react'
 import MobMenu from '../MobMenu/MobMenu'
+import { NavLink } from 'react-router-dom'
 
 const HeaderMob = ({ onLoginClick, onRegisterClick }) => {
   const [showMobMenu, setShowMobMenu] = useState(false)
@@ -21,7 +22,9 @@ const HeaderMob = ({ onLoginClick, onRegisterClick }) => {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
-        <img src={logo} alt="" />
+        <NavLink to="/">
+          <img src={logo} alt="Parimatch" />
+        </NavLink>
       </div>
 
       <div className={styles.right}>
@@ -33,9 +36,9 @@ const HeaderMob = ({ onLoginClick, onRegisterClick }) => {
         </div>
       </div>
       {showMobMenu ? <MobMenu closeMenu={closeMenu}
-                              onLoginClick={onLoginClick}
-                              onRegisterClick={onRegisterClick}/> 
-                   : ''}
+        onLoginClick={onLoginClick}
+        onRegisterClick={onRegisterClick} />
+        : ''}
     </div>
   )
 }

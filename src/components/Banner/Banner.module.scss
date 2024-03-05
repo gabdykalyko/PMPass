@@ -44,11 +44,18 @@
       gap: 32px;
       margin-top: 40px;
     }
+
+    
+    .banner {
+      display: none;
+    }
   }
 }
 
 @media (max-width: 850px) {
   .wrapper {
+    height: unset;
+    padding-top: 100px;
 
     .container {
 
@@ -60,6 +67,15 @@
 
         img {
           width: 180px;
+        }
+      }
+
+      
+      .banner {
+        display: block;
+
+        img {
+          width: 100%;
         }
       }
     }
