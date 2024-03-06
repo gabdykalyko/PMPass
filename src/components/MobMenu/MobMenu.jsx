@@ -1,20 +1,40 @@
 import styles from './MobMenu.module.scss'
 import logo from '../../assets/images/logo-mob.svg'
 import close from '../../assets/images/icons/close-btn-mob.svg'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import Button from '../Button/Button'
+import i18next from 'i18next'
 
 const MobMenu = ({ closeMenu,
                    onLoginClick,
                    onRegisterClick }) => {
+
   const [isKazakh, setIsKazakh] = useState(false)
 
+  useEffect(() => {
+    const currentLanguage = localStorage.getItem('language') || 'ru';
+
+    if (currentLanguage === 'kz') {
+      setIsKazakh(true);
+    } else {
+      setIsKazakh(false);
+    }
+  }, [])
+
+  const changeLanguage = (lng) => {
+    i18next.changeLanguage(lng);
+  };
+
   const setKazakh = () => {
+    changeLanguage('kz')
+    localStorage.setItem('language', 'kz')
     setIsKazakh(true)
   }
 
   const setRussian = () => {
+    changeLanguage('ru')
+    localStorage.setItem('language', 'ru')
     setIsKazakh(false)
   }
 

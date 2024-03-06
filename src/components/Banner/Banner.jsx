@@ -5,8 +5,11 @@ import Button from '../Button/Button'
 import { useEffect, useState } from 'react'
 import banner from '../../assets/images/banner.png'
 import bannerMob from '../../assets/images/banner-mob.png'
+import { useTranslation } from 'react-i18next'
 
 const Banner = () => {
+  const { t } = useTranslation('banner')
+
   const [isMobile, setIsMobile] = useState(window.innerWidth < 850)
 
   useEffect(() => {
@@ -23,17 +26,17 @@ const Banner = () => {
 
   return (
     <div className={styles.wrapper}
-         style={isMobile ? { backgroundImage: 'none' } : { backgroundImage: banner }}>
+      style={isMobile ? { backgroundImage: 'none' } : { backgroundImage: banner }}>
 
       <div className={`${styles.container} container-main`}>
         <div className={styles.title}>
-          Farmea Los Regalos
+          {t('title')}
         </div>
         <div className={styles.subtitle}>
-          Подключите Париматч к Steam и начните!
+          {t('subtitle')}
         </div>
         <div>
-          <Button title="Присоединиться"/>
+          <Button title={t('btn')} />
         </div>
         <div className={styles.platforms}>
           <div>

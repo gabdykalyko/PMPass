@@ -2,8 +2,11 @@ import Button from '../Button/Button'
 import styles from './Quests.module.scss'
 import defaultImg from '../../assets/images/default-img.jpg'
 import quests from '../../assets/images/quests.png'
+import { useTranslation } from 'react-i18next'
 
 const Quests = () => {
+  const { t } = useTranslation(['quests', 'main'])
+
   return (
     <div className={styles.wrapper}>
       <div className={`${styles.container} container-main`}>
@@ -13,13 +16,13 @@ const Quests = () => {
         <div className={styles.info}>
           <div>
             <div className={styles.title}>
-              Квесты
+              {t('main:quests')}
             </div>
             <div className={styles.txt}>
-              Короткое описание про задания, которые мы предлагаем выполнять.
+              {t('text1')}
             </div>
             <div className={styles.txt}>
-              Описание основных моментов, что требуется от игрока для выполнения заданий и получения наград.
+              {t('text2')}
             </div>
             <div>
               <Button title="Начать" />

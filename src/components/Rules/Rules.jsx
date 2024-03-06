@@ -11,31 +11,34 @@ import phone from '../../assets/images/rules/phone.png'
 import chest from '../../assets/images/rules/chest.png'
 import weapon from '../../assets/images/rules/weapon.png'
 import check from '../../assets/images/rules/check.png'
-
-const rules = [
-  {
-    src: phone,
-    title: 'Свяжите Aккаунты',
-    txt: 'Свяжите аккаунты Parimatch и Steam.'
-  },
-  {
-    src: chest,
-    title: 'Бонусы и Очки',
-    txt: 'Получайте бонусы и очки за каждый квест, выполняя ежедневные квесты в Dota2 и Parimatch.'
-  },
-  {
-    src: weapon,
-    title: 'Призы',
-    txt: 'Выигрывайте призы в конце мероприятия!'
-  },
-  {
-    src: check,
-    title: 'Меняйте Баллы',
-    txt: 'Меняйте баллы на бонусы, когда захотите!'
-  },
-]
+import { useTranslation } from 'react-i18next'
 
 const Rules = () => {
+  const { t } = useTranslation('rules')
+
+  const rules = [
+    {
+      src: phone,
+      title: t('connect'),
+      txt: t('register')
+    },
+    {
+      src: chest,
+      title: t('quests'),
+      txt: t('finish')
+    },
+    {
+      src: weapon,
+      title: t('chest'),
+      txt: t('bonuses')
+    },
+    {
+      src: check,
+      title: t('store'),
+      txt: t('change')
+    },
+  ]
+
   let sliderRef = useRef();
 
   const NextArrow = () => {
@@ -77,7 +80,7 @@ const Rules = () => {
   return (
     <div className={`${styles.container} container-main`}>
       <div className={styles.title}>
-        Правила Aкции
+        {t('title')}
       </div>
       <div className={styles.sliderWrapper}>
         <Slider {...settings}

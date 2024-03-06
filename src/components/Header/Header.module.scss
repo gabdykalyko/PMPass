@@ -30,6 +30,25 @@
     display: flex;
     gap: 24px;
 
+    .lang {
+      align-items: center;
+      color: #ffffff;
+      gap: 4px;
+      display: flex;
+      font-family: 'HelveticaNeue';
+      font-size: 20px;
+      font-weight: 400;
+
+      .langItem {
+        cursor: pointer;
+        transition: all .2s linear;
+      }
+    }
+
+    .yellow {
+      color: #EAD40C;
+    }
+
     .btn {
       border-radius: 8px;
       cursor: pointer;
