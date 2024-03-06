@@ -4,11 +4,11 @@ import steamMob from '../../../assets/images/icons/steam-mob.svg'
 import { useEffect, useState } from 'react'
 import eye from '../../../assets/images/icons/eye.svg'
 import eyeClose from '../../../assets/images/icons/eye-close.svg'
-import list from '../../../assets/images/icons/list.svg'
 import Button from '../../Button/Button'
+import axios from 'axios'
 
-const Login = ({ onRegisterClick,
-  onHelpClick }) => {
+const Login = ({ onRegisterClick, onHelpClick }) => {
+
   const [isIdValid, setIdIsValid] = useState(true)
   const [id, setId] = useState('')
 
@@ -33,56 +33,6 @@ const Login = ({ onRegisterClick,
     setPasswordValid(value.length)
   }
 
-  const login = async (login, password) => {
-    try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ login, password })
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log('Login successful', data);
-      } else {
-        console.error('Login failed', response.status);
-      }
-    } catch (error) {
-      console.error('Error during login', error);
-    }
-  }
-
-  const auth = async () => {
-    try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/me`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log('Login successful', data);
-      } else {
-        console.error('Login failed', response.status);
-      }
-    } catch (error) {
-      console.error('Error during login', error);
-    }
-  }
-
-  const Enter = () => {
-    if (!password.length || !id.length) {
-      return
-    }
-
-    login(id, password)
-    auth()
-  }
-
   const [isMobile, setIsMobile] = useState(window.innerWidth < 850)
 
   useEffect(() => {
@@ -96,6 +46,31 @@ const Login = ({ onRegisterClick,
       window.removeEventListener('resize', handleResize);
     };
   }, [])
+
+  const login = async (login, password) => {
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
+        login,
+        password
+      },
+        {
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+      console.log('Login successful', response.data);
+    } catch (error) {
+      console.error('Error during login', error);
+    }
+  }
+
+  const Enter = () => {
+    if (!password.length || !id.length) {
+      return
+    }
+
+    login(id, password)
+  }
 
   return (
     <div className={styles.wrapper}>

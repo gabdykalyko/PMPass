@@ -9,11 +9,14 @@ import Quests from '../../components/Quests/Quests'
 import Rules from '../../components/Rules/Rules'
 import styles from './Home.module.scss'
 import Form from '../../components/modals/Form/Form'
+import useAuth from '../../hoc/useAuth'
 
 const Home = () => {
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [showLogin, setShowLogin] = useState(true)
   const [showHelp, setShowHelp] = useState(false)
+
+  const isAuthenticated = useAuth()
 
   const handleLoginClick = () => {
     document.body.style.overflow = 'hidden'
