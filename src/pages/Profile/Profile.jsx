@@ -1,3 +1,4 @@
+import Account from '../../components/Account/Account'
 import Header from '../../components/Header/Header'
 import HeaderMob from '../../components/HeaderMob/HeaderMob'
 import styles from './Profile.module.scss'
@@ -7,7 +8,7 @@ const Profile = () => {
     <div>
       <Header />
       <HeaderMob />
-      Profile
+      <Account />
     </div>
   )
 }

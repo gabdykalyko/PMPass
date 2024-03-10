@@ -1,0 +1,137 @@
+.container {
+  padding-top: 180px;
+
+  .title {
+    color: #ffffff;
+    font-family: 'AlbertusNova';
+    font-size: 32px;
+    font-weight: 400;
+  }
+
+  .main {
+    display: flex;
+    gap: 24px;
+    margin-top: 40px;
+
+    .left {
+      background-color: #0000004D;
+      border-radius: 4px;
+      height: 100%;
+      padding: 24px;
+      width: 30%;
+
+      .edit {
+        align-items: center;
+        color: #EAD40C;
+        display: flex;
+        gap: 8px;
+        font-family: 'HelveticaNeue';
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      .exit {
+        color: #E0E0E0;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+    }
+
+    .right {
+      background-color: #0000004D;
+      border-radius: 4px;
+      padding: 16px;
+      padding-bottom: 32px;
+      padding-top: 32px;
+      width: 70%;
+
+      .rightTitle {
+        color: #FFFFFF;
+        font-family: 'HelveticaNeue';
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .profileImage {
+        display: inline-flex;
+        margin-top: 32px;
+        position: relative;
+
+        img {
+          width: 92px;
+        }
+
+        .picture {
+          bottom: 0;
+          position: absolute;
+          right: 0;
+          width: 32px;
+        }
+      }
+
+      .rule {
+        color: #E0E0E0;
+        font-family: 'HelveticaNeue';
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 12px;
+
+        span {
+          color: #F44336;
+        }
+      }
+
+      .inputs {
+        color: #FFFFFF;
+        display: flex;
+        font-family: 'HelveticaNeue';
+        font-size: 16px;
+        font-weight: 400;
+        gap: 24px;
+        margin-top: 32px;
+
+        .inputsItem {
+          width: 50%;
+
+          .inputsTitle {
+            margin-bottom: 12px;
+
+            span {
+              color: #F44336;
+            }
+          }
+
+          .input {
+            align-items: center;
+            background-color: #DCDCDC0D;
+            border-radius: 8px;
+            display: flex;
+            height: 56px;
+
+            input {
+              background-color: unset;
+              border: none;
+              color: #E0E0E0;
+              font-family: 'HelveticaNeue';
+              font-size: 16px;
+              font-weight: 400;
+              outline: none;
+              padding: 12px;
+
+              &::placeholder {
+                color: #E0E0E0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .btns {
+    display: flex;
+    gap: 24px;
+    justify-content: end;
+    margin-top: 24px;
+  }
+}

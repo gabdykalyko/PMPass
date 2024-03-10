@@ -5,6 +5,7 @@ import Shop from './pages/Shop/Shop';
 import Quests from './pages/Quests/Quests';
 import PrivateRoute from './PrivateRoute';
 import Profile from './pages/Profile/Profile';
+import Settings from './pages/Settings/Settings';
 
 function App() {
   return (
@@ -13,9 +14,14 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/quests" element={<Quests />} />
-        <Route path="/profile" element={<PrivateRoute>
-                                        <Profile />
-                                        </PrivateRoute>} />
+        <Route path="/profile"
+               element={<PrivateRoute>
+                          <Profile />
+                        </PrivateRoute>} />
+        <Route path="/settings"
+               element={<PrivateRoute>
+                          <Settings />
+                        </PrivateRoute>} />
       </Routes>
     </BrowserRouter>
   );

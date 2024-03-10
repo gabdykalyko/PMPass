@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import Button from '../Button/Button'
 import { useEffect, useState } from 'react'
 import i18next from 'i18next'
-import defaultUserImg from '../../assets/images/defaultUser.png'
+import defaultUserImg from '../../assets/images/defaultUser.svg'
 import { useSelector } from 'react-redux'
 
 const Header = ({ onLoginClick, onRegisterClick }) => {
@@ -90,7 +90,8 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
             </div>
             <div className={styles.profile}>
               <div>
-                <img src={defaultUserImg} alt="" />
+                <img className={styles.profileImg}
+                     src={defaultUserImg} alt="" />
               </div>
               <div>
                 <NavLink to='/profile'>
