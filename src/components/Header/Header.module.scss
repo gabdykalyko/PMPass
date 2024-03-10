@@ -58,11 +58,39 @@
       padding: 10px 22px;
     }
 
+    .btns {
+      align-items: center;
+      display: flex;
+      gap: 24px;
+    }
+
+    .auth {
+      align-items: center;
+      color: #EAD40C;
+      display: flex;
+      gap: 20px;
+      font-family: 'HelveticaNeue';
+      font-size: 20px;
+      font-weight: 500;
+
+      .line {
+        background-color: #E0E0E0;
+        height: 32px;
+        width: 1px;
+      }
+
+      .profile {
+        align-items: center;
+        color: #FFFFFF;
+        display: flex;
+        gap: 8px;
+      }
+    }
+
     .enter {
       background-color: #333217;
       color: #EAD40C;
     }
-
   }
 }
 

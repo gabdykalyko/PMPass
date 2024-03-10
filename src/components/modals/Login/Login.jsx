@@ -6,6 +6,7 @@ import eye from '../../../assets/images/icons/eye.svg'
 import eyeClose from '../../../assets/images/icons/eye-close.svg'
 import Button from '../../Button/Button'
 import axios from 'axios'
+import useAuth from '../../../hoc/useAuth'
 
 const Login = ({ onRegisterClick, onHelpClick }) => {
 
@@ -47,20 +48,39 @@ const Login = ({ onRegisterClick, onHelpClick }) => {
     };
   }, [])
 
+  const [authData, setAuthData, fetchData] = useAuth()
+
   const login = async (login, password) => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
-        login,
-        password
+      const response = await axios.post(`${process.env.REACT_APP_GR8_URL}/login`, {
+        'login': login,
+        'password': password
       },
         {
           headers: {
-            'Accept': 'application/json'
+            'X-API-KEY': process.env.REACT_APP_API_KEY,
+            'Content-Type': 'application/json'
           }
-        });
-      console.log('Login successful', response.data);
+        })
+      if (response.data) {
+        try {
+          const response = await axios.post(`${process.env.REACT_APP_API_URL}/login_by_site`, {
+            pm_id: login
+          }, {
+            withCredentials: true,
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            }
+          });
+
+          fetchData()
+        } catch (error) {
+          console.error(error);
+        }
+      }
     } catch (error) {
-      console.error('Error during login', error);
+      console.error(error);
     }
   }
 
