@@ -54,7 +54,7 @@ const Account = () => {
                   </div>
                 </div>
                 <div className={styles.copy}
-                  onClick={() => copyToClipboard(userInfo.pm_id)}>
+                  onClick={() => copyToClipboard(userInfo?.pm_id)}>
                   <img src={copy} alt="" />
                 </div>
               </div>

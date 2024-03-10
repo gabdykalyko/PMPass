@@ -78,7 +78,7 @@ const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
           if (response.data.status === 'success') {
             dispatch(loginSuccess({
               isAuthenticated: true,
-              user: response.data
+              user: response.data.userInfo
             }))
             closeForm()
           }
