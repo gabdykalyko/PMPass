@@ -50,7 +50,7 @@ const Account = () => {
                 </div>
                 <div>
                   <div className={styles.id}>
-                    {userInfo.pm_id}
+                    {userInfo?.pm_id}
                   </div>
                 </div>
                 <div className={styles.copy}
