@@ -6,9 +6,10 @@ import eye from '../../../assets/images/icons/eye.svg'
 import eyeClose from '../../../assets/images/icons/eye-close.svg'
 import Button from '../../Button/Button'
 import axios from 'axios'
-import useAuth from '../../../hoc/useAuth'
+import { useDispatch } from 'react-redux'
+import { loginSuccess } from '../../../slices/authSlice'
 
-const Login = ({ onRegisterClick, onHelpClick }) => {
+const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
 
   const [isIdValid, setIdIsValid] = useState(true)
   const [id, setId] = useState('')
@@ -48,7 +49,7 @@ const Login = ({ onRegisterClick, onHelpClick }) => {
     };
   }, [])
 
-  const [authData, setAuthData, fetchData] = useAuth()
+  const dispatch = useDispatch()
 
   const login = async (login, password) => {
     try {
@@ -72,9 +73,16 @@ const Login = ({ onRegisterClick, onHelpClick }) => {
               'Content-Type': 'application/json',
               'Accept': 'application/json'
             }
-          });
+          })
 
-          fetchData()
+          if (response.data.status === 'success') {
+            dispatch(loginSuccess({
+              isAuthenticated: true,
+              user: response.data
+            }))
+            closeForm()
+          }
+
         } catch (error) {
           console.error(error);
         }

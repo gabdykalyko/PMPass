@@ -25,8 +25,9 @@ const Form = ({ showLogin,
           <img src={close} alt="" />
         </div>
         {showHelp ? <Help /> : showLogin ? <Login onRegisterClick={onRegisterClick}
-                            onHelpClick={onHelpClick}/>
-                   : <Register onLoginClick={onLoginClick}/>}
+                                                  onHelpClick={onHelpClick}
+                                                  closeForm={closeForm}/>
+                                         : <Register onLoginClick={onLoginClick}/>}
       </div>
     </div>
   )

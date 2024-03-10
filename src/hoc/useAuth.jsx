@@ -1,14 +1,12 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setLoading, updateAuth } from "../slices/authSlice";
 
 const useAuth = () => {
-  const [authData , setAuthData] = useState(
-    {
-      isAuthenticated: false,
-      userData: null
-    }
-  )
+  const dispatch = useDispatch()
 
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/me`, {
@@ -20,32 +18,26 @@ const useAuth = () => {
         })
 
         if (response.data.pm_id) {
-          setAuthData(
-            {
-              isAuthenticated: true,
-              userData: response.data
-            }
-          )
+          dispatch(updateAuth({
+            isAuthenticated: true,
+            user: response.data
+          }))
+          dispatch(setLoading(false))
         } else {
-          setAuthData(
-            {
-              isAuthenticated: false,
-              userData: null
-            }
-          )
+          dispatch(updateAuth({
+            isAuthenticated: false,
+            user: null
+          }))
+          dispatch(setLoading(false))
         }
-    
-        console.log(response.data);
+
       } catch (error) {
         console.error(error);
       }
-    };
+    }
 
-    useEffect(() => {
-      fetchData();
-    }, []);
-
-  return [authData, setAuthData, fetchData]
+    fetchData();
+  }, [dispatch])
 }
 
 export default useAuth

@@ -33,6 +33,17 @@ button {
   width: 80%;
 }
 
+.loader {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
 @media (max-width: 1200px) {
   .container-main {
     width: 90%;

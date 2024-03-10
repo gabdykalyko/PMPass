@@ -4,13 +4,11 @@ import { NavLink } from 'react-router-dom'
 import Button from '../Button/Button'
 import { useEffect, useState } from 'react'
 import i18next from 'i18next'
-import useAuth from '../../hoc/useAuth'
 import defaultUserImg from '../../assets/images/defaultUser.png'
+import { useSelector } from 'react-redux'
 
 const Header = ({ onLoginClick, onRegisterClick }) => {
   const [isKazakh, setIsKazakh] = useState(false)
-
-  const [authData] = useAuth()
 
   useEffect(() => {
     const currentLanguage = localStorage.getItem('language') || 'ru';
@@ -37,6 +35,8 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
     localStorage.setItem('language', 'ru')
     setIsKazakh(false)
   }
+
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
 
   return (
     <div className={styles.container}>
@@ -80,7 +80,7 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
             KZ
           </div>
         </div>
-        {authData.isAuthenticated ?
+        {isAuthenticated ?
           <div className={styles.auth}>
             <div>
               Points: 10000
@@ -93,7 +93,9 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
                 <img src={defaultUserImg} alt="" />
               </div>
               <div>
-                Профиль
+                <NavLink to='/profile'>
+                  Профиль
+                </NavLink>
               </div>
             </div>
           </div> :
