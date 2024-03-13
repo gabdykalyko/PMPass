@@ -8,6 +8,7 @@ import { useState } from 'react'
 import Button from '../../Button/Button'
 import { useRef } from 'react'
 import { IMaskInput } from 'react-imask'
+import axios from 'axios'
 
 const Register = ({ onLoginClick }) => {
   const [isOfferChecked, setIsOfferChecked] = useState(false)
@@ -66,8 +67,30 @@ const Register = ({ onLoginClick }) => {
       return
     }
 
-    // login(id, password)
-    // auth()
+    register(phoneNumber, password, isOfferChecked)
+  }
+
+  const register = async (login, password, isOfferChecked) => {
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_GR8_URL}/registration/byform`, {
+        'formName': 'LANDING_REGISTRATION',
+        'skipPhoneOtpConfirmation': 'true',
+        'phone': login,
+        'password': password,
+        'defaultCurrency': 'KZT',
+        'selectedLanguage': 'ru',
+        'isPlayerAgree': isOfferChecked,
+        // 'nnBonus': '2'
+      },
+        {
+          headers: {
+            'X-API-KEY': process.env.REACT_APP_API_KEY,
+            'Content-Type': 'application/json'
+          }
+        })
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (
@@ -82,12 +105,12 @@ const Register = ({ onLoginClick }) => {
         <div className={`${styles.input} ${isPhoneValid ? '' : styles.error}`}>
           <div className={styles.inputWrapper}>
             <IMaskInput mask='+{7}(000) 000 - 00 - 00'
-                        lazy={false}
-                        unmask={true}
-                        ref={ref}
-                        inputRef={inputRef}
-                        onAccept={onPhoneChange}
-                        placeholderChar="X" />
+              lazy={false}
+              unmask={true}
+              ref={ref}
+              inputRef={inputRef}
+              onAccept={onPhoneChange}
+              placeholderChar="X" />
           </div>
         </div>
       </div>
@@ -99,11 +122,11 @@ const Register = ({ onLoginClick }) => {
         <div className={`${styles.input} ${isPasswordHasNum && isPasswordMin ? '' : styles.error}`}>
           <div className={styles.inputWrapper}>
             <input type={isPasswordVisible ? 'text' : 'password'}
-                   placeholder='Пароль'
-                   onChange={(e) => onPasswordChange(e.target.value)}/>
+              placeholder='Пароль'
+              onChange={(e) => onPasswordChange(e.target.value)} />
           </div>
           <div className={styles.eye}
-               onClick={togglePasswordVisibility}>
+            onClick={togglePasswordVisibility}>
             <img src={isPasswordVisible ? eyeClose : eye} alt="" />
           </div>
         </div>
@@ -128,8 +151,8 @@ const Register = ({ onLoginClick }) => {
           </div>
           <label>
             <input type="checkbox"
-                   checked={isOfferChecked}
-                   onChange={handleOfferChange}/>
+              checked={isOfferChecked}
+              onChange={handleOfferChange} />
             <img src={getOfferSrc()} alt="" />
           </label>
         </div>
@@ -142,16 +165,17 @@ const Register = ({ onLoginClick }) => {
           </div>
           <label>
             <input type="checkbox"
-                   checked={isBonusChecked}
-                   onChange={handleBonusChange}/>
+              checked={isBonusChecked}
+              onChange={handleBonusChange} />
             <img src={getBonusrSrc()} alt="" />
           </label>
         </div>
       </div>
 
       <div className={styles.row}>
-        <div className={styles.btn}>
-          <Button title='Регистрация'/>
+        <div className={styles.btn}
+          onClick={Enter}>
+          <Button title='Регистрация' />
         </div>
       </div>
 

@@ -19,6 +19,13 @@
       align-items: center;
       display: flex;
       gap: 24px;
+
+      .points {
+        color: #EAD40C;
+        font-family: 'HelveticaNeue';
+        font-size: 20px;
+        font-weight: 500;
+      }
     }
   }
 }

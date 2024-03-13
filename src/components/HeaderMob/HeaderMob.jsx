@@ -5,6 +5,7 @@ import Button from '../Button/Button'
 import { useState } from 'react'
 import MobMenu from '../MobMenu/MobMenu'
 import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const HeaderMob = ({ onLoginClick, onRegisterClick }) => {
   const [showMobMenu, setShowMobMenu] = useState(false)
@@ -19,6 +20,8 @@ const HeaderMob = ({ onLoginClick, onRegisterClick }) => {
     setShowMobMenu(false)
   }
 
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -28,9 +31,15 @@ const HeaderMob = ({ onLoginClick, onRegisterClick }) => {
       </div>
 
       <div className={styles.right}>
-        <div onClick={onRegisterClick}>
-          <Button title="Регистрация" />
-        </div>
+        {isAuthenticated ?
+          <div className={styles.points}>
+            Points: 10000
+          </div>
+          :
+          <div onClick={onRegisterClick}>
+            <Button title="Регистрация" />
+          </div>
+        }
         <div onClick={showMenu}>
           <img src={burger} alt="" />
         </div>

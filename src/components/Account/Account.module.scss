@@ -14,8 +14,13 @@
       background-image: url('../../assets/images/profile.png');
       background-repeat: no-repeat;
       background-size: cover;
+      border-radius: 8px;
       margin-top: 60px;
       padding: 16px 21px;
+
+      .mobEdit {
+        display: none;
+      }
 
       .header {
         align-items: center;
@@ -94,6 +99,51 @@
             .copy {
               cursor: pointer;
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .wrapper {
+
+    .container {
+
+      .account {
+
+        .mobEdit {
+          display: flex;
+          justify-content: end;
+          margin-bottom: 12px;
+        }
+
+        .header {
+
+          .headerLeft {
+            font-size: 20px;
+          }
+
+          .headerRight {
+            display: none;
+          }
+        }
+
+        .main {
+          display: block;
+
+          .name {
+            margin-top: 12px;
+          }
+        }
+
+        .info {
+          display: block;
+          margin-top: 24px;
+
+          .infoItem {
+            margin-bottom: 12px;
           }
         }
       }

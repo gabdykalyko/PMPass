@@ -40,6 +40,34 @@
         }
       }
     }
+  
+    .profile {
+      border-bottom: 1px solid #DCDCDC1A;
+     
+      .info {
+        align-items: center;
+        color: #ffffff;
+        display: flex;
+        gap: 8px;
+        font-family: 'HelveticaNeue';
+        font-size: 20px;
+        font-weight: 500;
+        margin-top: 40px;
+
+        img {
+          width: 48px;
+        }
+      }
+
+      .points {
+        color: #EAD40C;
+        font-family: 'HelveticaNeue';
+        font-size: 16px;
+        font-weight: 500;
+        margin-top: 16px;
+        margin-bottom: 24px;
+      }
+    }
 
     .menu {
       color: #fff;
@@ -51,7 +79,6 @@
       .menuItem {
         margin-bottom: 8px;
         padding-bottom: 8px;
-        padding-left: 12px;
         padding-top: 8px;
       }
     }

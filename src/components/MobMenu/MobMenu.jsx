@@ -5,10 +5,12 @@ import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import Button from '../Button/Button'
 import i18next from 'i18next'
+import { useSelector } from 'react-redux'
+import defaultUserImg from '../../assets/images/defaultUser.svg'
 
 const MobMenu = ({ closeMenu,
-                   onLoginClick,
-                   onRegisterClick }) => {
+  onLoginClick,
+  onRegisterClick }) => {
 
   const [isKazakh, setIsKazakh] = useState(false)
 
@@ -53,6 +55,8 @@ const MobMenu = ({ closeMenu,
     document.body.style.overflow = 'auto'
   }
 
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -83,23 +87,41 @@ const MobMenu = ({ closeMenu,
           </div>
         </div>
 
+        {
+          isAuthenticated ?
+            <div className={styles.profile}>
+              <div className={styles.info}>
+                <img src={defaultUserImg} alt="" />
+                <NavLink to='/profile'
+                         onClick={AllowScroll}>
+                  Профиль
+                </NavLink>
+              </div>
+              <div className={styles.points}>
+                Points: 10000
+              </div>
+            </div>
+            :
+            ''
+        }
+
         <div className={styles.menu}>
           <div className={styles.menuItem}
-               onClick={AllowScroll}>
+            onClick={AllowScroll}>
             <NavLink to="/">
               Главная
             </NavLink>
           </div>
 
           <div className={styles.menuItem}
-               onClick={AllowScroll}>
+            onClick={AllowScroll}>
             <NavLink to="/shop">
               Магазин
             </NavLink>
           </div>
 
           <div className={styles.menuItem}
-               onClick={AllowScroll}>
+            onClick={AllowScroll}>
             <NavLink to="/quests">
               Квесты
             </NavLink>
@@ -107,16 +129,19 @@ const MobMenu = ({ closeMenu,
         </div>
       </div>
 
-      <div className={styles.btns}>
-        <div className={styles.btn}
-             onClick={LoginBtnClick}>
-          <Button color='brown'
-            title='Вход' />
+      {isAuthenticated ?
+        '' :
+        <div className={styles.btns}>
+          <div className={styles.btn}
+            onClick={LoginBtnClick}>
+            <Button color='brown'
+              title='Вход' />
+          </div>
+          <div onClick={RegisterBtnClick}>
+            <Button title='Регистрация' />
+          </div>
         </div>
-        <div onClick={RegisterBtnClick}>
-          <Button title='Регистрация'/>
-        </div>
-      </div>
+      }
     </div>
   )
 }

@@ -27,6 +27,13 @@ const Account = () => {
         </div>
 
         <div className={styles.account}>
+          <div className={styles.mobEdit}>
+            <div className={styles.headerRight}>
+              <NavLink to='/settings'>
+                <img src={edit} alt="" />
+              </NavLink>
+            </div>
+          </div>
           <div className={styles.header}>
             <div className={styles.headerLeft}>
               <img src={account} alt="" />
