@@ -135,3 +135,28 @@
     margin-top: 24px;
   }
 }
+
+@media (max-width: 850px) {
+  .container {
+
+    .main {
+
+      .left {
+        display: none;
+      }
+
+      .right {
+        width: 100%;
+
+        .inputs {
+          display: block;
+
+          .inputsItem {
+            margin-bottom: 24px;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

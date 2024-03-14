@@ -7,12 +7,29 @@ import SteamLogin from '../../components/SteamLogin/SteamLogin'
 import TradeLink from '../../components/TradeLink/TradeLink'
 import { useSelector } from 'react-redux'
 import MatchHistory from '../../components/MatchHistory/MatchHistory'
+import TradeLinkHelp from '../../components/TradeLinkHelp/TradeLinkHelp'
+import { useState } from 'react'
 
 const Profile = () => {
   const user = useSelector(state => state.auth.user)
 
+  const [isFormOpen, setIsFormOpen] = useState(false)
+  const [showTradeHep, setShowTradeHelp] = useState(false)
+
+  const handleTradeClick = () => {
+    document.body.style.overflow = 'hidden'
+    setIsFormOpen(true)
+    setShowTradeHelp(true)
+  }
+
+  const closeForm = () => {
+    document.body.style.overflow = 'auto'
+    setIsFormOpen(false)
+    setShowTradeHelp(false)
+  }
+
   return (
-    <div>
+    <div className={styles.wrapper}>
       <Header />
       <HeaderMob />
       <Account />
@@ -22,9 +39,10 @@ const Profile = () => {
             <MatchHistory /> :
             <SteamLogin />
         }
-        <TradeLink />
+        <TradeLink handleTradeClick={handleTradeClick}/>
       </div>
       <Footer />
+      {isFormOpen && <TradeLinkHelp closeForm={closeForm}/>}
     </div>
   )
 }

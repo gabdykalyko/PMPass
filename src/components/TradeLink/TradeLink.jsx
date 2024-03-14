@@ -6,7 +6,7 @@ import check from '../../assets/images/icons/check-green.svg'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
 
-const TradeLink = () => {
+const TradeLink = ({ handleTradeClick }) => {
   const user = useSelector(state => state.auth.user)
 
   const [link, setLink] = useState('')
@@ -61,8 +61,10 @@ const TradeLink = () => {
             </div>
             <div className={styles.btns}>
               <Button title='Прикрепить' />
-              <Button color='brown'
-                title='Как получить ссылку?' />
+              <div onClick={handleTradeClick}>
+                <Button color='brown'
+                  title='Как получить ссылку?' />
+              </div>
             </div>
           </div>
       }

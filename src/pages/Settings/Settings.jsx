@@ -10,6 +10,7 @@ import Button from '../../components/Button/Button'
 import { useDispatch } from 'react-redux'
 import { logoutSuccess } from '../../slices/authSlice'
 import axios from 'axios'
+import { NavLink } from 'react-router-dom'
 
 const Settings = () => {
   const dispatch = useDispatch()
@@ -99,8 +100,10 @@ const Settings = () => {
 
         <div className={styles.btns}>
           <div>
-            <Button color="brown"
-              title="Отмена" />
+            <NavLink to='/profile'>
+              <Button color="brown"
+                title="Отмена" />
+            </NavLink>
           </div>
           <div>
             <Button title="Сохранить" />

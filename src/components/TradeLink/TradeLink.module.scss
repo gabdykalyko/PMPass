@@ -102,3 +102,24 @@
     border: 1px solid #F44336;
   }
 }
+
+@media (max-width: 850px) {
+  .trade {
+    margin-bottom: 24px;
+    width: 100%;
+
+    .title {
+      font-size: 20px;
+    }
+
+    .btns {
+
+      button {
+        font-size: 14px;
+        height: 36px;
+        padding: 6px 16px;
+        white-space: nowrap;
+      }
+    }
+  }
+}
