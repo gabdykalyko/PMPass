@@ -1,0 +1,18 @@
+.steam {
+  background-color: #0000004D;
+  border-radius: 8px;
+  padding: 21px 18px;
+  width: 50%;
+
+  .title {
+    align-items: center;
+    border-bottom: 1px solid #DCDCDC26;
+    color: #fff;
+    display: flex;
+    gap: 8px;
+    font-family: 'HelveticaNeue';
+    font-size: 24px;
+    font-weight: 700;
+    padding-bottom: 21px;
+  }
+}

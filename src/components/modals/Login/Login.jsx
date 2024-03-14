@@ -106,26 +106,6 @@ const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
         Войти
       </div>
 
-      <div className={styles.steam}>
-        {isMobile ? (
-          <img src={steamMob} alt="" />
-        ) : (
-          <img src={steam} alt="" />
-        )}
-      </div>
-
-      <div className={styles.subtitle}>
-        <div className={styles.line}>
-
-        </div>
-        <div>
-          Или войти через Parimatch
-        </div>
-        <div className={styles.line}>
-
-        </div>
-      </div>
-
       <div className={styles.row}>
         <div className={styles.label}>
           Parimatch ID<span>*</span>
@@ -169,7 +149,7 @@ const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
         </div>
       </div>
 
-      <div className={styles.row}>
+      <div className={`${styles.row} ${styles.rowLast}`}>
         <div className={styles.help}
           onClick={onHelpClick}>
           Помощь при входе

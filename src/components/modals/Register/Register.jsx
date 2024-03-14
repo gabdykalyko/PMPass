@@ -179,7 +179,7 @@ const Register = ({ onLoginClick }) => {
         </div>
       </div>
 
-      <div className={styles.row}>
+      <div className={`${styles.row} ${styles.rowLast}`}>
         <div className={styles.enter}>
           Есть аккаунт? <span onClick={onLoginClick}>Войти</span>
         </div>

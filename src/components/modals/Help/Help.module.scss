@@ -26,3 +26,16 @@
     margin-top: 32px;
   }
 }
+
+@media (max-width: 850px) {
+  .wrapper {
+    
+    .title {
+      font-size: 32px;
+    }
+
+    .txt {
+      font-size: 16px;
+    }
+  }
+}
