@@ -9,8 +9,10 @@ import Button from '../../Button/Button'
 import { useRef } from 'react'
 import { IMaskInput } from 'react-imask'
 import axios from 'axios'
+import { useDispatch } from 'react-redux'
+import { loginSuccess } from '../../../slices/authSlice'
 
-const Register = ({ onLoginClick }) => {
+const Register = ({ onLoginClick, closeForm }) => {
   const [isOfferChecked, setIsOfferChecked] = useState(false)
   const [isBonusChecked, setIsBonusChecked] = useState(false)
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
@@ -70,11 +72,12 @@ const Register = ({ onLoginClick }) => {
     register(phoneNumber, password, isOfferChecked)
   }
 
+  const dispatch = useDispatch()
+
   const register = async (login, password, isOfferChecked) => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_GR8_URL}/registration/byform`, {
+      const response1 = await axios.post(`${process.env.REACT_APP_GR8_URL}/registration/byform`, {
         'formName': 'LANDING_REGISTRATION',
-        'skipPhoneOtpConfirmation': 'true',
         'phone': login,
         'password': password,
         'defaultCurrency': 'KZT',
@@ -88,6 +91,31 @@ const Register = ({ onLoginClick }) => {
             'Content-Type': 'application/json'
           }
         })
+
+      if (response1.data) {
+        try {
+          const response2 = await axios.post(`${process.env.REACT_APP_API_URL}/login_by_site`, {
+            pm_id: response1.data.accountInfo.number
+          }, {
+            withCredentials: true,
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            }
+          })
+
+          if (response2.data.status === 'success') {
+            dispatch(loginSuccess({
+              isAuthenticated: true,
+              user: response2.data.userInfo
+            }))
+            closeForm()
+          }
+
+        } catch (error) {
+          console.error(error);
+        }
+      }
     } catch (error) {
       console.error(error);
     }

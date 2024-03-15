@@ -27,7 +27,8 @@ const Form = ({ showLogin,
         {showHelp ? <Help /> : showLogin ? <Login onRegisterClick={onRegisterClick}
                                                   onHelpClick={onHelpClick}
                                                   closeForm={closeForm}/>
-                                         : <Register onLoginClick={onLoginClick}/>}
+                                         : <Register onLoginClick={onLoginClick}
+                                                     closeForm={closeForm}/>}
       </div>
     </div>
   )
