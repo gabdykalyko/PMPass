@@ -9,16 +9,19 @@ import Quests from '../../components/Quests/Quests'
 import Rules from '../../components/Rules/Rules'
 import styles from './Home.module.scss'
 import Form from '../../components/modals/Form/Form'
+import Offer from '../../components/modals/Offer/Offer'
 
 const Home = () => {
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [showLogin, setShowLogin] = useState(true)
   const [showHelp, setShowHelp] = useState(false)
+  const [showOffer, setShowOffer] = useState(false)
 
   const handleLoginClick = () => {
     document.body.style.overflow = 'hidden'
     setIsFormOpen(true)
     setShowLogin(true)
+    setShowHelp(false)
   }
 
   const handleRegisterClick = () => {
@@ -31,10 +34,17 @@ const Home = () => {
     setShowHelp(true)
   }
 
+  const handleOfferClick = () => {
+    console.log('hello')
+    setIsFormOpen(false)
+    setShowOffer(true)
+  }
+
   const closeForm = () => {
     document.body.style.overflow = 'auto'
     setIsFormOpen(false)
     setShowHelp(false)
+    setShowOffer(false)
   }
 
   return (
@@ -49,12 +59,15 @@ const Home = () => {
       <Quests />
       <Faq />
       <Footer />
-      {isFormOpen && <Form showLogin={showLogin}
+      {isFormOpen ? <Form showLogin={showLogin}
                            closeForm={closeForm}
                            onLoginClick={handleLoginClick}
                            onRegisterClick={handleRegisterClick}
                            onHelpClick={handleHelpClick}
-                           showHelp={showHelp}/>}
+                           showHelp={showHelp}
+                           onOfferClick={handleOfferClick}
+                           showOffer={showOffer}/>
+                          : showOffer ? <Offer closeForm={closeForm}/> : ''}
     </div>
   )
 }

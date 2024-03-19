@@ -12,7 +12,9 @@
   .container {
     background-color: #1B1E23;
     border-radius: 8px;
+    max-height: 90%;
     max-width: 700px;
+    overflow-y: scroll;
     padding: 20px 40px;
     position: relative;
     width: 100%;
@@ -23,6 +25,24 @@
       right: 24px;
       top: 20px;
     }
+  }
+
+  .container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .container::-webkit-scrollbar-track {
+    background: #242424;
+  }
+  
+  .container::-webkit-scrollbar-thumb {
+    background: #E0E0E0;
+    border-radius: 4px;
+    height: 54px;
+  }
+  
+  .container::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }
 }
 

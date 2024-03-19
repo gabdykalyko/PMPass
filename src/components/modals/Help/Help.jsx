@@ -2,9 +2,10 @@ import styles from './Help.module.scss'
 import whatsapp from '../../../assets/images/social/whatsapp.svg'
 import telegram from '../../../assets/images/social/telegram.svg'
 import phone from '../../../assets/images/social/phone.svg'
+import back from '../../../assets/images/icons/arrow-back.svg'
 import { NavLink } from 'react-router-dom'
 
-const Help = () => {
+const Help = ({ onLoginClick }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
@@ -29,6 +30,10 @@ const Help = () => {
         <NavLink to={'tel:9933'}>
           <img src={phone} alt="" />
         </NavLink>
+      </div>
+      <div className={styles.back}
+           onClick={onLoginClick}>
+        <img src={back} alt="" />
       </div>
     </div>
   )

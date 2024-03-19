@@ -9,7 +9,8 @@ const Form = ({ showLogin,
                 onLoginClick,
                 onRegisterClick,
                 onHelpClick,
-                showHelp}) => {
+                showHelp,
+                onOfferClick}) => {
   const handleOutsideClick = (event) => {
     if (event.target === event.currentTarget) {
       closeForm()
@@ -24,10 +25,11 @@ const Form = ({ showLogin,
              onClick={closeForm}>
           <img src={close} alt="" />
         </div>
-        {showHelp ? <Help /> : showLogin ? <Login onRegisterClick={onRegisterClick}
+        {showHelp ? <Help onLoginClick={onLoginClick}/> : showLogin ? <Login onRegisterClick={onRegisterClick}
                                                   onHelpClick={onHelpClick}
                                                   closeForm={closeForm}/>
                                          : <Register onLoginClick={onLoginClick}
+                                                     onOfferClick={onOfferClick}
                                                      closeForm={closeForm}/>}
       </div>
     </div>

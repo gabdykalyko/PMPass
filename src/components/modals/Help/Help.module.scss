@@ -25,6 +25,13 @@
     justify-content: center;
     margin-top: 32px;
   }
+
+  .back {
+    cursor: pointer;
+    left: 24px;
+    position: absolute;
+    top: 32px;
+  }
 }
 
 @media (max-width: 850px) {

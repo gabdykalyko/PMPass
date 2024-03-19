@@ -12,7 +12,7 @@ import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { loginSuccess } from '../../../slices/authSlice'
 
-const Register = ({ onLoginClick, closeForm }) => {
+const Register = ({ onLoginClick, closeForm, onOfferClick}) => {
   const [isOfferChecked, setIsOfferChecked] = useState(false)
   const [isBonusChecked, setIsBonusChecked] = useState(false)
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
@@ -83,7 +83,7 @@ const Register = ({ onLoginClick, closeForm }) => {
         'defaultCurrency': 'KZT',
         'selectedLanguage': 'ru',
         'isPlayerAgree': isOfferChecked,
-        // 'nnBonus': '2'
+        'nnBonus': isBonusChecked ? '2' : '0'
       },
         {
           headers: {
@@ -175,7 +175,7 @@ const Register = ({ onLoginClick, closeForm }) => {
       <div className={styles.row}>
         <div className={`${styles.offer} ${isOfferValid ? '' : styles.error}`}>
           <div>
-            Мне больше 21 года <span>Я соглашаюсь с договором оферты</span>
+            Мне больше 21 года <span onClick={onOfferClick}>Я соглашаюсь с договором оферты</span>
           </div>
           <label>
             <input type="checkbox"
