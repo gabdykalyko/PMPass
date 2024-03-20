@@ -10,12 +10,14 @@ import Rules from '../../components/Rules/Rules'
 import styles from './Home.module.scss'
 import Form from '../../components/modals/Form/Form'
 import Offer from '../../components/modals/Offer/Offer'
+import Bonus from '../../components/modals/Bonus/Bonus'
 
 const Home = () => {
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [showLogin, setShowLogin] = useState(true)
   const [showHelp, setShowHelp] = useState(false)
   const [showOffer, setShowOffer] = useState(false)
+  const [showBonus, setShowBonus] = useState(false)
 
   const handleLoginClick = () => {
     document.body.style.overflow = 'hidden'
@@ -28,6 +30,8 @@ const Home = () => {
     document.body.style.overflow = 'hidden'
     setIsFormOpen(true)
     setShowLogin(false)
+    setShowOffer(false)
+    setShowBonus(false)
   }
 
   const handleHelpClick = () => {
@@ -35,9 +39,13 @@ const Home = () => {
   }
 
   const handleOfferClick = () => {
-    console.log('hello')
     setIsFormOpen(false)
     setShowOffer(true)
+  }
+
+  const handleBonusClick = () => {
+    setIsFormOpen(false)
+    setShowBonus(true)
   }
 
   const closeForm = () => {
@@ -45,6 +53,7 @@ const Home = () => {
     setIsFormOpen(false)
     setShowHelp(false)
     setShowOffer(false)
+    setShowBonus(false)
   }
 
   return (
@@ -66,8 +75,11 @@ const Home = () => {
                            onHelpClick={handleHelpClick}
                            showHelp={showHelp}
                            onOfferClick={handleOfferClick}
-                           showOffer={showOffer}/>
-                          : showOffer ? <Offer closeForm={closeForm}/> : ''}
+                           onBonusClick={handleBonusClick}/>
+                          : showOffer ? <Offer closeForm={closeForm}
+                                               onRegisterClick={handleRegisterClick}/> 
+                          : showBonus ? <Bonus closeForm={closeForm}
+                                               onRegisterClick={handleRegisterClick}/> : ''}
     </div>
   )
 }

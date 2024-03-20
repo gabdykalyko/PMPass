@@ -11,6 +11,8 @@ import chestGold from '../../assets/images/quests/chest-gold.png'
 import chestBlue from '../../assets/images/quests/chest-blue.png'
 import cs from '../../assets/images/quests/cs.png'
 import clock from '../../assets/images/quests/clock.png'
+import Offer from '../../components/modals/Offer/Offer'
+import Bonus from '../../components/modals/Bonus/Bonus'
 
 const quests = [
   {
@@ -77,27 +79,44 @@ const Quests = () => {
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [showLogin, setShowLogin] = useState(true)
   const [showHelp, setShowHelp] = useState(false)
+  const [showOffer, setShowOffer] = useState(false)
+  const [showBonus, setShowBonus] = useState(false)
 
   const handleLoginClick = () => {
     document.body.style.overflow = 'hidden'
     setIsFormOpen(true)
     setShowLogin(true)
+    setShowHelp(false)
   }
 
   const handleRegisterClick = () => {
     document.body.style.overflow = 'hidden'
     setIsFormOpen(true)
     setShowLogin(false)
+    setShowOffer(false)
+    setShowBonus(false)
   }
 
   const handleHelpClick = () => {
     setShowHelp(true)
   }
 
+  const handleOfferClick = () => {
+    setIsFormOpen(false)
+    setShowOffer(true)
+  }
+
+  const handleBonusClick = () => {
+    setIsFormOpen(false)
+    setShowBonus(true)
+  }
+
   const closeForm = () => {
     document.body.style.overflow = 'auto'
     setIsFormOpen(false)
     setShowHelp(false)
+    setShowOffer(false)
+    setShowBonus(false)
   }
 
   return (
@@ -124,12 +143,18 @@ const Quests = () => {
         </div>
       </div>
       <Footer />
-      {isFormOpen && <Form showLogin={showLogin}
+      {isFormOpen ? <Form showLogin={showLogin}
                            closeForm={closeForm}
                            onLoginClick={handleLoginClick}
                            onRegisterClick={handleRegisterClick}
                            onHelpClick={handleHelpClick}
-                           showHelp={showHelp}/>}
+                           showHelp={showHelp}
+                           onOfferClick={handleOfferClick}
+                           onBonusClick={handleBonusClick}/>
+                          : showOffer ? <Offer closeForm={closeForm}
+                                               onRegisterClick={handleRegisterClick}/> 
+                          : showBonus ? <Bonus closeForm={closeForm}
+                                               onRegisterClick={handleRegisterClick}/> : ''}
     </div>
   )
 }

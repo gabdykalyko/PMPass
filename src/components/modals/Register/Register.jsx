@@ -12,7 +12,7 @@ import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { loginSuccess } from '../../../slices/authSlice'
 
-const Register = ({ onLoginClick, closeForm, onOfferClick}) => {
+const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick}) => {
   const [isOfferChecked, setIsOfferChecked] = useState(false)
   const [isBonusChecked, setIsBonusChecked] = useState(false)
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
@@ -189,7 +189,7 @@ const Register = ({ onLoginClick, closeForm, onOfferClick}) => {
       <div className={styles.row}>
         <div className={styles.offer}>
           <div>
-            Активировать бонус на первый депозит <span>Условия бонусного предложения</span>
+            Активировать бонус на первый депозит <span onClick={onBonusClick}>Условия бонусного предложения</span>
           </div>
           <label>
             <input type="checkbox"
