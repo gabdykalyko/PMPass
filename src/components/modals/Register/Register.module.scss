@@ -4,7 +4,20 @@
     color: #FFFFFF;
     font-family: 'AlbertusNova';
     font-size: 48px;
-    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  
+  .firstRow {
+    margin-top: 24px;
+  }
+
+  .errorMessage {
+    color: #F44336;
+    font-family: 'HelveticaNeue';
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 16px;
     text-align: center;
   }
 

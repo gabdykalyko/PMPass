@@ -12,10 +12,12 @@ import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { loginSuccess } from '../../../slices/authSlice'
 
-const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick}) => {
+const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick }) => {
   const [isOfferChecked, setIsOfferChecked] = useState(false)
   const [isBonusChecked, setIsBonusChecked] = useState(false)
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
+  const [errorText, setErrorText] = useState('')
+  const [showError, setShowError] = useState(false)
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
@@ -65,7 +67,23 @@ const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick}) => {
   };
 
   const Enter = () => {
-    if (!password.length || !phoneNumber.length || !isPasswordHasNum || !isPasswordMin) {
+    if (!password.length || !phoneNumber.length || !isPasswordHasNum || !isPasswordMin || !isOfferChecked) {
+      if (!isPasswordHasNum) {
+        setPasswordHasNum(false)
+      }
+      if (!isPasswordMin) {
+        setPasswordMin(false)
+      }
+      if (!password.length) {
+        setPasswordMin(false)
+        setPasswordHasNum(false)
+      }
+      if (!phoneNumber.length) {
+        setPhoneIsValid(false)
+      }
+      if (!isOfferChecked) {
+        setOfferValid(false)
+      }
       return
     }
 
@@ -117,7 +135,24 @@ const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick}) => {
         }
       }
     } catch (error) {
-      console.error(error);
+      if (error.response) {
+        if (error.response.data.fieldErrors) {
+          if (error.response.data.fieldErrors.phone[0].type === 'AllowedChars') {
+            setErrorText('Номер телефона не поддерживается')
+            setPhoneIsValid(false)
+            setShowError(true)
+          }
+        } else if (error.response.data.modelErrors) {
+          if (error.response.data.modelErrors[0].type === 'PhoneCurrencyUnique') {
+            setErrorText('Номер телефона уже зарегистрирован')
+            setPhoneIsValid(false)
+            setShowError(true)
+          }
+        }
+      } else {
+        setErrorText('Ошибка в обработке данных')
+        setShowError(true)
+      }
     }
   }
 
@@ -126,7 +161,10 @@ const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick}) => {
       <div className={styles.title}>
         Регистрация
       </div>
-      <div className={styles.row}>
+      {showError ? <div className={styles.errorMessage}>
+        { errorText }
+      </div> : ''}
+      <div className={`${styles.row} ${styles.firstRow}`}>
         <div className={styles.label}>
           Номер телефона<span>*</span>
         </div>

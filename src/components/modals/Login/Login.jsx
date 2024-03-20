@@ -13,6 +13,8 @@ const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
 
   const [isIdValid, setIdIsValid] = useState(true)
   const [id, setId] = useState('')
+  const [showError, setShowError] = useState(false)
+  const [errorText, setErrorText] = useState('')
 
   const onIdChange = (value) => {
     setId(value)
@@ -88,7 +90,15 @@ const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
         }
       }
     } catch (error) {
-      console.error(error);
+      if (error.response) {
+        setPasswordValid(false)
+        setIdIsValid(false)
+        setShowError(true)
+        setErrorText('Похоже, данные введены некорректно или у вас еще нет аккаунта')
+      } else {
+        setErrorText('Ошибка в обработке данных')
+        setShowError(true)
+      }
     }
   }
 
@@ -106,7 +116,12 @@ const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
         Войти
       </div>
 
-      <div className={styles.row}>
+      {showError ? <div className={styles.errorMessage}>
+        { errorText }
+      </div> : ''}
+
+
+      <div className={`${styles.row} ${styles.firstRow}`}>
         <div className={styles.label}>
           Parimatch ID<span>*</span>
         </div>
