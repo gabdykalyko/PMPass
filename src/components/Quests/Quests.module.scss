@@ -44,23 +44,28 @@
 }
 
 @media (max-width: 850px) {
-  .container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+  .wrapper {
+    .container {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
 
-    .info {
-      order: 1;
-    }
+      .info {
+        order: 1;
+        width: 100%;
+      }
 
-    .img {
-      order: 2;
+      .img {
+        order: 2;
+        width: 100%;
+      }
     }
   }
 }
 
 @media (max-width: 500px) {
   .wrapper {
+    margin-top: 100px;
 
     .container {
 

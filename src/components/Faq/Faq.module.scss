@@ -56,26 +56,41 @@
   }
 }
 
+@media (max-width: 850px) {
+  .container {
+    margin-top: 100px;
+
+    .title {
+      margin-bottom: 40px;
+    }
+  }
+}
+
 @media (max-width: 500px) {
   .container {
+    margin-top: 100px;
 
-   .item {
-
-    .question {
-      font-size: 20px;
+    .title {
+      margin-bottom: 40px;
     }
 
-    .answer {
-      font-size: 16px;
-    }
+    .item {
 
-    .paragraph {
-      margin-bottom: 8px;
+      .question {
+        font-size: 20px;
+      }
+
+      .answer {
+        font-size: 16px;
+      }
+
+      .paragraph {
+        margin-bottom: 8px;
+      }
+
+      .listItem {
+        margin-bottom: 8px;
+      }
     }
-    
-    .listItem {
-      margin-bottom: 8px;
-    }
-   }
   }
 }

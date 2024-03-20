@@ -51,15 +51,29 @@
 }
 
 @media (max-width: 850px) {
-  .container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+  .wrapper {
+    margin-bottom: 100px;
+    margin-top: 100px;
+
+    .container {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+  
+      .info {
+        width: 100%;
+      }
+  
+      .img {
+        width: 100%;
+      }
+    }
   }
 }
 
 @media (max-width: 500px) {
   .wrapper {
+    margin-top: 100px;
 
     .container {
 
