@@ -1,3 +1,15 @@
 .container {
   position: relative;
 }
+
+.auth {
+  background-image: url('../../assets/images/background-reg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 850px) {
+  .auth {
+    background-image: url('../../assets/images/background-reg-mob.jpg');
+  }
+}

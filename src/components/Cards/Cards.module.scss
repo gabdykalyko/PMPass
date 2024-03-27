@@ -1,0 +1,63 @@
+.container {
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding-top: 140px;
+
+    .card {
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 8px;
+      color: #ffffff;
+      font-family: 'HelveticaNeue';
+      font-size: 24px;
+      font-weight: 700;
+      height: 200px;
+      padding-left: 12px;
+      padding-top: 12px;
+    }
+
+    .quests {
+      background-image: url('../../assets/images/cards/quests.png');
+    }
+
+    .shop {
+      background-image: url('../../assets/images/cards/shop.png');
+    }
+
+    .profile {
+      background-image: url('../../assets/images/cards/profile.png');
+    }
+
+    .parimatch {
+      background-image: url('../../assets/images/cards/parimatch.png');
+      color: #F1F813;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .container {
+ 
+   .wrapper {
+    .quests {
+      background-image: url('../../assets/images/cards/quests-mob.png');
+    }
+
+    .shop {
+      background-image: url('../../assets/images/cards/shop-mob.png');
+    }
+
+    .profile {
+      background-image: url('../../assets/images/cards/profile-mob.png');
+    }
+
+    .parimatch {
+      background-image: url('../../assets/images/cards/parimatch-mob.png');
+      color: #F1F813;
+    }
+   }
+  }
+ }

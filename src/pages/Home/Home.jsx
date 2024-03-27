@@ -11,6 +11,8 @@ import styles from './Home.module.scss'
 import Form from '../../components/modals/Form/Form'
 import Offer from '../../components/modals/Offer/Offer'
 import Bonus from '../../components/modals/Bonus/Bonus'
+import { useSelector } from 'react-redux'
+import Cards from '../../components/Cards/Cards'
 
 const Home = () => {
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -56,16 +58,27 @@ const Home = () => {
     setShowBonus(false)
   }
 
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
+
+
+
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${ isAuthenticated ? styles.auth : ''}`}>
       <Header onLoginClick={handleLoginClick}
               onRegisterClick={handleRegisterClick}/>
       <HeaderMob onLoginClick={handleLoginClick}
                  onRegisterClick={handleRegisterClick}/>
-      <Banner />
-      <Rules />
-      <Prizes />
-      <Quests />
+      {
+        isAuthenticated ?
+        <Cards />
+        : 
+        <div>
+          <Banner />
+          <Rules />
+          <Prizes />
+          <Quests />
+        </div>
+      }
       <Faq />
       <Footer />
       {isFormOpen ? <Form showLogin={showLogin}
