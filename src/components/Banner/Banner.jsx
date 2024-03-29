@@ -7,7 +7,7 @@ import banner from '../../assets/images/banner.png'
 import bannerMob from '../../assets/images/banner-mob.png'
 import { useTranslation } from 'react-i18next'
 
-const Banner = () => {
+const Banner = ({ onRegisterClick }) => {
   const { t } = useTranslation('banner')
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 850)
@@ -35,7 +35,7 @@ const Banner = () => {
         <div className={styles.subtitle}>
           {t('subtitle')}
         </div>
-        <div>
+        <div onClick={onRegisterClick}>
           <Button title={t('btn')} />
         </div>
         <div className={styles.platforms}>

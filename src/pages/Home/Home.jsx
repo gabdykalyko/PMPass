@@ -73,7 +73,7 @@ const Home = () => {
         <Cards />
         : 
         <div>
-          <Banner />
+          <Banner onRegisterClick={handleRegisterClick}/>
           <Rules />
           <Prizes />
           <Quests />

@@ -3,6 +3,7 @@ import styles from './Prizes.module.scss'
 import defaultImg from '../../assets/images/default-img.jpg'
 import prizes from '../../assets/images/prizes.png'
 import { useTranslation } from 'react-i18next'
+import { NavLink } from 'react-router-dom'
 
 const Prizes = () => {
   const { t } = useTranslation(['prizes', 'main'])
@@ -23,7 +24,9 @@ const Prizes = () => {
               {t('text2')}
             </div>
             <div className={styles.btn}>
-              <Button title={t('main:begin')} />
+              <NavLink to='/shop'>
+                <Button title={t('main:begin')} />
+              </NavLink>
             </div>
           </div>
         </div>

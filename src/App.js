@@ -6,6 +6,7 @@ import Quests from './pages/Quests/Quests';
 import PrivateRoute from './PrivateRoute';
 import Profile from './pages/Profile/Profile';
 import Settings from './pages/Settings/Settings';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
                           <Settings />
                         </PrivateRoute>} />
       </Routes>
+      <ScrollToTop />
     </BrowserRouter>
   );
 }
