@@ -138,7 +138,8 @@ const Quests = () => {
               price={quest.price}
               name={quest.name}
               task={quest.task}
-              labels={quest.labels} />
+              labels={quest.labels}
+              onRegisterClick={handleRegisterClick}/>
           ))}
         </div>
       </div>

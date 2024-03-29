@@ -1,6 +1,9 @@
+import { useSelector } from 'react-redux'
 import styles from './Product.module.scss'
 
 const Product = (props) => {
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
+
   return (
     <div className={styles.container}>
       <div>
@@ -15,11 +18,21 @@ const Product = (props) => {
         {props.price}
       </div>
 
-      <div className={styles.btn}>
-        <button>
-          Забрать
-        </button>
-      </div>
+      {
+        isAuthenticated ?
+          <div className={styles.btn}>
+            <button>
+              Забрать
+            </button>
+          </div>
+          :
+          <div onClick={props.onRegisterClick}
+               className={styles.btn}>
+            <button>
+              Забрать
+            </button>
+          </div>
+      }
     </div>
   )
 }

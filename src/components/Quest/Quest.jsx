@@ -1,6 +1,9 @@
+import { useSelector } from 'react-redux'
 import styles from './Quest.module.scss'
 
 const Quest = (props) => {
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
+
   return (
     <div className={styles.container}>
       <div className={styles.img}>
@@ -10,8 +13,8 @@ const Quest = (props) => {
           {props.price}
         </div>
         <div className={styles.price}>
-            {props.price}
-          </div>
+          {props.price}
+        </div>
       </div>
 
       <div className={styles.chestTitleWrapper}>
@@ -41,11 +44,21 @@ const Quest = (props) => {
         ))}
       </div>
 
-      <div className={styles.btn}>
-        <button>
-          Начать квест
-        </button>
-      </div>
+      {
+        isAuthenticated ?
+          <div className={styles.btn}>
+            <button>
+              Начать квест
+            </button>
+          </div>
+          : <div onClick={props.onRegisterClick} 
+                 className={styles.btn}>
+            <button>
+              Начать квест
+            </button>
+          </div>
+      }
+
     </div>
   )
 }

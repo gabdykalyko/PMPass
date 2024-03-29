@@ -106,7 +106,8 @@ const Shop = () => {
             <Product key={index}
               img={quest.img}
               name={quest.name}
-              price={quest.price} />
+              price={quest.price}
+              onRegisterClick={handleRegisterClick}/>
           ))}
         </div>
       </div>
