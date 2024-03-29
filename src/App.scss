@@ -44,6 +44,26 @@ button {
   top: 0;
 }
 
+.Toastify {
+  .Toastify__toast-container {
+    .Toastify__toast {
+      background-color: #11362C;
+
+      .Toastify__close-button {
+        align-items: center;
+        color: #EAD40C;
+        display: flex;
+        justify-content: center;
+        opacity: 1;
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+
 @media (max-width: 1200px) {
   .container-main {
     width: 90%;

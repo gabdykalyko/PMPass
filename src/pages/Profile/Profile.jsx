@@ -9,6 +9,10 @@ import { useSelector } from 'react-redux'
 import MatchHistory from '../../components/MatchHistory/MatchHistory'
 import TradeLinkHelp from '../../components/TradeLinkHelp/TradeLinkHelp'
 import { useState } from 'react'
+import Button from '../../components/Button/Button'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Toast from '../../components/Toast/Toast'
 
 const Profile = () => {
   const user = useSelector(state => state.auth.user)
@@ -28,6 +32,14 @@ const Profile = () => {
     setShowTradeHelp(false)
   }
 
+  {/* Тест */}
+  const notify = () => {
+    toast(<Toast message="Steam аккаунт прикреплен" />, {
+      hideProgressBar: true
+    });
+  }
+  {/* Тест */}
+
   return (
     <div className={styles.wrapper}>
       <Header />
@@ -41,6 +53,15 @@ const Profile = () => {
         }
         <TradeLink handleTradeClick={handleTradeClick}/>
       </div>
+
+      {/* Тест */}
+      <div className={`${styles.container} container-main ${styles.links}`}
+           onClick={notify}>
+        <Button title='Нажми на меня'/>
+      </div>
+      <ToastContainer />
+      {/* Тест */}
+
       <Footer />
       {isFormOpen && <TradeLinkHelp closeForm={closeForm}/>}
     </div>
