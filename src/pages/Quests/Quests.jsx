@@ -13,6 +13,10 @@ import cs from '../../assets/images/quests/cs.png'
 import clock from '../../assets/images/quests/clock.png'
 import Offer from '../../components/modals/Offer/Offer'
 import Bonus from '../../components/modals/Bonus/Bonus'
+import Button from '../../components/Button/Button'
+import arrow from '../../assets/images/icons/arrowup.svg'
+import filter from '../../assets/images/icons/filter.svg'
+import arrowDown from '../../assets/images/icons/arrow-down.svg'
 
 const quests = [
   {
@@ -35,7 +39,7 @@ const quests = [
     labels: ['Parimatch', 'Dota 2']
   },
   {
-    img: chestBlue,
+    img: chestGold,
     chest: 'Сундук Аркана',
     status: 'Завершён',
     price: 500,
@@ -119,16 +123,98 @@ const Quests = () => {
     setShowBonus(false)
   }
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  }
+
+  const [isStatusOpen, setIsStatusOpen] = useState(false)
+  const [selectedStatus, setSelectedStatus] = useState('')
+
+  const toggleStatus= () => {
+    setIsStatusOpen(!isStatusOpen);
+  }
+
+  const selectStatus = (filter) => {
+    setSelectedStatus(filter);
+    setIsStatusOpen(false);
+  }
+
+  
+  const [isFilterOpen, setIsFilterOpen] = useState(false)
+  const [selectedFilter, setSelectedFilter] = useState('')
+
+  const toggleFilter= () => {
+    setIsFilterOpen(!isFilterOpen);
+  }
+
+  const selectFilter = (filter) => {
+    setSelectedFilter(filter);
+    setIsFilterOpen(false);
+  }
+
   return (
     <div>
       <Header onLoginClick={handleLoginClick}
-              onRegisterClick={handleRegisterClick}/>
+        onRegisterClick={handleRegisterClick} />
       <HeaderMob onLoginClick={handleLoginClick}
-                 onRegisterClick={handleRegisterClick}/>
+        onRegisterClick={handleRegisterClick} />
       <div className={`${styles.container} container-main`}>
         <div className={styles.title}>
           Квесты
+
+          <div className={styles.filters}>
+            <div className={`${styles.filter} ${styles.filterBlue}`}
+                 onClick={toggleStatus}>
+              Статус
+              <img src={arrowDown} alt="" />
+
+              {isStatusOpen &&
+                <div className={styles.filterWrapper}>
+                  <div className={`${styles.filterItem} ${selectedStatus === 'Активные' ? styles.selectedFilter : ''}`}
+                    onClick={() => selectStatus('Активные')}>
+                    Активные
+                  </div>
+                  <div className={`${styles.filterItem} ${selectedStatus === 'Скоро' ? styles.selectedFilter : ''}`}
+                    onClick={() => selectStatus('Скоро')}>
+                    Скоро
+                  </div>
+                  <div className={`${styles.filterItem} ${selectedStatus === 'Завершенные' ? styles.selectedFilter : ''}`}
+                    onClick={() => selectStatus('Завершенные')}>
+                    Завершенные
+                  </div>
+                </div>}
+            </div>
+            <div className={styles.filter}
+                 onClick={toggleFilter}>
+              Фильтр товаров
+              <img src={filter} alt="" />
+
+              {isFilterOpen &&
+                <div className={styles.filterWrapper}>
+                  <div className={`${styles.filterItem} ${selectedFilter === 'Все' ? styles.selectedFilter : ''}`}
+                    onClick={() => selectFilter('Все')}>
+                    Все
+                  </div>
+                  <div className={`${styles.filterItem} ${selectedFilter === 'Parimatch' ? styles.selectedFilter : ''}`}
+                    onClick={() => selectFilter('Parimatch')}>
+                    Parimatch
+                  </div>
+                  <div className={`${styles.filterItem} ${selectedFilter === 'Dota' ? styles.selectedFilter : ''}`}
+                    onClick={() => selectFilter('Dota')}>
+                    Dota
+                  </div>
+                  <div className={`${styles.filterItem} ${selectedFilter === 'Выполненные квесты' ? styles.selectedFilter : ''}`}
+                    onClick={() => selectFilter('Выполненные квесты')}>
+                    Выполненные квесты
+                  </div>
+                </div>}
+            </div>
+          </div>
         </div>
+
         <div className={styles.wrapper}>
           {quests.map((quest, index) => (
             <Quest key={index}
@@ -139,23 +225,32 @@ const Quests = () => {
               name={quest.name}
               task={quest.task}
               labels={quest.labels}
-              onRegisterClick={handleRegisterClick}/>
+              onRegisterClick={handleRegisterClick} />
           ))}
+        </div>
+        <div className={styles.more}>
+          <Button title='Больше'
+            color='brown' />
+
+          <div onClick={scrollToTop}
+            className={styles.up}>
+            <img src={arrow} alt="" />
+          </div>
         </div>
       </div>
       <Footer />
       {isFormOpen ? <Form showLogin={showLogin}
-                           closeForm={closeForm}
-                           onLoginClick={handleLoginClick}
-                           onRegisterClick={handleRegisterClick}
-                           onHelpClick={handleHelpClick}
-                           showHelp={showHelp}
-                           onOfferClick={handleOfferClick}
-                           onBonusClick={handleBonusClick}/>
-                          : showOffer ? <Offer closeForm={closeForm}
-                                               onRegisterClick={handleRegisterClick}/> 
-                          : showBonus ? <Bonus closeForm={closeForm}
-                                               onRegisterClick={handleRegisterClick}/> : ''}
+        closeForm={closeForm}
+        onLoginClick={handleLoginClick}
+        onRegisterClick={handleRegisterClick}
+        onHelpClick={handleHelpClick}
+        showHelp={showHelp}
+        onOfferClick={handleOfferClick}
+        onBonusClick={handleBonusClick} />
+        : showOffer ? <Offer closeForm={closeForm}
+          onRegisterClick={handleRegisterClick} />
+          : showBonus ? <Bonus closeForm={closeForm}
+            onRegisterClick={handleRegisterClick} /> : ''}
     </div>
   )
 }

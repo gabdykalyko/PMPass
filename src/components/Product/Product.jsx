@@ -6,8 +6,10 @@ const Product = (props) => {
 
   return (
     <div className={styles.container}>
-      <div>
-        <img src={props.img} alt="" />
+      <div className={styles.imgWrapper}>
+        <div className={styles.img}>
+          <img src={props.img} alt="" />
+        </div>
       </div>
 
       <div className={styles.productName}>
@@ -27,7 +29,7 @@ const Product = (props) => {
           </div>
           :
           <div onClick={props.onRegisterClick}
-               className={styles.btn}>
+            className={styles.btn}>
             <button>
               Забрать
             </button>

@@ -2,8 +2,22 @@
   background-color: rgba(0, 0, 0, .3);
   border: 1px solid rgba(0, 0, 0, .0);
   border-radius: 8px;
-  padding: 20px 16px;
+  padding: 12px 16px 21px;
   transition: all .2s linear;
+
+  .imgWrapper {
+    display: flex;
+    justify-content: center;
+
+    .img {
+      align-items: center;
+      background-image: url('../../assets/images/card.png');
+      display: flex;
+      justify-content: center;
+      height: 136px;
+      width: 165px;
+    }
+  }
 
   img {
     width: 100%;
@@ -36,7 +50,7 @@
       font-family: 'HelveticaNeue';
       font-size: 16px;
       font-weight: 500;
-      margin-top: 37px;
+      margin-top: 24px;
       padding-top: 12px;
       padding-bottom: 12px;
       transition: all .2s linear;

@@ -13,6 +13,9 @@ import akPink from '../../assets/images/prizes/ak-pink.png'
 import gunPink from '../../assets/images/prizes/gun-pink.png'
 import Offer from '../../components/modals/Offer/Offer'
 import Bonus from '../../components/modals/Bonus/Bonus'
+import Button from '../../components/Button/Button'
+import arrow from '../../assets/images/icons/arrowup.svg'
+import filter from '../../assets/images/icons/filter.svg'
 
 const products = [
   {
@@ -91,6 +94,13 @@ const Shop = () => {
     setShowBonus(false)
   }
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  }
+
   return (
     <div>
       <Header onLoginClick={handleLoginClick}
@@ -100,6 +110,11 @@ const Shop = () => {
       <div className={`${styles.container} container-main`}>
         <div className={styles.title}>
           Магазин
+
+          <div className={styles.filter}>
+            Фильтр товаров
+            <img src={filter} alt="" /> 
+          </div>
         </div>
         <div className={styles.wrapper}>
           {products.map((quest, index) => (
@@ -109,6 +124,15 @@ const Shop = () => {
               price={quest.price}
               onRegisterClick={handleRegisterClick}/>
           ))}
+        </div>
+        <div className={styles.more}>
+          <Button title='Больше'
+                  color='brown'/>
+          
+          <div onClick={scrollToTop}
+               className={styles.up}>
+            <img src={arrow} alt="" />
+          </div>
         </div>
       </div>
       <Footer />

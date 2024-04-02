@@ -6,14 +6,16 @@ const Quest = (props) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.img}>
-        <img src={props.img} alt="" />
+      <div className={styles.imgWrapper}>
+        <div className={styles.img}>
+          <img src={props.img} alt="" />
 
-        <div className={styles.chestPrice}>
-          {props.price}
-        </div>
-        <div className={styles.price}>
-          {props.price}
+          <div className={styles.chestPrice}>
+            {props.price}
+          </div>
+          <div className={styles.price}>
+            {props.price}
+          </div>
         </div>
       </div>
 
@@ -51,8 +53,8 @@ const Quest = (props) => {
               Начать квест
             </button>
           </div>
-          : <div onClick={props.onRegisterClick} 
-                 className={styles.btn}>
+          : <div onClick={props.onRegisterClick}
+            className={styles.btn}>
             <button>
               Начать квест
             </button>

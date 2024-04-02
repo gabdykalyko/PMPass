@@ -101,7 +101,7 @@ const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick }) => {
         'defaultCurrency': 'KZT',
         'selectedLanguage': 'ru',
         'isPlayerAgree': isOfferChecked,
-        'nnBonus': isBonusChecked ? '2' : '0'
+        'nnBonus': isBonusChecked ? '3' : '0'
       },
         {
           headers: {

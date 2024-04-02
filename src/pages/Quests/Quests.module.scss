@@ -1,26 +1,89 @@
 .container {
-  padding-top: 100px;
+  padding-top: 124px;
 
   .title {
     color: #ffffff;
-    font-family: 'AlbertusNova';
+    display: flex;
+    justify-content: space-between;
+    font-family: 'HelveticaNeue';
     font-size: 48px;
-    font-weight: 400;
+    font-weight: 700;
+
+    .filters {
+      display: flex;
+      gap: 24px;
+
+      .filter {
+        align-items: center;
+        background-color: #333217;
+        border-radius: 8px;
+        color: #EAD40C;
+        cursor: pointer;
+        display: flex;
+        font-size: 16px;
+        font-weight: 500;
+        gap: 8px;
+        height: 46px;
+        padding: 10px 22px;
+        position: relative;
+
+        .filterWrapper {
+          background-color: #242424;
+          border-radius: 8px;
+          color: #E0E0E0;
+          font-size: 16px;
+          font-weight: 400;
+          left: 0;
+          padding: 8px 0;
+          position: absolute;
+          top: 120%;
+          z-index: 1;
+
+          .filterItem {
+            cursor: pointer;
+            margin-bottom: 3px;
+            padding: 6px 16px;
+          }
+
+          .selectedFilter {
+            background-color: rgba(220, 220, 220, .1);
+            color: #fff;
+          }
+        }
+      }
+
+      .filterBlue {
+        background-color: #193B41;
+        color: #0CDCEA;
+      }
+    }
   }
 
   .wrapper {
     align-items: start;
     display: grid;
-    column-gap: 24px;
+    gap: 24px;
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 50px;
-    row-gap: 100px;
+  }
+
+  .more {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    position: relative;
+  }
+
+  .up {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
   }
 }
 
 @media (max-width: 1200px) {
   .container {
-    
+
     .wrapper {
       grid-template-columns: 1fr 1fr;
     }
@@ -29,7 +92,7 @@
 
 @media (max-width: 850px) {
   .container {
-    
+
     .wrapper {
       grid-template-columns: 1fr;
     }

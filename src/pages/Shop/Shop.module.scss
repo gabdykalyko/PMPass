@@ -1,20 +1,48 @@
 .container {
-  padding-top: 100px;
+  padding-top: 124px;
   transition: all .2s linear;
 
   .title {
     color: #ffffff;
-    font-family: 'AlbertusNova';
+    display: flex;
+    justify-content: space-between;
+    font-family: 'HelveticaNeue';
     font-size: 48px;
-    font-weight: 400;
+    font-weight: 700;
+
+    .filter {
+      align-items: center;
+      background-color: #333217;
+      border-radius: 8px;
+      color: #EAD40C;
+      display: flex;
+      font-size: 16px;
+      font-weight: 500;
+      gap: 8px;
+      height: 46px;
+      padding: 10px 22px;
+    }
   }
 
   .wrapper {
     align-items: start;
     display: grid;
     gap: 24px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-top: 50px;
+  }
+
+  .more {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    position: relative;
+  }
+
+  .up {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
   }
 }
 
