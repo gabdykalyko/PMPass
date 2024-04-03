@@ -3,6 +3,7 @@
   transition: all .2s linear;
 
   .title {
+    align-items: center;
     color: #ffffff;
     display: flex;
     justify-content: space-between;
@@ -50,16 +51,27 @@
   .container {
     
     .wrapper {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 }
 
 @media (max-width: 850px) {
   .container {
+    padding-top: 104px;
+
+    .title {
+      display: block;
+
+      .filter {
+        display: inline-flex;
+        margin-top: 32px;
+      }
+    }
     
     .wrapper {
       grid-template-columns: 1fr;
+      margin-top: 24px;
     }
   }
 }

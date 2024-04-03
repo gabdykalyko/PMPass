@@ -109,7 +109,9 @@ const Shop = () => {
                  onRegisterClick={handleRegisterClick}/>
       <div className={`${styles.container} container-main`}>
         <div className={styles.title}>
-          Магазин
+          <div>
+            Магазин
+          </div>
 
           <div className={styles.filter}>
             Фильтр товаров

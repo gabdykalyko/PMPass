@@ -1,11 +1,11 @@
 .container {
-  padding-top: 180px;
+  padding-top: 124px;
 
   .title {
     color: #ffffff;
-    font-family: 'AlbertusNova';
+    font-family: 'HelveticaNeue';
     font-size: 32px;
-    font-weight: 400;
+    font-weight: 700;
   }
 
   .main {
@@ -87,11 +87,11 @@
         font-family: 'HelveticaNeue';
         font-size: 16px;
         font-weight: 400;
-        gap: 24px;
+        justify-content: space-between;
         margin-top: 32px;
 
         .inputsItem {
-          width: 50%;
+          width: 48%;
 
           .inputsTitle {
             margin-bottom: 12px;
@@ -138,6 +138,7 @@
 
 @media (max-width: 850px) {
   .container {
+    padding-top: 104px;
 
     .main {
 

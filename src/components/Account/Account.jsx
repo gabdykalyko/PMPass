@@ -27,18 +27,11 @@ const Account = () => {
         </div>
 
         <div className={styles.account}>
-          <div className={styles.mobEdit}>
-            <div className={styles.headerRight}>
-              <NavLink to='/settings'>
-                <img src={edit} alt="" />
-              </NavLink>
-            </div>
-          </div>
           <div className={styles.header}>
             <div className={styles.headerLeft}>
               <img src={account} alt="" />
               <div>
-                Информация об Аккаунте
+                Аккаунт
               </div>
             </div>
             <div className={styles.headerRight}>
@@ -68,6 +61,9 @@ const Account = () => {
 
               <div className={styles.address}>
                 Город, улица
+              </div>
+              <div className={styles.address}>
+                +77072396767
               </div>
             </div>
           </div>

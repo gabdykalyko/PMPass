@@ -40,7 +40,7 @@ const Settings = () => {
       <HeaderMob />
       <div className={`${styles.container} container-main`}>
         <div className={styles.title}>
-          Настройки Профиля
+          Настройки
         </div>
         <div className={styles.main}>
           <div className={styles.left}>
@@ -93,6 +93,19 @@ const Settings = () => {
                 </div>
               </div>
 
+            </div>
+
+            <div className={styles.inputs}>
+
+              <div className={styles.inputsItem}>
+                <div className={styles.inputsTitle}>
+                  Номер телефона <span>*</span>
+                </div>
+                <div className={styles.input}>
+                  <input type="text"
+                    placeholder='Номер телефона' />
+                </div>
+              </div>
             </div>
 
           </div>

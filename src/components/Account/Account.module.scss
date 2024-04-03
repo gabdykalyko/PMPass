@@ -1,13 +1,13 @@
 .wrapper {
 
   .container {
-    padding-top: 100px;
+    padding-top: 124px;
 
     .title {
       color: #ffffff;
-      font-family: 'AlbertusNova';
+      font-family: 'HelveticaNeue';
       font-size: 48px;
-      font-weight: 400;
+      font-weight: 700;
     }
 
     .account {
@@ -48,7 +48,7 @@
         margin-top: 20px;
 
         .profileImg {
-          width: 84px;
+          width: 68px;
         }
 
         .name {
@@ -73,7 +73,7 @@
         .address {
           color: #E0E0E0;
           font-family: 'HelveticaNeue';
-          font-size: 20px;
+          font-size: 16px;
           font-weight: 400;
           margin-top: 8px;
         }
@@ -110,6 +110,7 @@
   .wrapper {
 
     .container {
+      padding-top: 104px;
 
       .title {
         font-size: 32px;
@@ -128,17 +129,15 @@
           .headerLeft {
             font-size: 20px;
           }
-
-          .headerRight {
-            display: none;
-          }
         }
 
         .main {
-          display: block;
+          .profileImg {
+            width: 64px;
+          }
 
           .name {
-            margin-top: 12px;
+            font-size: 16px;
           }
         }
 
@@ -147,6 +146,7 @@
           margin-top: 24px;
 
           .infoItem {
+            font-size: 16px;
             margin-bottom: 12px;
           }
         }

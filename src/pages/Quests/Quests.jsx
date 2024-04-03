@@ -189,7 +189,7 @@ const Quests = () => {
             </div>
             <div className={styles.filter}
                  onClick={toggleFilter}>
-              Фильтр товаров
+              Фильтр квестов
               <img src={filter} alt="" />
 
               {isFilterOpen &&
