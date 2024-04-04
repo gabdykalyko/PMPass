@@ -1,0 +1,44 @@
+.header {
+  align-items: center;
+  display: flex;
+  font-family: 'HelveticaNeue';
+  font-weight: 500;
+  justify-content: space-between;
+  left: 0;
+  margin: 0 auto;
+  padding-top: 26px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 95%;
+
+  .left {
+    align-items: center;
+    display: flex;
+    gap: 40px;
+  }
+
+  .right {
+    display: flex;
+    gap: 24px;
+
+    .lang {
+      align-items: center;
+      color: #ffffff;
+      gap: 4px;
+      display: flex;
+      font-family: 'HelveticaNeue';
+      font-size: 20px;
+      font-weight: 400;
+
+      .langItem {
+        cursor: pointer;
+        transition: all .2s linear;
+      }
+    }
+
+    .yellow {
+      color: #EAD40C;
+    }
+  }
+}

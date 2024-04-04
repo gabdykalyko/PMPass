@@ -22,10 +22,6 @@ const Account = () => {
   return (
     <div className={styles.wrapper}>
       <div className={`${styles.container} container-main`}>
-        <div className={styles.title}>
-          {t('title')}
-        </div>
-
         <div className={styles.account}>
           <div className={styles.header}>
             <div className={styles.headerLeft}>
@@ -96,7 +92,7 @@ const Account = () => {
                   Получено очков
                 </div>
                 <div>
-                  80000 GG Points
+                  0 GG Points
                 </div>
               </div>
             </div>
@@ -110,7 +106,7 @@ const Account = () => {
                   Текущий баланс
                 </div>
                 <div>
-                  10000 GG Points
+                  { userInfo.pm_points } GG Points
                 </div>
               </div>
             </div>

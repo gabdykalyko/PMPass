@@ -37,6 +37,7 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
   }
 
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
+  const user = useSelector(state => state.auth.user)
 
   return (
     <div className={styles.container}>
@@ -83,7 +84,7 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
         {isAuthenticated ?
           <div className={styles.auth}>
             <div>
-              Points: 10000
+              Points: { user.pm_points }
             </div>
             <div className={styles.line}>
 

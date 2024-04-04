@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Banner from '../../components/Banner/Banner'
 import Faq from '../../components/Faq/Faq'
 import Footer from '../../components/Footer/Footer'
@@ -13,6 +13,9 @@ import Offer from '../../components/modals/Offer/Offer'
 import Bonus from '../../components/modals/Bonus/Bonus'
 import { useSelector } from 'react-redux'
 import Cards from '../../components/Cards/Cards'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Toast from '../../components/Toast/Toast'
 
 const Home = () => {
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -60,7 +63,14 @@ const Home = () => {
 
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
 
-
+  useEffect(() => {
+    const currentURL = window.location.href
+    if (currentURL.includes('?steam_auth=success')) {
+      toast(<Toast message="Steam аккаунт прикреплен" />, {
+        hideProgressBar: true
+      });
+    }
+  }, []);
 
   return (
     <div className={`${styles.container} ${ isAuthenticated ? styles.auth : ''}`}>

@@ -75,30 +75,6 @@ const Settings = () => {
 
               <div className={styles.inputsItem}>
                 <div className={styles.inputsTitle}>
-                  Город <span>*</span>
-                </div>
-                <div className={styles.input}>
-                  <input type="text"
-                    placeholder='Город' />
-                </div>
-              </div>
-
-              <div className={styles.inputsItem}>
-                <div className={styles.inputsTitle}>
-                  Улица <span>*</span>
-                </div>
-                <div className={styles.input}>
-                  <input type="text"
-                    placeholder='Улица' />
-                </div>
-              </div>
-
-            </div>
-
-            <div className={styles.inputs}>
-
-              <div className={styles.inputsItem}>
-                <div className={styles.inputsTitle}>
                   Номер телефона <span>*</span>
                 </div>
                 <div className={styles.input}>

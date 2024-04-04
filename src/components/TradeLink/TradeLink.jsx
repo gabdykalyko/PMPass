@@ -4,9 +4,12 @@ import steam from '../../assets/images/icons/steam-blue.svg'
 import Button from '../Button/Button'
 import check from '../../assets/images/icons/check-green.svg'
 import { useDispatch, useSelector } from 'react-redux'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { updateAuth } from '../../slices/authSlice'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Toast from '../../components/Toast/Toast'
 
 const TradeLink = ({ handleTradeClick }) => {
   const user = useSelector(state => state.auth.user)
@@ -41,6 +44,10 @@ const TradeLink = ({ handleTradeClick }) => {
           isAuthenticated: true,
           user: response.data
         }))
+
+        toast(<Toast message="Ссылка на обмен прикреплена" />, {
+          hideProgressBar: true
+        });
       }
 
     } catch (error) {

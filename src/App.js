@@ -7,6 +7,9 @@ import PrivateRoute from './PrivateRoute';
 import Profile from './pages/Profile/Profile';
 import Settings from './pages/Settings/Settings';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import Start from './pages/Welcome/Start/Start';
+import { ToastContainer } from 'react-toastify';
+import ShopQuests from './pages/Welcome/ShopQuests/ShopQuests';
 
 function App() {
   return (
@@ -23,8 +26,17 @@ function App() {
                element={<PrivateRoute>
                           <Settings />
                         </PrivateRoute>} />
+        <Route path="/start"
+               element={<PrivateRoute>
+                          <Start />
+                        </PrivateRoute>} />
+        <Route path="/showquests"
+               element={<PrivateRoute>
+                          <ShopQuests />
+                        </PrivateRoute>} />
       </Routes>
       <ScrollToTop />
+      <ToastContainer />
     </BrowserRouter>
   );
 }
