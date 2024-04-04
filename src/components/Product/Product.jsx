@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux'
 import styles from './Product.module.scss'
+import defaultProduct from '../../assets/images/defaultProduct.png'
 
 const Product = (props) => {
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
@@ -8,7 +9,7 @@ const Product = (props) => {
     <div className={styles.container}>
       <div className={styles.imgWrapper}>
         <div className={styles.img}>
-          <img src={props.img} alt="" />
+          <img src={props.img ? props.img : defaultProduct} alt="" />
         </div>
       </div>
 

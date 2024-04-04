@@ -5,7 +5,7 @@ import Product from "../../components/Product/Product"
 import Footer from "../../components/Footer/Footer"
 import pudge from '../../assets/images/pudge.jpg'
 import Form from '../../components/modals/Form/Form'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ak from '../../assets/images/prizes/ak.png'
 import gun from '../../assets/images/prizes/gun.png'
 import akRed from '../../assets/images/prizes/ak-red.png'
@@ -16,6 +16,7 @@ import Bonus from '../../components/modals/Bonus/Bonus'
 import Button from '../../components/Button/Button'
 import arrow from '../../assets/images/icons/arrowup.svg'
 import filter from '../../assets/images/icons/filter.svg'
+import axios from 'axios'
 
 const products = [
   {
@@ -101,6 +102,29 @@ const Shop = () => {
     })
   }
 
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/shop_items`, {
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        })
+        if (response.data) {
+          setProducts(response.data.data)
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    fetchData();
+  }, [])
+
   return (
     <div>
       <Header onLoginClick={handleLoginClick}
@@ -128,8 +152,8 @@ const Shop = () => {
           ))}
         </div>
         <div className={styles.more}>
-          <Button title='Больше'
-                  color='brown'/>
+          {/* <Button title='Больше'
+                  color='brown'/> */}
           
           <div onClick={scrollToTop}
                className={styles.up}>
