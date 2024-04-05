@@ -25,32 +25,34 @@ const Banner = ({ onRegisterClick }) => {
   }, [])
 
   return (
-    <div className={styles.wrapper}
-      style={isMobile ? { backgroundImage: 'none' } : { backgroundImage: banner }}>
-
-      <div className={`${styles.container} container-main`}>
-        <div className={styles.title}>
-          {t('title')}
-        </div>
-        <div className={styles.subtitle}>
-          {t('subtitle')}
-        </div>
-        <div onClick={onRegisterClick}>
-          <Button title={t('btn')} />
-        </div>
-        <div className={styles.platforms}>
-          <div>
-            <img src={steam} alt="" />
+    <div className={styles.wrapper}>
+      <div className={styles.info}>
+        <div className={`${styles.container} container-main`}>
+          <div className={styles.title}>
+            {t('title')}
           </div>
-          <div>
-            <img src={dota} alt="" />
+          <div className={styles.subtitle}>
+            {t('subtitle')}
           </div>
-        </div>
-        <div className={styles.banner}>
-          <img src={bannerMob} alt="" />
+          <div onClick={onRegisterClick}>
+            <Button title={t('btn')} />
+          </div>
+          <div className={styles.platforms}>
+            <div>
+              <img src={steam} alt="" />
+            </div>
+            <div>
+              <img src={dota} alt="" />
+            </div>
+          </div>
         </div>
       </div>
+      <div className={styles.banner}>
+            <img src={bannerMob} alt="" />
+      </div>
 
+      <div className={styles.bannerDesk}>
+      </div>
     </div>
   )
 }

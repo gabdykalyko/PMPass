@@ -1,82 +1,124 @@
 .wrapper {
-  background-image: url('../../assets/images/banner.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: right;
-  background-position-y: 50px;
-  align-items: center;
-  display: flex;
-  height: 100vh;
+  background: rgb(12, 220, 234);
+  background: linear-gradient(0deg, rgba(12, 220, 234, 0) 0%, rgba(12, 220, 234, 0.12) 100%);
+  // background-position-y: 50px;
+  position: relative;
 
-  .container {
-    color: #ffffff;
-    font-family: 'AlbertusNova';
+  .info {
+    align-items: center;
+    display: flex;
+    height: 100vh;
 
-    .title {
-      font-size: 64px;
-      margin-bottom: 16px;
-    }
-
-    .subtitle {
+    .container {
+      color: #ffffff;
       font-family: 'HelveticaNeue';
-      font-size: 20px;
-      font-weight: 400;
-      margin-bottom: 24px;
-    }
 
-    .btn {
-      border-radius: 8px;
-      cursor: pointer;
-      font-family: 'HelveticaNeue';
-      font-weight: 500;
-      font-size: 16px;
-      padding: 10px 22px;
-    }
+      .title {
+        font-size: 64px;
+        margin-bottom: 16px;
+        font-weight: 700;
+      }
 
-    .reg {
-      background-color: #EAD40C;
-      color: #1B1E23;
-    }
+      .subtitle {
+        font-family: 'HelveticaNeue';
+        font-size: 20px;
+        font-weight: 400;
+        margin-bottom: 24px;
+        width: 50%;
+      }
 
-    .platforms {
-      align-items: center;
-      display: flex;
-      gap: 32px;
-      margin-top: 40px;
-    }
+      .btn {
+        border-radius: 8px;
+        cursor: pointer;
+        font-family: 'HelveticaNeue';
+        font-weight: 500;
+        font-size: 16px;
+        padding: 10px 22px;
+      }
 
-    
-    .banner {
-      display: none;
+      .reg {
+        background-color: #EAD40C;
+        color: #1B1E23;
+      }
+
+      .platforms {
+        align-items: center;
+        display: flex;
+        gap: 32px;
+        margin-top: 40px;
+      }
+    }
+  }
+
+  .bannerDesk {
+    background-image: url('../../assets/images/banner.png');
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: right;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .banner {
+    display: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .wrapper {
+
+    .info {
+
+      .container {
+
+        .title {
+          width: 50%;
+        }
+      }
     }
   }
 }
 
 @media (max-width: 850px) {
   .wrapper {
-    height: unset;
+    display: block;
     padding-top: 100px;
 
-    .container {
+    .info {
+      height: unset;
 
-      .title {
-        font-size: 48px;
-      }
+      .container {
 
-      .platforms {
-
-        img {
-          width: 180px;
-        }
-      }
-
-      
-      .banner {
-        display: block;
-
-        img {
+        .title {
+          font-size: 48px;
           width: 100%;
         }
+
+        .subtitle {
+          width: 90%;
+        }
+
+        .platforms {
+
+          img {
+            width: 180px;
+          }
+        }
+      }
+    }
+
+    .bannerDesk {
+      display: none;
+    }
+
+    .banner {
+      display: block;
+
+      img {
+        width: 100%;
       }
     }
   }
@@ -85,16 +127,18 @@
 @media (max-width: 500px) {
   .wrapper {
 
-    .container {
+    .info {
+      .container {
 
-      .title {
-        font-size: 48px;
-      }
+        .title {
+          font-size: 48px;
+        }
 
-      .platforms {
+        .platforms {
 
-        img {
-          width: 150px;
+          img {
+            width: 150px;
+          }
         }
       }
     }
