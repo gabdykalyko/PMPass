@@ -144,10 +144,8 @@ const Shop = () => {
         </div>
         <div className={styles.wrapper}>
           {products.map((quest, index) => (
-            <Product key={index}
-              img={quest.img}
-              name={quest.name}
-              price={quest.price}
+            <Product key={quest.id}
+              quest={quest}
               onRegisterClick={handleRegisterClick}/>
           ))}
         </div>
