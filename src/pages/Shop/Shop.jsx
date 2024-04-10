@@ -17,6 +17,7 @@ import Button from '../../components/Button/Button'
 import arrow from '../../assets/images/icons/arrowup.svg'
 import filter from '../../assets/images/icons/filter.svg'
 import axios from 'axios'
+import BackButton from '../../components/BackButton/BackButton'
 
 const products = [
   {
@@ -132,6 +133,7 @@ const Shop = () => {
       <HeaderMob onLoginClick={handleLoginClick}
                  onRegisterClick={handleRegisterClick}/>
       <div className={`${styles.container} container-main`}>
+        <BackButton />
         <div className={styles.title}>
           <div>
             Магазин

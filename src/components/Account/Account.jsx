@@ -9,14 +9,27 @@ import steam from '../../assets/images/icons/steam-small.svg'
 import thumb from '../../assets/images/icons/thumb.svg'
 import check from '../../assets/images/icons/check-circle.svg'
 import { NavLink } from 'react-router-dom'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Toast from '../../components/Toast/Toast'
 
 const Account = () => {
   const { t } = useTranslation('profile')
 
   const userInfo = useSelector(state => state.auth.user)
 
-  const copyToClipboard = (text) => {
+  const copyToClipboard = (text, type) => {
     navigator.clipboard.writeText(text)
+
+    if (type === 'account') {
+      toast(<Toast message="Account ID скопирован" />, {
+        hideProgressBar: true
+      })
+    } else if (type === 'steam') {
+      toast(<Toast message="Steam ID скопирован" />, {
+        hideProgressBar: true
+      })
+    }
   };
 
   return (
@@ -50,14 +63,11 @@ const Account = () => {
                   </div>
                 </div>
                 <div className={styles.copy}
-                  onClick={() => copyToClipboard(userInfo?.pm_id)}>
+                  onClick={() => copyToClipboard(userInfo?.pm_id, 'account')}>
                   <img src={copy} alt="" />
                 </div>
               </div>
 
-              <div className={styles.address}>
-                Город, улица
-              </div>
               <div className={styles.address}>
                 +77072396767
               </div>
@@ -73,7 +83,7 @@ const Account = () => {
                 <div className={styles.steam}>
                   Steam ID
                   <div className={styles.copy}
-                    onClick={() => copyToClipboard(userInfo?.steam_id)}>
+                    onClick={() => copyToClipboard(userInfo?.steam_id, 'steam')}>
                     <img src={copy} alt="" />
                   </div>
                 </div>
@@ -83,7 +93,7 @@ const Account = () => {
               </div>
             </div>
 
-            <div className={styles.infoItem}>
+            {/* <div className={styles.infoItem}>
               <div>
                 <img src={check} alt="" />
               </div>
@@ -95,7 +105,7 @@ const Account = () => {
                   0 GG Points
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className={styles.infoItem}>
               <div>

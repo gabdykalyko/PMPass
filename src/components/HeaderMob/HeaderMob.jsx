@@ -22,6 +22,8 @@ const HeaderMob = ({ onLoginClick, onRegisterClick }) => {
 
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
 
+  const user = useSelector(state => state.auth.user)
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -33,7 +35,7 @@ const HeaderMob = ({ onLoginClick, onRegisterClick }) => {
       <div className={styles.right}>
         {isAuthenticated ?
           <div className={styles.points}>
-            Points: 10000
+            Points: { user.pm_points }
           </div>
           :
           <div onClick={onRegisterClick}>

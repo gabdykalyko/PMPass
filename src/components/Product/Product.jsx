@@ -42,7 +42,6 @@ const Product = ({ onRegisterClick, quest }) => {
        const user = await updateUserAuth()
 
        if (user) {
-        console.log(user)
         dispatch(updateAuth({
           isAuthenticated: true,
           user: user

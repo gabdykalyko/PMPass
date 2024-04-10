@@ -17,6 +17,7 @@ import Button from '../../components/Button/Button'
 import arrow from '../../assets/images/icons/arrowup.svg'
 import filter from '../../assets/images/icons/filter.svg'
 import arrowDown from '../../assets/images/icons/arrow-down.svg'
+import BackButton from '../../components/BackButton/BackButton'
 
 const quests = [
   {
@@ -162,6 +163,7 @@ const Quests = () => {
       <HeaderMob onLoginClick={handleLoginClick}
         onRegisterClick={handleRegisterClick} />
       <div className={`${styles.container} container-main`}>
+        <BackButton />
         <div className={styles.title}>
           Квесты
 
