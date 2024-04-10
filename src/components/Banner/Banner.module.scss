@@ -17,15 +17,16 @@
       .title {
         @include h1;
 
-        margin-bottom: 16px;
+        margin-bottom: 20px;
         font-weight: 700;
       }
 
       .subtitle {
         @include subtitle5;
 
+        line-height: 120%;
         margin-bottom: 24px;
-        width: 50%;
+        width: 45%;
       }
 
       .btn {
@@ -130,6 +131,7 @@
 
     .info {
       .container {
+        z-index: 0;
         
         .platforms {
 

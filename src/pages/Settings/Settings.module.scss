@@ -1,157 +1,206 @@
 @import '../../assets/styles/global.scss';
 
-.container {
-  padding-top: 124px;
+.wrapper {
+  position: relative;
 
-  .title {
-    @include h3;
+  .container {
+    padding-top: 124px;
 
-    color: #ffffff;
-  }
+    .title {
+      @include h3;
 
-  .main {
-    display: flex;
-    gap: 24px;
-    margin-top: 40px;
-
-    .left {
-      background-color: #0000004D;
-      border-radius: 4px;
-      height: 100%;
-      padding: 24px;
-      width: 30%;
-
-      .edit {
-        @include subtitle4m;
-
-        align-items: center;
-        color: #EAD40C;
-        display: flex;
-        gap: 8px;
-      }
-
-      .exit {
-        color: #E0E0E0;
-        cursor: pointer;
-        margin-top: 20px;
-      }
+      color: #ffffff;
     }
 
-    .right {
-      background-color: #0000004D;
-      border-radius: 4px;
-      padding: 16px;
-      padding-bottom: 32px;
-      padding-top: 32px;
-      width: 70%;
+    .main {
+      display: flex;
+      gap: 24px;
+      margin-top: 40px;
 
-      .rightTitle {
-        @include subtitle3b;
+      .left {
+        background-color: #0000004D;
+        border-radius: 4px;
+        height: 100%;
+        padding: 24px;
+        width: 30%;
 
-        color: #FFFFFF;
-      }
+        .edit {
+          @include subtitle4m;
 
-      .profileImage {
-        display: inline-flex;
-        margin-top: 32px;
-        position: relative;
-
-        img {
-          width: 92px;
+          align-items: center;
+          color: #EAD40C;
+          display: flex;
+          gap: 8px;
         }
 
-        .picture {
-          bottom: 0;
-          position: absolute;
-          right: 0;
-          width: 32px;
+        .exit {
+          color: #E0E0E0;
+          cursor: pointer;
+          margin-top: 20px;
         }
       }
 
-      .rule {
-        @include body2;
+      .right {
+        background-color: #0000004D;
+        border-radius: 4px;
+        padding: 16px;
+        padding-bottom: 32px;
+        padding-top: 32px;
+        width: 70%;
 
-        color: #E0E0E0;
-        margin-top: 12px;
+        .rightTitle {
+          @include subtitle3b;
 
-        span {
-          color: #F44336;
+          color: #FFFFFF;
         }
-      }
 
-      .inputs {
-        @include body1;
+        .profileImage {
+          display: inline-flex;
+          margin-top: 32px;
+          position: relative;
 
-        color: #FFFFFF;
-        display: flex;
-        justify-content: space-between;
-        margin-top: 32px;
-
-        .inputsItem {
-          width: 48%;
-
-          .inputsTitle {
-            margin-bottom: 12px;
-
-            span {
-              color: #F44336;
-            }
+          img {
+            width: 92px;
           }
 
-          .input {
-            align-items: center;
-            background-color: #DCDCDC0D;
-            border-radius: 8px;
-            display: flex;
-            height: 56px;
+          .picture {
+            bottom: 0;
+            position: absolute;
+            right: 0;
+            width: 32px;
+          }
+        }
 
-            input {
-              @include body1;
-              
-              background-color: unset;
-              border: none;
-              color: #E0E0E0;
-              outline: none;
-              padding: 12px;
+        .rule {
+          @include body2;
 
-              &::placeholder {
+          color: #E0E0E0;
+          margin-top: 12px;
+
+          span {
+            color: #F44336;
+          }
+        }
+
+        .inputs {
+          @include body1;
+
+          color: #FFFFFF;
+          display: flex;
+          justify-content: space-between;
+          margin-top: 32px;
+
+          .inputsItem {
+            width: 48%;
+
+            .inputsTitle {
+              margin-bottom: 12px;
+
+              span {
+                color: #F44336;
+              }
+            }
+
+            .input {
+              align-items: center;
+              background-color: #DCDCDC0D;
+              border-radius: 8px;
+              display: flex;
+              height: 56px;
+
+              input {
+                @include body1;
+
+                background-color: unset;
+                border: none;
                 color: #E0E0E0;
+                outline: none;
+                padding: 12px;
+
+                &::placeholder {
+                  color: #E0E0E0;
+                }
               }
             }
           }
         }
       }
     }
+
+    .btns {
+      display: flex;
+      gap: 24px;
+      justify-content: end;
+      margin-top: 24px;
+    }
   }
 
-  .btns {
+  .closeWrapper {
+    align-items: center;
+    background-color: rgba(0, 0, 0, .5);
+    bottom: 0;
     display: flex;
-    gap: 24px;
-    justify-content: end;
-    margin-top: 24px;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+
+    .closeModal {
+      @include h3;
+
+      background-color: $c-black;
+      border-radius: 8px;
+      color: $c-white;
+      padding: 20px;
+
+      .btns {
+        align-items: center;
+        display: flex;
+        gap: 16px;
+        justify-content: end;
+        margin-top: 36px;
+      }
+    }
   }
 }
 
 @media (max-width: 850px) {
-  .container {
-    padding-top: 104px;
+  .wrapper {
+    .container {
+      padding-top: 104px;
 
-    .main {
+      .main {
+        display: block;
 
-      .left {
-        display: none;
-      }
+        .left {
+          margin-bottom: 24px;
+          width: 100%;
+        }
 
-      .right {
-        width: 100%;
+        .right {
+          width: 100%;
 
-        .inputs {
-          display: block;
+          .inputs {
+            display: block;
 
-          .inputsItem {
-            margin-bottom: 24px;
-            width: 100%;
+            .inputsItem {
+              margin-bottom: 24px;
+              width: 100%;
+            }
           }
+        }
+      }
+    }
+
+    .closeWrapper {
+  
+      .closeModal {
+        @include h3;
+        
+        width: 90%;
+        .btns {
+         
         }
       }
     }

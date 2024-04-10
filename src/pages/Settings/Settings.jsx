@@ -11,11 +11,26 @@ import { useDispatch } from 'react-redux'
 import { logoutSuccess } from '../../slices/authSlice'
 import axios from 'axios'
 import { NavLink } from 'react-router-dom'
+import { useState } from 'react'
 
 const Settings = () => {
   const dispatch = useDispatch()
 
+  const [openModal, setOpenModal] = useState(false)
+
+  const handleClose = () => {
+    document.body.style.overflow = 'hidden'
+    setOpenModal(!openModal)
+  }
+
+  const cancel = () => {
+    document.body.style.overflow = 'auto'
+    setOpenModal(!openModal)
+  }
+
   const logout = async () => {
+    document.body.style.overflow = 'auto'
+    
     try {
       const response = await axios.get(`${process.env.REACT_APP_API_URL}/logout`, {
         withCredentials: true,
@@ -35,7 +50,7 @@ const Settings = () => {
   }
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <Header />
       <HeaderMob />
       <div className={`${styles.container} container-main`}>
@@ -49,7 +64,7 @@ const Settings = () => {
               Редактировать Профиль
             </div>
             <div className={`${styles.edit} ${styles.exit}`}
-              onClick={logout}>
+              onClick={handleClose}>
               <img src={exit} alt="" />
               Выйти из Аккаунта
             </div>
@@ -63,8 +78,8 @@ const Settings = () => {
             <div className={styles.profileImage}>
               <div>
                 <img src={defaultUserImg} alt="" />
-                <img className={styles.picture}
-                  src={picture} alt="" />
+                {/* <img className={styles.picture}
+                  src={picture} alt="" /> */}
               </div>
             </div>
             <div className={styles.rule}>
@@ -100,6 +115,26 @@ const Settings = () => {
         </div>
       </div>
       <Footer />
+
+      { openModal ?
+        <div className={styles.closeWrapper}>
+        <div className={styles.closeModal}>
+          <div>
+            Вы уверены, что хотите выйти?
+          </div>
+          <div className={styles.btns}>
+            <div onClick={cancel}>
+              <Button title='Отмена'
+                      color='brown'/>
+            </div>
+            <div onClick={logout}>
+              <Button title='Выйти'/>
+            </div>
+          </div>
+        </div>
+      </div> :
+      ''
+      }
     </div>
   )
 }

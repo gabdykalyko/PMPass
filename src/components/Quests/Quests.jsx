@@ -25,7 +25,7 @@ const Quests = () => {
             <div className={styles.txt}>
               {t('text2')}
             </div>
-            <div>
+            <div className={styles.btn}>
               <NavLink to='/quests'>
                 <Button title="Начать" />
               </NavLink>

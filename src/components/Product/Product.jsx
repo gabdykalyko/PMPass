@@ -14,11 +14,22 @@ import { updateUserAuth } from '../../utils/authUtils';
 const Product = ({ onRegisterClick, quest }) => {
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
 
+  const user = useSelector(state => state.auth.user)
+
   const [loading, setLoading] = useState(false)
 
   const dispatch = useDispatch()
 
   const buy = async (id, type) => {
+    if (!user.steam_trade_url) {
+      toast(<Toast message="Необходимо прикрепить Trade Link!"
+                     status='warning'/>, {
+        hideProgressBar: true
+      })
+
+      return
+    }
+
     try {
       setLoading(true)
 
