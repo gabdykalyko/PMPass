@@ -1,3 +1,5 @@
+@import '../../assets/styles/global.scss';
+
 .trade {
   background-color: #0000004D;
   border-radius: 8px;
@@ -5,33 +7,30 @@
   width: 50%;
 
   .title {
+    @include subtitle1b;
+
     align-items: center;
     border-bottom: 1px solid #DCDCDC26;
     color: #fff;
     display: flex;
     gap: 8px;
-    font-family: 'HelveticaNeue';
-    font-size: 24px;
-    font-weight: 700;
     padding-bottom: 21px;
   }
 
   .txt {
+    @include subtitle5;
+
     align-items: center;
     color: #EAD40C;
     display: flex;
-    font-family: 'HelveticaNeue';
-    font-size: 20px;
-    font-weight: 400;
     gap: 10px;
     margin-top: 26px;
   }
 
   .input {
+    @include body1;
+
     color: #E0E0E0;
-    font-family: 'HelveticaNeue';
-    font-size: 16px;
-    font-weight: 400;
     margin-top: 20px;
 
     .subtitle {
@@ -47,13 +46,12 @@
       padding-left: 12px;
 
       input {
+        @include body1;
+
         background-color: unset;
         border: unset;
         color: #E0E0E0;
         outline: none;
-        font-family: 'HelveticaNeue';
-        font-size: 16px;
-        font-weight: 400;
         width: 100%;
 
         &::placeholder {
@@ -64,10 +62,9 @@
   }
 
   .success {
+    @include subtitle5;
+
     color: #fff;
-    font-family: 'HelveticaNeue';
-    font-size: 20px;
-    font-weight: 400;
     margin-top: 24px;
 
     .attached {
@@ -77,10 +74,9 @@
     }
 
     .linkWrapper {
+      @include body1;
+
       color: #E0E0E0;
-      font-family: 'HelveticaNeue';
-      font-size: 16px;
-      font-weight: 400;
       margin-top: 20px;
 
       .link {

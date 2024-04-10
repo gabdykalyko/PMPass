@@ -1,9 +1,10 @@
+@import '../../assets/styles/global.scss';
+
 .wrapper {
-  align-items: center;
-  color: #EAD40C;
+  @include subtitle6m;
+  @include df-aic-g8;
+  color: $c-yellow;
+
   cursor: pointer;
-  display: flex;
-  gap: 8px;
-  font-family: 'HelveticaNeue';
   margin-bottom: 24px;
 }

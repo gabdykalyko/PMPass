@@ -1,9 +1,11 @@
+@import '../../../assets/styles/global.scss';
+
 .wrapper {
 
   .title {
+    @include h2;
+
     color: #FFFFFF;
-    font-family: 'AlbertusNova';
-    font-size: 48px;
     margin-top: 40px;
     text-align: center;
   }
@@ -13,12 +15,11 @@
   }
 
   .subtitle {
+    @include subtitle5;
+
     align-items: center;
     color: #ffffff;
     display: flex;
-    font-family: 'HelveticaNeue';
-    font-size: 20px;
-    font-weight: 400;
     gap: 18px;
     margin-bottom: 24px;
     margin-top: 24px;
@@ -36,10 +37,9 @@
   }
 
   .errorMessage {
+    @include body1;
+
     color: #F44336;
-    font-family: 'HelveticaNeue';
-    font-size: 16px;
-    font-weight: 400;
     margin-top: 16px;
     text-align: center;
   }
@@ -70,12 +70,11 @@
         width: 100%;
 
         input {
+          @include body1;
+
           background-color: unset;
           border: unset;
           color: #E0E0E0;
-          font-family: 'HelveticaNeue';
-          font-size: 16px;
-          font-weight: 400;
           outline: unset;
           width: 100%;
 
@@ -93,10 +92,9 @@
     }
 
     .condition {
+      @include body2;
+
       color: #E0E0E0;
-      font-family: 'HelveticaNeue';
-      font-size: 14px;
-      font-weight: 400;
       margin-top: 8px;
 
       .conditionItem {
@@ -108,14 +106,13 @@
     }
 
     .offer {
+      @include body1;
+
       align-items: center;
       background-color: rgba(220, 220, 220, .1);
       border-radius: 8px;
       color: #E0E0E0;
       display: flex;
-      font-family: 'HelveticaNeue';
-      font-size: 16px;
-      font-weight: 400;
       gap: 10px;
       height: 56px;
       justify-content: space-between;
@@ -146,10 +143,9 @@
     }
 
     .enter {
+      @include subtitle4m;
+
       color: #ffffff;
-      font-family: 'HelveticaNeue';
-      font-size: 20px;
-      font-weight: 500;
       margin-top: 32px;
       text-align: center;
 
@@ -168,11 +164,10 @@
     }
 
     .help {
+      @include subtitle5;
+
       color: #EAD40C;
       cursor: pointer;
-      font-family: 'HelveticaNeue';
-      font-size: 20px;
-      font-weight: 400;
       margin-top: 32px;
       text-align: center;
     }

@@ -1,3 +1,5 @@
+@import '../../assets/styles/global.scss';
+
 .wrapper {
   background-color: #1B1E23;
   bottom: 0;
@@ -22,13 +24,12 @@
       justify-content: space-between;
 
       .right {
+        @include subtitle5;
+
         align-items: center;
         color: #ffffff;
         gap: 24px;
         display: flex;
-        font-family: 'HelveticaNeue';
-        font-size: 20px;
-        font-weight: 400;
 
         .lang {
           display: flex;
@@ -45,13 +46,12 @@
       border-bottom: 1px solid #DCDCDC1A;
      
       .info {
+        @include subtitle4m;
+
         align-items: center;
         color: #ffffff;
         display: flex;
         gap: 8px;
-        font-family: 'HelveticaNeue';
-        font-size: 20px;
-        font-weight: 500;
         margin-top: 40px;
 
         img {
@@ -60,20 +60,18 @@
       }
 
       .points {
+        @include subtitle6m;
+
         color: #EAD40C;
-        font-family: 'HelveticaNeue';
-        font-size: 16px;
-        font-weight: 500;
         margin-top: 16px;
         margin-bottom: 24px;
       }
     }
 
     .menu {
+      @include subtitle4m;
+
       color: #fff;
-      font-family: 'HelveticaNeue';
-      font-size: 20px;
-      font-weight: 500;
       margin-top: 40px;
 
       .menuItem {

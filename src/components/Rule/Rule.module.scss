@@ -1,5 +1,6 @@
+@import '../../assets/styles/global.scss';
+
 .rule {
-  font-family: 'HelveticaNeue';
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 20px;
@@ -12,9 +13,9 @@
   }
 
   .title {
+    @include subtitle4m;
+
     color: #ffffff;
-    font-weight: 500;
-    font-size: 20px;
     margin-top: 20px;
     margin-bottom: 16px;
   }

@@ -1,3 +1,5 @@
+@import '../../assets/styles/global.scss';
+
 .container {
 
   .wrapper {
@@ -7,13 +9,12 @@
     padding-top: 140px;
 
     .card {
+      @include subtitle1b;
+
       background-repeat: no-repeat;
       background-size: cover;
       border-radius: 8px;
       color: #ffffff;
-      font-family: 'HelveticaNeue';
-      font-size: 24px;
-      font-weight: 700;
       height: 200px;
       padding-left: 12px;
       padding-top: 12px;

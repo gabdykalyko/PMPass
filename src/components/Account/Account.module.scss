@@ -1,4 +1,4 @@
-@import '../../assets/styles/fonts.scss';
+@import '../../assets/styles/global.scss';
 
 .wrapper {
 
@@ -31,12 +31,11 @@
         padding-bottom: 22px;
 
         .headerLeft {
+          @include subtitle1b;
+
           align-items: center;
           color: #ffffff;
           display: flex;
-          font-family: 'HelveticaNeue';
-          font-size: 24px;
-          font-weight: 700;
           gap: 8px;
         }
       }
@@ -53,13 +52,12 @@
         }
 
         .name {
+          @include subtitle4m;
+
           align-items: center;
           color: #ffffff;
           display: flex;
           gap: 5px;
-          font-family: 'HelveticaNeue';
-          font-size: 20px;
-          font-weight: 500;
 
           .id {
             color: #E0E0E0;
@@ -72,10 +70,9 @@
         }
 
         .address {
+          @include body1;
+
           color: #E0E0E0;
-          font-family: 'HelveticaNeue';
-          font-size: 16px;
-          font-weight: 400;
           margin-top: 8px;
         }
       }
@@ -85,12 +82,11 @@
         gap: 80px;
 
         .infoItem {
+          @include subtitle5;
+
           color: #E0E0E0;
           display: flex;
           gap: 8px;
-          font-family: 'HelveticaNeue';
-          font-size: 20px;
-          font-weight: 400;
 
           .steam {
             display: flex;
@@ -114,7 +110,7 @@
       padding-top: 104px;
 
       .title {
-        font-size: 32px;
+        @include h3;
       }
 
       .account {
@@ -128,7 +124,7 @@
         .header {
 
           .headerLeft {
-            font-size: 20px;
+            @include subtitle3b;
           }
         }
 
@@ -138,7 +134,7 @@
           }
 
           .name {
-            font-size: 16px;
+            @include subtitle6m;
           }
         }
 
@@ -147,7 +143,8 @@
           margin-top: 24px;
 
           .infoItem {
-            font-size: 16px;
+            @include body1;
+
             margin-bottom: 12px;
           }
         }

@@ -1,3 +1,5 @@
+@import '../../../assets/styles/global.scss';
+
 .wrapper {
   align-items: center;
   background-color: rgba(0, 0, 0, .5);
@@ -12,11 +14,10 @@
   z-index: 2;
 
   .container {
+    @include body1;
+
     background-color: #1B1E23;
     border-radius: 8px;
-    font-family: 'HelveticaNeue';
-    font-size: 16px;
-    font-weight: 400;
     line-height: 130%;
     max-height: 90%;
     max-width: 700px;

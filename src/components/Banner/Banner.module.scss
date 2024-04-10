@@ -1,39 +1,38 @@
+@import '../../assets/styles/global.scss';
+
 .wrapper {
   background: rgb(12, 220, 234);
   background: linear-gradient(0deg, rgba(12, 220, 234, 0) 0%, rgba(12, 220, 234, 0.12) 100%);
-  // background-position-y: 50px;
   position: relative;
 
   .info {
-    align-items: center;
-    display: flex;
+    @include df-aic;
+
     height: 100vh;
 
     .container {
       color: #ffffff;
-      font-family: 'HelveticaNeue';
       z-index: 2;
 
       .title {
-        font-size: 64px;
+        @include h1;
+
         margin-bottom: 16px;
         font-weight: 700;
       }
 
       .subtitle {
-        font-family: 'HelveticaNeue';
-        font-size: 20px;
-        font-weight: 400;
+        @include subtitle5;
+
         margin-bottom: 24px;
         width: 50%;
       }
 
       .btn {
+        @include subtitle6m;
+
         border-radius: 8px;
         cursor: pointer;
-        font-family: 'HelveticaNeue';
-        font-weight: 500;
-        font-size: 16px;
         padding: 10px 22px;
       }
 
@@ -43,8 +42,8 @@
       }
 
       .platforms {
-        align-items: center;
-        display: flex;
+        @include df-aic;
+
         gap: 32px;
         margin-top: 40px;
       }
@@ -94,7 +93,8 @@
       .container {
 
         .title {
-          font-size: 48px;
+          @include h2;
+
           width: 100%;
         }
 
@@ -130,11 +130,7 @@
 
     .info {
       .container {
-
-        .title {
-          font-size: 48px;
-        }
-
+        
         .platforms {
 
           img {

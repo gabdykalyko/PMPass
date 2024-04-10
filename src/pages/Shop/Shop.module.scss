@@ -1,16 +1,18 @@
+@import '../../assets/styles/global.scss';
+
 .container {
   padding-top: 124px;
   transition: all .2s linear;
 
   .title {
+    @include h2;
+
     align-items: center;
     color: #ffffff;
     display: flex;
     justify-content: space-between;
-    font-family: 'HelveticaNeue';
     font-size: 40px;
-    font-weight: 700;
-
+   
     .filter {
       align-items: center;
       background-color: #333217;

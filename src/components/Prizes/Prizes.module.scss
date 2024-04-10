@@ -1,3 +1,5 @@
+@import '../../assets/styles/global.scss';
+
 .wrapper {
   align-items: center;
   // background-image: url('../../assets/images/prizes.png');
@@ -20,18 +22,16 @@
       width: 50%;
 
       .title {
+        @include h2;
+
         color: #ffffff;
-        font-family: 'AlbertusNova';
-        font-size: 48px;
-        font-weight: 400;
         margin-bottom: 20px;
       }
 
       .txt {
+        @include subtitle5;
+
         color: #E0E0E0;
-        font-family: 'HelveticaNeue';
-        font-size: 20px;
-        font-weight: 400;
         margin-bottom: 8px;
       }
 

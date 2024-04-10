@@ -1,39 +1,41 @@
+@import '../../assets/styles/global.scss';
+
 .container {
   padding-top: 124px;
 
   .title {
+    @include h1;
+
     align-items: center;
     color: #ffffff;
     display: flex;
     justify-content: space-between;
-    font-family: 'HelveticaNeue';
     font-size: 40px;
-    font-weight: 700;
 
     .filters {
       display: flex;
       gap: 24px;
 
       .filter {
+        @include subtitle6m;
+
         align-items: center;
         background-color: #333217;
         border-radius: 8px;
         color: #EAD40C;
         cursor: pointer;
         display: flex;
-        font-size: 16px;
-        font-weight: 500;
         gap: 8px;
         height: 46px;
         padding: 10px 22px;
         position: relative;
 
         .filterWrapper {
+          @include body1;
+
           background-color: #242424;
           border-radius: 8px;
           color: #E0E0E0;
-          font-size: 16px;
-          font-weight: 400;
           left: 0;
           padding: 8px 0;
           position: absolute;

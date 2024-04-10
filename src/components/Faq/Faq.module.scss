@@ -1,11 +1,12 @@
+@import '../../assets/styles/global.scss';
+
 .container {
   margin: 160px auto 0;
 
   .title {
+    @include h2;
+
     color: #ffffff;
-    font-family: 'HelveticaNeue';
-    font-size: 48px;
-    font-weight: 700;
     margin-bottom: 75px;
     text-align: center;
   }
@@ -14,14 +15,13 @@
     margin-bottom: 24px;
 
     .question {
+      @include subtitle2m;
+
       border-bottom: 1px solid rgba(220, 220, 220, .1);
       color: #ffffff;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
-      font-family: 'HelveticaNeue';
-      font-size: 24px;
-      font-weight: 500;
       gap: 15px;
       padding-bottom: 18px;
       padding-top: 18px;
@@ -32,12 +32,11 @@
     }
 
     .answer {
+      @include subtitle5;
+
       border-bottom: 1px solid rgba(220, 220, 220, .1);
       color: #E0E0E0;
       display: none;
-      font-family: 'HelveticaNeue';
-      font-size: 20px;
-      font-weight: 400;
       line-height: 150%;
       padding-bottom: 24px;
     }

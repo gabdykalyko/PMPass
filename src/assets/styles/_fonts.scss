@@ -7,13 +7,6 @@ $helveticaneue: 'HelveticaNeue';
   font-style: normal;
 }
 
-%h2 {
-  font-family: $helveticaneue;
-  font-size: 48px;
-  font-weight: 700;
-  font-style: normal;
-}
-
 @mixin h2 {
   font-family: $helveticaneue;
   font-size: 48px;

@@ -1,11 +1,12 @@
+@import '../../../assets/styles/global.scss';
+
 .container {
   padding-top: 200px;
 
   .wrapper {
+    @include subtitle5;
+
     color: #E0E0E0;
-    font-family: 'HelveticaNeue';
-    font-size: 20px;
-    font-weight: 400;
     width: 60%;
 
     .title {
@@ -31,14 +32,13 @@
       margin-top: 24px;
 
       button {
+        @include subtitle6m;
+
         align-items: center;
         background-color: #EAD40C;
         border-radius: 8px;
         cursor: pointer;
         display: flex;
-        font-family: 'HelveticaNeue';
-        font-size: 16px;
-        font-weight: 500;
         gap: 8px;
         height: 46px;
         padding-left: 22px;

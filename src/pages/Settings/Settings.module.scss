@@ -1,11 +1,12 @@
+@import '../../assets/styles/global.scss';
+
 .container {
   padding-top: 124px;
 
   .title {
+    @include h3;
+
     color: #ffffff;
-    font-family: 'HelveticaNeue';
-    font-size: 32px;
-    font-weight: 700;
   }
 
   .main {
@@ -21,13 +22,12 @@
       width: 30%;
 
       .edit {
+        @include subtitle4m;
+
         align-items: center;
         color: #EAD40C;
         display: flex;
         gap: 8px;
-        font-family: 'HelveticaNeue';
-        font-size: 20px;
-        font-weight: 500;
       }
 
       .exit {
@@ -46,10 +46,9 @@
       width: 70%;
 
       .rightTitle {
+        @include subtitle3b;
+
         color: #FFFFFF;
-        font-family: 'HelveticaNeue';
-        font-size: 20px;
-        font-weight: 700;
       }
 
       .profileImage {
@@ -70,10 +69,9 @@
       }
 
       .rule {
+        @include body2;
+
         color: #E0E0E0;
-        font-family: 'HelveticaNeue';
-        font-size: 14px;
-        font-weight: 400;
         margin-top: 12px;
 
         span {
@@ -82,11 +80,10 @@
       }
 
       .inputs {
+        @include body1;
+
         color: #FFFFFF;
         display: flex;
-        font-family: 'HelveticaNeue';
-        font-size: 16px;
-        font-weight: 400;
         justify-content: space-between;
         margin-top: 32px;
 
@@ -109,12 +106,11 @@
             height: 56px;
 
             input {
+              @include body1;
+              
               background-color: unset;
               border: none;
               color: #E0E0E0;
-              font-family: 'HelveticaNeue';
-              font-size: 16px;
-              font-weight: 400;
               outline: none;
               padding: 12px;
 

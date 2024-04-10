@@ -1,20 +1,21 @@
+@import '../../../assets/styles/global.scss';
+
 .wrapper {
   padding-bottom: 50px;
   padding-top: 50px;
 
   .title {
+    @include h2;
+
     color: #FFFFFF;
-    font-family: 'AlbertusNova';
-    font-size: 48px;
     margin-bottom: 24px;
     text-align: center;
   }
 
   .txt {
+    @include subtitle5;
+
     color: #E0E0E0;
-    font-family: 'HelveticaNeue';
-    font-size: 20px;
-    font-weight: 400;
     margin-bottom: 8px;
     text-align: center;
   }

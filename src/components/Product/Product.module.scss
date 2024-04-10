@@ -1,3 +1,5 @@
+@import '../../assets/styles/global.scss';
+
 .container {
   background-color: rgba(0, 0, 0, .3);
   border: 1px solid rgba(0, 0, 0, .0);
@@ -24,32 +26,29 @@
   }
 
   .productName {
+    @include subtitle6m;
+
     border-bottom: 1px solid rgba(220, 220, 220, .1);
     color: #ffffff;
-    font-family: 'HelveticaNeue';
-    font-size: 16px;
-    font-weight: 500;
     margin-top: 24px;
     padding-bottom: 19px;
   }
 
   .productPrice {
+    @include subtitle3b;
+
     color: #0CDCEA;
-    font-family: 'HelveticaNeue';
-    font-size: 20px;
-    font-weight: 700;
     margin-top: 24px;
   }
 
   .btn {
 
     button {
+      @include subtitle6m;
+
       background-color: #EAD40C;
       border-radius: 8px;
       cursor: pointer;
-      font-family: 'HelveticaNeue';
-      font-size: 16px;
-      font-weight: 500;
       height: 46px;
       margin-top: 24px;
       transition: all .2s linear;
