@@ -4,7 +4,7 @@ import styles from './Quests.module.scss'
 import pudge from '../../assets/images/pudge.jpg'
 import Quest from '../../components/Quest/Quest'
 import Footer from '../../components/Footer/Footer'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Form from '../../components/modals/Form/Form'
 import huskar from '../../assets/images/quests/huskar.png'
 import chestGold from '../../assets/images/quests/chest-gold.png'
@@ -18,6 +18,8 @@ import arrow from '../../assets/images/icons/arrowup.svg'
 import filter from '../../assets/images/icons/filter.svg'
 import arrowDown from '../../assets/images/icons/arrow-down.svg'
 import BackButton from '../../components/BackButton/BackButton'
+import axios from 'axios'
+import { useTranslation } from 'react-i18next'
 
 const quests = [
   {
@@ -86,6 +88,8 @@ const Quests = () => {
   const [showHelp, setShowHelp] = useState(false)
   const [showOffer, setShowOffer] = useState(false)
   const [showBonus, setShowBonus] = useState(false)
+
+  const { t } = useTranslation('main')
 
   const handleLoginClick = () => {
     document.body.style.overflow = 'hidden'
@@ -156,6 +160,28 @@ const Quests = () => {
     setIsFilterOpen(false);
   }
 
+  const fetchData = async (page) => {
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/my_quests`,
+      {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      })
+      if (response.data) {
+       console.log(response)
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div>
       <Header onLoginClick={handleLoginClick}
@@ -165,7 +191,7 @@ const Quests = () => {
       <div className={`${styles.container} container-main`}>
         <BackButton />
         <div className={styles.title}>
-          Квесты
+          {t('quests')}
 
           <div className={styles.filters}>
             <div className={`${styles.filter} ${styles.filterBlue}`}

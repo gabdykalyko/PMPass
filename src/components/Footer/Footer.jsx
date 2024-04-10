@@ -4,8 +4,11 @@ import android from '../../assets/images/social/android.svg'
 import gallery from '../../assets/images/social/gallery.svg'
 import store from '../../assets/images/social/store.svg'
 import ios from '../../assets/images/social/ios.svg'
+import { useTranslation } from 'react-i18next'
 
 const Footer = () => {
+  const { t } = useTranslation(['main'])
+
   return (
     <div className={styles.wrapper}>
 
@@ -60,7 +63,7 @@ const Footer = () => {
         </div>
 
         <div className={styles.license}>
-          Лицензия на осуществление деятельности букмекерской конторы №20019733 от 31.12.2020г. (действительна до 17.07.2028г.) выдана РГУ «Комитет индустрии туризма Министерства культуры и спорта Республики Казахстан»
+          { t('license') }
         </div>
       </div>
     </div>

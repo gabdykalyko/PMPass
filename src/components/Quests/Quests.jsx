@@ -27,7 +27,7 @@ const Quests = () => {
             </div>
             <div className={styles.btn}>
               <NavLink to='/quests'>
-                <Button title="Начать" />
+                <Button title={t('main:begin')} />
               </NavLink>
             </div>
           </div>

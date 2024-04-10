@@ -50,9 +50,13 @@
     }
 
     .listItem {
-      align-items: center;
       display: flex;
       gap: 8px;
+
+      .listImg {
+        height: 24px;
+        width: 8px;
+      }
     }
   }
 }

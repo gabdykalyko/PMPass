@@ -57,6 +57,8 @@ const MobMenu = ({ closeMenu,
 
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
 
+  const user = useSelector(state => state.auth.user)
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -98,7 +100,7 @@ const MobMenu = ({ closeMenu,
                 </NavLink>
               </div>
               <div className={styles.points}>
-                Points: 10000
+                Points: { user.pm_points }
               </div>
             </div>
             :

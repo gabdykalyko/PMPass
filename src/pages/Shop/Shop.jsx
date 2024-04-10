@@ -18,39 +18,9 @@ import arrow from '../../assets/images/icons/arrowup.svg'
 import filter from '../../assets/images/icons/filter.svg'
 import axios from 'axios'
 import BackButton from '../../components/BackButton/BackButton'
+import { useTranslation } from 'react-i18next'
 
-const products = [
-  {
-    img: ak,
-    name: 'FreeBet 5 S/',
-    price: '10000 GG Points'
-  },
-  {
-    img: gun,
-    name: 'FreeBet 5 S/',
-    price: 'Free'
-  },
-  {
-    img: gun,
-    name: 'FreeBet 5 S/',
-    price: '20000 GG Points'
-  },
-  {
-    img: akRed,
-    name: 'FreeBet 5 S/',
-    price: '50000 GG Points'
-  },
-  {
-    img: akPink,
-    name: 'FreeBet 5 S/',
-    price: '10000 GG Points'
-  },
-  {
-    img: gunPink,
-    name: 'FreeBet 5 S/',
-    price: '20000 GG Points'
-  },
-]
+const PER_PAGE = 8
 
 const Shop = () => {
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -58,6 +28,14 @@ const Shop = () => {
   const [showHelp, setShowHelp] = useState(false)
   const [showOffer, setShowOffer] = useState(false)
   const [showBonus, setShowBonus] = useState(false)
+
+  const [pagination, setPagination] = useState(null)
+
+  const [currentPage, setCurrentPage] = useState(1)
+
+  const [totalItemsCount, setTotalItemsCount] = useState(0)
+
+  const { t } = useTranslation('main')
 
   const handleLoginClick = () => {
     document.body.style.overflow = 'hidden'
@@ -105,26 +83,48 @@ const Shop = () => {
 
   const [products, setProducts] = useState([])
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/shop_items`, {
-          withCredentials: true,
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          }
-        })
-        if (response.data) {
-          setProducts(response.data.data)
+  const fetchData = async (page) => {
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/shop_items`, {
+        params: {
+          per_page: PER_PAGE,
+          page: page
+        },
+      }, {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         }
-      } catch (error) {
-        console.error(error);
+      })
+      if (response.data) {
+        if (page === 1) {
+          setProducts(response.data.data);
+        } else {
+          setProducts(prevProducts => [...prevProducts, ...response.data.data]);
+        }
+        setPagination(response.data.pagination);
+        setTotalItemsCount(response.data.pagination.total_count)
       }
+    } catch (error) {
+      console.error(error);
     }
+  }
 
-    fetchData();
-  }, [])
+  useEffect(() => {
+    fetchData(1);
+  }, []);
+
+  const next = () => {
+    if (pagination && pagination.next_page) {
+      setCurrentPage(currentPage + 1)
+      fetchData(pagination.next_page);
+    }
+  }
+
+  const displayedItemsCount = currentPage * PER_PAGE
+
+  const additionalItemsCount = totalItemsCount - displayedItemsCount
 
   return (
     <div>
@@ -136,7 +136,7 @@ const Shop = () => {
         <BackButton />
         <div className={styles.title}>
           <div>
-            Магазин
+            {t('shop')}
           </div>
 
           <div className={styles.filter}>
@@ -152,8 +152,13 @@ const Shop = () => {
           ))}
         </div>
         <div className={styles.more}>
-          {/* <Button title='Больше'
-                  color='brown'/> */}
+          {
+            additionalItemsCount > 0 && 
+            <div onClick={next}>
+              <Button title='Больше'
+                    color='brown'/>
+            </div>
+          }
           
           <div onClick={scrollToTop}
                className={styles.up}>

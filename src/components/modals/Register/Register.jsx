@@ -11,6 +11,7 @@ import { IMaskInput } from 'react-imask'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { loginSuccess } from '../../../slices/authSlice'
+import { useTranslation } from 'react-i18next'
 
 const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick }) => {
   const [isOfferChecked, setIsOfferChecked] = useState(false)
@@ -18,6 +19,8 @@ const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
   const [errorText, setErrorText] = useState('')
   const [showError, setShowError] = useState(false)
+
+  const { t } = useTranslation('main')
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
@@ -159,7 +162,7 @@ const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
-        Регистрация
+        {t('register')}
       </div>
       {showError ? <div className={styles.errorMessage}>
         { errorText }

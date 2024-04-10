@@ -6,9 +6,12 @@ import { useEffect, useState } from 'react'
 import i18next from 'i18next'
 import defaultUserImg from '../../assets/images/defaultUser.svg'
 import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 const Header = ({ onLoginClick, onRegisterClick }) => {
   const [isKazakh, setIsKazakh] = useState(false)
+
+  const { t } = useTranslation('main')
 
   useEffect(() => {
     const currentLanguage = localStorage.getItem('language') || 'ru';
@@ -51,17 +54,17 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
         <div className={styles.nav}>
           <div>
             <NavLink to="/">
-              Главная
+              {t('main')}
             </NavLink>
           </div>
           <div>
             <NavLink to="/shop">
-              Магазин
+              {t('shop')}
             </NavLink>
           </div>
           <div>
             <NavLink to="/quests">
-              Квесты
+              {t('quests')}
             </NavLink>
           </div>
         </div>
@@ -84,7 +87,7 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
         {isAuthenticated ?
           <div className={styles.auth}>
             <div>
-              Points: { user.pm_points }
+              Points: {user.pm_points}
             </div>
             <div className={styles.line}>
 
@@ -92,7 +95,7 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
             <div className={styles.profile}>
               <div>
                 <img className={styles.profileImg}
-                     src={defaultUserImg} alt="" />
+                  src={defaultUserImg} alt="" />
               </div>
               <div>
                 <NavLink to='/profile'>
@@ -103,11 +106,11 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
           </div> :
           <div className={styles.btns}>
             <div onClick={onLoginClick}>
-              <Button title="Вход"
+              <Button title={t('enter')}
                 color="brown" />
             </div>
             <div onClick={onRegisterClick}>
-              <Button title="Регистрация" />
+              <Button title={t('register')} />
             </div>
           </div>}
       </div>
