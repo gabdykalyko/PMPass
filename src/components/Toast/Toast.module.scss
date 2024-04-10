@@ -11,4 +11,23 @@
   left: 0;
   right: 0;
   bottom: 0;
+
+  .icon {
+    height: 24px;
+    width: 24px;
+  }
+
+  .message {
+    width: 80%;
+  }
+}
+
+.warning {
+  background-color: #333217;
+  color: #EAD40C;
+}
+
+.error {
+  background-color: #351C1D;
+  color: #F44336;
 }

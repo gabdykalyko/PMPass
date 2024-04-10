@@ -50,7 +50,14 @@ const Product = ({ onRegisterClick, quest }) => {
       }
   
     } catch (error) {
-      console.error(error);
+      console.error(error)
+
+      if (error.response.data.errors.includes('user_has_not_enough_pm_points')) {
+        toast(<Toast message="Недостаточно средств на балансе!"
+                     status='warning'/>, {
+          hideProgressBar: true
+        })
+      }
     } finally {
       setLoading(false)
     }
