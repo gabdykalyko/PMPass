@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Toast from '../../components/Toast/Toast'
 import { useState } from 'react';
-import loader from '../../assets/images/loader.gif'
+import loader from '../../assets/images/icons/loader.svg'
 import { useDispatch } from "react-redux";
 import { updateAuth } from '../../slices/authSlice';
 import { updateUserAuth } from '../../utils/authUtils';
@@ -99,7 +99,7 @@ const Product = ({ onRegisterClick, quest }) => {
           <div className={styles.btn}
                onClick={onBuyClick}>
             <button disabled={loading}>
-              {loading ? <img className={styles.loader} src={loader} alt="" /> : 'Забрать'}
+            {loading ? <img className={styles.loader} src={loader} alt="" /> : 'Забрать'}
             </button>
           </div>
           :
