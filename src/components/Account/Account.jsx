@@ -40,7 +40,7 @@ const Account = () => {
             <div className={styles.headerLeft}>
               <img src={account} alt="" />
               <div>
-                Аккаунт
+                Профиль
               </div>
             </div>
             <div className={styles.headerRight}>

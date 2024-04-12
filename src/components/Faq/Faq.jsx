@@ -28,13 +28,35 @@ const Faq = () => {
     },
     {
       id: 3,
+      question: 'Как открыть инвентарь в Стиме для получения предметов?',
+      answer: `<div class="${styles.paragraph}">Чтобы получить предметы из Магазина, ваш инвентарь должен быть открыт для видимости.</div>
+      <div class="${styles.paragraph}">Для этого вы должны:</div>
+      <div class="${styles.listItem}">
+        <img src="${list}" />Откройте Стим-клиент;
+      </div>
+      <div class="${styles.listItem}">
+        <img src="${list}" />Наведите курсор на свой логин в правом верхнем углу. В выпадающем меню нажмите «Инвентарь«;
+      </div>
+      <div class="${styles.listItem}">
+        <img src="${list}" />Нажмите на вкладку «Еще», и выберите «Настройки приватности»;
+      </div>
+      <div class="${styles.listItem}">
+        <img src="${list}" />Поставьте галочки напротив слова «Открытый» в рубриках «Статус профиля» и «Инвентарь»;
+      </div>
+      <div class="${styles.listItem}">
+        <img src="${list}" class="${styles.listImg}" />Нажмите «Сохранить изменения».
+      </div>
+      `
+    },
+    {
+      id: 4,
       question: t('question3'),
       answer: `<div class="${styles.paragraph}">${t('answer3_text1')}</div>
       ${t('answer3_text2')}
       `
     },
     {
-      id: 4,
+      id: 5,
       question: t('question4'),
       answer: `<div class="${styles.paragraph}">${t('answer4_text1')}</div>
       <div class="${styles.listItem}">
@@ -59,10 +81,10 @@ const Faq = () => {
       `
     },
     {
-      id: 5,
+      id: 6,
       question: t('question5'),
       answer: t('answer5')
-    },
+    }, 
   ];
 
   const toggleAccordion = id => {
