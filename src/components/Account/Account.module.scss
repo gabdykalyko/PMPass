@@ -3,7 +3,7 @@
 .wrapper {
 
   .container {
-    padding-top: 100px;
+    padding-top: 124px;
 
     .title {
       @include h2;
@@ -16,7 +16,6 @@
       background-repeat: no-repeat;
       background-size: cover;
       border-radius: 8px;
-      margin-top: 24px;
       padding: 16px 21px;
 
       .mobEdit {

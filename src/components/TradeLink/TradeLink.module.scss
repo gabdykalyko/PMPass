@@ -13,8 +13,19 @@
     border-bottom: 1px solid #DCDCDC26;
     color: #fff;
     display: flex;
-    gap: 8px;
-    padding-bottom: 21px;
+    height: 55px;
+    justify-content: space-between;
+    padding-bottom: 16px;
+
+    .titleInfo {
+      align-items: center;
+      display: flex;
+      gap: 8px;
+    }
+
+    .editBtn {
+      cursor: pointer
+    }
   }
 
   .txt {
@@ -59,6 +70,14 @@
         }
       }
     }
+  }
+
+  .instruction {
+    @include subtitle7m;
+
+    color: #EAD40C;
+    cursor: pointer;
+    margin-top: 16px;
   }
 
   .success {
