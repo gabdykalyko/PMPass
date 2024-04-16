@@ -8,6 +8,7 @@ import Button from '../../Button/Button'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { loginSuccess } from '../../../slices/authSlice'
+import { Navigate } from 'react-router-dom'
 
 const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
 
@@ -82,6 +83,11 @@ const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
               isAuthenticated: true,
               user: response.data.userInfo
             }))
+
+            if (response.data.userInfo.first_login) {
+             return <Navigate to="/welcome" />
+            }
+
             closeForm()
           }
 

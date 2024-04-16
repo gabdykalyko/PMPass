@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import logo from './assets/images/logo.svg'
+import logo from '../assets/images/logo.svg'
 
 const PrivateRoute = ({ children }) => {
 
@@ -20,4 +20,4 @@ const PrivateRoute = ({ children }) => {
 
   return children;
 };
-export default PrivateRoute;
+export default PrivateRoute

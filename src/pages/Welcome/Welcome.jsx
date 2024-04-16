@@ -1,10 +1,9 @@
-import Button from '../../../components/Button/Button'
-import WelcomeHeader from '../WelcomeHeader/WelcomeHeader'
-import styles from './Start.module.scss'
-import arrow from '../../../assets/images/icons/arrow-right.svg'
+import WelcomeHeader from './WelcomeHeader/WelcomeHeader'
+import styles from './Welcome.module.scss'
+import arrow from '../../assets/images/icons/arrow-right.svg'
 import { NavLink } from 'react-router-dom'
 
-const Start = () => {
+const Welcome = () => {
   return (
     <div className={`${styles.container} container-main`}>
       <WelcomeHeader />
@@ -33,4 +32,4 @@ const Start = () => {
   )
 }
 
-export default Start
+export default Welcome
