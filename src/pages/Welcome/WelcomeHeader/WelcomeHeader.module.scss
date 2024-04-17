@@ -13,6 +13,7 @@
   right: 0;
   top: 0;
   width: 95%;
+  z-index: 2;
 
   .left {
     align-items: center;
@@ -41,6 +42,17 @@
 
     .yellow {
       color: #EAD40C;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .header {
+    .left {
+      
+      img {
+        width: 120px;
+      }
     }
   }
 }

@@ -1,10 +1,10 @@
 @import '../../../assets/styles/global.scss';
 
 .container {
-  padding-top: 140px;
+  padding-top: 200px;
 
   .backgroundImg {
-    background-image: url('../../../assets/images/welcome/second.png');
+    background-image: url('../../../assets/images/welcome/first.png');
     background-position: right;
     background-repeat: no-repeat;
     background-size: 40%;
@@ -23,17 +23,6 @@
     position: relative;
     width: 60%;
     z-index: 2;
-
-    .back {
-      @include subtitle6m;
-
-      align-items: center;
-      color: #EAD40C;
-      cursor: pointer;
-      display: flex;
-      gap: 16px;
-      margin-bottom: 78px;
-    }
 
     .title {
       font-size: 48px;
@@ -89,10 +78,6 @@
 
     .wrapper {
       width: 100%;
-
-      .back {
-        margin-bottom: 24px;
-      }
 
       .title {
         font-size: 24px;

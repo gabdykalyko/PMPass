@@ -2,19 +2,20 @@ import Button from '../../../components/Button/Button'
 import WelcomeHeader from '../WelcomeHeader/WelcomeHeader'
 import styles from './ShopQuests.module.scss'
 import arrow from '../../../assets/images/icons/arrow-right.svg'
-import { NavLink } from 'react-router-dom'
 import arrowYellow from '../../../assets/images/icons/arrow-yellow.svg'
+import second from '../../../assets/images/welcome/second.png'
 
-const ShopQuests = () => {
+const ShopQuests = ({ onClickPrevious, onClickNext }) => {
   return (
     <div className={`${styles.container} container-main`}>
       <WelcomeHeader />
 
       <div className={styles.wrapper}>
-        <NavLink to='/start' className={styles.back}>
+        <div onClick={onClickPrevious}
+             className={styles.back}>
           <img src={arrowYellow} alt="" />
           Назад
-        </NavLink>
+        </div>
         <div className={styles.title}>
           Квесты и <span className={styles.yellow}>Магазины</span>
         </div>
@@ -29,13 +30,20 @@ const ShopQuests = () => {
             Вы сможете обменять их на странице Магазин.
           </div>
         </div>
-        <NavLink to='/showquests'
-          className={styles.btn}>
+        <div onClick={onClickNext}
+             className={styles.btn}>
           <button>
             Дальше
             <img src={arrow} alt="" />
           </button>
-        </NavLink>
+        </div>
+        <div className={styles.banner}>
+          <img src={second} alt="" />
+        </div>
+      </div>
+
+      <div className={styles.backgroundImg}>
+
       </div>
     </div>
   )

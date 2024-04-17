@@ -8,7 +8,7 @@ import Button from '../../Button/Button'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { loginSuccess } from '../../../slices/authSlice'
-import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
 
@@ -54,6 +54,8 @@ const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
 
   const dispatch = useDispatch()
 
+  const navigate = useNavigate()
+
   const login = async (login, password) => {
     try {
       const response = await axios.post(`${process.env.REACT_APP_GR8_URL}/login`, {
@@ -85,7 +87,7 @@ const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
             }))
 
             if (response.data.userInfo.first_login) {
-             return <Navigate to="/welcome" />
+              navigate('/welcome')
             }
 
             closeForm()

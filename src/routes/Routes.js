@@ -26,10 +26,6 @@ const AppRoutes = () => (
       element={<PrivateRoute>
         <Welcome />
       </PrivateRoute>} />
-    <Route path="/showquests"
-      element={<PrivateRoute>
-        <ShopQuests />
-      </PrivateRoute>} />
   </Routes>
 )
 

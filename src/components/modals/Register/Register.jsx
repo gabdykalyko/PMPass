@@ -12,6 +12,7 @@ import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { loginSuccess } from '../../../slices/authSlice'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 
 const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick }) => {
   const [isOfferChecked, setIsOfferChecked] = useState(false)
@@ -68,6 +69,8 @@ const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick }) => {
     setPasswordHasNum(/\d/.test(value))
     setPasswordMin(/^.{6,}$/.test(value))
   };
+
+  const navigate = useNavigate()
 
   const Enter = () => {
     if (!password.length || !phoneNumber.length || !isPasswordHasNum || !isPasswordMin || !isOfferChecked) {
@@ -130,6 +133,8 @@ const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick }) => {
               isAuthenticated: true,
               user: response2.data.userInfo
             }))
+
+            navigate('/welcome')
             closeForm()
           }
 

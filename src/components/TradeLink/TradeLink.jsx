@@ -130,7 +130,7 @@ const TradeLink = ({ handleTradeClick }) => {
                   <div className={`${styles.inputWrapper} ${isValid ? '' : styles.error}`}>
                     <input type="text"
                       disabled={!editTrade}
-                      placeholder='http//:'
+                      placeholder='https://'
                       value={link}
                       onChange={handleChange} />
                   </div>
@@ -169,7 +169,7 @@ const TradeLink = ({ handleTradeClick }) => {
               <div className={`${styles.inputWrapper} ${isValid ? '' : styles.error}`}>
                 <input type="text"
                   disabled={!editTrade}
-                  placeholder='http//:'
+                  placeholder='https://'
                   value={link}
                   onChange={handleChange} />
               </div>

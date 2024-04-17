@@ -1,0 +1,193 @@
+@import '../../../assets/styles/global.scss';
+
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+
+  .wrapper {
+    width: 50%;
+    
+    .back {
+      @include subtitle6m;
+
+      align-items: center;
+      color: #EAD40C;
+      cursor: pointer;
+      display: flex;
+      gap: 16px;
+      margin-bottom: 25px;
+    }
+
+    .trade {
+      background-color: rgba(0, 0, 0, .3);
+      border-radius: 8px;
+      padding: 32px 20px;
+
+      .title {
+        @include h2;
+
+        color: $c-white;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .info {
+        @include subtitle5;
+
+        color: $c-light-grey;
+        line-height: 120%;
+        margin: 0 auto;
+        text-align: center;
+        width: 85%;
+      }
+
+      .inputWrapper {
+        @include body1;
+
+        color: $c-light-grey;
+        margin-top: 24px;
+
+        .input {
+          align-items: center;
+          background-color: rgba(220, 220, 220, .1);
+          border-radius: 8px;
+          display: flex;
+          height: 56px;
+          margin-top: 12px;
+          padding-left: 12px;
+
+          input {
+            @include body1;
+
+            background-color: unset;
+            border: none;
+            color: $c-light-grey;
+            outline: none;
+            width: 100%;
+
+            &::placeholder {
+              color: $c-light-grey;
+            }
+          }
+        }
+
+        .error {
+          border: 1px solid #F44336;
+        }
+      }
+
+      .btns {
+        @include subtitle4m;
+
+        align-items: center;
+        color: $c-yellow;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 24px;
+
+        .getTrade {
+          cursor: pointer;
+        }
+
+        .btn {
+
+          button {
+            @include subtitle6m;
+      
+            background-color: #EAD40C;
+            border-radius: 8px;
+            cursor: pointer;
+            height: 46px;
+            padding: 10px 22px;
+            transition: all .2s linear;
+            width: 139px;
+      
+            .loader {
+              animation: spin .5s linear infinite;
+              width: 24px;
+            }
+      
+            &:hover {
+              background-color: #FFEB31;
+            }
+          }
+        }
+      }
+
+      .skipInfo {
+        color: rgba(224, 224, 224, .8);
+        margin-top: 60px;
+        text-align: center;
+      }
+    }
+
+    .skipBtn {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 24px;
+
+      button {
+        @include subtitle6m;
+
+        align-items: center;
+        background-color: #333217;
+        border-radius: 8px;
+        color: #EAD40C;
+        cursor: pointer;
+        display: flex;
+        gap: 8px;
+        height: 46px;
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 850px) {
+  .container {
+    height: unset;
+    padding-bottom: 100px;
+    padding-top: 104px;
+
+    .wrapper {
+      width: 90%;
+
+      .trade {
+        padding: 20px 14px;
+
+        .title {
+          @include h3;
+        }
+
+        .info {
+          @include body1;
+
+          width: 100%;
+        }
+
+        .btns {
+          @include subtitle6m;
+
+          .btn {
+
+            button {
+              @include subtitle7m;
+
+              height: 36px;
+              padding: 6px 16px;
+              width: unset;
+            }
+          }
+        }
+      }
+    }
+  }
+}

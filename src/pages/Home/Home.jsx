@@ -11,11 +11,13 @@ import styles from './Home.module.scss'
 import Form from '../../components/modals/Form/Form'
 import Offer from '../../components/modals/Offer/Offer'
 import Bonus from '../../components/modals/Bonus/Bonus'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Cards from '../../components/Cards/Cards'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Toast from '../../components/Toast/Toast'
+import { updateAuth } from '../../slices/authSlice'
+import axios from 'axios'
 
 const Home = () => {
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -63,9 +65,39 @@ const Home = () => {
 
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
 
+  const dispatch = useDispatch()
+
   useEffect(() => {
     const currentURL = window.location.href
+
+    const firstLogin = async () => {
+      try {
+        const response = await axios.put(`${process.env.REACT_APP_API_URL}/profile`, {
+          "first_login": false
+        }, {
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        })
+  
+        if (response.data) {
+          dispatch(updateAuth({
+            isAuthenticated: true,
+            user: response.data
+          }))
+  
+          localStorage.setItem('currentPage', 1)
+        }
+  
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
     if (currentURL.includes('?steam_auth=success')) {
+      firstLogin()
       toast(<Toast message="Steam аккаунт прикреплен" />, {
         hideProgressBar: true
       });
