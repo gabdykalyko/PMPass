@@ -5,7 +5,6 @@ import defaultQuest from '../../assets/images/quests/default.png'
 const Quest = ({ quest, onRegisterClick }) => {
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
 
-  console.log(quest)
   return (
     <div className={styles.container}>
       <div className={styles.imgWrapper}>
