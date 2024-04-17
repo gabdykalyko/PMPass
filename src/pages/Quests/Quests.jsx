@@ -82,6 +82,8 @@ const quests = [
   }
 ]
 
+const PER_PAGE = 6
+
 const Quests = () => {
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [showLogin, setShowLogin] = useState(true)
@@ -160,10 +162,19 @@ const Quests = () => {
     setIsFilterOpen(false);
   }
 
+  const [products, setProducts] = useState([])
+  const [pagination, setPagination] = useState(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [totalItemsCount, setTotalItemsCount] = useState(0)
+
   const fetchData = async (page) => {
     try {
       const response = await axios.get(`${process.env.REACT_APP_API_URL}/my_quests`,
       {
+        params: {
+          page: page,
+          per_page: PER_PAGE
+        },
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -171,7 +182,14 @@ const Quests = () => {
         }
       })
       if (response.data) {
-       console.log(response)
+        if (page === 1) {
+          setProducts(response.data.data);
+          console.log(products)
+        } else {
+          setProducts(prevProducts => [...prevProducts, ...response.data.data]);
+        }
+        setPagination(response.data.pagination);
+        setTotalItemsCount(response.data.pagination.total_count)
       }
     } catch (error) {
       console.error(error);
@@ -179,8 +197,19 @@ const Quests = () => {
   }
 
   useEffect(() => {
-    fetchData();
+    fetchData(1);
   }, []);
+
+  const displayedItemsCount = currentPage * PER_PAGE
+
+  const additionalItemsCount = totalItemsCount - displayedItemsCount
+
+  const next = () => {
+    if (pagination && pagination.next_page) {
+      setCurrentPage(currentPage + 1)
+      fetchData(pagination.next_page);
+    }
+  }
 
   return (
     <div>
@@ -244,21 +273,20 @@ const Quests = () => {
         </div>
 
         <div className={styles.wrapper}>
-          {quests.map((quest, index) => (
-            <Quest key={index}
-              img={quest.img}
-              chest={quest.chest}
-              status={quest.status}
-              price={quest.price}
-              name={quest.name}
-              task={quest.task}
-              labels={quest.labels}
+          {products.map((quest) => (
+            <Quest key={quest.id}
+              quest={quest}
               onRegisterClick={handleRegisterClick} />
           ))}
         </div>
         <div className={styles.more}>
-          <Button title='Больше'
-            color='brown' />
+          {
+            additionalItemsCount > 0 && 
+            <div onClick={next}>
+              <Button title='Больше'
+                    color='brown'/>
+            </div>
+          }
 
           <div onClick={scrollToTop}
             className={styles.up}>

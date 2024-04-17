@@ -1,49 +1,54 @@
 import { useSelector } from 'react-redux'
 import styles from './Quest.module.scss'
+import defaultQuest from '../../assets/images/quests/default.png'
 
-const Quest = (props) => {
+const Quest = ({ quest, onRegisterClick }) => {
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
 
+  console.log(quest)
   return (
     <div className={styles.container}>
       <div className={styles.imgWrapper}>
         <div className={styles.img}>
-          <img src={props.img} alt="" />
+          <img src={quest.img ? quest.img : defaultQuest} alt="" />
 
-          <div className={styles.chestPrice}>
-            {props.price}
+          {/* <div className={styles.chestPrice}>
+            {quest.rewards[0] && quest.rewards[0].name}
           </div>
           <div className={styles.price}>
-            {props.price}
-          </div>
+          {quest.rewards[0] && quest.rewards[0].name}
+          </div> */}
         </div>
       </div>
 
       <div className={styles.chestTitleWrapper}>
         <div className={styles.chestTitle}>
           <div className={styles.chestName}>
-            {props.chest}
+          {quest.rewards[0] && quest.rewards[0].name}
           </div>
-          <div className={`${styles.chestStatus} ${props.status === 'Активен' ? styles.chestStatusActive : props.status === 'Скоро' ? styles.chestStatusSoon : styles.chestStatusCompleted}`}>
-            {props.status}
+          <div className={`${styles.chestStatus} ${quest.status === 'Активен' ? styles.chestStatusActive : quest.status === 'Скоро' ? styles.chestStatusSoon : styles.chestStatusCompleted}`}>
+            {quest.status}
           </div>
         </div>
       </div>
 
       <div className={styles.questName}>
-        {props.name}
+        {quest.name}
       </div>
-      <div className={styles.questTask}>
-        {props.task}
+      <div dangerouslySetInnerHTML={{ __html: quest.description }} className={styles.questTask}>
+        {/* {quest.description} */}
       </div>
 
       <div className={styles.labels}>
-        {props.labels.map((label, index) => (
+        {/* {props.labels && props.labels.map((label, index) => (
           <div className={`${styles.label} ${label === 'Parimatch' ? styles.pm : styles.dota}`}
             key={index}>
             {label}
           </div>
-        ))}
+        ))} */}
+        <div className={`${styles.label} ${styles.pm}`}>
+            Parimatch
+          </div>
       </div>
 
       {
@@ -53,7 +58,7 @@ const Quest = (props) => {
               Начать квест
             </button>
           </div>
-          : <div onClick={props.onRegisterClick}
+          : <div onClick={onRegisterClick}
             className={styles.btn}>
             <button>
               Начать квест

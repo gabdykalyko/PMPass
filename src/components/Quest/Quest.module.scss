@@ -33,12 +33,14 @@
         bottom: 0;
         left: 50%;
         color: rgba(255, 255, 255, 0);
+        height: 32px;
         padding-bottom: 3px;
         padding-left: 41px;
         padding-right: 41px;
         padding-top: 3px;
         position: absolute;
         transform: skewX(-15deg) translateX(-50%);
+        width: 149px;
       }
 
       .price {
@@ -47,12 +49,14 @@
         bottom: 0;
         left: 50%;
         color: #0CDCEA;
+        height: 32px;
         padding-bottom: 3px;
         padding-left: 41px;
         padding-right: 41px;
         padding-top: 3px;
         position: absolute;
         transform: translateX(-50%);
+        width: 149px;
       }
     }
   }
@@ -71,6 +75,11 @@
         @include subtitle3b;
 
         color: #0CDCEA;
+        width: 200px;
+        height: 24px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .chestStatus {
@@ -101,14 +110,24 @@
     @include subtitle1b;
 
     color: #ffffff;
+    height: 29px;
     margin-top: 24px;
+    white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 240px
   }
 
   .questTask {
     @include body1;
 
     color: #E0E0E0;
+    height: 40px;
     margin-top: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 307px;
   }
 
   .labels {

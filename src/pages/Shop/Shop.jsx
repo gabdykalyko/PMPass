@@ -90,7 +90,6 @@ const Shop = () => {
           per_page: PER_PAGE,
           page: page
         },
-      }, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
