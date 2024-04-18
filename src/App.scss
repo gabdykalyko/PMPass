@@ -3,29 +3,51 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.kz {
+  a {
+    font-family: 'Roboto';
+    font-weight: 600;
+  }
+
+  div {
+    font-family: 'Roboto';
+    font-weight: 600;
+
+    p {
+      font-family: 'Roboto';
+      font-weight: 400;
+
+      div {
+        font-family: 'Roboto';
+        font-weight: 400;
+      }
+    }
+  }
 }
 
 ul,
 li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 a {
-    color: unset;
-    text-decoration: none;
+  color: unset;
+  text-decoration: none;
 }
 
 body {
-    background-color: #1B1E23;
+  background-color: #1B1E23;
 }
 
 button {
-    background-color: unset;
-    border: none;
-    outline: none;
+  background-color: unset;
+  border: none;
+  outline: none;
 }
 
 .container-main {

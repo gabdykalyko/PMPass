@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import AppRoutes from './routes/Routes.js';
 import Hotjar from '@hotjar/browser'
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 function App() {
 
@@ -15,11 +16,15 @@ function App() {
       });
   }, []);
 
+  const { t, i18n } = useTranslation()
+
   return (
     <BrowserRouter>
-      <AppRoutes />
-      <ScrollToTop />
-      <ToastContainer />
+      <div className={`${i18n.language === 'kz' ? 'kz' : 'ru'}`}>
+        <AppRoutes />
+        <ScrollToTop />
+        <ToastContainer />
+      </div>
     </BrowserRouter>
   );
 }
