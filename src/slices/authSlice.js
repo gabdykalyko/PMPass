@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import Hotjar from '@hotjar/browser'
 
 export const authSlice = createSlice({
   name: 'auth',
@@ -11,6 +12,10 @@ export const authSlice = createSlice({
     loginSuccess: (state, action) => {
       state.isAuthenticated = action.payload.isAuthenticated
       state.user = action.payload.user;
+
+      Hotjar.identify(action.payload.user.pm_id, {
+        phone: action.payload.user.phone,
+      })
     },
     logoutSuccess: (state) => {
       state.isAuthenticated = false;
@@ -19,6 +24,10 @@ export const authSlice = createSlice({
     updateAuth: (state, action) => {
       state.isAuthenticated = action.payload.isAuthenticated
       state.user = action.payload.user;
+
+      Hotjar.identify(action.payload.user.pm_id, {
+        phone: action.payload.user.phone,
+      })
     },
     setLoading: (state, action) => {
       state.isLoading = action.payload;

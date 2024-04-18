@@ -28,23 +28,23 @@ const Faq = () => {
     },
     {
       id: 3,
-      question: 'Как открыть инвентарь в Стиме для получения предметов?',
-      answer: `<div class="${styles.paragraph}">Чтобы получить предметы из Магазина, ваш инвентарь должен быть открыт для видимости.</div>
-      <div class="${styles.paragraph}">Для этого вы должны:</div>
+      question: t('question6'),
+      answer: `<div class="${styles.paragraph}">${t('answer6_text1')}</div>
+      <div class="${styles.paragraph}">${t('answer6_text2')}</div>
       <div class="${styles.listItem}">
-        <img src="${list}" />Откройте Стим-клиент;
+        <img src="${list}" />${t('answer6_text3')}
       </div>
       <div class="${styles.listItem}">
-        <img src="${list}" />Наведите курсор на свой логин в правом верхнем углу. В выпадающем меню нажмите «Инвентарь«;
+        <img src="${list}" />${t('answer6_text4')}
       </div>
       <div class="${styles.listItem}">
-        <img src="${list}" />Нажмите на вкладку «Еще», и выберите «Настройки приватности»;
+        <img src="${list}" />${t('answer6_text5')}
       </div>
       <div class="${styles.listItem}">
-        <img src="${list}" />Поставьте галочки напротив слова «Открытый» в рубриках «Статус профиля» и «Инвентарь»;
+        <img src="${list}" />${t('answer6_text6')}
       </div>
       <div class="${styles.listItem}">
-        <img src="${list}" class="${styles.listImg}" />Нажмите «Сохранить изменения».
+        <img src="${list}" class="${styles.listImg}" />${t('answer6_text7')}
       </div>
       `
     },
