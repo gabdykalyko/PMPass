@@ -20,6 +20,7 @@ import arrowDown from '../../assets/images/icons/arrow-down.svg'
 import BackButton from '../../components/BackButton/BackButton'
 import axios from 'axios'
 import { useTranslation } from 'react-i18next'
+import loader from '../../assets/images/icons/loader.svg'
 
 const quests = [
   {
@@ -169,6 +170,8 @@ const Quests = () => {
 
   const fetchData = async (page) => {
     try {
+      setLoading(true)
+
       const response = await axios.get(`${process.env.REACT_APP_API_URL}/my_quests`,
       {
         params: {
@@ -193,6 +196,8 @@ const Quests = () => {
       }
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -210,6 +215,8 @@ const Quests = () => {
       fetchData(pagination.next_page);
     }
   }
+
+  const [loading, setLoading] = useState(false)
 
   return (
     <div>
@@ -282,9 +289,11 @@ const Quests = () => {
         <div className={styles.more}>
           {
             additionalItemsCount > 0 && 
-            <div onClick={next}>
-              <Button title='Больше'
-                    color='brown'/>
+            <div onClick={next}
+                 className={styles.btn}>
+              <button disabled={loading}>
+                {loading ? <img className={styles.loader} src={loader} alt="" /> : 'Больше'}
+              </button>
             </div>
           }
 

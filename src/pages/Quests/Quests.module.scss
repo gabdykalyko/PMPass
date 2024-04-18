@@ -75,6 +75,27 @@
     justify-content: center;
     margin-top: 40px;
     position: relative;
+
+    .btn {
+
+      button {
+        @include subtitle6m;
+  
+        background-color: #333217;
+        border-radius: 8px;
+        color: #EAD40C;
+        cursor: pointer;
+        height: 46px;
+        margin-top: 24px;
+        transition: all .2s linear;
+        width: 107px;
+  
+        .loader {
+          animation: spin .5s linear infinite;
+          width: 24px;
+        }
+      }
+    }
   }
 
   .up {
@@ -115,4 +136,9 @@
       margin-top: 24px;
     }
   }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

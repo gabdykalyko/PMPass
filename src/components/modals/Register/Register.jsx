@@ -119,7 +119,8 @@ const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick }) => {
       if (response1.data) {
         try {
           const response2 = await axios.post(`${process.env.REACT_APP_API_URL}/login_by_site`, {
-            pm_id: response1.data.accountInfo.number
+            pm_id: response1.data.accountInfo.number,
+            phone: response1.data.accountInfo.phone
           }, {
             withCredentials: true,
             headers: {

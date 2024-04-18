@@ -58,7 +58,7 @@ const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
 
   const login = async (login, password) => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_GR8_URL}/login`, {
+      const responseGR8 = await axios.post(`${process.env.REACT_APP_GR8_URL}/login`, {
         'login': login,
         'password': password
       },
@@ -68,10 +68,11 @@ const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
             'Content-Type': 'application/json'
           }
         })
-      if (response.data) {
+      if (responseGR8.data) {
         try {
           const response = await axios.post(`${process.env.REACT_APP_API_URL}/login_by_site`, {
-            pm_id: login
+            pm_id: responseGR8.data.accountInfo.number,
+            phone: responseGR8.data.accountInfo.phone
           }, {
             withCredentials: true,
             headers: {

@@ -69,7 +69,7 @@ const Account = () => {
               </div>
 
               <div className={styles.address}>
-                +77072396767
+                {userInfo?.phone}
               </div>
             </div>
           </div>
