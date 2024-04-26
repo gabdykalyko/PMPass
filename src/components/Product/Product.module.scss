@@ -8,17 +8,13 @@
   transition: all .2s linear;
 
   .imgWrapper {
+    align-items: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     display: flex;
+    height: 136px;
     justify-content: center;
-
-    .img {
-      align-items: center;
-      background-image: url('../../assets/images/card.png');
-      display: flex;
-      justify-content: center;
-      height: 136px;
-      width: 165px;
-    }
   }
 
   img {
@@ -37,7 +33,7 @@
   .productPrice {
     @include subtitle3b;
 
-    color: #0CDCEA;
+    color: $c-yellow;
     margin-top: 24px;
   }
 
@@ -71,6 +67,11 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

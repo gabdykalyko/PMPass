@@ -21,6 +21,7 @@ import BackButton from '../../components/BackButton/BackButton'
 import axios from 'axios'
 import { useTranslation } from 'react-i18next'
 import loader from '../../assets/images/icons/loader.svg'
+import { useSelector } from 'react-redux'
 
 const quests = [
   {
@@ -92,6 +93,8 @@ const Quests = () => {
   const [showOffer, setShowOffer] = useState(false)
   const [showBonus, setShowBonus] = useState(false)
 
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
+
   const { t } = useTranslation('main')
 
   const handleLoginClick = () => {
@@ -141,52 +144,60 @@ const Quests = () => {
   const [isStatusOpen, setIsStatusOpen] = useState(false)
   const [selectedStatus, setSelectedStatus] = useState('')
 
-  const toggleStatus= () => {
-    setIsStatusOpen(!isStatusOpen);
+  const toggleStatus = () => {
+    setIsStatusOpen(!isStatusOpen)
+    setIsFilterOpen(false)
   }
 
-  const selectStatus = (filter) => {
-    setSelectedStatus(filter);
-    setIsStatusOpen(false);
+  const selectStatus = (status) => {
+    setSelectedStatus(status)
+    setIsStatusOpen(false)
+    fetchData(1, selectedFilter, status)
   }
 
-  
+
   const [isFilterOpen, setIsFilterOpen] = useState(false)
   const [selectedFilter, setSelectedFilter] = useState('')
 
-  const toggleFilter= () => {
+  const toggleFilter = () => {
     setIsFilterOpen(!isFilterOpen);
+    setIsStatusOpen(false)
   }
 
   const selectFilter = (filter) => {
-    setSelectedFilter(filter);
-    setIsFilterOpen(false);
+    setSelectedFilter(filter)
+    setIsFilterOpen(false)
+    fetchData(1, filter, selectedStatus)
   }
 
   const [products, setProducts] = useState([])
   const [pagination, setPagination] = useState(null)
   const [currentPage, setCurrentPage] = useState(1)
   const [totalItemsCount, setTotalItemsCount] = useState(0)
+  const [categories, setCategories] = useState(null)
 
-  const fetchData = async (page) => {
+  const fetchData = async (page, category = null, status = null) => {
     try {
       setLoading(true)
 
       const response = await axios.get(`${process.env.REACT_APP_API_URL}/my_quests`,
-      {
-        params: {
-          page: page,
-          per_page: PER_PAGE
-        },
-        withCredentials: true,
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        }
-      })
+        {
+          params: {
+            page: page,
+            per_page: PER_PAGE,
+            quest_category: category,
+            status: status
+          },
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        })
       if (response.data) {
         if (page === 1) {
-          setProducts(response.data.data);
+          setProducts(response.data.data)
+          setCategories(response.data.meta.categories)
         } else {
           setProducts(prevProducts => [...prevProducts, ...response.data.data]);
         }
@@ -201,8 +212,8 @@ const Quests = () => {
   }
 
   useEffect(() => {
-    fetchData(1);
-  }, []);
+    fetchData(1, selectedFilter, selectedStatus);
+  }, [isAuthenticated]);
 
   const displayedItemsCount = currentPage * PER_PAGE
 
@@ -229,50 +240,53 @@ const Quests = () => {
           {t('quests')}
 
           <div className={styles.filters}>
-            <div className={`${styles.filter} ${styles.filterBlue}`}
-                 onClick={toggleStatus}>
-              Статус
-              <img src={arrowDown} alt="" />
+            {
+              isAuthenticated &&
+              <div className={`${styles.filter} ${styles.filterPurple}`}
+                onClick={toggleStatus}>
+                Статус
+                <img src={arrowDown} alt="" />
 
-              {isStatusOpen &&
-                <div className={styles.filterWrapper}>
-                  <div className={`${styles.filterItem} ${selectedStatus === 'Активные' ? styles.selectedFilter : ''}`}
-                    onClick={() => selectStatus('Активные')}>
-                    Активные
-                  </div>
-                  <div className={`${styles.filterItem} ${selectedStatus === 'Скоро' ? styles.selectedFilter : ''}`}
-                    onClick={() => selectStatus('Скоро')}>
-                    Скоро
-                  </div>
-                  <div className={`${styles.filterItem} ${selectedStatus === 'Завершенные' ? styles.selectedFilter : ''}`}
-                    onClick={() => selectStatus('Завершенные')}>
-                    Завершенные
-                  </div>
-                </div>}
-            </div>
+                {isStatusOpen &&
+                  <div className={styles.filterWrapper}>
+                    <div className={`${styles.filterItem} ${selectedStatus === 'no_progress' ? styles.selectedFilter : ''}`}
+                      onClick={() => selectStatus('no_progress')}>
+                      Новые
+                    </div>
+                    <div className={`${styles.filterItem} ${selectedStatus === 'in_progress' ? styles.selectedFilter : ''}`}
+                      onClick={() => selectStatus('in_progress')}>
+                      Активные
+                    </div>
+                    <div className={`${styles.filterItem} ${selectedStatus === 'completed' ? styles.selectedFilter : ''}`}
+                      onClick={() => selectStatus('completed')}>
+                      Завершенные
+                    </div>
+                    <div className={`${styles.filterItem} ${selectedStatus === 'Получена награда' ? styles.selectedFilter : ''}`}
+                      onClick={() => selectStatus('reward_received')}>
+                      Получена награда
+                    </div>
+                  </div>}
+              </div>
+            }
             <div className={styles.filter}
-                 onClick={toggleFilter}>
+              onClick={toggleFilter}>
               Фильтр квестов
               <img src={filter} alt="" />
 
               {isFilterOpen &&
                 <div className={styles.filterWrapper}>
-                  <div className={`${styles.filterItem} ${selectedFilter === 'Все' ? styles.selectedFilter : ''}`}
-                    onClick={() => selectFilter('Все')}>
+                  <div className={`${styles.filterItem} ${selectedFilter === '' ? styles.selectedFilter : ''}`}
+                    onClick={() => selectFilter('')}>
                     Все
                   </div>
-                  <div className={`${styles.filterItem} ${selectedFilter === 'Parimatch' ? styles.selectedFilter : ''}`}
-                    onClick={() => selectFilter('Parimatch')}>
-                    Parimatch
-                  </div>
-                  <div className={`${styles.filterItem} ${selectedFilter === 'Dota' ? styles.selectedFilter : ''}`}
-                    onClick={() => selectFilter('Dota')}>
-                    Dota
-                  </div>
-                  <div className={`${styles.filterItem} ${selectedFilter === 'Выполненные квесты' ? styles.selectedFilter : ''}`}
-                    onClick={() => selectFilter('Выполненные квесты')}>
-                    Выполненные квесты
-                  </div>
+                  {
+                    categories.map((category, index) => (
+                      <div key={index} className={`${styles.filterItem} ${selectedFilter === category ? styles.selectedFilter : ''}`}
+                        onClick={() => selectFilter(category)}>
+                        {category}
+                      </div>
+                    ))
+                  }
                 </div>}
             </div>
           </div>
@@ -287,9 +301,9 @@ const Quests = () => {
         </div>
         <div className={styles.more}>
           {
-            additionalItemsCount > 0 && 
+            additionalItemsCount > 0 &&
             <div onClick={next}
-                 className={styles.btn}>
+              className={styles.btn}>
               <button disabled={loading}>
                 {loading ? <img className={styles.loader} src={loader} alt="" /> : 'Больше'}
               </button>
@@ -298,7 +312,9 @@ const Quests = () => {
 
           <div onClick={scrollToTop}
             className={styles.up}>
-            <img src={arrow} alt="" />
+              {
+                products.length !== 0 && <img src={arrow} alt="" />
+              }
           </div>
         </div>
       </div>

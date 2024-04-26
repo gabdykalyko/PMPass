@@ -10,6 +10,35 @@
     text-align: center;
   }
 
+  .select {
+    background-color: #DCDCDC1A;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    height: 56px;
+    margin-top: 24px;
+    padding: 1px;
+
+    .selectItem {
+      @include body1;
+
+      align-items: center;
+      color: $c-light-grey;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      width: 33%;
+    }
+
+    .selected {
+      @include subtitle6m;
+
+      background-color: #0000004D;
+      border-radius: 11px;
+      color: $c-white;
+    }
+  }
+
   .steam {
     text-align: center;
   }
@@ -24,7 +53,7 @@
     margin-bottom: 24px;
     margin-top: 24px;
     white-space: nowrap;
-    
+
     .line {
       background-color: rgba(220, 220, 220, .1);
       height: 1px;
@@ -181,9 +210,20 @@
 @media (max-width: 850px) {
   .wrapper {
     width: 100%;
-    
+
     .title {
       font-size: 32px;
+    }
+
+    .select {
+
+      .selectItem {
+        @include tableinput;
+      }
+
+      .selected {
+        @include buttonsmall;
+      }
     }
 
     .subtitle {

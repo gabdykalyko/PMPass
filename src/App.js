@@ -10,10 +10,7 @@ import { useTranslation } from 'react-i18next';
 function App() {
 
   useEffect(() => {
-    Hotjar.init(process.env.REACT_APP_HOTJAR_ID, process.env.REACT_APP_HOTJAR_SNIPPET_VERSION,
-      {
-        debug: true
-      });
+    Hotjar.init(process.env.REACT_APP_HOTJAR_ID, process.env.REACT_APP_HOTJAR_SNIPPET_VERSION);
   }, []);
 
   const { t, i18n } = useTranslation()

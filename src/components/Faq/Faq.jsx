@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './Faq.module.scss'
-import arrowup from '../../assets/images/icons/arrowup.svg'
+import arrowup from '../../assets/images/icons/arrow-up.svg'
 import arrowdown from '../../assets/images/icons/arrowdown.svg'
 import list from '../../assets/images/icons/list.svg'
 import { useTranslation } from 'react-i18next'

@@ -40,6 +40,7 @@
           padding: 8px 0;
           position: absolute;
           top: 120%;
+          width: 170px;
           z-index: 1;
 
           .filterItem {
@@ -58,6 +59,11 @@
       .filterBlue {
         background-color: #193B41;
         color: #0CDCEA;
+      }
+
+      .filterPurple {
+        background-color: #3A2159;
+        color: #AE6FFF;
       }
     }
   }
@@ -86,7 +92,6 @@
         color: #EAD40C;
         cursor: pointer;
         height: 46px;
-        margin-top: 24px;
         transition: all .2s linear;
         width: 107px;
   

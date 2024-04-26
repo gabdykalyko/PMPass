@@ -1,126 +1,106 @@
-$helveticaneue: 'HelveticaNeue';
-
 @mixin h1 {
-  font-family: $helveticaneue;
   font-size: 64px;
   font-weight: 700;
   font-style: normal;
 }
 
 @mixin h2 {
-  font-family: $helveticaneue;
   font-size: 48px;
   font-weight: 700;
   font-style: normal;
 }
 
 @mixin h3 {
-  font-family: $helveticaneue;
   font-size: 32px;
   font-weight: 700;
   font-style: normal;
 }
 
 @mixin subtitle1b {
-  font-family: $helveticaneue;
   font-size: 24px;
   font-weight: 700;
   font-style: normal;
 }
 
 @mixin subtitle2m {
-  font-family: $helveticaneue;
   font-size: 24px;
   font-weight: 500;
   font-style: normal;
 }
 
 @mixin subtitle3b {
-  font-family: $helveticaneue;
   font-size: 20px;
   font-weight: 700;
   font-style: normal;
 }
 
 @mixin subtitle4m {
-  font-family: $helveticaneue;
   font-size: 20px;
   font-weight: 500;
   font-style: normal;
 }
 
 @mixin subtitle5 {
-  font-family: $helveticaneue;
   font-size: 20px;
   font-weight: 400;
   font-style: normal;
 }
 
 @mixin subtitle6m {
-  font-family: $helveticaneue;
   font-size: 16px;
   font-weight: 500;
   font-style: normal;
 }
 
 @mixin subtitle7m {
-  font-family: $helveticaneue;
   font-size: 14px;
   font-weight: 500;
   font-style: normal;
 }
 
 @mixin body1 {
-  font-family: $helveticaneue;
   font-size: 16px;
   font-weight: 400;
   font-style: normal;
 }
 
 @mixin body2 {
-  font-family: $helveticaneue;
   font-size: 14px;
   font-weight: 400;
   font-style: normal;
 }
 
 @mixin buttonlarge {
-  font-family: $helveticaneue;
   font-size: 16px;
   font-weight: 500;
   font-style: normal;
 }
 
 @mixin buttonmedium {
-  font-family: $helveticaneue;
   font-size: 14px;
   font-weight: 500;
   font-style: normal;
 }
 
 @mixin buttonsmall {
-  font-family: $helveticaneue;
   font-size: 13px;
   font-weight: 500;
   font-style: normal;
 }
 
 @mixin input {
-  font-family: $helveticaneue;
   font-size: 16px;
   font-weight: 400;
   font-style: normal;
 }
 
 @mixin helper {
-  font-family: $helveticaneue;
   font-size: 12px;
   font-weight: 400;
   font-style: normal;
 }
 
 @mixin tableinput {
-  font-family: $helveticaneue;
   font-size: 13px;
   font-weight: 400;
   font-style: normal;

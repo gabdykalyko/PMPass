@@ -80,10 +80,8 @@ const Product = ({ onRegisterClick, quest }) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.imgWrapper}>
-        <div className={styles.img}>
-          <img src={quest.img ? quest.img : defaultProduct} alt="" />
-        </div>
+      <div className={styles.imgWrapper} style={{backgroundImage: `url(${quest.image ? quest.image : defaultProduct})`}}>
+        {/* <img src={quest.image ? quest.image : defaultQuest} alt="" /> */}
       </div>
 
       <div className={styles.productName}>
@@ -91,7 +89,7 @@ const Product = ({ onRegisterClick, quest }) => {
       </div>
 
       <div className={styles.productPrice}>
-        {quest.price}
+        {quest.price} GG Points
       </div>
 
       {

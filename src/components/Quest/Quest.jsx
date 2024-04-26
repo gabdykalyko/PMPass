@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom'
 
 const Quest = ({ quest, onRegisterClick }) => {
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
-  console.log(quest)
 
   return (
     <div className={styles.container}>
@@ -45,7 +44,7 @@ const Quest = ({ quest, onRegisterClick }) => {
 
       {
         isAuthenticated ?
-          <NavLink to={`https://parimatch.kz/ru/gamification/daily-quests/${quest.id}/0`}
+          <NavLink to={`${quest.url ? quest.url : 'https://parimatch.kz/ru/gamification/daily-quests'}`}
             target='_blank'
             className={styles.btn}>
             <button>

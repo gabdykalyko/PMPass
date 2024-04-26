@@ -9,24 +9,20 @@
 }
 
 .kz {
+  font-family: 'Inter';
+
+  button,
   a {
-    font-family: 'Roboto';
-    font-weight: 600;
+    font-family: 'Inter';
   }
+}
 
-  div {
-    font-family: 'Roboto';
-    font-weight: 600;
+.ru {
+  font-family: 'HelveticaNeue';
 
-    p {
-      font-family: 'Roboto';
-      font-weight: 400;
-
-      div {
-        font-family: 'Roboto';
-        font-weight: 400;
-      }
-    }
+  button,
+  a {
+    font-family: 'HelveticaNeue';
   }
 }
 
