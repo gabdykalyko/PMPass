@@ -1,8 +1,8 @@
 @import '../../assets/styles/global.scss';
 
 .wrapper {
-  background: rgb(12, 220, 234);
-  background: linear-gradient(0deg, rgba(12, 220, 234, 0) 0%, rgba(12, 220, 234, 0.12) 100%);
+  // background: rgb(97, 0, 255);
+  // background: linear-gradient(0deg, rgba(97, 0, 255, 0) 0%, rgba(97, 0, 255, 0.17) 100%);
   position: relative;
 
   .info {
@@ -85,6 +85,8 @@
 
 @media (max-width: 850px) {
   .wrapper {
+    background: rgb(97, 0, 255);
+    background: linear-gradient(0deg, rgba(97, 0, 255, 0) 0%, rgba(97, 0, 255, 0.17) 100%);
     display: block;
     padding-top: 100px;
 
@@ -132,7 +134,7 @@
     .info {
       .container {
         z-index: 0;
-        
+
         .platforms {
 
           img {

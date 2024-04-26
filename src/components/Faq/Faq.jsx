@@ -4,6 +4,9 @@ import arrowup from '../../assets/images/icons/arrowup.svg'
 import arrowdown from '../../assets/images/icons/arrowdown.svg'
 import list from '../../assets/images/icons/list.svg'
 import { useTranslation } from 'react-i18next'
+import whatsapp from '../../assets/images/social/whatsapp.svg'
+import telegram from '../../assets/images/social/telegram.svg'
+import phone from '../../assets/images/social/phone.svg'
 
 const Faq = () => {
   const [openItems, setOpenItems] = useState({});
@@ -71,19 +74,29 @@ const Faq = () => {
       <div class="${styles.listItem}">
         <img src="${list}" />${t('answer4_text5')}
       </div>
-      <div class="${styles.listItem}">
-        <img src="${list}" class="${styles.listImg}" />${t('answer4_text6')}
-      </div>
-      <div class="${styles.listItem}">
-        <img src="${list}" />${t('answer4_text7')}
-      </div>
-      ${t('answer4_text8')}
       `
     },
     {
       id: 6,
       question: t('question5'),
       answer: t('answer5')
+    },
+    {
+      id: 7,
+      question: 'Поддержка',
+      answer: `<div class="${styles.paragraph}">Если у вас возникли проблемы обратитесь в поддержку 24/7</div>
+      <div class="${styles.help}">
+        <a href='https://wa.me/+77712229992' target='_blank'>
+          <img src=${whatsapp} alt="" />
+        </a>
+        <a href='https://t.me/PMKzSupport_bot' target='_blank'>
+          <img src=${telegram} alt="" />
+        </a>
+        <a href='tel:9933' target='_blank'>
+          <img src=${phone} alt="" />
+        </a>
+      </div>
+      `
     }, 
   ];
 

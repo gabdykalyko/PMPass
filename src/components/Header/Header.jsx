@@ -67,6 +67,11 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
               {t('quests')}
             </NavLink>
           </div>
+          <div>
+            <NavLink to="/help">
+              Поддержка
+            </NavLink>
+          </div>
         </div>
       </div>
 
@@ -106,12 +111,11 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
           </div> :
           <div className={styles.btns}>
             <div onClick={onLoginClick}>
-              <Button title={t('enter')}
-                color="brown" />
+              <Button title={t('enter')}/>
             </div>
-            <div onClick={onRegisterClick}>
+            {/* <div onClick={onRegisterClick}>
               <Button title={t('register')} />
-            </div>
+            </div> */}
           </div>}
       </div>
     </div>

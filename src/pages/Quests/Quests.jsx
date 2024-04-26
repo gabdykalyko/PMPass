@@ -187,7 +187,6 @@ const Quests = () => {
       if (response.data) {
         if (page === 1) {
           setProducts(response.data.data);
-          console.log(products)
         } else {
           setProducts(prevProducts => [...prevProducts, ...response.data.data]);
         }

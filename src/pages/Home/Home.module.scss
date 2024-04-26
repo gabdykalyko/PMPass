@@ -8,8 +8,18 @@
   background-repeat: no-repeat;
 }
 
+.purple {
+  background-image: url('../../assets/images/main.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 @media (max-width: 850px) {
   .auth {
     background-image: url('../../assets/images/background-reg-mob.jpg');
+  }
+
+  .purple {
+    background-image: none;
   }
 }

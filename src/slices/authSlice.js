@@ -11,23 +11,27 @@ export const authSlice = createSlice({
   reducers: {
     loginSuccess: (state, action) => {
       state.isAuthenticated = action.payload.isAuthenticated
-      state.user = action.payload.user;
+      state.user = action.payload.user
 
-      Hotjar.identify(action.payload.user.pm_id, {
-        phone: action.payload.user.phone,
-      })
+      if (state.user) {
+        Hotjar.identify(state.user.pm_id, {
+          phone: state.user.phone,
+        })
+      }
     },
     logoutSuccess: (state) => {
-      state.isAuthenticated = false;
-      state.user = null;
+      state.isAuthenticated = false
+      state.user = null
     },
     updateAuth: (state, action) => {
       state.isAuthenticated = action.payload.isAuthenticated
-      state.user = action.payload.user;
+      state.user = action.payload.user
 
-      Hotjar.identify(action.payload.user.pm_id, {
-        phone: action.payload.user.phone,
-      })
+      if (state.user) {
+        Hotjar.identify(state.user.pm_id, {
+          phone: state.user.phone,
+        })
+      }
     },
     setLoading: (state, action) => {
       state.isLoading = action.payload;

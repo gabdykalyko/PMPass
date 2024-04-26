@@ -8,12 +8,14 @@ import Profile from '../pages/Profile/Profile';
 import Settings from '../pages/Settings/Settings';
 import ShopQuests from '../pages/Welcome/ShopQuests/ShopQuests';
 import Welcome from '../pages/Welcome/Welcome';
+import Help from '../pages/Help/Help';
 
 const AppRoutes = () => (
   <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/shop" element={<Shop />} />
     <Route path="/quests" element={<Quests />} />
+    <Route path="/help" element={<Help />} />
     <Route path="/profile"
       element={<PrivateRoute>
         <Profile />

@@ -4,61 +4,17 @@
   background-color: rgba(0, 0, 0, .3);
   border: 1px solid rgba(0, 0, 0, .0);
   border-radius: 8px;
-  padding: 0 16px 20px;
+  padding: 16px;
   transition: all .2s linear;
 
   .imgWrapper {
     align-items: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     display: flex;
+    height: 200px;
     justify-content: center;
-
-    .img {
-      align-items: center;
-      background-image: url('../../assets/images/quest.png');
-      display: flex;
-      justify-content: center;
-      position: relative;
-      height: 165px;
-      width: 165px;
-
-      img {
-        // width: 100%;
-      }
-
-      .chestPrice {
-        @include subtitle2m;
-
-        background-color: #193B41;
-        border-radius: 2px;
-        bottom: 0;
-        left: 50%;
-        color: rgba(255, 255, 255, 0);
-        height: 32px;
-        padding-bottom: 3px;
-        padding-left: 41px;
-        padding-right: 41px;
-        padding-top: 3px;
-        position: absolute;
-        transform: skewX(-15deg) translateX(-50%);
-        width: 149px;
-      }
-
-      .price {
-        @include subtitle2m;
-
-        bottom: 0;
-        left: 50%;
-        color: #0CDCEA;
-        height: 32px;
-        padding-bottom: 3px;
-        padding-left: 41px;
-        padding-right: 41px;
-        padding-top: 3px;
-        position: absolute;
-        transform: translateX(-50%);
-        width: 149px;
-      }
-    }
   }
 
   .chestTitleWrapper {
@@ -74,7 +30,7 @@
       .chestName {
         @include subtitle3b;
 
-        color: #0CDCEA;
+        color: #AE6FFF;
         width: 200px;
         height: 24px;
         white-space: nowrap;
@@ -110,24 +66,22 @@
     @include subtitle1b;
 
     color: #ffffff;
-    height: 29px;
+    height: 50px;
+    font-size: 20px;
     margin-top: 24px;
-    white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        width: 240px
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .questTask {
     @include body1;
 
     color: #E0E0E0;
-    height: 40px;
-    margin-top: 12px;
-    white-space: nowrap;
+    height: 55px;
+    max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 307px;
   }
 
   .labels {
@@ -159,7 +113,7 @@
 
     button {
       @include subtitle6m;
-      
+
       background-color: #EAD40C;
       border-radius: 8px;
       cursor: pointer;

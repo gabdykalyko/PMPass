@@ -105,7 +105,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className={`${styles.container} ${ isAuthenticated ? styles.auth : ''}`}>
+    <div className={`${styles.container} ${ isAuthenticated ? styles.auth : styles.purple}`}>
       <Header onLoginClick={handleLoginClick}
               onRegisterClick={handleRegisterClick}/>
       <HeaderMob onLoginClick={handleLoginClick}

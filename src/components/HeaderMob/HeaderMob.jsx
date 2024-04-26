@@ -38,8 +38,8 @@ const HeaderMob = ({ onLoginClick, onRegisterClick }) => {
             Points: { user.pm_points }
           </div>
           :
-          <div onClick={onRegisterClick}>
-            <Button title="Регистрация" />
+          <div onClick={onLoginClick}>
+            <Button title="Вход" />
           </div>
         }
         <div onClick={showMenu}>

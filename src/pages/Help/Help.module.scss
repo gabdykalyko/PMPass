@@ -1,0 +1,88 @@
+@import '../../assets/styles/global.scss';
+
+.container {
+  padding-top: 124px;
+  width: 50%;
+
+  .wrapper {
+    align-items: center;
+    background-color: #0000004D;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    padding-top: 125px;
+    padding-bottom: 125px;
+
+    .content {
+      text-align: center;
+      width: 55%;
+
+      .title {
+        @include h2;
+
+        color: $c-white;
+        font-size: 40px;
+        margin-bottom: 24px;
+      }
+
+      .info {
+        @include subtitle5;
+
+        color: $c-light-grey;
+      }
+
+      .help {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 24px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .container {
+    padding-top: 104px;
+    width: 90%;
+
+    .wrapper {
+
+      .content {}
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .container {
+
+    .wrapper {
+      padding-bottom: 20px;
+      padding-top: 20px;
+
+      .content {}
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+
+    .wrapper {
+
+      .content {
+        padding-left: 34px;
+        padding-right: 34px;
+        width: 100%;
+
+        .title {
+          @include h3;
+        }
+
+        .info {
+          @include body1;
+        }
+      }
+    }
+  }
+}
