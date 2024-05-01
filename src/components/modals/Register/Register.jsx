@@ -21,7 +21,7 @@ const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick }) => {
   const [errorText, setErrorText] = useState('')
   const [showError, setShowError] = useState(false)
 
-  const { t } = useTranslation('main')
+  const { t } = useTranslation(['main', 'reg', 'errors'])
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
@@ -171,11 +171,11 @@ const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick }) => {
         {t('register')}
       </div>
       {showError ? <div className={styles.errorMessage}>
-        { errorText }
+        {errorText}
       </div> : ''}
       <div className={`${styles.row} ${styles.firstRow}`}>
         <div className={styles.label}>
-          Номер телефона<span>*</span>
+          {t('phone')}<span>*</span>
         </div>
         <div className={`${styles.input} ${isPhoneValid ? '' : styles.error}`}>
           <div className={styles.inputWrapper}>
@@ -192,12 +192,12 @@ const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick }) => {
 
       <div className={styles.row}>
         <div className={styles.label}>
-          Пароль<span>*</span>
+          {t('password')}<span>*</span>
         </div>
         <div className={`${styles.input} ${isPasswordHasNum && isPasswordMin ? '' : styles.error}`}>
           <div className={styles.inputWrapper}>
             <input type={isPasswordVisible ? 'text' : 'password'}
-              placeholder='Пароль'
+              placeholder={t('password')}
               onChange={(e) => onPasswordChange(e.target.value)} />
           </div>
           <div className={styles.eye}
@@ -209,11 +209,11 @@ const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick }) => {
         <div className={styles.condition}>
           <div className={`${styles.conditionItem} ${isPasswordMin ? '' : styles.errorTxt}`}>
             <img src={list} alt="" />
-            Минимум 6 символов
+            {t('errors:min_6_symbols')}
           </div>
           <div className={`${styles.conditionItem} ${isPasswordHasNum ? '' : styles.errorTxt}`}>
             <img src={list} alt="" />
-            Минимум 1 цифра (0-9)
+            {t('errors:min_1_number')}
           </div>
         </div>
 
@@ -222,7 +222,7 @@ const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick }) => {
       <div className={styles.row}>
         <div className={`${styles.offer} ${isOfferValid ? '' : styles.error}`}>
           <div>
-            Мне больше 21 года <span onClick={onOfferClick}>Я соглашаюсь с договором оферты</span>
+            {t('reg:more_than_21')} <span onClick={onOfferClick}>{t('reg:accept_offer')}</span>
           </div>
           <label>
             <input type="checkbox"
@@ -236,7 +236,7 @@ const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick }) => {
       <div className={styles.row}>
         <div className={styles.offer}>
           <div>
-            Активировать бонус на первый депозит <span onClick={onBonusClick}>Условия бонусного предложения</span>
+            {t('reg:activate_bonus')} <span onClick={onBonusClick}>{t('reg:bonus_offer')}</span>
           </div>
           <label>
             <input type="checkbox"
@@ -250,13 +250,13 @@ const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick }) => {
       <div className={styles.row}>
         <div className={styles.btn}
           onClick={Enter}>
-          <Button title='Регистрация' />
+          <Button title={t('register')} />
         </div>
       </div>
 
       <div className={`${styles.row} ${styles.rowLast}`}>
         <div className={styles.enter}>
-          Есть аккаунт? <span onClick={onLoginClick}>Войти</span>
+          {t('reg:have_account')} <span onClick={onLoginClick}>{t('to_enter')}</span>
         </div>
       </div>
 

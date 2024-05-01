@@ -1,8 +1,11 @@
 import styles from './TradeLinkHelp.module.scss'
 import list from '../../assets/images/icons/list-yellow.svg'
 import Button from '../Button/Button'
+import { useTranslation } from 'react-i18next'
 
 const TradeLinkHelp = ({ closeForm }) => {
+  const { t } = useTranslation(['main', 'help', 'welcome'])
+
   const handleOutsideClick = (event) => {
     if (event.target === event.currentTarget) {
       closeForm()
@@ -14,10 +17,10 @@ const TradeLinkHelp = ({ closeForm }) => {
       onClick={handleOutsideClick}>
       <div className={styles.container}>
         <div className={styles.title}>
-          Как Получить Ссылку
+          {t('welcome:trade_link_text2')}
         </div>
         <div className={styles.subtitle}>
-          Чтобы найти свой трейд URL в Steam, выполните следующие действия:
+          {t('help:find_trade_link')}
         </div>
 
         <div className={styles.list}>
@@ -25,40 +28,40 @@ const TradeLinkHelp = ({ closeForm }) => {
             <img className={styles.listImage}
               src={list}
               alt="" />
-            Наведите на свой никнейм, чтоб выпало меню профиля;
+            {t('help:find_nickname')}
           </div>
           <div className={styles.listItem}>
             <img className={styles.listImage}
               src={list}
               alt="" />
-            Перейдите в <span>Инвентарь</span>;
+            {t('help:go_to')}
           </div>
           <div className={styles.listItem}>
             <img className={styles.listImage}
               src={list}
               alt="" />
-            Кликните кнопку: <span>“Предложения обмена”</span>;
+            {t('help:click_button')}
           </div>
           <div className={styles.listItem}>
             <img className={styles.listImage}
               src={list}
               alt="" />
-            Откройте: <span>"Кто может отправлять мне предложения обмена?"</span>;
+            {t('help:open')}
           </div>
           <div className={styles.listItem}>
             <img className={styles.listImage}
               src={list}
               alt="" />
-            В графе <span>"Сторонние сайты"</span> есть поле <span>"Ссылка на обмен"</span>.
+            {t('help:trade_text1')}
           </div>
           <div className={styles.listItem}>
-            Тут внизу и находится трейд ссылка Steam.
+            {t('help:down_here')}
           </div>
         </div>
 
         <div className={styles.btn}>
           <div onClick={closeForm}>
-            <Button title='Понятно' />
+            <Button title={t('clear')} />
           </div>
         </div>
       </div>

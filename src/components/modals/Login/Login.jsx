@@ -10,8 +10,10 @@ import { useDispatch } from 'react-redux'
 import { loginSuccess } from '../../../slices/authSlice'
 import { useNavigate } from 'react-router-dom'
 import { IMaskInput } from 'react-imask'
+import { useTranslation } from 'react-i18next'
 
 const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
+  const { t } = useTranslation('main')
 
   const [isIdValid, setIdIsValid] = useState(true)
   const [id, setId] = useState('')
@@ -138,7 +140,7 @@ const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
-        Войти
+        {t('to_enter')}
       </div>
 
       {showError ? <div className={styles.errorMessage}>
@@ -214,12 +216,12 @@ const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
 
       <div className={styles.row}>
         <div className={styles.label}>
-          Пароль<span>*</span>
+          {t('password')}<span>*</span>
         </div>
         <div className={`${styles.input} ${isPasswordValid ? '' : styles.error}`}>
           <div className={styles.inputWrapper}>
             <input type={isPasswordVisible ? 'text' : 'password'}
-              placeholder='Пароль'
+              placeholder={t('password')}
               onChange={(e) => onPasswordChange(e.target.value)} />
           </div>
           <div className={styles.eye}
@@ -232,20 +234,20 @@ const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
       <div className={styles.row}>
         <div className={styles.btn}
           onClick={Enter}>
-          <Button title='Войти' />
+          <Button title={t('to_enter')} />
         </div>
       </div>
 
       <div className={styles.row}>
         <div className={styles.enter}>
-          Нет аккаунта? <span onClick={onRegisterClick}>Зарегистрироваться</span>
+          Нет аккаунта? <span onClick={onRegisterClick}>{t('to_register')}</span>
         </div>
       </div>
 
       <div className={`${styles.row} ${styles.rowLast}`}>
         <div className={styles.help}
           onClick={onHelpClick}>
-          Помощь при входе
+          {t('enter_help')}
         </div>
       </div>
 

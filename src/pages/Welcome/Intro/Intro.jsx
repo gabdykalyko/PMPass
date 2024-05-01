@@ -2,26 +2,29 @@ import { NavLink } from 'react-router-dom'
 import styles from './Intro.module.scss'
 import arrow from '../../../assets/images/icons/arrow-right.svg'
 import first from '../../../assets/images/welcome/first-mob.png'
+import { useTranslation } from 'react-i18next'
 
 const Intro = ({ onClickNext }) => {
+  const { t } = useTranslation(['welcome', 'main'])
+
   return (
     <div className={`${styles.container} container-main`}>
       <div className={styles.wrapper}>
         <div className={styles.title}>
-          <span className={styles.yellow}>PM-Pass</span> - ваш пропуск в мир крутых призов
+          <span className={styles.yellow}>PM-Pass</span> {t('intro_title')}
         </div>
         <div className={styles.info}>
           <div>
             Это официальный продукт компании Париматч.
           </div>
           <div className={styles.txt}>
-            Выполняйте задания на сайте parimatch.kz и в ваших любимых играх таких как Dota 2, зарабатывайте бонусные баллы и обменивайте их на скины и другие предметы в магазине.
+            {t('intro_text2')}
           </div>
         </div>
         <div onClick={onClickNext}
-             className={styles.btn}>
+          className={styles.btn}>
           <button>
-            Дальше
+            {t('main:next')}
             <img src={arrow} alt="" />
           </button>
         </div>

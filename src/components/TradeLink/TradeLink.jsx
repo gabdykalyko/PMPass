@@ -11,8 +11,11 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Toast from '../../components/Toast/Toast'
 import edit from '../../assets/images/icons/edit.svg'
+import { useTranslation } from 'react-i18next'
 
 const TradeLink = ({ handleTradeClick }) => {
+  const { t } = useTranslation('main')
+
   const user = useSelector(state => state.auth.user)
 
   const dispatch = useDispatch()
@@ -125,7 +128,7 @@ const TradeLink = ({ handleTradeClick }) => {
               editTrade ?
                 <div className={styles.input}>
                   <div className={styles.subtitle}>
-                    Ссылка
+                    {t('link')}
                   </div>
                   <div className={`${styles.inputWrapper} ${isValid ? '' : styles.error}`}>
                     <input type="text"
@@ -137,7 +140,7 @@ const TradeLink = ({ handleTradeClick }) => {
                 </div> :
                 <div className={styles.linkWrapper}>
                   <div>
-                    Ссылка
+                    {t('link')}
                   </div>
                   <div className={styles.link}>
                     {user.steam_trade_url}
@@ -164,7 +167,7 @@ const TradeLink = ({ handleTradeClick }) => {
             </div>
             <div className={styles.input}>
               <div className={styles.subtitle}>
-                Ссылка
+                {t('link')}
               </div>
               <div className={`${styles.inputWrapper} ${isValid ? '' : styles.error}`}>
                 <input type="text"

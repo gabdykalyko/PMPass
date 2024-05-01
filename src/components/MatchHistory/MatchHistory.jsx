@@ -3,9 +3,12 @@ import warning from '../../assets/images/icons/warning.svg'
 import dota from '../../assets/images/icons/dota.svg'
 import check from '../../assets/images/icons/check-green.svg'
 import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 const MatchHistory = () => {
   const user = useSelector(state => state.auth.user)
+
+  const { t } = useTranslation('profile')
 
   return (
     <div className={styles.match}>
@@ -26,10 +29,10 @@ const MatchHistory = () => {
             </div>
             <div className={styles.info}>
               <div className={styles.infoItem}>
-                Зайдите на сайт Dota 2  и перейдите в раздел <span>Настройки</span>.
+                {t('go_to_settings')}
               </div>
               <div className={styles.infoItem}>
-                В разделе <span>Сообщество</span> вы увидите <span>Общедоступная история матчей</span>, нажмите на него и история будет открыта.
+              {t('in_chapter')}
               </div>
             </div>
           </div>

@@ -69,7 +69,7 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
           </div>
           <div>
             <NavLink to="/help">
-              Поддержка
+              {t('help')}
             </NavLink>
           </div>
         </div>
@@ -111,7 +111,7 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
           </div> :
           <div className={styles.btns}>
             <div onClick={onLoginClick}>
-              <Button title={t('enter')}/>
+              <Button title={t('enter')} />
             </div>
             {/* <div onClick={onRegisterClick}>
               <Button title={t('register')} />

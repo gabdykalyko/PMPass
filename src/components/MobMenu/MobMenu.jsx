@@ -7,10 +7,13 @@ import Button from '../Button/Button'
 import i18next from 'i18next'
 import { useSelector } from 'react-redux'
 import defaultUserImg from '../../assets/images/defaultUser.svg'
+import { useTranslation } from 'react-i18next'
 
 const MobMenu = ({ closeMenu,
   onLoginClick,
   onRegisterClick }) => {
+
+  const { t } = useTranslation('main')
 
   const [isKazakh, setIsKazakh] = useState(false)
 
@@ -95,12 +98,12 @@ const MobMenu = ({ closeMenu,
               <div className={styles.info}>
                 <img src={defaultUserImg} alt="" />
                 <NavLink to='/profile'
-                         onClick={AllowScroll}>
+                  onClick={AllowScroll}>
                   Профиль
                 </NavLink>
               </div>
               <div className={styles.points}>
-                Points: { user.pm_points }
+                Points: {user.pm_points}
               </div>
             </div>
             :
@@ -111,28 +114,28 @@ const MobMenu = ({ closeMenu,
           <div className={styles.menuItem}
             onClick={AllowScroll}>
             <NavLink to="/">
-              Главная
+              {t('main')}
             </NavLink>
           </div>
 
           <div className={styles.menuItem}
             onClick={AllowScroll}>
             <NavLink to="/shop">
-              Магазин
+              {t('shop')}
             </NavLink>
           </div>
 
           <div className={styles.menuItem}
             onClick={AllowScroll}>
             <NavLink to="/quests">
-              Квесты
+              {t('quests')}
             </NavLink>
           </div>
 
           <div className={styles.menuItem}
             onClick={AllowScroll}>
             <NavLink to="/help">
-              Поддержка
+              {t('help')}
             </NavLink>
           </div>
         </div>

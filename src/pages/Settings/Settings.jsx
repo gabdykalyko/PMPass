@@ -12,8 +12,11 @@ import { logoutSuccess } from '../../slices/authSlice'
 import axios from 'axios'
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 const Settings = () => {
+  const { t } = useTranslation('main')
+
   const dispatch = useDispatch()
 
   const [openModal, setOpenModal] = useState(false)
@@ -30,7 +33,7 @@ const Settings = () => {
 
   const logout = async () => {
     document.body.style.overflow = 'auto'
-    
+
     try {
       const response = await axios.get(`${process.env.REACT_APP_API_URL}/logout`, {
         withCredentials: true,
@@ -55,7 +58,7 @@ const Settings = () => {
       <HeaderMob />
       <div className={`${styles.container} container-main`}>
         <div className={styles.title}>
-          Настройки
+          {t('settings')}
         </div>
         <div className={styles.main}>
           <div className={styles.left}>
@@ -66,7 +69,7 @@ const Settings = () => {
             <div className={`${styles.edit} ${styles.exit}`}
               onClick={handleClose}>
               <img src={exit} alt="" />
-              Выйти из Аккаунта
+              Выйти из Профиля
             </div>
           </div>
 
@@ -90,11 +93,11 @@ const Settings = () => {
 
               <div className={styles.inputsItem}>
                 <div className={styles.inputsTitle}>
-                  Номер телефона <span>*</span>
+                  {t('phone')} <span>*</span>
                 </div>
                 <div className={styles.input}>
                   <input type="text"
-                    placeholder='Номер телефона' />
+                    placeholder={t('phone')}/>
                 </div>
               </div>
             </div>
@@ -116,24 +119,24 @@ const Settings = () => {
       </div>
       <Footer />
 
-      { openModal ?
+      {openModal ?
         <div className={styles.closeWrapper}>
-        <div className={styles.closeModal}>
-          <div>
-            Вы уверены, что хотите выйти?
-          </div>
-          <div className={styles.btns}>
-            <div onClick={cancel}>
-              <Button title='Отмена'
-                      color='brown'/>
+          <div className={styles.closeModal}>
+            <div>
+              Вы уверены, что хотите выйти?
             </div>
-            <div onClick={logout}>
-              <Button title='Выйти'/>
+            <div className={styles.btns}>
+              <div onClick={cancel}>
+                <Button title='Отмена'
+                  color='brown' />
+              </div>
+              <div onClick={logout}>
+                <Button title='Выйти' />
+              </div>
             </div>
           </div>
-        </div>
-      </div> :
-      ''
+        </div> :
+        ''
       }
     </div>
   )

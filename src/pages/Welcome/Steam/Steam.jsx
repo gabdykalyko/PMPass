@@ -7,8 +7,11 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import { updateAuth } from '../../../slices/authSlice'
+import { useTranslation } from 'react-i18next'
 
 const Steam = ({ onClickPrevious, setFirstPage }) => {
+  const { t } = useTranslation(['main', 'welcome'])
+
   const dispatch = useDispatch()
 
   const navigate = useNavigate()
@@ -45,9 +48,9 @@ const Steam = ({ onClickPrevious, setFirstPage }) => {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div onClick={onClickPrevious}
-              className={styles.back}>
-            <img src={arrowYellow} alt="" />
-            Назад
+          className={styles.back}>
+          <img src={arrowYellow} alt="" />
+          {t('back')}
         </div>
 
         <div className={styles.steam}>
@@ -56,7 +59,7 @@ const Steam = ({ onClickPrevious, setFirstPage }) => {
           </div>
 
           <div className={styles.info}>
-            Чтобы выполнять квесты в Dota 2, вам нужно прикрепить учетную запись Steam
+            {t('welcome:steam_text')}
           </div>
 
           <div className={styles.btns}>
@@ -71,14 +74,14 @@ const Steam = ({ onClickPrevious, setFirstPage }) => {
           </div>
 
           <div className={styles.skipInfo}>
-            Вы можете пропустить этот шаг и прикрепить ссылку позже
+            {t('welcome:skip_step')}
           </div>
         </div>
 
         <div onClick={skipSteam}
-             className={styles.skipBtn}>
+          className={styles.skipBtn}>
           <button>
-            Пропустить
+            {t('skip')}
             <img src={arrowNext} alt="" />
           </button>
         </div>

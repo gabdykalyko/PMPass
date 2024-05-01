@@ -4,14 +4,13 @@ import arrowup from '../../assets/images/icons/arrow-up.svg'
 import arrowdown from '../../assets/images/icons/arrowdown.svg'
 import list from '../../assets/images/icons/list.svg'
 import { useTranslation } from 'react-i18next'
-import whatsapp from '../../assets/images/social/whatsapp.svg'
 import telegram from '../../assets/images/social/telegram.svg'
 import phone from '../../assets/images/social/phone.svg'
 
 const Faq = () => {
   const [openItems, setOpenItems] = useState({});
 
-  const { t } = useTranslation(['faq'])
+  const { t } = useTranslation(['faq', 'main'])
 
   const faqData = [
     {
@@ -83,12 +82,9 @@ const Faq = () => {
     },
     {
       id: 7,
-      question: 'Поддержка',
-      answer: `<div class="${styles.paragraph}">Если у вас возникли проблемы обратитесь в поддержку 24/7</div>
+      question: t('main:help'),
+      answer: `<div class="${styles.paragraph}">${t('answer7')}</div>
       <div class="${styles.help}">
-        <a href='https://wa.me/+77712229992' target='_blank'>
-          <img src=${whatsapp} alt="" />
-        </a>
         <a href='https://t.me/PMKzSupport_bot' target='_blank'>
           <img src=${telegram} alt="" />
         </a>

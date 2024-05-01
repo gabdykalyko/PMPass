@@ -5,11 +5,12 @@ import HeaderMob from "../../components/HeaderMob/HeaderMob"
 import Footer from "../../components/Footer/Footer"
 import Offer from "../../components/modals/Offer/Offer"
 import Bonus from "../../components/modals/Bonus/Bonus"
-import { Form, NavLink } from "react-router-dom"
+import Form from '../../components/modals/Form/Form'
+import { NavLink } from "react-router-dom"
 import BackButton from "../../components/BackButton/BackButton"
-import whatsapp from '../../assets/images/social/whatsapp.svg'
 import telegram from '../../assets/images/social/telegram.svg'
 import phone from '../../assets/images/social/phone.svg'
+import { useTranslation } from 'react-i18next'
 
 const Help = () => {
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -17,6 +18,8 @@ const Help = () => {
   const [showHelp, setShowHelp] = useState(false)
   const [showOffer, setShowOffer] = useState(false)
   const [showBonus, setShowBonus] = useState(false)
+
+  const { t } = useTranslation(['main', 'faq'])
 
   const handleLoginClick = () => {
     document.body.style.overflow = 'hidden'
@@ -66,16 +69,12 @@ const Help = () => {
         <div className={styles.wrapper}>
           <div className={styles.content}>          
             <div className={styles.title}>
-              Поддержка 
+              {t('help')} 
             </div>
             <div className={styles.info}>
-              Если у вас возникли проблемы обратитесь в поддержку 24/7
+              {t('faq:answer7')}
             </div>
             <div className={styles.help}>
-              <NavLink to={'https://wa.me/+77712229992'}
-                  target='_blank'>
-                <img src={whatsapp} alt="" />
-              </NavLink>
               <NavLink to={'https://t.me/PMKzSupport_bot'}
                       target='_blank'>
                 <img src={telegram} alt="" />

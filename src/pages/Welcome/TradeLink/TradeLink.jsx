@@ -11,8 +11,11 @@ import TradeLinkHelp from '../../../components/TradeLinkHelp/TradeLinkHelp'
 import loader from '../../../assets/images/icons/loader.svg'
 import arrowYellow from '../../../assets/images/icons/arrow-yellow.svg'
 import arrowNext from '../../../assets/images/welcome/arrow-next-yellow.svg'
+import { useTranslation } from 'react-i18next'
 
 const TradeLink = ({ onClickPrevious, onClickNext }) => {
+  const { t } = useTranslation(['main', 'welcome'])
+
   const [link, setLink] = useState('')
   const [isValid, setIsValid] = useState(true)
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -98,9 +101,9 @@ const TradeLink = ({ onClickPrevious, onClickNext }) => {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div onClick={onClickPrevious}
-              className={styles.back}>
-            <img src={arrowYellow} alt="" />
-            Назад
+          className={styles.back}>
+          <img src={arrowYellow} alt="" />
+          {t('back')}
         </div>
 
         <div className={styles.trade}>
@@ -109,48 +112,48 @@ const TradeLink = ({ onClickPrevious, onClickNext }) => {
           </div>
 
           <div className={styles.info}>
-            Прикрепите свою ссылку на обмен из Steam, чтобы получать скины и игровые предметы в магазине PM Pass
+            {t('welcome:trade_link_text1')}
           </div>
 
           <div className={styles.inputWrapper}>
             <div>
-              Ссылка
+              {t('link')}
             </div>
             <div className={`${styles.input} ${isValid ? '' : styles.error}`}>
               <input onChange={handleChange}
-                     type="text"
-                     value={link}
-                     placeholder='https://'/>
+                type="text"
+                value={link}
+                placeholder='https://' />
             </div>
           </div>
 
           <div className={styles.btns}>
             <div className={styles.btn}
-                onClick={Enter}>
+              onClick={Enter}>
               <button disabled={loading}>
-                {loading ? <img className={styles.loader} src={loader} alt="" /> : 'Прикрепить'}
+                {loading ? <img className={styles.loader} src={loader} alt="" /> : t('attach')}
               </button>
             </div>
             <div className={styles.getTrade} onClick={handleTradeClick}>
-              Как получить ссылку?
+              {t('welcome:trade_link_text2')}
             </div>
           </div>
 
           <div className={styles.skipInfo}>
-            Вы можете пропустить этот шаг и прикрепить ссылку позже
+            {t('welcome:skip_step')}
           </div>
         </div>
 
         <div onClick={onClickNext}
-             className={styles.skipBtn}>
+          className={styles.skipBtn}>
           <button>
-            Пропустить
+            {t('skip')}
             <img src={arrowNext} alt="" />
           </button>
         </div>
       </div>
 
-      {isFormOpen && <TradeLinkHelp closeForm={closeForm}/>}
+      {isFormOpen && <TradeLinkHelp closeForm={closeForm} />}
     </div>
   )
 }

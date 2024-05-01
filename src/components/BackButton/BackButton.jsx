@@ -1,9 +1,12 @@
 import styles from './BackButton.module.scss'
 import arrowback from '../../assets/images/icons/arrowback.svg'
-import { useNavigate  } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const BackButton = () => {
-  const navigate = useNavigate ()
+  const { t } = useTranslation('main')
+
+  const navigate = useNavigate()
 
   const handleGoBack = () => {
     navigate(-1)
@@ -11,9 +14,9 @@ const BackButton = () => {
 
   return (
     <div className={styles.wrapper}
-         onClick={handleGoBack}>
+      onClick={handleGoBack}>
       <img src={arrowback} alt="" />
-      Назад
+      {t('back')}
     </div>
   )
 }
