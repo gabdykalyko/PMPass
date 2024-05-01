@@ -19,8 +19,8 @@
 
   .chestTitleWrapper {
     border-bottom: 1px solid rgba(220, 220, 220, .1);
-    margin-top: 24px;
-    padding-bottom: 24px;
+    margin-top: 18px;
+    padding-bottom: 12px;
 
     .chestTitle {
       align-items: center;
@@ -64,9 +64,10 @@
     @include subtitle1b;
 
     color: #ffffff;
-    height: 50px;
+    // height: 50px;
     font-size: 20px;
-    margin-top: 24px;
+    margin-bottom: 12px;
+    margin-top: 12px;
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -76,7 +77,7 @@
     @include body1;
 
     color: #E0E0E0;
-    height: 55px;
+    height: 70px;
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -124,5 +125,14 @@
 
   &:hover {
     border: 1px solid #EAD40C;
+  }
+}
+
+@media (max-width: 850px) {
+  .container {
+
+    .questTask {
+      height: unset;
+    }
   }
 }
