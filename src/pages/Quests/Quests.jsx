@@ -180,7 +180,7 @@ const Quests = () => {
     try {
       setLoading(true)
 
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/my_quests`,
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/${isAuthenticated ? 'my_quests' : 'quests' }`,
         {
           params: {
             page: page,

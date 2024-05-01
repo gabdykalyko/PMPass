@@ -7,7 +7,7 @@ import defaultUserImg from '../../assets/images/defaultUser.svg'
 import picture from '../../assets/images/icons/picture.svg'
 import Footer from '../../components/Footer/Footer'
 import Button from '../../components/Button/Button'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { logoutSuccess } from '../../slices/authSlice'
 import axios from 'axios'
 import { NavLink } from 'react-router-dom'
@@ -16,6 +16,8 @@ import { useTranslation } from 'react-i18next'
 
 const Settings = () => {
   const { t } = useTranslation('main')
+
+  const user = useSelector(state => state.auth.user)
 
   const dispatch = useDispatch()
 
@@ -64,7 +66,7 @@ const Settings = () => {
           <div className={styles.left}>
             <div className={styles.edit}>
               <img src={edit} alt="" />
-              Редактировать Профиль
+              Настройки Профиля
             </div>
             <div className={`${styles.edit} ${styles.exit}`}
               onClick={handleClose}>
@@ -93,19 +95,22 @@ const Settings = () => {
 
               <div className={styles.inputsItem}>
                 <div className={styles.inputsTitle}>
-                  {t('phone')} <span>*</span>
+                  {t('phone')} <span></span>
                 </div>
-                <div className={styles.input}>
+                <div>
+                  {user?.phone}
+                </div>
+                {/* <div className={styles.input}>
                   <input type="text"
                     placeholder={t('phone')}/>
-                </div>
+                </div> */}
               </div>
             </div>
 
           </div>
         </div>
 
-        <div className={styles.btns}>
+        {/* <div className={styles.btns}>
           <div>
             <NavLink to='/profile'>
               <Button color="brown"
@@ -115,7 +120,7 @@ const Settings = () => {
           <div>
             <Button title="Сохранить" />
           </div>
-        </div>
+        </div> */}
       </div>
       <Footer />
 
