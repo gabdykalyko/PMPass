@@ -24,3 +24,16 @@
   display: flex;
   justify-content: space-between;
 }
+
+@mixin hoverYellow {
+  transition: all .2s linear;
+
+  &:hover {
+    color: $c-yellow;
+  }
+}
+
+@mixin borderYellow {
+  border: 1px solid $c-yellow;;
+  transition: all .2s linear;
+}

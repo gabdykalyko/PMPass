@@ -7,7 +7,6 @@ import defaultUserImg from '../../assets/images/defaultUser.svg'
 import copy from '../../assets/images/icons/copy.svg'
 import steam from '../../assets/images/icons/steam-small.svg'
 import thumb from '../../assets/images/icons/thumb.svg'
-import check from '../../assets/images/icons/check-circle.svg'
 import { NavLink } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

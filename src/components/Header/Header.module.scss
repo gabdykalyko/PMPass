@@ -95,6 +95,10 @@
       color: #EAD40C;
     }
   }
+
+  .hoverY {
+    @include hoverYellow;
+  }
 }
 
 @media (max-width: 1100px) {

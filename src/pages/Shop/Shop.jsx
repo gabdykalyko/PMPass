@@ -147,7 +147,7 @@ const Shop = () => {
           {products.map((quest, index) => (
             <Product key={quest.id}
               quest={quest}
-              onRegisterClick={handleRegisterClick}/>
+              onLoginClick={handleLoginClick}/>
           ))}
         </div>
         <div className={styles.more}>

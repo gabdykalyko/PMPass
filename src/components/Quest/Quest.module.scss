@@ -119,7 +119,12 @@
       margin-top: 16px;
       padding-top: 12px;
       padding-bottom: 12px;
+      transition: all .2s linear;
       width: 100%;
+
+      &:hover {
+        background-color: #FFEB31;
+      }
     }
   }
 

@@ -53,22 +53,26 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
 
         <div className={styles.nav}>
           <div>
-            <NavLink to="/">
+            <NavLink className={styles.hoverY}
+                     to="/">
               {t('main')}
             </NavLink>
           </div>
           <div>
-            <NavLink to="/shop">
+            <NavLink className={styles.hoverY}
+                     to="/shop">
               {t('shop')}
             </NavLink>
           </div>
           <div>
-            <NavLink to="/quests">
+            <NavLink className={styles.hoverY}
+                     to="/quests">
               {t('quests')}
             </NavLink>
           </div>
           <div>
-            <NavLink to="/help">
+            <NavLink className={styles.hoverY}
+                     to="/help">
               {t('help')}
             </NavLink>
           </div>
@@ -103,7 +107,8 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
                   src={defaultUserImg} alt="" />
               </div>
               <div>
-                <NavLink to='/profile'>
+                <NavLink className={styles.hoverY}
+                         to='/profile'>
                   Профиль
                 </NavLink>
               </div>

@@ -25,6 +25,25 @@
       gap: 15px;
       padding-bottom: 18px;
       padding-top: 18px;
+
+      .arrow {
+        align-items: center;
+        background-color: #333217;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        height: 40px;
+        transition: all .2s linear;
+        width: 40px;
+
+        img {
+          width: 24px;
+        }
+
+        &:hover {
+          background-color: #494711;
+        }
+      }
     }
 
     .question.active {
@@ -44,6 +63,38 @@
         display: flex;
         gap: 20px;
         margin-top: 16px;
+
+        .tg {
+          align-items: center;
+          background-color: #19334F;
+          border-radius: 8px;
+          display: flex;
+          justify-content: center;
+          height: 56px;
+          transition: all .2s linear;
+          width: 64px;
+    
+          &:hover {
+            background-color: #244971;
+          }
+        }
+    
+        .phone {
+          align-items: center;
+          background-color: #3A2159;
+          border-radius: 8px;
+          color: #AE6FFF;
+          display: flex;
+          gap: 8px;
+          justify-content: center;
+          height: 56px;
+          transition: all .2s linear;
+          width: 100px;
+    
+          &:hover {
+            background-color: #4A2C6F;
+          }
+        }
       }
     }
 

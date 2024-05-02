@@ -75,12 +75,15 @@ const Help = () => {
               {t('faq:answer7')}
             </div>
             <div className={styles.help}>
-              <NavLink to={'https://t.me/PMKzSupport_bot'}
+              <NavLink className={styles.tg}
+                       to={'https://t.me/PMKzSupport_bot'}
                       target='_blank'>
                 <img src={telegram} alt="" />
               </NavLink>
-              <NavLink to={'tel:9933'}>
+              <NavLink className={styles.phone}
+                       to={'tel:9933'}>
                 <img src={phone} alt="" />
+                9933
               </NavLink>
             </div>
           </div>

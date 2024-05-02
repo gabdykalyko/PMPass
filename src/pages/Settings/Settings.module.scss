@@ -37,6 +37,19 @@
           color: #E0E0E0;
           cursor: pointer;
           margin-top: 20px;
+          transition: all .2s linear;
+
+          path {
+            transition: all .2s linear;
+          }
+
+          &:hover {
+            color: #FFEB31;
+          }
+
+          &:hover path {
+            fill: #FFEB31;
+          }
         }
       }
 
@@ -194,14 +207,13 @@
     }
 
     .closeWrapper {
-  
+
       .closeModal {
         @include h3;
-        
+
         width: 90%;
-        .btns {
-         
-        }
+
+        .btns {}
       }
     }
   }

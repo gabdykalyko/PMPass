@@ -10,8 +10,9 @@ import loader from '../../assets/images/icons/loader.svg'
 import { useDispatch } from "react-redux";
 import { updateAuth } from '../../slices/authSlice';
 import { updateUserAuth } from '../../utils/authUtils';
+import { useTranslation } from 'react-i18next'
 
-const Product = ({ onRegisterClick, quest }) => {
+const Product = ({ onLoginClick, quest }) => {
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
 
   const user = useSelector(state => state.auth.user)
@@ -20,10 +21,12 @@ const Product = ({ onRegisterClick, quest }) => {
 
   const dispatch = useDispatch()
 
+  const { t } = useTranslation('main')
+
   const buy = async (id, type) => {
     if (!user.steam_trade_url) {
       toast(<Toast message="Необходимо прикрепить Trade Link!"
-                     status='warning'/>, {
+        status='warning' />, {
         hideProgressBar: true
       })
 
@@ -34,7 +37,7 @@ const Product = ({ onRegisterClick, quest }) => {
       setLoading(true)
 
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/shop_items/${id}/buy_${type}`, 
+        `${process.env.REACT_APP_API_URL}/shop_items/${id}/buy_${type}`,
         null,
         {
           withCredentials: true,
@@ -44,28 +47,28 @@ const Product = ({ onRegisterClick, quest }) => {
           }
         }
       );
-  
+
       if (response.data) {
         toast(<Toast message="Поздравляем с покупкой!" />, {
           hideProgressBar: true
         })
 
-       const user = await updateUserAuth()
+        const user = await updateUserAuth()
 
-       if (user) {
-        dispatch(updateAuth({
-          isAuthenticated: true,
-          user: user
-        }));
-       }
+        if (user) {
+          dispatch(updateAuth({
+            isAuthenticated: true,
+            user: user
+          }));
+        }
       }
-  
+
     } catch (error) {
       console.error(error)
 
       if (error.response.data.errors.includes('user_has_not_enough_pm_points')) {
         toast(<Toast message="Недостаточно средств на балансе!"
-                     status='warning'/>, {
+          status='warning' />, {
           hideProgressBar: true
         })
       }
@@ -80,7 +83,7 @@ const Product = ({ onRegisterClick, quest }) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.imgWrapper} style={{backgroundImage: `url(${quest.image ? quest.image : defaultProduct})`}}>
+      <div className={styles.imgWrapper} style={{ backgroundImage: `url(${quest.image ? quest.image : defaultProduct})` }}>
         {/* <img src={quest.image ? quest.image : defaultQuest} alt="" /> */}
       </div>
 
@@ -95,16 +98,16 @@ const Product = ({ onRegisterClick, quest }) => {
       {
         isAuthenticated ?
           <div className={styles.btn}
-               onClick={onBuyClick}>
+            onClick={onBuyClick}>
             <button disabled={loading}>
-            {loading ? <img className={styles.loader} src={loader} alt="" /> : 'Забрать'}
+              {loading ? <img className={styles.loader} src={loader} alt="" /> : t('take')}
             </button>
           </div>
           :
-          <div onClick={onRegisterClick}
+          <div onClick={onLoginClick}
             className={styles.btn}>
             <button>
-              Забрать
+              {t('take')}
             </button>
           </div>
       }

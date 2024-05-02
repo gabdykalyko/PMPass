@@ -2,13 +2,16 @@ import { useSelector } from 'react-redux'
 import styles from './Quest.module.scss'
 import defaultQuest from '../../assets/images/quests/default.png'
 import { NavLink } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
-const Quest = ({ quest, onRegisterClick }) => {
+const Quest = ({ quest, onLoginClick }) => {
+  const { t } = useTranslation('main')
+
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
 
   return (
     <div className={styles.container}>
-      <div className={styles.imgWrapper} style={{backgroundImage: `url(${quest.image ? quest.image : defaultQuest})`}}>
+      <div className={styles.imgWrapper} style={{ backgroundImage: `url(${quest.image ? quest.image : defaultQuest})` }}>
         {/* <img src={quest.image ? quest.image : defaultQuest} alt="" /> */}
       </div>
 
@@ -17,9 +20,13 @@ const Quest = ({ quest, onRegisterClick }) => {
           <div className={styles.chestName}>
             {quest.rewards[0] && quest.rewards[0].name}
           </div>
-          <div className={`${styles.chestStatus} ${quest.status === 'Активен' ? styles.chestStatusActive : quest.status === 'No progress' ? styles.chestStatusSoon : styles.chestStatusCompleted}`}>
-            {quest.status === 'Active' ? 'Активен' : quest.status === 'No progress' ? 'Скоро' : 'Завершён'}
-          </div>
+          {
+            quest.status ?
+              <div className={`${styles.chestStatus} ${quest.status === 'Активен' ? styles.chestStatusActive : quest.status === 'No progress' ? styles.chestStatusSoon : styles.chestStatusCompleted}`}>
+                {quest.status === 'Active' ? 'Активен' : quest.status === 'No progress' ? 'Скоро' : 'Завершён'}
+              </div> :
+              ''
+          }
         </div>
       </div>
 
@@ -48,13 +55,13 @@ const Quest = ({ quest, onRegisterClick }) => {
             target='_blank'
             className={styles.btn}>
             <button>
-              Начать квест
+              {t('begin_quest')}
             </button>
           </NavLink>
-          : <div onClick={onRegisterClick}
+          : <div onClick={onLoginClick}
             className={styles.btn}>
             <button>
-              Начать квест
+              {t('begin_quest')}
             </button>
           </div>
       }

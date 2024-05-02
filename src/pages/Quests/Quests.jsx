@@ -23,67 +23,6 @@ import { useTranslation } from 'react-i18next'
 import loader from '../../assets/images/icons/loader.svg'
 import { useSelector } from 'react-redux'
 
-const quests = [
-  {
-    img: huskar,
-    chest: 'Сундук Аркана',
-    status: 'Активен',
-    price: 50,
-    name: 'Становление Героя',
-    task: 'Сделайте 3 депозита от 2000 до 4999 тг.',
-    labels: ['Parimatch', 'Dota 2'],
-  },
-  {
-    img: chestGold,
-    chest: 'Сундук Аркана',
-    status: 'Скоро',
-    price: 50000,
-    name: 'Становление Героя',
-    task: 'Сделайте 3 депозита от 2000 до 4999 тг.',
-    pm: 'Parimatch',
-    labels: ['Parimatch', 'Dota 2']
-  },
-  {
-    img: chestGold,
-    chest: 'Сундук Аркана',
-    status: 'Завершён',
-    price: 500,
-    name: 'Становление Героя',
-    task: 'Сделайте 3 депозита от 2000 до 4999 тг.',
-    pm: 'Parimatch',
-    labels: ['Parimatch', 'Dota 2']
-  },
-  {
-    img: cs,
-    chest: 'Сундук Аркана',
-    status: 'Активен',
-    price: 5000,
-    name: 'Становление Героя',
-    task: 'Сделайте 3 депозита от 2000 до 4999 тг.',
-    labels: ['Parimatch', 'Dota 2'],
-  },
-  {
-    img: clock,
-    chest: 'Сундук Аркана',
-    status: 'Скоро',
-    price: 50000,
-    name: 'Становление Героя',
-    task: 'Сделайте 3 депозита от 2000 до 4999 тг.',
-    pm: 'Parimatch',
-    labels: ['Parimatch', 'Dota 2']
-  },
-  {
-    img: chestGold,
-    chest: 'Сундук Аркана',
-    status: 'Завершён',
-    price: 50000,
-    name: 'Становление Героя',
-    task: 'Сделайте 3 депозита от 2000 до 4999 тг.',
-    pm: 'Parimatch',
-    labels: ['Parimatch', 'Dota 2']
-  }
-]
-
 const PER_PAGE = 6
 
 const Quests = () => {
@@ -249,7 +188,7 @@ const Quests = () => {
 
                 {isStatusOpen &&
                   <div className={styles.filterWrapper}>
-                    <div className={`${styles.filterItem} ${selectedStatus === 'no_progress' ? styles.selectedFilter : ''}`}
+                    <div className={`${styles.filterItem} ${selectedStatus === 'no_progress' || selectedStatus === '' ? styles.selectedFilter : ''}`}
                       onClick={() => selectStatus('no_progress')}>
                       Новые
                     </div>
@@ -296,7 +235,7 @@ const Quests = () => {
           {products.map((quest) => (
             <Quest key={quest.id}
               quest={quest}
-              onRegisterClick={handleRegisterClick} />
+              onLoginClick={handleLoginClick} />
           ))}
         </div>
         <div className={styles.more}>

@@ -1,6 +1,6 @@
 import Login from '../Login/Login'
 import Register from '../Register/Register'
-import close from '../../../assets/images/icons/close-btn.svg'
+import close from '../../../assets/images/icons/close.svg'
 import styles from './Form.module.scss'
 import Help from '../Help/Help'
 

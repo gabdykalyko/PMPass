@@ -85,11 +85,12 @@ const Faq = () => {
       question: t('main:help'),
       answer: `<div class="${styles.paragraph}">${t('answer7')}</div>
       <div class="${styles.help}">
-        <a href='https://t.me/PMKzSupport_bot' target='_blank'>
+        <a class="${styles.tg}" href='https://t.me/PMKzSupport_bot' target='_blank'>
           <img src=${telegram} alt="" />
         </a>
-        <a href='tel:9933' target='_blank'>
+        <a class="${styles.phone}" href='tel:9933' target='_blank'>
           <img src=${phone} alt="" />
+          9933
         </a>
       </div>
       `
@@ -116,7 +117,7 @@ const Faq = () => {
             <div>
               {item.question}
             </div>
-            <div className="arrow-icon">
+            <div className={styles.arrow}>
               {openItems[item.id] ?
                 <img src={arrowup} alt="" /> :
                 <img src={arrowdown} alt="" />}

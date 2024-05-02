@@ -4,12 +4,12 @@
 
   .title {
     @include h2;
-    
+
     color: #FFFFFF;
     text-align: center;
   }
 
-  
+
   .firstRow {
     margin-top: 24px;
   }
@@ -66,7 +66,22 @@
         align-items: center;
         cursor: pointer;
         display: flex;
+        transition: all .2s linear;
+
+        svg {
+          path {
+            fill: #E0E0E0;
+          }
+        }
+
+        &:hover svg path {
+          fill: #ffffff;
+        }
       }
+    }
+
+    .inputFocus {
+      @include borderYellow;
     }
 
     .condition {
@@ -150,7 +165,7 @@
 @media (max-width: 850px) {
   .wrapper {
     width: 100%;
-    
+
     .title {
       font-size: 32px;
     }

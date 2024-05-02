@@ -18,6 +18,12 @@
       height: 200px;
       padding-left: 12px;
       padding-top: 12px;
+
+      transition: all .2s linear;
+
+      &:hover {
+        opacity: .7;
+      }
     }
 
     .quests {
