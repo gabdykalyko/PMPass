@@ -1,0 +1,125 @@
+@import '../../assets/styles/global.scss';
+
+.container {
+  margin-top: 24px;
+
+  .title {
+    @include subtitle1b;
+
+    align-items: center;
+    color: $c-white;
+    display: flex;
+    gap: 8px;
+  }
+
+  .table {
+    margin-top: 24px;
+
+    .head {
+      @include subtitle4m;
+
+      background-color: #11362C;
+      border-radius: 9px 9px 0 0;
+      color: #07EF9C;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      height: 60px;
+
+      .headItem {
+        align-items: center;
+        display: flex;
+        padding-left: 18px;
+      }
+
+      .headerCenter {
+        border-left: 1px solid #07ef9c1a;
+        border-right: 1px solid #07ef9c1a;
+      }
+    }
+
+    .body {
+      background-color: rgba(0, 0, 0, .3);
+      border-radius: 0 0 9px 9px;
+
+      .bodyItem {
+        @include body1;
+
+        color: $c-white;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding-bottom: 7px;
+        padding-left: 16px;
+        padding-top: 7px;
+
+        div {
+          align-items: center;
+          display: flex;
+        }
+
+        .status {
+
+          div {
+            background-color: #11362C;
+            border-radius: 100px;
+            color: #07EF9C;
+            display: inline-flex;
+            padding: 8px 12px;
+          }
+
+          .failed {
+            background-color: $c-dark-yellow;
+            color: $c-yellow;
+          }
+
+          .send {
+            background-color: $c-dark-blue;
+            color: $c-blue;
+          }
+        }
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: end;
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .container {
+    .table {
+
+      .head {
+
+        .headItem {
+          @include subtitle7m;
+
+          justify-content: center;
+          padding-left: unset;
+          text-align: center;
+        }
+      }
+
+      .body {
+
+        .bodyItem {
+          @include tableinput;
+
+          padding: 16px 8px;
+
+          .bodyItemName {
+            padding-left: 8px;
+          }
+
+          .status {
+            @include buttonmedium;
+            
+            display: flex;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,6 @@
 import styles from './Help.module.scss'
 import telegram from '../../../assets/images/social/telegram.svg'
 import phone from '../../../assets/images/social/phone.svg'
-import back from '../../../assets/images/icons/arrow-back.svg'
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 

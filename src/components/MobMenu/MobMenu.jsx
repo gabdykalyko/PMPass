@@ -103,7 +103,7 @@ const MobMenu = ({ closeMenu,
                 </NavLink>
               </div>
               <div className={styles.points}>
-                Points: {user.pm_points}
+                Points: {user?.pm_points}
               </div>
             </div>
             :

@@ -1,5 +1,4 @@
 import styles from './Account.module.scss'
-import { useTranslation } from 'react-i18next'
 import account from './../../assets/images/icons/account.svg'
 import edit from '../../assets/images/icons/edit.svg'
 import { useSelector } from 'react-redux'
@@ -13,8 +12,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import Toast from '../../components/Toast/Toast'
 
 const Account = () => {
-  const { t } = useTranslation('profile')
-
   const userInfo = useSelector(state => state.auth.user)
 
   const copyToClipboard = (text, type) => {

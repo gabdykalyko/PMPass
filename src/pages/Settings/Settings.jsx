@@ -2,15 +2,12 @@ import styles from './Settings.module.scss'
 import Header from "../../components/Header/Header"
 import HeaderMob from "../../components/HeaderMob/HeaderMob"
 import edit from '../../assets/images/icons/pencil.svg'
-import exit from '../../assets/images/icons/exit.svg'
 import defaultUserImg from '../../assets/images/defaultUser.svg'
-import picture from '../../assets/images/icons/picture.svg'
 import Footer from '../../components/Footer/Footer'
 import Button from '../../components/Button/Button'
 import { useDispatch, useSelector } from 'react-redux'
 import { logoutSuccess } from '../../slices/authSlice'
 import axios from 'axios'
-import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 

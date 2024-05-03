@@ -35,7 +35,7 @@ const HeaderMob = ({ onLoginClick, onRegisterClick }) => {
       <div className={styles.right}>
         {isAuthenticated ?
           <div className={styles.points}>
-            Points: { user.pm_points }
+            Points: { user?.pm_points }
           </div>
           :
           <div onClick={onLoginClick}>

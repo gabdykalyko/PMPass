@@ -75,7 +75,7 @@ const TradeLink = ({ handleTradeClick }) => {
   const cancelEdit = () => {
     setEditTrade(false)
     setIsValid(true)
-    setLink(user.steam_trade_url)
+    setLink(user?.steam_trade_url)
   }
 
   const Enter = () => {
@@ -92,7 +92,7 @@ const TradeLink = ({ handleTradeClick }) => {
   }
 
   useEffect(() => {
-    setLink(user.steam_trade_url)
+    setLink(user?.steam_trade_url)
   }, []);
 
   return (
@@ -143,7 +143,7 @@ const TradeLink = ({ handleTradeClick }) => {
                     {t('link')}
                   </div>
                   <div className={styles.link}>
-                    {user.steam_trade_url}
+                    {user?.steam_trade_url}
                   </div>
                 </div>
             }

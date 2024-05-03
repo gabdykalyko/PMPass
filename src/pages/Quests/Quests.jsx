@@ -1,19 +1,12 @@
 import Header from '../../components/Header/Header'
 import HeaderMob from '../../components/HeaderMob/HeaderMob'
 import styles from './Quests.module.scss'
-import pudge from '../../assets/images/pudge.jpg'
 import Quest from '../../components/Quest/Quest'
 import Footer from '../../components/Footer/Footer'
 import { useEffect, useState } from 'react'
 import Form from '../../components/modals/Form/Form'
-import huskar from '../../assets/images/quests/huskar.png'
-import chestGold from '../../assets/images/quests/chest-gold.png'
-import chestBlue from '../../assets/images/quests/chest-blue.png'
-import cs from '../../assets/images/quests/cs.png'
-import clock from '../../assets/images/quests/clock.png'
 import Offer from '../../components/modals/Offer/Offer'
 import Bonus from '../../components/modals/Bonus/Bonus'
-import Button from '../../components/Button/Button'
 import arrow from '../../assets/images/icons/arrowup.svg'
 import filter from '../../assets/images/icons/filter.svg'
 import arrowDown from '../../assets/images/icons/arrow-down.svg'
@@ -31,6 +24,8 @@ const Quests = () => {
   const [showHelp, setShowHelp] = useState(false)
   const [showOffer, setShowOffer] = useState(false)
   const [showBonus, setShowBonus] = useState(false)
+
+  const [showLoader, setShowLoader] = useState(true)
 
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
 
@@ -119,13 +114,14 @@ const Quests = () => {
     try {
       setLoading(true)
 
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/${isAuthenticated ? 'my_quests' : 'quests' }`,
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/${isAuthenticated ? 'my_quests' : 'quests'}`,
         {
           params: {
             page: page,
             per_page: PER_PAGE,
             quest_category: category,
-            status: status
+            status: status,
+            cacheBuster: Math.random()
           },
           withCredentials: true,
           headers: {
@@ -151,7 +147,7 @@ const Quests = () => {
   }
 
   useEffect(() => {
-    fetchData(1, selectedFilter, selectedStatus);
+    fetchData(1, selectedFilter, selectedStatus)
   }, [isAuthenticated]);
 
   const displayedItemsCount = currentPage * PER_PAGE
@@ -166,6 +162,14 @@ const Quests = () => {
   }
 
   const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowLoader(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [])
 
   return (
     <div>
@@ -232,15 +236,37 @@ const Quests = () => {
         </div>
 
         <div className={styles.wrapper}>
-          {products.map((quest) => (
-            <Quest key={quest.id}
-              quest={quest}
-              onLoginClick={handleLoginClick} />
-          ))}
+          {
+            showLoader ?
+              <div className={styles.loaderContainer}>
+                <div>
+                  Загрузка Страницы...
+                  <div className={styles.loaderWrapper}>
+                    <div className={styles.loader}>
+
+                    </div>
+                  </div>
+                </div>
+              </div> :
+              products.length ?
+                products.map((quest) => (
+                  <Quest key={quest.id}
+                    quest={quest}
+                    onLoginClick={handleLoginClick} />
+                )) :
+                <div className={styles.empty}>
+                  <div>
+                    Результатов не найдено
+                  </div>
+                  <div className={styles.emptyInfo}>
+                    Пожалуйста, попробуйте другие условия фильтра
+                  </div>
+                </div>
+          }
         </div>
         <div className={styles.more}>
           {
-            additionalItemsCount > 0 &&
+           !showLoader && additionalItemsCount > 0 &&
             <div onClick={next}
               className={styles.btn}>
               <button disabled={loading}>
@@ -249,12 +275,14 @@ const Quests = () => {
             </div>
           }
 
-          <div onClick={scrollToTop}
-            className={styles.up}>
-              {
-                products.length !== 0 && <img src={arrow} alt="" />
-              }
-          </div>
+          {
+            !showLoader && products.length ?
+              <div onClick={scrollToTop}
+                className={styles.up}>
+                <img src={arrow} alt="" />
+              </div>
+              : ''
+          }
         </div>
       </div>
       <Footer />

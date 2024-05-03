@@ -1,6 +1,4 @@
 import styles from './Register.module.scss'
-import eye from '../../../assets/images/icons/eye.svg'
-import eyeClose from '../../../assets/images/icons/eye-close.svg'
 import list from '../../../assets/images/icons/list.svg'
 import checkbox from '../../../assets/images/icons/checkbox.svg'
 import checked from '../../../assets/images/icons/checked.svg'

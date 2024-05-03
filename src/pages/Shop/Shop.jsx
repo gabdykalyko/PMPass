@@ -3,14 +3,8 @@ import Header from "../../components/Header/Header"
 import HeaderMob from '../../components/HeaderMob/HeaderMob'
 import Product from "../../components/Product/Product"
 import Footer from "../../components/Footer/Footer"
-import pudge from '../../assets/images/pudge.jpg'
 import Form from '../../components/modals/Form/Form'
 import { useEffect, useState } from 'react'
-import ak from '../../assets/images/prizes/ak.png'
-import gun from '../../assets/images/prizes/gun.png'
-import akRed from '../../assets/images/prizes/ak-red.png'
-import akPink from '../../assets/images/prizes/ak-pink.png'
-import gunPink from '../../assets/images/prizes/gun-pink.png'
 import Offer from '../../components/modals/Offer/Offer'
 import Bonus from '../../components/modals/Bonus/Bonus'
 import Button from '../../components/Button/Button'
@@ -28,6 +22,8 @@ const Shop = () => {
   const [showHelp, setShowHelp] = useState(false)
   const [showOffer, setShowOffer] = useState(false)
   const [showBonus, setShowBonus] = useState(false)
+
+  const [showLoader, setShowLoader] = useState(true)
 
   const [pagination, setPagination] = useState(null)
 
@@ -125,12 +121,20 @@ const Shop = () => {
 
   const additionalItemsCount = totalItemsCount - displayedItemsCount
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowLoader(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [])
+
   return (
     <div>
       <Header onLoginClick={handleLoginClick}
-              onRegisterClick={handleRegisterClick}/>
+        onRegisterClick={handleRegisterClick} />
       <HeaderMob onLoginClick={handleLoginClick}
-                 onRegisterClick={handleRegisterClick}/>
+        onRegisterClick={handleRegisterClick} />
       <div className={`${styles.container} container-main`}>
         <BackButton />
         <div className={styles.title}>
@@ -140,44 +144,70 @@ const Shop = () => {
 
           <div className={styles.filter}>
             Фильтр товаров
-            <img src={filter} alt="" /> 
+            <img src={filter} alt="" />
           </div>
         </div>
         <div className={styles.wrapper}>
-          {products.map((quest, index) => (
-            <Product key={quest.id}
-              quest={quest}
-              onLoginClick={handleLoginClick}/>
-          ))}
+          {
+            showLoader ?
+              <div className={styles.loaderContainer}>
+                <div>
+                  Загрузка Страницы...
+                  <div className={styles.loaderWrapper}>
+                    <div className={styles.loader}>
+
+                    </div>
+                  </div>
+                </div>
+              </div> :
+              products.length ?
+                products.map((quest, index) => (
+                  <Product key={quest.id}
+                    quest={quest}
+                    onLoginClick={handleLoginClick} />
+                )) :
+                <div className={styles.empty}>
+                  <div>
+                    Результатов не найдено
+                  </div>
+                  <div className={styles.emptyInfo}>
+                    Пожалуйста, попробуйте другие условия фильтра
+                  </div>
+                </div>
+          }
         </div>
         <div className={styles.more}>
           {
-            additionalItemsCount > 0 && 
+             !showLoader && additionalItemsCount > 0 &&
             <div onClick={next}>
               <Button title='Больше'
-                    color='brown'/>
+                color='brown' />
             </div>
           }
-          
-          <div onClick={scrollToTop}
-               className={styles.up}>
-            <img src={arrow} alt="" />
-          </div>
+
+          {
+            !showLoader && products.length ?
+              <div onClick={scrollToTop}
+                className={styles.up}>
+                <img src={arrow} alt="" />
+              </div>
+              : ''
+          }
         </div>
       </div>
       <Footer />
       {isFormOpen ? <Form showLogin={showLogin}
-                           closeForm={closeForm}
-                           onLoginClick={handleLoginClick}
-                           onRegisterClick={handleRegisterClick}
-                           onHelpClick={handleHelpClick}
-                           showHelp={showHelp}
-                           onOfferClick={handleOfferClick}
-                           onBonusClick={handleBonusClick}/>
-                          : showOffer ? <Offer closeForm={closeForm}
-                                               onRegisterClick={handleRegisterClick}/> 
-                          : showBonus ? <Bonus closeForm={closeForm}
-                                               onRegisterClick={handleRegisterClick}/> : ''}
+                          closeForm={closeForm}
+                          onLoginClick={handleLoginClick}
+                          onRegisterClick={handleRegisterClick}
+                          onHelpClick={handleHelpClick}
+                          showHelp={showHelp}
+                          onOfferClick={handleOfferClick}
+                          onBonusClick={handleBonusClick} />
+                        : showOffer ? <Offer closeForm={closeForm}
+          onRegisterClick={handleRegisterClick} />
+          : showBonus ? <Bonus closeForm={closeForm}
+            onRegisterClick={handleRegisterClick} /> : ''}
     </div>
   )
 }

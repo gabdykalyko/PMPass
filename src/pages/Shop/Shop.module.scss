@@ -38,6 +38,47 @@
     gap: 24px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-top: 50px;
+
+    .loaderContainer {
+      @include subtitle1b;
+      
+      color: #F9F9F9;
+      display: flex;
+      grid-column: span 4;
+      justify-content: center;
+      margin-top: 50px;
+
+      .loaderWrapper {
+        background-color: $c-white;
+        border-radius: 133px;
+        height: 8px;
+        margin-top: 32px;
+        width: 236px;
+        
+        .loader {
+          background-color: #4A2C6F;
+          border-radius: 133px;
+          height: 100%;
+          animation: loader .5s ease-in-out forwards;
+          width: 0;
+        }
+      }
+    }
+
+    .empty {
+      @include h3;
+
+      color: $c-white;
+      grid-column: span 4;
+      margin-top: 50px;
+      text-align: center;
+
+      .emptyInfo {
+        @include subtitle5;
+
+        margin-top: 20px;
+      }
+    }
   }
 
   .more {
@@ -63,6 +104,15 @@
     &:hover {
       background-color: #4A2C6F;
     }
+  }
+}
+
+@keyframes loader {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
   }
 }
 
@@ -92,6 +142,16 @@
     .wrapper {
       grid-template-columns: 1fr;
       margin-top: 24px;
+
+      .empty {
+        @include subtitle1b;
+
+        .emptyInfo {
+          @include body1;
+
+          margin-top: 20px;
+        }
+      }
     }
   }
 }

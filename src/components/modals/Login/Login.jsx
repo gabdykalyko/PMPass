@@ -1,9 +1,5 @@
 import styles from './Login.module.scss'
-import steam from '../../../assets/images/icons/steam.svg'
-import steamMob from '../../../assets/images/icons/steam-mob.svg'
-import { useEffect, useRef, useState } from 'react'
-import eye from '../../../assets/images/icons/eye.svg'
-import eyeClose from '../../../assets/images/icons/eye-close.svg'
+import { useRef, useState } from 'react'
 import Button from '../../Button/Button'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
@@ -52,20 +48,6 @@ const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
 
     setPasswordValid(value.length)
   }
-
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 850)
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 850);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [])
 
   const dispatch = useDispatch()
 

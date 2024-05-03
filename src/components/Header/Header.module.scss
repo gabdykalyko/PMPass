@@ -25,6 +25,10 @@
       color: #ffffff;
       display: flex;
       gap: 24px;
+
+      .selected {
+        color: #EAD40C;
+      }
     }
   }
 
