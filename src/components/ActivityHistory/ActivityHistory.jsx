@@ -64,8 +64,9 @@ const ActivityHistory = () => {
         </div>
         <div className={styles.body}>
           {
-            products.map((product) => (
-              <div className={styles.bodyItem}>
+            products.map((product, index) => (
+              <div key={index}
+                   className={styles.bodyItem}>
                 <div className={styles.bodyItemName}>
                   Название товара
                 </div>
