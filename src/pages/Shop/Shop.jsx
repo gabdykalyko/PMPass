@@ -13,6 +13,7 @@ import filter from '../../assets/images/icons/filter.svg'
 import axios from 'axios'
 import BackButton from '../../components/BackButton/BackButton'
 import { useTranslation } from 'react-i18next'
+import { NavLink } from 'react-router-dom'
 
 const PER_PAGE = 8
 
@@ -23,7 +24,7 @@ const Shop = () => {
   const [showOffer, setShowOffer] = useState(false)
   const [showBonus, setShowBonus] = useState(false)
 
-  const [showLoader, setShowLoader] = useState(true)
+  const [showLoader, setShowLoader] = useState(false)
 
   const [pagination, setPagination] = useState(null)
 
@@ -121,12 +122,17 @@ const Shop = () => {
 
   const additionalItemsCount = totalItemsCount - displayedItemsCount
 
-  useEffect(() => {
+  const setLoader = () => {
+    setShowLoader(true)
     const timer = setTimeout(() => {
       setShowLoader(false);
     }, 500);
 
     return () => clearTimeout(timer);
+  }
+
+  useEffect(() => {
+    setLoader()
   }, [])
 
   return (
@@ -143,7 +149,7 @@ const Shop = () => {
           </div>
 
           <div className={styles.filter}>
-            Фильтр товаров
+            {t('product_filter')}
             <img src={filter} alt="" />
           </div>
         </div>
@@ -167,11 +173,11 @@ const Shop = () => {
                     onLoginClick={handleLoginClick} />
                 )) :
                 <div className={styles.empty}>
-                  <div>
-                    Результатов не найдено
+                   <div>
+                    Здесь пока ничего нет
                   </div>
                   <div className={styles.emptyInfo}>
-                    Пожалуйста, попробуйте другие условия фильтра
+                    Попробуйте другие настройки фильтра или заходите в PM Hero на сайте <NavLink className={styles.link} to={'https://parimatch.kz/'} target='_blank'>parimatch.kz</NavLink>
                   </div>
                 </div>
           }

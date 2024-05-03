@@ -14,7 +14,7 @@ import arrowNext from '../../../assets/images/welcome/arrow-next-yellow.svg'
 import { useTranslation } from 'react-i18next'
 
 const TradeLink = ({ onClickPrevious, onClickNext }) => {
-  const { t } = useTranslation(['main', 'welcome'])
+  const { t } = useTranslation(['main', 'welcome', 'notifications'])
 
   const [link, setLink] = useState('')
   const [isValid, setIsValid] = useState(true)
@@ -65,7 +65,7 @@ const TradeLink = ({ onClickPrevious, onClickNext }) => {
           user: response.data
         }))
 
-        toast(<Toast message="Ссылка на обмен прикреплена" />, {
+        toast(<Toast message={t('notifications:trade_link_attached')} />, {
           hideProgressBar: true
         })
 

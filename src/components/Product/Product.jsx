@@ -21,11 +21,11 @@ const Product = ({ onLoginClick, quest }) => {
 
   const dispatch = useDispatch()
 
-  const { t } = useTranslation('main')
+  const { t } = useTranslation(['main', 'notifications'])
 
   const buy = async (id, type) => {
     if (!user.steam_trade_url) {
-      toast(<Toast message="Необходимо прикрепить Trade Link!"
+      toast(<Toast message={t('notifications:add_trade_link')}
         status='warning' />, {
         hideProgressBar: true
       })
@@ -49,7 +49,7 @@ const Product = ({ onLoginClick, quest }) => {
       );
 
       if (response.data) {
-        toast(<Toast message="Поздравляем с покупкой!" />, {
+        toast(<Toast message={t('notifications:present_send')} />, {
           hideProgressBar: true
         })
 
@@ -67,7 +67,7 @@ const Product = ({ onLoginClick, quest }) => {
       console.error(error)
 
       if (error.response.data.errors.includes('user_has_not_enough_pm_points')) {
-        toast(<Toast message="Недостаточно средств на балансе!"
+        toast(<Toast message={t('notifications:not_enough_cash')}
           status='warning' />, {
           hideProgressBar: true
         })

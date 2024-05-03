@@ -15,6 +15,7 @@ import axios from 'axios'
 import { useTranslation } from 'react-i18next'
 import loader from '../../assets/images/icons/loader.svg'
 import { useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom'
 
 const PER_PAGE = 6
 
@@ -25,7 +26,7 @@ const Quests = () => {
   const [showOffer, setShowOffer] = useState(false)
   const [showBonus, setShowBonus] = useState(false)
 
-  const [showLoader, setShowLoader] = useState(true)
+  const [showLoader, setShowLoader] = useState(false)
 
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
 
@@ -163,13 +164,18 @@ const Quests = () => {
 
   const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
+  const setLoader = () => {
+    setShowLoader(true)
     const timer = setTimeout(() => {
       setShowLoader(false);
     }, 500);
 
     return () => clearTimeout(timer);
-  }, [])
+  }
+
+  useEffect(() => {
+    setLoader()
+  }, [selectedFilter, selectedStatus])
 
   return (
     <div>
@@ -256,17 +262,17 @@ const Quests = () => {
                 )) :
                 <div className={styles.empty}>
                   <div>
-                    Результатов не найдено
+                    Здесь пока ничего нет
                   </div>
                   <div className={styles.emptyInfo}>
-                    Пожалуйста, попробуйте другие условия фильтра
+                    Попробуйте другие настройки фильтра или заходите в PM Hero на сайте <NavLink className={styles.link} to={'https://parimatch.kz/'} target='_blank'>parimatch.kz</NavLink>
                   </div>
                 </div>
           }
         </div>
         <div className={styles.more}>
           {
-           !showLoader && additionalItemsCount > 0 &&
+            !showLoader && additionalItemsCount > 0 &&
             <div onClick={next}
               className={styles.btn}>
               <button disabled={loading}>

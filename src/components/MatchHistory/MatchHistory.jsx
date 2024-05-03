@@ -14,18 +14,18 @@ const MatchHistory = () => {
     <div className={styles.match}>
       <div className={styles.title}>
         <img src={dota} alt="" />
-        История Матчей
+        {t('match_history')}
       </div>
       {
         user?.steam_private_match_data ?
           <div className={styles.success}>
             <img src={check} alt="" />
-            Ваша история матчей открыта
+            {t('history_open')}
           </div> :
           <div>
             <div className={styles.txt}>
               <img src={warning} alt="" />
-              История матчей закрыта, проверьте настройки
+              {t('match_history_closed')}
             </div>
             <div className={styles.info}>
               <div className={styles.infoItem}>

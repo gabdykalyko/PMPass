@@ -77,6 +77,10 @@
         @include subtitle5;
 
         margin-top: 20px;
+
+        .link {
+          color: $c-yellow;
+        }
       }
     }
   }

@@ -14,7 +14,7 @@ import edit from '../../assets/images/icons/edit.svg'
 import { useTranslation } from 'react-i18next'
 
 const TradeLink = ({ handleTradeClick }) => {
-  const { t } = useTranslation('main')
+  const { t } = useTranslation(['main', 'notifications', 'profile'])
 
   const user = useSelector(state => state.auth.user)
 
@@ -51,7 +51,7 @@ const TradeLink = ({ handleTradeClick }) => {
           user: response.data
         }))
 
-        toast(<Toast message="Ссылка на обмен прикреплена" />, {
+        toast(<Toast message={t('notifications:trade_link_attached')} />, {
           hideProgressBar: true
         });
 
@@ -121,7 +121,7 @@ const TradeLink = ({ handleTradeClick }) => {
                 </div> :
                 <div className={styles.attached}>
                   <img src={check} alt="" />
-                  Ваша ссылка на обмен из Steam прикреплена
+                  {t('profile:steam_attached')}
                 </div>
             }
             {
