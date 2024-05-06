@@ -174,10 +174,10 @@ const Shop = () => {
                 )) :
                 <div className={styles.empty}>
                    <div>
-                    Здесь пока ничего нет
+                   {t('nothing_here')}
                   </div>
-                  <div className={styles.emptyInfo}>
-                    Попробуйте другие настройки фильтра или заходите в PM Hero на сайте <NavLink className={styles.link} to={'https://parimatch.kz/'} target='_blank'>parimatch.kz</NavLink>
+                  <div className={styles.emptyInfo} dangerouslySetInnerHTML={{ __html: t('try_another_filters') }}>
+
                   </div>
                 </div>
           }
@@ -186,7 +186,7 @@ const Shop = () => {
           {
              !showLoader && additionalItemsCount > 0 &&
             <div onClick={next}>
-              <Button title='Больше'
+              <Button title={t('more')}
                 color='brown' />
             </div>
           }

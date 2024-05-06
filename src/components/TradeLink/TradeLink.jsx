@@ -14,7 +14,7 @@ import edit from '../../assets/images/icons/edit.svg'
 import { useTranslation } from 'react-i18next'
 
 const TradeLink = ({ handleTradeClick }) => {
-  const { t } = useTranslation(['main', 'notifications', 'profile'])
+  const { t } = useTranslation(['main', 'notifications', 'profile', 'welcome'])
 
   const user = useSelector(state => state.auth.user)
 
@@ -51,7 +51,7 @@ const TradeLink = ({ handleTradeClick }) => {
           user: response.data
         }))
 
-        toast(<Toast message={t('notifications:trade_link_attached')} />, {
+        toast(<Toast message={t('notifications:trade_link_attached')}/>, {
           hideProgressBar: true
         });
 
@@ -60,7 +60,7 @@ const TradeLink = ({ handleTradeClick }) => {
 
     } catch (error) {
       setIsValid(false)
-      toast(<Toast message="Неверный формат ссылки на обмен"
+      toast(<Toast message={t('notifications:wrong_trade_link')}
         status='error' />, {
         hideProgressBar: true
       });
@@ -80,7 +80,7 @@ const TradeLink = ({ handleTradeClick }) => {
 
   const Enter = () => {
     if (!isValid) {
-      toast(<Toast message="Неверный формат ссылки на обмен"
+      toast(<Toast message={t('notifications:wrong_trade_link')}
         status='error' />, {
         hideProgressBar: true
       });
@@ -190,7 +190,7 @@ const TradeLink = ({ handleTradeClick }) => {
                 </div> :
                 <div className={styles.instruction}
                   onClick={handleTradeClick}>
-                  Как получить ссылку
+                  {t('welcome:trade_link_text2')}
                 </div>
             }
           </div>

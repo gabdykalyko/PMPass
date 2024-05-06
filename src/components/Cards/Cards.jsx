@@ -17,15 +17,20 @@ const Cards = () => {
                  className={`${styles.card} ${styles.shop}`}>
           {t('shop')}
         </NavLink>
-        <NavLink to='/profile'
-                 className={`${styles.card} ${styles.profile}`}>
+        <span className={`${styles.card} ${styles.profile}`}>
           Профиль
-        </NavLink>
-        <NavLink to='https://parimatch.kz/'
-                 target='_blank'
-                 className={`${styles.card} ${styles.parimatch}`}>
-          Parimatch
-        </NavLink>
+          <NavLink  to='/profile' className={styles.btn}>
+            Перейти
+          </NavLink>
+        </span>
+        <span className={`${styles.card} ${styles.parimatch}`}>
+          Делай ставки в Parimatch
+          <NavLink to='https://parimatch.kz/'
+                   target='_blank'
+                   className={styles.btn}>
+            Перейти
+          </NavLink>
+        </span>
       </div>
     </div>
   )

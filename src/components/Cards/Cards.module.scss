@@ -18,8 +18,27 @@
       height: 200px;
       padding-left: 12px;
       padding-top: 12px;
+      position: relative;
 
       transition: all .2s linear;
+
+      .btn {
+        @include subtitle6m;
+
+        align-items: center;
+        background-color: #ffffff;
+        border-radius: 100px;
+        bottom: 14px;
+        color: #000000;
+        display: flex;
+        justify-content: center;
+        font-weight: 700;
+        height: 37px;
+        left: 21px;
+        padding-left: 53px;
+        padding-right: 53px;
+        position: absolute;
+      }
 
       &:hover {
         opacity: .7;
@@ -36,35 +55,59 @@
 
     .profile {
       background-image: url('../../assets/images/cards/profile.png');
+      cursor: unset;
+
+      &:hover {
+        opacity: unset;
+      }
     }
 
     .parimatch {
       background-image: url('../../assets/images/cards/parimatch.png');
-      color: #F1F813;
+      cursor: unset;
+
+      &:hover {
+        opacity: unset;
+      }
     }
   }
 }
 
 @media (max-width: 850px) {
   .container {
- 
-   .wrapper {
-    .quests {
-      background-image: url('../../assets/images/cards/quests-mob.png');
-    }
 
-    .shop {
-      background-image: url('../../assets/images/cards/shop-mob.png');
-    }
+    .wrapper {
+      .quests {
+        background-image: url('../../assets/images/cards/quests-mob.png');
+      }
 
-    .profile {
-      background-image: url('../../assets/images/cards/profile-mob.png');
-    }
+      .shop {
+        background-image: url('../../assets/images/cards/shop-mob.png');
+      }
 
-    .parimatch {
-      background-image: url('../../assets/images/cards/parimatch-mob.png');
-      color: #F1F813;
+      .profile {
+        background-image: url('../../assets/images/cards/profile-mob.png');
+      }
+
+      .parimatch {
+        background-image: url('../../assets/images/cards/parimatch-mob.png');
+      }
     }
-   }
   }
- }
+}
+
+@media (max-width: 500px) {
+  .container {
+    .wrapper {
+      .card {
+
+        .btn {
+          left: 12px;
+          padding-left: unset;
+          padding-right: unset;
+          width: 85%;
+        }
+      }
+    }
+  }
+}

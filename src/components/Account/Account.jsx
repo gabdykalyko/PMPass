@@ -10,19 +10,23 @@ import { NavLink } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Toast from '../../components/Toast/Toast'
+import { useTranslation } from 'react-i18next'
+import BackButton from '../BackButton/BackButton'
 
 const Account = () => {
   const userInfo = useSelector(state => state.auth.user)
+
+  const { t } = useTranslation(['profile', 'notifications'])
 
   const copyToClipboard = (text, type) => {
     navigator.clipboard.writeText(text)
 
     if (type === 'account') {
-      toast(<Toast message="Account ID скопирован" />, {
+      toast(<Toast message={t('notifications:account_copied')}/>, {
         hideProgressBar: true
       })
     } else if (type === 'steam') {
-      toast(<Toast message="Steam ID скопирован" />, {
+      toast(<Toast message={t('notifications:steam_copied')}/>, {
         hideProgressBar: true
       })
     }
@@ -31,6 +35,7 @@ const Account = () => {
   return (
     <div className={styles.wrapper}>
       <div className={`${styles.container} container-main`}>
+      <BackButton />
         <div className={styles.account}>
           <div className={styles.header}>
             <div className={styles.headerLeft}>
@@ -109,10 +114,10 @@ const Account = () => {
               </div>
               <div>
                 <div className={styles.steam}>
-                  Текущий баланс
+                  {t('current_balance')}
                 </div>
                 <div>
-                  { userInfo.pm_points } GG Points
+                  {userInfo?.pm_points} GG Points
                 </div>
               </div>
             </div>

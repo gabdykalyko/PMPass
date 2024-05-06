@@ -219,7 +219,7 @@ const Quests = () => {
             }
             <div className={styles.filter}
               onClick={toggleFilter}>
-              Фильтр квестов
+              {t('quest_filter')}
               <img src={filter} alt="" />
 
               {isFilterOpen &&
@@ -229,7 +229,7 @@ const Quests = () => {
                     Все
                   </div>
                   {
-                    categories.map((category, index) => (
+                    categories?.map((category, index) => (
                       <div key={index} className={`${styles.filterItem} ${selectedFilter === category ? styles.selectedFilter : ''}`}
                         onClick={() => selectFilter(category)}>
                         {category}
@@ -262,10 +262,10 @@ const Quests = () => {
                 )) :
                 <div className={styles.empty}>
                   <div>
-                    Здесь пока ничего нет
+                    {t('nothing_here')}
                   </div>
-                  <div className={styles.emptyInfo}>
-                    Попробуйте другие настройки фильтра или заходите в PM Hero на сайте <NavLink className={styles.link} to={'https://parimatch.kz/'} target='_blank'>parimatch.kz</NavLink>
+                  <div className={styles.emptyInfo} dangerouslySetInnerHTML={{ __html: t('try_another_filters') }}>
+
                   </div>
                 </div>
           }
@@ -276,7 +276,7 @@ const Quests = () => {
             <div onClick={next}
               className={styles.btn}>
               <button disabled={loading}>
-                {loading ? <img className={styles.loader} src={loader} alt="" /> : 'Больше'}
+                {loading ? <img className={styles.loader} src={loader} alt="" /> : t('more')}
               </button>
             </div>
           }

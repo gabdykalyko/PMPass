@@ -6,9 +6,12 @@ import { useState } from 'react'
 import MobMenu from '../MobMenu/MobMenu'
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 const HeaderMob = ({ onLoginClick, onRegisterClick }) => {
   const [showMobMenu, setShowMobMenu] = useState(false)
+
+  const { t } = useTranslation('main')
 
   const showMenu = () => {
     document.body.style.overflow = 'hidden'
@@ -39,7 +42,7 @@ const HeaderMob = ({ onLoginClick, onRegisterClick }) => {
           </div>
           :
           <div onClick={onLoginClick}>
-            <Button title="Вход" />
+            <Button title={t('enter')} />
           </div>
         }
         <div onClick={showMenu}>

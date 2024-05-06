@@ -147,10 +147,10 @@ const MobMenu = ({ closeMenu,
           <div className={styles.btn}
             onClick={LoginBtnClick}>
             <Button color='brown'
-              title='Вход' />
+              title={t('enter')} />
           </div>
           <div onClick={RegisterBtnClick}>
-            <Button title='Регистрация' />
+            <Button title={t('register')} />
           </div>
         </div>
       }

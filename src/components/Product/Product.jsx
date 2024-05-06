@@ -66,9 +66,21 @@ const Product = ({ onLoginClick, quest }) => {
     } catch (error) {
       console.error(error)
 
-      if (error.response.data.errors.includes('user_has_not_enough_pm_points')) {
-        toast(<Toast message={t('notifications:not_enough_cash')}
-          status='warning' />, {
+      if (error.response) {
+        if (error.response.data.errors.includes('user_has_not_enough_pm_points')) {
+          toast(<Toast message={t('notifications:not_enough_cash')}
+            status='warning' />, {
+            hideProgressBar: true
+          })
+        } else {
+          toast(<Toast message={t('notifications:not_enough_cash')}
+            status='error' />, {
+            hideProgressBar: true
+          })
+        }
+      } else {
+        toast(<Toast message={t('notifications:technical_issues')}
+          status='error' />, {
           hideProgressBar: true
         })
       }

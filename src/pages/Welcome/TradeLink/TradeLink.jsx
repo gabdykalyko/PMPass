@@ -74,7 +74,7 @@ const TradeLink = ({ onClickPrevious, onClickNext }) => {
 
     } catch (error) {
       setIsValid(false)
-      toast(<Toast message="Неверный формат ссылки на обмен"
+      toast(<Toast message={t('notifications:wrong_trade_link')}
         status='error' />, {
         hideProgressBar: true
       });
@@ -86,7 +86,7 @@ const TradeLink = ({ onClickPrevious, onClickNext }) => {
 
   const Enter = () => {
     if (!isValid) {
-      toast(<Toast message="Неверный формат ссылки на обмен"
+      toast(<Toast message={t('notifications:wrong_trade_link')}
         status='error' />, {
         hideProgressBar: true
       });
