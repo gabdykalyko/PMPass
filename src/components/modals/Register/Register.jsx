@@ -148,19 +148,19 @@ const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick }) => {
       if (error.response) {
         if (error.response.data.fieldErrors) {
           if (error.response.data.fieldErrors.phone[0].type === 'AllowedChars') {
-            setErrorText('Номер телефона не поддерживается')
+            setErrorText(t('errors:not_supported'))
             setPhoneIsValid(false)
             setShowError(true)
           }
         } else if (error.response.data.modelErrors) {
           if (error.response.data.modelErrors[0].type === 'PhoneCurrencyUnique') {
-            setErrorText('Номер телефона уже зарегистрирован')
+            setErrorText(t('errors:number_registered'))
             setPhoneIsValid(false)
             setShowError(true)
           }
         }
       } else {
-        setErrorText('Ошибка в обработке данных')
+        setErrorText(t('errors:error_data'))
         setShowError(true)
       }
     }

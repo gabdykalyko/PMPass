@@ -51,7 +51,7 @@ const TradeLink = ({ handleTradeClick }) => {
           user: response.data
         }))
 
-        toast(<Toast message={t('notifications:trade_link_attached')}/>, {
+        toast(<Toast message={t('notifications:trade_link_attached')} />, {
           hideProgressBar: true
         });
 
@@ -117,7 +117,7 @@ const TradeLink = ({ handleTradeClick }) => {
               editTrade ?
                 <div className={styles.txt}>
                   <img src={warning} alt="" />
-                  Прикрепите вашу ссылку на обмен из Steam
+                  {t('attach_trade_link')}
                 </div> :
                 <div className={styles.attached}>
                   <img src={check} alt="" />
@@ -151,11 +151,11 @@ const TradeLink = ({ handleTradeClick }) => {
               editTrade &&
               <div className={styles.btns}>
                 <div onClick={Enter}>
-                  <Button title='Прикрепить' />
+                  <Button title={t('attach')} />
                 </div>
                 <div onClick={cancelEdit}>
                   <Button color='brown'
-                    title='Отмена' />
+                    title={t('cancel')} />
                 </div>
               </div>
             }
@@ -163,7 +163,7 @@ const TradeLink = ({ handleTradeClick }) => {
           <div>
             <div className={styles.txt}>
               <img src={warning} alt="" />
-              Прикрепите вашу ссылку на обмен из Steam
+              {t('attach_trade_link')}
             </div>
             <div className={styles.input}>
               <div className={styles.subtitle}>
@@ -181,11 +181,11 @@ const TradeLink = ({ handleTradeClick }) => {
               editTrade ?
                 <div className={styles.btns}>
                   <div onClick={Enter}>
-                    <Button title='Прикрепить' />
+                    <Button title={t('attach')} />
                   </div>
                   <div onClick={cancelEdit}>
                     <Button color='brown'
-                      title='Отмена' />
+                      title={t('cancel')} />
                   </div>
                 </div> :
                 <div className={styles.instruction}

@@ -158,7 +158,7 @@ const Shop = () => {
             showLoader ?
               <div className={styles.loaderContainer}>
                 <div>
-                  Загрузка Страницы...
+                {t('loading')}
                   <div className={styles.loaderWrapper}>
                     <div className={styles.loader}>
 

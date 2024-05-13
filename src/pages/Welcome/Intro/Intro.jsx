@@ -15,7 +15,7 @@ const Intro = ({ onClickNext }) => {
         </div>
         <div className={styles.info}>
           <div>
-            Это официальный продукт компании Париматч.
+          {t('welcome:intro_text1')}
           </div>
           <div className={styles.txt} dangerouslySetInnerHTML={{ __html: t('intro_text2') }}>
           </div>

@@ -63,12 +63,12 @@ const Settings = () => {
           <div className={styles.left}>
             <div className={styles.edit}>
               <img src={edit} alt="" />
-              Настройки Профиля
+              {t('profile_settings')}
             </div>
             <div className={`${styles.edit} ${styles.exit}`}
               onClick={handleClose}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <mask id="mask0_1692_11633" style={{maskType:'alpha'}} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                <mask id="mask0_1692_11633" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                   <rect width="24" height="24" fill="#D9D9D9" />
                 </mask>
                 <g mask="url(#mask0_1692_11633)">
@@ -76,7 +76,7 @@ const Settings = () => {
                 </g>
               </svg>
 
-              Выйти из Профиля
+              {t('quit_from_profile')}
             </div>
           </div>
 
@@ -133,15 +133,15 @@ const Settings = () => {
         <div className={styles.closeWrapper}>
           <div className={styles.closeModal}>
             <div>
-              Вы уверены, что хотите выйти?
+              {t('confirm_quite')}
             </div>
             <div className={styles.btns}>
               <div onClick={cancel}>
-                <Button title='Отмена'
+                <Button title={t('cancel')}
                   color='brown' />
               </div>
               <div onClick={logout}>
-                <Button title='Выйти' />
+                <Button title={t('quit')} />
               </div>
             </div>
           </div>

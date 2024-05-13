@@ -40,7 +40,7 @@ const Profile = () => {
         <TradeLink handleTradeClick={handleTradeClick}/>
       </div>
 
-      <ActivityHistory />
+      {/* <ActivityHistory /> */}
 
       <Footer />
       {isFormOpen && <TradeLinkHelp closeForm={closeForm}/>}

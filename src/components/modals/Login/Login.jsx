@@ -9,7 +9,7 @@ import { IMaskInput } from 'react-imask'
 import { useTranslation } from 'react-i18next'
 
 const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
-  const { t } = useTranslation('main')
+  const { t } = useTranslation(['main', 'errors'])
 
   const [isIdValid, setIdIsValid] = useState(true)
   const [id, setId] = useState('')
@@ -100,9 +100,9 @@ const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
         setPasswordValid(false)
         setIdIsValid(false)
         setShowError(true)
-        setErrorText('Похоже, данные введены некорректно или у вас еще нет аккаунта')
+        setErrorText(t('errors:no_account'))
       } else {
-        setErrorText('Ошибка в обработке данных')
+        setErrorText(t('errors:error_data'))
         setShowError(true)
       }
     }
@@ -141,7 +141,7 @@ const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
         </div>
         <div className={`${styles.selectItem} ${enter === 'account' && styles.selected}`}
           onClick={() => handleSelect('account')}>
-          Номер счета
+          {t('account')}
         </div>
         <div className={`${styles.selectItem} ${enter === 'email' && styles.selected}`}
           onClick={() => handleSelect('email')}>

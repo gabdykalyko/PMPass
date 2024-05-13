@@ -200,19 +200,19 @@ const Quests = () => {
                   <div className={styles.filterWrapper}>
                     <div className={`${styles.filterItem} ${selectedStatus === 'no_progress' || selectedStatus === '' ? styles.selectedFilter : ''}`}
                       onClick={() => selectStatus('no_progress')}>
-                      Новые
+                      {t('new')}
                     </div>
                     <div className={`${styles.filterItem} ${selectedStatus === 'in_progress' ? styles.selectedFilter : ''}`}
                       onClick={() => selectStatus('in_progress')}>
-                      Активные
+                      {t('active')}
                     </div>
                     <div className={`${styles.filterItem} ${selectedStatus === 'completed' ? styles.selectedFilter : ''}`}
                       onClick={() => selectStatus('completed')}>
-                      Завершенные
+                      {t('ended')}
                     </div>
                     <div className={`${styles.filterItem} ${selectedStatus === 'Получена награда' ? styles.selectedFilter : ''}`}
                       onClick={() => selectStatus('reward_received')}>
-                      Получена награда
+                      {t('reward_received')}
                     </div>
                   </div>}
               </div>
@@ -246,7 +246,7 @@ const Quests = () => {
             showLoader ?
               <div className={styles.loaderContainer}>
                 <div>
-                  Загрузка Страницы...
+                  {t('loading')}
                   <div className={styles.loaderWrapper}>
                     <div className={styles.loader}>
 

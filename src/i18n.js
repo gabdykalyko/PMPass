@@ -35,7 +35,26 @@ const resources = {
       quest_filter: 'Фильтр квестов',
       nothing_here: 'Здесь пока ничего нет',
       try_another_filters: 'Попробуйте другие настройки фильтра или заходите в PM Hero на сайте <a class="yellow" href="https://parimatch.kz/" target="_blank">parimatch.kz</a>',
-      more: 'Больше'
+      more: 'Больше',
+      make_bets: 'Делай ставки в Parimatch',
+      go: 'Перейти',
+      loading: 'Загрузка Страницы...',
+      reward_received: 'Получена награда',
+      ended: 'Завершенные',
+      active: 'Активные',
+      new: 'Новые',
+      end: 'Завершён',
+      soon: 'Скоро',
+      activated: 'Активен',
+      account: 'Номер счета',
+      cancel: 'Отмена',
+      quit: 'Выйти',
+      quit_from_profile: 'Выйти из Профиля',
+      confirm_quite: 'Вы уверены, что хотите выйти?',
+      main_info: 'Основная Информация',
+      profile_settings: 'Настройки Профиля',
+      attach_trade_link: 'Прикрепите вашу ссылку на обмен из Steam',
+      attach_steam: 'Привяжите свой Steam аккаунт.'
     },
     banner: {
       title: 'Фармите с Parimatch',
@@ -143,7 +162,11 @@ const resources = {
     },
     errors: {
       min_6_symbols: 'Минимум 6 символов',
-      min_1_number: 'Минимум 1 цифра (0-9)'
+      min_1_number: 'Минимум 1 цифра (0-9)',
+      number_registered: 'Номер телефона уже зарегистрирован',
+      not_supported: 'Номер телефона не поддерживается',
+      error_data: 'Ошибка в обработке данных',
+      no_account: 'Похоже, данные введены некорректно или у вас еще нет аккаунта'
     },
     notifications: {
       steam_attached: 'Steam аккаунт прикреплен',
@@ -193,7 +216,26 @@ const resources = {
       quest_filter: 'Квесттер сүзгісі',
       nothing_here: 'Әзірге бұл жерде ешнәрсе жоқ',
       try_another_filters: 'Сүзгінің басқа баптауларын байқап көріңіз немесе <a class="yellow" href="https://parimatch.kz/" target="_blank">parimatch.kz</a> сайтында PM Hero-ға кіріңіз',
-      more: 'Тағы да'
+      more: 'Тағы да',
+      make_bets: 'Parimatch-та ұтысты тік',
+      go: 'Көшу',
+      loading: 'Парақша жүктелуде...',
+      reward_received: 'Марапат алынды',
+      ended: 'Аяқталғандар',
+      active: 'Белсенді',
+      new: 'Жаңа',
+      end: 'Аяқталды',
+      soon: 'Жақында',
+      activated: 'Белсенді',
+      account: 'Шот нөмірі',
+      cancel: 'Болдырмау',
+      quit: 'Шығу',
+      quit_from_profile: 'Профильден шығу',
+      confirm_quite: 'Шығу туралы шешім ақырғы ма?',
+      main_info: 'Негізгі Ақпарат',
+      profile_settings: 'Профиль баптауы',
+      attach_trade_link: 'Сіздің Steam-дегі айырбастау сілтемеңізді қосыңыз',
+      attach_steam: 'Өз Steam aккаунтыңызды байлаңыз.'
     },
     banner: {
       title: 'Parimatch-пен фармдаңыз',
@@ -264,11 +306,11 @@ const resources = {
       go_to_community: 'Сіз Қауымдастық бөлімінде Матчтардың көпшілікке қолжетімді тарихын көре аласыз, оны басыңыз және тарих ашық болады.',
       history_open: 'Сіздің матчтар тарихыңыз ашық',
       steam_attached: 'Сіздің Steam-дегі айырбастау сілтемеңіз қосылды',
-      steam_is_not_attached: 'Ваш Steam aккаунт не привязан'
+      steam_is_not_attached: 'Сіздің Steam aккаунт байланбаған'
     },
     welcome: {
       intro_title: '- сіздің үздік жүлделер әлеміне жолдама',
-      intro_text1: 'Это официальный продукт компании Париматч.', // перевести
+      intro_text1: 'Бұл Париматч компаниясының ресми өнімі.', // перевести
       intro_text2: '<a class="yellow" href="https://parimatch.kz/" target="_blank">parimatch.kz</a> сайтында және сіздің Dota 2 сияқты сүйікті ойындарыңызда тапсырмаларды орындаңыз, бонустық баллдарды жинаңыз және оларды дүкендегі скиндерге және басқа заттарға айырбастаңыз.',
       shop_and_quests_shop: 'Квесттер мен',
       shop_and_quests_quests: 'Дүкен',
@@ -301,10 +343,14 @@ const resources = {
     },
     errors: {
       min_6_symbols: 'Кемінде 6 таңба',
-      min_1_number: 'Кемінде 1 сан (0-9)'
+      min_1_number: 'Кемінде 1 сан (0-9)',
+      number_registered: 'Телефон нөмірі әлдеқашан тіркеліп қойған',
+      not_supported: 'Телефон нөмірі бойынша қолдау көрсетілмейді',
+      error_data: 'Деректерді өңдеу кезінде қате орын алды',
+      no_account: 'Деректер дұрыс енгізілмеген сияқты немесе сізде әлі аккаунт жоқ'
     },
     notifications: {
-      steam_attached: 'Steam аккаунт қосылды ',
+      steam_attached: 'Steam аккаунт қосылды',
       dota_history_opened: 'Матчтар тарихы ашық',
       trade_link_attached: 'Айырбастауға сілтеме қосылды',
       trade_link_edited: 'Айырбастауға сілтеме өзгертілді',
