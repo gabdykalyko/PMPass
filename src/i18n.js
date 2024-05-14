@@ -36,7 +36,7 @@ const resources = {
       nothing_here: 'Здесь пока ничего нет',
       try_another_filters: 'Попробуйте другие настройки фильтра или заходите в PM Hero на сайте <a class="yellow" href="https://parimatch.kz/" target="_blank">parimatch.kz</a>',
       more: 'Больше',
-      make_bets: 'Делай ставки в Parimatch',
+      make_bets: 'Делайте ставки в Parimatch',
       go: 'Перейти',
       loading: 'Загрузка Страницы...',
       reward_received: 'Получена награда',
