@@ -22,6 +22,7 @@ To start project.
 ### `npm run deploy`
 
 To build project and upload to hosting.
+Builded project will be in build folder.
 
 In case, you need to upload project to hosting, you will need to create .htaccess file with following code:
 
