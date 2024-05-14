@@ -9,7 +9,7 @@ import { IMaskInput } from 'react-imask'
 import { useTranslation } from 'react-i18next'
 
 const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
-  const { t } = useTranslation(['main', 'errors'])
+  const { t } = useTranslation(['main', 'errors', 'reg'])
 
   const [isIdValid, setIdIsValid] = useState(true)
   const [id, setId] = useState('')
@@ -245,7 +245,7 @@ const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
 
       <div className={styles.row}>
         <div className={styles.enter}>
-          Нет аккаунта? <span onClick={onRegisterClick}>{t('to_register')}</span>
+        {t('reg:no_account')} <span onClick={onRegisterClick}>{t('to_register')}</span>
         </div>
       </div>
 

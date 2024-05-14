@@ -82,7 +82,7 @@ const Settings = () => {
 
           <div className={styles.right}>
             <div className={styles.rightTitle}>
-              Основная Информация
+              {t('main_info')}
             </div>
 
             <div className={styles.profileImage}>

@@ -22,8 +22,8 @@ const Quest = ({ quest, onLoginClick }) => {
           </div>
           {
             quest.status ?
-              <div className={`${styles.chestStatus} ${quest.status === 'Активен' ? styles.chestStatusActive : quest.status === 'No progress' ? styles.chestStatusSoon : styles.chestStatusCompleted}`}>
-                {quest.status === 'Active' ? 'Активен' : quest.status === 'No progress' ? t('soon') : t('end')}
+              <div className={`${styles.chestStatus} ${quest.status === 'In progress' ? styles.chestStatusActive : quest.status === 'No progress' ? styles.chestStatusSoon : styles.chestStatusCompleted}`}>
+                {quest.status === 'Active' ? t('activated') : quest.status === 'No progress' ? t('soon') : t('end')}
               </div> :
               ''
           }

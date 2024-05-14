@@ -210,7 +210,7 @@ const Quests = () => {
                       onClick={() => selectStatus('completed')}>
                       {t('ended')}
                     </div>
-                    <div className={`${styles.filterItem} ${selectedStatus === 'Получена награда' ? styles.selectedFilter : ''}`}
+                    <div className={`${styles.filterItem} ${selectedStatus === 'reward_received' ? styles.selectedFilter : ''}`}
                       onClick={() => selectStatus('reward_received')}>
                       {t('reward_received')}
                     </div>
