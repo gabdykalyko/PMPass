@@ -99,12 +99,20 @@ const Product = ({ onLoginClick, quest }) => {
         {/* <img src={quest.image ? quest.image : defaultQuest} alt="" /> */}
       </div>
 
+      <div className={styles.chestTitleWrapper}>
+        <div className={styles.chestTitle}>
+          <div className={styles.chestName}>
+            {quest.price} GG Points
+          </div>
+        </div>
+      </div>
+
       <div className={styles.productName}>
         {quest.name}
       </div>
 
-      <div className={styles.productPrice}>
-        {quest.price} GG Points
+      <div dangerouslySetInnerHTML={{ __html: quest.description }} className={styles.questTask}>
+        {/* {quest.description} */}
       </div>
 
       {

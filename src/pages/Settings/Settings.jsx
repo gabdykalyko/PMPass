@@ -10,6 +10,7 @@ import { logoutSuccess } from '../../slices/authSlice'
 import axios from 'axios'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import BackButton from '../../components/BackButton/BackButton'
 
 const Settings = () => {
   const { t } = useTranslation('main')
@@ -56,9 +57,7 @@ const Settings = () => {
       <Header />
       <HeaderMob />
       <div className={`${styles.container} container-main`}>
-        <div className={styles.title}>
-          {t('settings')}
-        </div>
+        <BackButton />
         <div className={styles.main}>
           <div className={styles.left}>
             <div className={styles.edit}>

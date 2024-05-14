@@ -17,6 +17,27 @@
     justify-content: center;
   }
 
+  .chestTitleWrapper {
+    border-bottom: 1px solid rgba(220, 220, 220, .1);
+    margin-top: 18px;
+    padding-bottom: 12px;
+
+    .chestTitle {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+
+      .chestName {
+        @include subtitle3b;
+
+        color: $c-yellow;
+        height: 24px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
   img {
     width: 100%;
   }
@@ -24,10 +45,24 @@
   .productName {
     @include subtitle6m;
 
-    border-bottom: 1px solid rgba(220, 220, 220, .1);
     color: #ffffff;
-    margin-top: 24px;
-    padding-bottom: 19px;
+    // height: 50px;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .questTask {
+    @include body2;
+
+    color: #E0E0E0;
+    height: 45px;
+    margin-bottom: 16px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .productPrice {
@@ -46,7 +81,6 @@
       border-radius: 8px;
       cursor: pointer;
       height: 46px;
-      margin-top: 24px;
       transition: all .2s linear;
       width: 100%;
 
