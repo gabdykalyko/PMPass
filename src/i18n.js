@@ -44,7 +44,7 @@ const resources = {
       active: 'Активные',
       new: 'Новые',
       end: 'Завершён',
-      soon: 'Скоро',
+      soon: 'Доступно',
       activated: 'Активен',
       account: 'Номер счета',
       cancel: 'Отмена',

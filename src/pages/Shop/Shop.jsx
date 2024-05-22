@@ -9,11 +9,10 @@ import Offer from '../../components/modals/Offer/Offer'
 import Bonus from '../../components/modals/Bonus/Bonus'
 import Button from '../../components/Button/Button'
 import arrow from '../../assets/images/icons/arrowup.svg'
-import filter from '../../assets/images/icons/filter.svg'
 import axios from 'axios'
 import BackButton from '../../components/BackButton/BackButton'
 import { useTranslation } from 'react-i18next'
-import { NavLink } from 'react-router-dom'
+import arrowFilter from '../../assets/images/icons/arrow_filter.svg'
 
 const PER_PAGE = 8
 
@@ -80,12 +79,13 @@ const Shop = () => {
 
   const [products, setProducts] = useState([])
 
-  const fetchData = async (page) => {
+  const fetchData = async (page, order = 'asc') => {
     try {
       const response = await axios.get(`${process.env.REACT_APP_API_URL}/shop_items`, {
         params: {
           per_page: PER_PAGE,
-          page: page
+          page: page,
+          order: order
         },
         withCredentials: true,
         headers: {
@@ -107,14 +107,17 @@ const Shop = () => {
     }
   }
 
+  const [isFilterOpen, setIsFilterOpen] = useState(false)
+  const [selectedFilter, setSelectedFilter] = useState('По возрастанию')
+
   useEffect(() => {
-    fetchData(1);
-  }, []);
+    fetchData(1, selectedFilter === 'По возрастанию' ? 'asc' : 'desc')
+  }, [selectedFilter]);
 
   const next = () => {
     if (pagination && pagination.next_page) {
       setCurrentPage(currentPage + 1)
-      fetchData(pagination.next_page);
+      fetchData(pagination.next_page, selectedFilter === 'По возрастанию' ? 'asc' : 'desc')
     }
   }
 
@@ -135,6 +138,17 @@ const Shop = () => {
     setLoader()
   }, [])
 
+  const selectFilter = (filter) => {
+    setSelectedFilter(filter)
+    setIsFilterOpen(false)
+    setCurrentPage(1)
+    fetchData(1, filter === 'По возрастанию' ? 'asc' : 'desc')
+  }
+
+  const toggleFilter = () => {
+    setIsFilterOpen(!isFilterOpen);
+  }
+
   return (
     <div>
       <Header onLoginClick={handleLoginClick}
@@ -148,9 +162,22 @@ const Shop = () => {
             {t('shop')}
           </div>
 
-          <div className={styles.filter}>
+          <div className={styles.filter}
+            onClick={toggleFilter}>
             {t('product_filter')}
-            <img src={filter} alt="" />
+            <img src={arrowFilter} alt="" />
+
+            {isFilterOpen &&
+              <div className={styles.filterWrapper}>
+                <div className={`${styles.filterItem} ${selectedFilter === 'По возрастанию' ? styles.selectedFilter : ''}`}
+                  onClick={() => selectFilter('По возрастанию')}>
+                  По возрастанию
+                </div>
+                <div className={`${styles.filterItem} ${selectedFilter === 'По убыванию' ? styles.selectedFilter : ''}`}
+                  onClick={() => selectFilter('По убыванию')}>
+                  По убыванию
+                </div>
+              </div>}
           </div>
         </div>
         <div className={styles.wrapper}>
@@ -158,7 +185,7 @@ const Shop = () => {
             showLoader ?
               <div className={styles.loaderContainer}>
                 <div>
-                {t('loading')}
+                  {t('loading')}
                   <div className={styles.loaderWrapper}>
                     <div className={styles.loader}>
 
@@ -173,8 +200,8 @@ const Shop = () => {
                     onLoginClick={handleLoginClick} />
                 )) :
                 <div className={styles.empty}>
-                   <div>
-                   {t('nothing_here')}
+                  <div>
+                    {t('nothing_here')}
                   </div>
                   <div className={styles.emptyInfo} dangerouslySetInnerHTML={{ __html: t('try_another_filters') }}>
 
@@ -184,7 +211,7 @@ const Shop = () => {
         </div>
         <div className={styles.more}>
           {
-             !showLoader && additionalItemsCount > 0 &&
+            !showLoader && additionalItemsCount > 0 &&
             <div onClick={next}>
               <Button title={t('more')}
                 color='brown' />
@@ -203,14 +230,14 @@ const Shop = () => {
       </div>
       <Footer />
       {isFormOpen ? <Form showLogin={showLogin}
-                          closeForm={closeForm}
-                          onLoginClick={handleLoginClick}
-                          onRegisterClick={handleRegisterClick}
-                          onHelpClick={handleHelpClick}
-                          showHelp={showHelp}
-                          onOfferClick={handleOfferClick}
-                          onBonusClick={handleBonusClick} />
-                        : showOffer ? <Offer closeForm={closeForm}
+        closeForm={closeForm}
+        onLoginClick={handleLoginClick}
+        onRegisterClick={handleRegisterClick}
+        onHelpClick={handleHelpClick}
+        showHelp={showHelp}
+        onOfferClick={handleOfferClick}
+        onBonusClick={handleBonusClick} />
+        : showOffer ? <Offer closeForm={closeForm}
           onRegisterClick={handleRegisterClick} />
           : showBonus ? <Bonus closeForm={closeForm}
             onRegisterClick={handleRegisterClick} /> : ''}
