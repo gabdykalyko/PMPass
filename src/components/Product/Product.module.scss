@@ -1,11 +1,11 @@
-@import '../../assets/styles/global.scss';
+@import "../../assets/styles/global.scss";
 
 .container {
-  background-color: rgba(0, 0, 0, .3);
-  border: 1px solid rgba(0, 0, 0, .0);
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0);
   border-radius: 8px;
   padding: 12px 16px 21px;
-  transition: all .2s linear;
+  transition: all 0.2s linear;
 
   .imgWrapper {
     align-items: center;
@@ -13,12 +13,12 @@
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
-    height: 136px;
+    height: 240px;
     justify-content: center;
   }
 
   .chestTitleWrapper {
-    border-bottom: 1px solid rgba(220, 220, 220, .1);
+    border-bottom: 1px solid rgba(220, 220, 220, 0.1);
     margin-top: 18px;
     padding-bottom: 12px;
 
@@ -57,7 +57,7 @@
   .questTask {
     @include body2;
 
-    color: #E0E0E0;
+    color: #e0e0e0;
     height: 45px;
     margin-bottom: 16px;
     max-width: 100%;
@@ -73,30 +73,29 @@
   }
 
   .btn {
-
     button {
       @include subtitle6m;
 
-      background-color: #EAD40C;
+      background-color: #ead40c;
       border-radius: 8px;
       cursor: pointer;
       height: 46px;
-      transition: all .2s linear;
+      transition: all 0.2s linear;
       width: 100%;
 
       .loader {
-        animation: spin .5s linear infinite;
+        animation: spin 0.5s linear infinite;
         width: 24px;
       }
 
       &:hover {
-        background-color: #FFEB31;
+        background-color: #ffeb31;
       }
     }
   }
 
   &:hover {
-    border: 1px solid #EAD40C;
+    border: 1px solid #ead40c;
   }
 }
 

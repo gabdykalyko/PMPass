@@ -1,39 +1,86 @@
-@import '../../assets/styles/global.scss';
+@import "../../assets/styles/global.scss";
 
 .container {
   padding-top: 124px;
-  transition: all .2s linear;
+  transition: all 0.2s linear;
 
-  .title {
-    @include h2;
-
-    align-items: center;
-    color: #ffffff;
+  .container__title {
+    @include subtitle5;
     display: flex;
     justify-content: space-between;
-    font-size: 40px;
+    align-items: end;
+    .title {
+      @include h2;
+
+      align-items: center;
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      font-size: 40px;
+    }
+    .reset_filter {
+      cursor: pointer;
+      font-size: 14px;
+      color: $c-light-grey;
+    }
+  }
+
+  .container__filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    .chips {
+      @include body1;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 30px;
+
+      .chips__container {
+        display: flex;
+        gap: 12px;
+      }
+      .chips__container_item {
+        background-color: rgba(220, 220, 220, 0.05);
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+        border-radius: 100px;
+        padding: 10px 16px;
+        color: #ffffff;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .selected_chips__container_item {
+        background-color: $c-parimatch-light;
+        color: #fff;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+      }
+      .chips__container_divider {
+        color: #fff;
+      }
+    }
 
     .filter {
       @include subtitle6m;
 
       align-items: center;
-      background-color: #3A2159;
+      background-color: #3a2159;
       border-radius: 8px;
-      color: #AE6FFF;
+      color: #ae6fff;
       cursor: pointer;
       display: flex;
       gap: 8px;
       height: 46px;
       padding: 10px 22px;
       position: relative;
-      transition: all .2s linear;
+      transition: all 0.2s linear;
 
       .filterWrapper {
         @include body1;
 
         background-color: #242424;
         border-radius: 8px;
-        color: #E0E0E0;
+        color: #e0e0e0;
         left: 0;
         padding: 8px 0;
         position: absolute;
@@ -45,25 +92,24 @@
           cursor: pointer;
           margin-bottom: 3px;
           padding: 6px 16px;
-          transition: all .2s linear;
+          transition: all 0.2s linear;
 
           &:hover {
-            background-color: rgba(220, 220, 220, .1);
+            background-color: rgba(220, 220, 220, 0.1);
           }
         }
 
         .selectedFilter {
-          background-color: rgba(220, 220, 220, .1);
+          background-color: rgba(220, 220, 220, 0.1);
           color: #fff;
         }
       }
 
       &:hover {
-        background-color: #4A2C6F;
+        background-color: #4a2c6f;
       }
     }
   }
-
   .wrapper {
     align-items: start;
     display: grid;
@@ -74,7 +120,7 @@
     .loaderContainer {
       @include subtitle1b;
 
-      color: #F9F9F9;
+      color: #f9f9f9;
       display: flex;
       grid-column: span 4;
       justify-content: center;
@@ -88,10 +134,10 @@
         width: 236px;
 
         .loader {
-          background-color: #4A2C6F;
+          background-color: #4a2c6f;
           border-radius: 133px;
           height: 100%;
-          animation: loader .5s ease-in-out forwards;
+          animation: loader 0.5s ease-in-out forwards;
           width: 0;
         }
       }
@@ -126,7 +172,7 @@
 
   .up {
     align-items: center;
-    background-color: #3A2159;
+    background-color: #3a2159;
     border-radius: 8px;
     cursor: pointer;
     display: flex;
@@ -134,11 +180,11 @@
     justify-content: center;
     position: absolute;
     right: 0;
-    transition: all .2s linear;
+    transition: all 0.2s linear;
     width: 40px;
 
     &:hover {
-      background-color: #4A2C6F;
+      background-color: #4a2c6f;
     }
   }
 }
@@ -155,9 +201,21 @@
 
 @media (max-width: 1200px) {
   .container {
-
     .wrapper {
       grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+
+@media(max-width: 920px){
+  .container__filter{
+    
+    .chips{
+      display: flex;
+      flex-direction: column;
+    }
+    .chips__container_divider{
+      display: none;
     }
   }
 }
@@ -166,12 +224,16 @@
   .container {
     padding-top: 104px;
 
-    .title {
-      display: block;
-      font-size: 36px;
-
+    .container__title {
+      .title {
+        display: block;
+        font-size: 36px;
+      }
+    }
+    .container__filter {
+      align-items: start;
       .filter {
-        display: inline-flex;
+        
         margin-top: 32px;
       }
     }

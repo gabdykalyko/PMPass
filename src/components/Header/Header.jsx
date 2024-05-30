@@ -96,7 +96,7 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
         {isAuthenticated ?
           <div className={styles.auth}>
             <div>
-              Points: {user?.pm_points}
+              PM баллы: {user?.pm_points}
             </div>
             <div className={styles.line}>
 

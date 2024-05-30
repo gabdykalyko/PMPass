@@ -31,6 +31,9 @@ const Shop = () => {
 
   const [totalItemsCount, setTotalItemsCount] = useState(0)
 
+  const [selectedGame, setSelectedGame] = useState(null);
+  const [selectedRarity, setSelectedRarity] = useState([]);
+
   const { t } = useTranslation('main')
 
   const handleLoginClick = () => {
@@ -93,6 +96,7 @@ const Shop = () => {
           'Accept': 'application/json'
         }
       })
+      console.log(response)
       if (response.data) {
         if (page === 1) {
           setProducts(response.data.data);
@@ -149,6 +153,25 @@ const Shop = () => {
     setIsFilterOpen(!isFilterOpen);
   }
 
+  const selectGameChip = (game) => {
+    setSelectedGame(selectedGame === game ? null : game);
+  };
+
+  const selectRarityChip = (rarity) => {
+    setSelectedRarity(prevSelected => {
+      if (prevSelected.includes(rarity)) {
+        return prevSelected.filter(item => item !== rarity);
+      } else {
+        return [...prevSelected, rarity];
+      }
+    });
+  };
+
+  const resetFilters = () => {
+    setSelectedGame(null)
+    setSelectedRarity([])
+  }
+
   return (
     <div>
       <Header onLoginClick={handleLoginClick}
@@ -157,11 +180,61 @@ const Shop = () => {
         onRegisterClick={handleRegisterClick} />
       <div className={`${styles.container} container-main`}>
         <BackButton />
-        <div className={styles.title}>
-          <div>
+        <div>
+        <div className={styles.container__title}>
+          <div className={styles.title}>
             {t('shop')}
           </div>
-
+          <div onClick={resetFilters} className={styles.reset_filter}>
+            {t('reset_filters')}
+          </div>
+        </div>
+        <div className={styles.container__filter}>
+          <div className={styles.chips}>
+            <div className={styles.chips__container}>
+              <div
+                className={`${styles.chips__container_item} ${selectedGame === 'Dota 2' ? styles.selected_chips__container_item : ''}`}
+                onClick={() => selectGameChip('Dota 2')}
+              >
+                Dota 2
+              </div>
+              <div
+                className={`${styles.chips__container_item} ${selectedGame === 'CS 2' ? styles.selected_chips__container_item : ''}`}
+                onClick={() => selectGameChip('CS 2')}
+              >
+                CS 2
+              </div>
+            </div>
+            <div className={styles.chips__container_divider}>
+              |
+            </div>
+            <div className={styles.chips__container}>
+              <div
+                className={`${styles.chips__container_item} ${selectedRarity.includes('Обычный') ? styles.selected_chips__container_item : ''}`}
+                onClick={() => selectRarityChip('Обычный')}
+              >
+                Обычный
+              </div>
+              <div
+                className={`${styles.chips__container_item} ${selectedRarity.includes('Редкий') ? styles.selected_chips__container_item : ''}`}
+                onClick={() => selectRarityChip('Редкий')}
+              >
+                Редкий
+              </div>
+              <div
+                className={`${styles.chips__container_item} ${selectedRarity.includes('Эпический') ? styles.selected_chips__container_item : ''}`}
+                onClick={() => selectRarityChip('Эпический')}
+              >
+                Эпический
+              </div>
+              <div
+                className={`${styles.chips__container_item} ${selectedRarity.includes('Легендарный') ? styles.selected_chips__container_item : ''}`}
+                onClick={() => selectRarityChip('Легендарный')}
+              >
+                Легендарный
+              </div>
+            </div>
+          </div>
           <div className={styles.filter}
             onClick={toggleFilter}>
             {t('product_filter')}
@@ -180,6 +253,8 @@ const Shop = () => {
               </div>}
           </div>
         </div>
+        </div>
+        
         <div className={styles.wrapper}>
           {
             showLoader ?

@@ -102,7 +102,7 @@ const Product = ({ onLoginClick, quest }) => {
       <div className={styles.chestTitleWrapper}>
         <div className={styles.chestTitle}>
           <div className={styles.chestName}>
-            {quest.price} GG Points
+            {quest.price} PM баллов
           </div>
         </div>
       </div>
