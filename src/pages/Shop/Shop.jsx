@@ -31,8 +31,9 @@ const Shop = () => {
 
   const [totalItemsCount, setTotalItemsCount] = useState(0)
 
-  const [selectedGame, setSelectedGame] = useState(null);
+  const [selectedGames, setSelectedGames] = useState([]);
   const [selectedRarity, setSelectedRarity] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
 
   const { t } = useTranslation('main')
 
@@ -99,9 +100,9 @@ const Shop = () => {
       console.log(response)
       if (response.data) {
         if (page === 1) {
-          setProducts(response.data.data);
+          setAllProducts(response.data.data);
         } else {
-          setProducts(prevProducts => [...prevProducts, ...response.data.data]);
+          setAllProducts(prevProducts => [...prevProducts, ...response.data.data]);
         }
         setPagination(response.data.pagination);
         setTotalItemsCount(response.data.pagination.total_count)
@@ -117,6 +118,15 @@ const Shop = () => {
   useEffect(() => {
     fetchData(1, selectedFilter === 'По возрастанию' ? 'asc' : 'desc')
   }, [selectedFilter]);
+
+  useEffect(() => {
+    const filteredProducts = allProducts.filter(product => {
+      const gameMatches = selectedGames.length === 0 || selectedGames.includes(product.game);
+      const rarityMatches = selectedRarity.length === 0 || selectedRarity.includes(product.rarity);
+      return gameMatches && rarityMatches;
+    });
+    setProducts(filteredProducts);
+  }, [selectedGames, selectedRarity, allProducts]);
 
   const next = () => {
     if (pagination && pagination.next_page) {
@@ -154,7 +164,13 @@ const Shop = () => {
   }
 
   const selectGameChip = (game) => {
-    setSelectedGame(selectedGame === game ? null : game);
+    setSelectedGames(prevSelected => {
+      if (prevSelected.includes(game)) {
+        return prevSelected.filter(item => item !== game);
+      } else {
+        return [...prevSelected, game];
+      }
+    });
   };
 
   const selectRarityChip = (rarity) => {
@@ -168,8 +184,10 @@ const Shop = () => {
   };
 
   const resetFilters = () => {
-    setSelectedGame(null)
-    setSelectedRarity([])
+    setSelectedGames([]);
+    setSelectedRarity([]);
+    setCurrentPage(1);
+    fetchData(1, selectedFilter === 'По возрастанию' ? 'asc' : 'desc');
   }
 
   return (
@@ -181,80 +199,80 @@ const Shop = () => {
       <div className={`${styles.container} container-main`}>
         <BackButton />
         <div>
-        <div className={styles.container__title}>
-          <div className={styles.title}>
-            {t('shop')}
-          </div>
-          <div onClick={resetFilters} className={styles.reset_filter}>
-            {t('reset_filters')}
-          </div>
-        </div>
-        <div className={styles.container__filter}>
-          <div className={styles.chips}>
-            <div className={styles.chips__container}>
-              <div
-                className={`${styles.chips__container_item} ${selectedGame === 'Dota 2' ? styles.selected_chips__container_item : ''}`}
-                onClick={() => selectGameChip('Dota 2')}
-              >
-                Dota 2
-              </div>
-              <div
-                className={`${styles.chips__container_item} ${selectedGame === 'CS 2' ? styles.selected_chips__container_item : ''}`}
-                onClick={() => selectGameChip('CS 2')}
-              >
-                CS 2
-              </div>
+          <div className={styles.container__title}>
+            <div className={styles.title}>
+              {t('shop')}
             </div>
-            <div className={styles.chips__container_divider}>
-              |
-            </div>
-            <div className={styles.chips__container}>
-              <div
-                className={`${styles.chips__container_item} ${selectedRarity.includes('Обычный') ? styles.selected_chips__container_item : ''}`}
-                onClick={() => selectRarityChip('Обычный')}
-              >
-                Обычный
-              </div>
-              <div
-                className={`${styles.chips__container_item} ${selectedRarity.includes('Редкий') ? styles.selected_chips__container_item : ''}`}
-                onClick={() => selectRarityChip('Редкий')}
-              >
-                Редкий
-              </div>
-              <div
-                className={`${styles.chips__container_item} ${selectedRarity.includes('Эпический') ? styles.selected_chips__container_item : ''}`}
-                onClick={() => selectRarityChip('Эпический')}
-              >
-                Эпический
-              </div>
-              <div
-                className={`${styles.chips__container_item} ${selectedRarity.includes('Легендарный') ? styles.selected_chips__container_item : ''}`}
-                onClick={() => selectRarityChip('Легендарный')}
-              >
-                Легендарный
-              </div>
+            <div onClick={resetFilters} className={styles.reset_filter}>
+              {t('reset_filters')}
             </div>
           </div>
-          <div className={styles.filter}
-            onClick={toggleFilter}>
-            {t('product_filter')}
-            <img src={arrowFilter} alt="" />
+          <div className={styles.container__filter}>
+            <div className={styles.chips}>
+              <div className={styles.chips__container}>
+                <div
+                  className={`${styles.chips__container_item} ${selectedGames.includes('dota2') ? styles.selected_chips__container_item : ''}`}
+                  onClick={() => selectGameChip('dota2')}
+                >
+                  Dota 2
+                </div>
+                <div
+                  className={`${styles.chips__container_item} ${selectedGames.includes('csgo') ? styles.selected_chips__container_item : ''}`}
+                  onClick={() => selectGameChip('csgo')}
+                >
+                  CS 2
+                </div>
+              </div>
+              <div className={styles.chips__container_divider}>
+                |
+              </div>
+              <div className={styles.chips__container}>
+                <div
+                  className={`${styles.chips__container_item} ${selectedRarity.includes('common') ? styles.selected_chips__container_item : ''}`}
+                  onClick={() => selectRarityChip('common')}
+                >
+                  Обычный
+                </div>
+                <div
+                  className={`${styles.chips__container_item} ${selectedRarity.includes('rare') ? styles.selected_chips__container_item : ''}`}
+                  onClick={() => selectRarityChip('rare')}
+                >
+                  Редкий
+                </div>
+                <div
+                  className={`${styles.chips__container_item} ${selectedRarity.includes('epic') ? styles.selected_chips__container_item : ''}`}
+                  onClick={() => selectRarityChip('epic')}
+                >
+                  Эпический
+                </div>
+                <div
+                  className={`${styles.chips__container_item} ${selectedRarity.includes('legendary') ? styles.selected_chips__container_item : ''}`}
+                  onClick={() => selectRarityChip('legendary')}
+                >
+                  Легендарный
+                </div>
+              </div>
+            </div>
+            <div className={styles.filter}
+              onClick={toggleFilter}>
+              {t('product_filter')}
+              <img src={arrowFilter} alt="" />
 
-            {isFilterOpen &&
-              <div className={styles.filterWrapper}>
-                <div className={`${styles.filterItem} ${selectedFilter === 'По возрастанию' ? styles.selectedFilter : ''}`}
-                  onClick={() => selectFilter('По возрастанию')}>
-                  По возрастанию
-                </div>
-                <div className={`${styles.filterItem} ${selectedFilter === 'По убыванию' ? styles.selectedFilter : ''}`}
-                  onClick={() => selectFilter('По убыванию')}>
-                  По убыванию
-                </div>
-              </div>}
+              {isFilterOpen &&
+                <div className={styles.filterWrapper}>
+                  <div className={`${styles.filterItem} ${selectedFilter === 'По возрастанию' ? styles.selectedFilter : ''}`}
+                    onClick={() => selectFilter('По возрастанию')}>
+                    По возрастанию
+                  </div>
+                  <div className={`${styles.filterItem} ${selectedFilter === 'По убыванию' ? styles.selectedFilter : ''}`}
+                    onClick={() => selectFilter('По убыванию')}>
+                    По убыванию
+                  </div>
+                </div>}
+            </div>
           </div>
         </div>
-        </div>
-        
+
         <div className={styles.wrapper}>
           {
             showLoader ?
@@ -320,4 +338,4 @@ const Shop = () => {
   )
 }
 
-export default Shop
+export default Shop;
