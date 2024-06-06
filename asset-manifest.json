@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PMPass/static/css/main.d935821e.css",
-    "main.js": "/PMPass/static/js/main.49add9c6.js",
+    "main.js": "/PMPass/static/js/main.0a01b800.js",
     "static/js/592.81ae2bda.chunk.js": "/PMPass/static/js/592.81ae2bda.chunk.js",
     "static/media/defaultProduct.png": "/PMPass/static/media/defaultProduct.47eb5494920abdeee20c.png",
     "static/media/quests.png": "/PMPass/static/media/quests.a00413986788a1a810d2.png",
@@ -89,11 +89,11 @@
     "static/media/checkbox.svg": "/PMPass/static/media/checkbox.fd7c4ddf334d9a41bcfdb669fa0f5676.svg",
     "static/media/list-yellow.svg": "/PMPass/static/media/list-yellow.7b5868ff512b8b119153eed6a4b3aa3b.svg",
     "main.d935821e.css.map": "/PMPass/static/css/main.d935821e.css.map",
-    "main.49add9c6.js.map": "/PMPass/static/js/main.49add9c6.js.map",
+    "main.0a01b800.js.map": "/PMPass/static/js/main.0a01b800.js.map",
     "592.81ae2bda.chunk.js.map": "/PMPass/static/js/592.81ae2bda.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d935821e.css",
-    "static/js/main.49add9c6.js"
+    "static/js/main.0a01b800.js"
   ]
 }
