@@ -13,6 +13,8 @@ import axios from 'axios'
 import BackButton from '../../components/BackButton/BackButton'
 import { useTranslation } from 'react-i18next'
 import arrowFilter from '../../assets/images/icons/arrow_filter.svg'
+import close from '../../assets/images/icons/close-small.svg'
+import closeWhite from '../../assets/images/icons/close-white.svg'
 
 const PER_PAGE = 8
 
@@ -83,13 +85,30 @@ const Shop = () => {
 
   const [products, setProducts] = useState([])
 
-  const fetchData = async (page, order = 'asc') => {
+  const gameNames = {
+    dota2: 'Dota 2',
+    csgo: 'CS 2'
+  };
+
+  const rarityNames = {
+    common: 'Обычный',
+    rare: 'Редкий',
+    epic: 'Эпический',
+    legendary: 'Легендарный'
+  }
+
+  const orderedGames = ['dota2', 'csgo'];
+  const orderedRarities = ['common', 'rare', 'epic', 'legendary']
+
+  const fetchData = async (page, order = 'asc', games = selectedGames, rarities = selectedRarity) => {
     try {
       const response = await axios.get(`${process.env.REACT_APP_API_URL}/shop_items`, {
         params: {
           per_page: PER_PAGE,
           page: page,
-          order: order
+          order: order,
+          game: games,
+          rarity: rarities
         },
         withCredentials: true,
         headers: {
@@ -97,12 +116,11 @@ const Shop = () => {
           'Accept': 'application/json'
         }
       })
-      console.log(response)
       if (response.data) {
         if (page === 1) {
-          setAllProducts(response.data.data);
+          setProducts(response.data.data)
         } else {
-          setAllProducts(prevProducts => [...prevProducts, ...response.data.data]);
+          setProducts(prevProducts => [...prevProducts, ...response.data.data]);
         }
         setPagination(response.data.pagination);
         setTotalItemsCount(response.data.pagination.total_count)
@@ -117,16 +135,7 @@ const Shop = () => {
 
   useEffect(() => {
     fetchData(1, selectedFilter === 'По возрастанию' ? 'asc' : 'desc')
-  }, [selectedFilter]);
-
-  useEffect(() => {
-    const filteredProducts = allProducts.filter(product => {
-      const gameMatches = selectedGames.length === 0 || selectedGames.includes(product.game);
-      const rarityMatches = selectedRarity.length === 0 || selectedRarity.includes(product.rarity);
-      return gameMatches && rarityMatches;
-    });
-    setProducts(filteredProducts);
-  }, [selectedGames, selectedRarity, allProducts]);
+  }, [selectedFilter, selectedGames, selectedRarity]);
 
   const next = () => {
     if (pagination && pagination.next_page) {
@@ -156,7 +165,7 @@ const Shop = () => {
     setSelectedFilter(filter)
     setIsFilterOpen(false)
     setCurrentPage(1)
-    fetchData(1, filter === 'По возрастанию' ? 'asc' : 'desc')
+    fetchData(1, filter === 'По возрастанию' ? 'asc' : 'desc', selectedGames, selectedRarity)
   }
 
   const toggleFilter = () => {
@@ -164,30 +173,37 @@ const Shop = () => {
   }
 
   const selectGameChip = (game) => {
+    setCurrentPage(1)
     setSelectedGames(prevSelected => {
-      if (prevSelected.includes(game)) {
-        return prevSelected.filter(item => item !== game);
-      } else {
-        return [...prevSelected, game];
-      }
+      const newSelected = prevSelected.includes(game)
+        ? prevSelected.filter(item => item !== game)
+        : [...prevSelected, game];
+
+      // Обновляем данные с новыми фильтрами
+      fetchData(1, selectedFilter === 'По возрастанию' ? 'asc' : 'desc', newSelected, selectedRarity);
+      return newSelected;
     });
   };
 
   const selectRarityChip = (rarity) => {
+    setCurrentPage(1)
     setSelectedRarity(prevSelected => {
-      if (prevSelected.includes(rarity)) {
-        return prevSelected.filter(item => item !== rarity);
-      } else {
-        return [...prevSelected, rarity];
-      }
+      const newSelected = prevSelected.includes(rarity)
+        ? prevSelected.filter(item => item !== rarity)
+        : [...prevSelected, rarity];
+
+      // Обновляем данные с новыми фильтрами
+      fetchData(1, selectedFilter === 'По возрастанию' ? 'asc' : 'desc', selectedGames, newSelected);
+      return newSelected;
     });
   };
 
   const resetFilters = () => {
-    setSelectedGames([]);
-    setSelectedRarity([]);
-    setCurrentPage(1);
-    fetchData(1, selectedFilter === 'По возрастанию' ? 'asc' : 'desc');
+    setSelectedGames([])
+    setSelectedRarity([])
+    setCurrentPage(1)
+    setSelectedFilter('По возрастанию')
+    fetchData(1, 'asc', [], []);
   }
 
   return (
@@ -203,56 +219,64 @@ const Shop = () => {
             <div className={styles.title}>
               {t('shop')}
             </div>
-            <div onClick={resetFilters} className={styles.reset_filter}>
-              {t('reset_filters')}
-            </div>
           </div>
           <div className={styles.container__filter}>
             <div className={styles.chips}>
               <div className={styles.chips__container}>
-                <div
-                  className={`${styles.chips__container_item} ${selectedGames.includes('dota2') ? styles.selected_chips__container_item : ''}`}
-                  onClick={() => selectGameChip('dota2')}
-                >
-                  Dota 2
-                </div>
-                <div
-                  className={`${styles.chips__container_item} ${selectedGames.includes('csgo') ? styles.selected_chips__container_item : ''}`}
-                  onClick={() => selectGameChip('csgo')}
-                >
-                  CS 2
-                </div>
+                {orderedGames.map(game => (
+                  <div
+                    key={game}
+                    className={`${styles.chips__container_item} ${selectedGames.includes(game) ? styles.selected_chips__container_item : ''}`}
+                    onClick={() => selectGameChip(game)}
+                  >
+                    {gameNames[game]}
+
+                    <img src={close} alt="" />
+                  </div>
+                ))}
               </div>
               <div className={styles.chips__container_divider}>
                 |
               </div>
               <div className={styles.chips__container}>
-                <div
-                  className={`${styles.chips__container_item} ${selectedRarity.includes('common') ? styles.selected_chips__container_item : ''}`}
-                  onClick={() => selectRarityChip('common')}
-                >
-                  Обычный
-                </div>
-                <div
-                  className={`${styles.chips__container_item} ${selectedRarity.includes('rare') ? styles.selected_chips__container_item : ''}`}
-                  onClick={() => selectRarityChip('rare')}
-                >
-                  Редкий
-                </div>
-                <div
-                  className={`${styles.chips__container_item} ${selectedRarity.includes('epic') ? styles.selected_chips__container_item : ''}`}
-                  onClick={() => selectRarityChip('epic')}
-                >
-                  Эпический
-                </div>
-                <div
-                  className={`${styles.chips__container_item} ${selectedRarity.includes('legendary') ? styles.selected_chips__container_item : ''}`}
-                  onClick={() => selectRarityChip('legendary')}
-                >
-                  Легендарный
-                </div>
+                {orderedRarities.map(rarity => (
+                  <div
+                    key={rarity}
+                    className={`${styles.chips__container_item} ${selectedRarity.includes(rarity) ? styles.selected_chips__container_item : ''}`}
+                    onClick={() => selectRarityChip(rarity)}
+                  >
+                    {rarityNames[rarity]}
+
+                    <img src={close} alt="" />
+                  </div>
+                ))}
+              </div>
+
+              <div onClick={resetFilters} className={styles.reset_filter}>
+                {t('reset_filters')}
+
+                <img src={closeWhite} alt="" />
               </div>
             </div>
+
+            <div className={styles.filter}
+              onClick={toggleFilter}>
+              {t('product_filter')}
+              <img src={arrowFilter} alt="" />
+
+              {isFilterOpen &&
+                <div className={styles.filterWrapper}>
+                  <div className={`${styles.filterItem} ${selectedFilter === 'По возрастанию' ? styles.selectedFilter : ''}`}
+                    onClick={() => selectFilter('По возрастанию')}>
+                    По возрастанию
+                  </div>
+                  <div className={`${styles.filterItem} ${selectedFilter === 'По убыванию' ? styles.selectedFilter : ''}`}
+                    onClick={() => selectFilter('По убыванию')}>
+                    По убыванию
+                  </div>
+                </div>}
+            </div>
+
             <div className={styles.filter}
               onClick={toggleFilter}>
               {t('product_filter')}
