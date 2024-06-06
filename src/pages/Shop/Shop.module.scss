@@ -124,6 +124,10 @@
         background-color: #4a2c6f;
       }
     }
+
+    .filterModal {
+      display: none;
+    }
   }
   .wrapper {
     align-items: start;
@@ -233,6 +237,16 @@
 
       .chips {
         display: none;
+      }
+
+      .filterModal {
+        background-color: $c-dark-yellow;
+        color: $c-yellow;
+        display: flex;
+
+        &:hover {
+          background-color: #494711;
+        }
       }
     }
   }

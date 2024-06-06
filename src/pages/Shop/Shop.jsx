@@ -15,6 +15,8 @@ import { useTranslation } from 'react-i18next'
 import arrowFilter from '../../assets/images/icons/arrow_filter.svg'
 import close from '../../assets/images/icons/close-small.svg'
 import closeWhite from '../../assets/images/icons/close-white.svg'
+import filter from '../../assets/images/icons/filter.svg'
+import Filter from './Filter/Filter'
 
 const PER_PAGE = 8
 
@@ -206,6 +208,12 @@ const Shop = () => {
     fetchData(1, 'asc', [], []);
   }
 
+  const [gamesOpen, setGamesOpen] = useState(false)
+
+  const openGames = () => {
+    setGamesOpen(!gamesOpen)
+  }
+
   return (
     <div>
       <Header onLoginClick={handleLoginClick}
@@ -277,22 +285,10 @@ const Shop = () => {
                 </div>}
             </div>
 
-            <div className={styles.filter}
-              onClick={toggleFilter}>
-              {t('product_filter')}
-              <img src={arrowFilter} alt="" />
-
-              {isFilterOpen &&
-                <div className={styles.filterWrapper}>
-                  <div className={`${styles.filterItem} ${selectedFilter === 'По возрастанию' ? styles.selectedFilter : ''}`}
-                    onClick={() => selectFilter('По возрастанию')}>
-                    По возрастанию
-                  </div>
-                  <div className={`${styles.filterItem} ${selectedFilter === 'По убыванию' ? styles.selectedFilter : ''}`}
-                    onClick={() => selectFilter('По убыванию')}>
-                    По убыванию
-                  </div>
-                </div>}
+            <div className={`${styles.filter} ${styles.filterModal}`}
+                 onClick={openGames}>
+              Фильтр
+              <img src={filter} alt="" />
             </div>
           </div>
         </div>
@@ -345,6 +341,19 @@ const Shop = () => {
           }
         </div>
       </div>
+      <Filter filterOpen={gamesOpen}
+              selectFilter={selectFilter}
+              selectedFilter={selectedFilter}
+              orderedGames={orderedGames}
+              selectedGames={selectedGames}
+              selectGameChip={selectGameChip}
+              gameNames={gameNames}
+              orderedRarities={orderedRarities}
+              selectedRarity={selectedRarity}
+              selectRarityChip={selectRarityChip}
+              rarityNames={rarityNames}
+              resetFilters={resetFilters}
+              openGames={openGames}/>
       <Footer />
       {isFormOpen ? <Form showLogin={showLogin}
         closeForm={closeForm}
