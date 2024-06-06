@@ -13,6 +13,10 @@ import axios from 'axios'
 import BackButton from '../../components/BackButton/BackButton'
 import { useTranslation } from 'react-i18next'
 import arrowFilter from '../../assets/images/icons/arrow_filter.svg'
+import close from '../../assets/images/icons/close-small.svg'
+import closeWhite from '../../assets/images/icons/close-white.svg'
+import filter from '../../assets/images/icons/filter.svg'
+import Filter from './Filter/Filter'
 
 const PER_PAGE = 8
 
@@ -30,6 +34,10 @@ const Shop = () => {
   const [currentPage, setCurrentPage] = useState(1)
 
   const [totalItemsCount, setTotalItemsCount] = useState(0)
+
+  const [selectedGames, setSelectedGames] = useState([]);
+  const [selectedRarity, setSelectedRarity] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
 
   const { t } = useTranslation('main')
 
@@ -79,13 +87,30 @@ const Shop = () => {
 
   const [products, setProducts] = useState([])
 
-  const fetchData = async (page, order = 'asc') => {
+  const gameNames = {
+    dota2: 'Dota 2',
+    csgo: 'CS 2'
+  };
+
+  const rarityNames = {
+    common: 'Обычный',
+    rare: 'Редкий',
+    epic: 'Эпический',
+    legendary: 'Легендарный'
+  }
+
+  const orderedGames = ['dota2', 'csgo'];
+  const orderedRarities = ['common', 'rare', 'epic', 'legendary']
+
+  const fetchData = async (page, order = 'asc', games = selectedGames, rarities = selectedRarity) => {
     try {
       const response = await axios.get(`${process.env.REACT_APP_API_URL}/shop_items`, {
         params: {
           per_page: PER_PAGE,
           page: page,
-          order: order
+          order: order,
+          game: games,
+          rarity: rarities
         },
         withCredentials: true,
         headers: {
@@ -95,7 +120,7 @@ const Shop = () => {
       })
       if (response.data) {
         if (page === 1) {
-          setProducts(response.data.data);
+          setProducts(response.data.data)
         } else {
           setProducts(prevProducts => [...prevProducts, ...response.data.data]);
         }
@@ -112,7 +137,7 @@ const Shop = () => {
 
   useEffect(() => {
     fetchData(1, selectedFilter === 'По возрастанию' ? 'asc' : 'desc')
-  }, [selectedFilter]);
+  }, [selectedFilter, selectedGames, selectedRarity]);
 
   const next = () => {
     if (pagination && pagination.next_page) {
@@ -142,11 +167,51 @@ const Shop = () => {
     setSelectedFilter(filter)
     setIsFilterOpen(false)
     setCurrentPage(1)
-    fetchData(1, filter === 'По возрастанию' ? 'asc' : 'desc')
+    fetchData(1, filter === 'По возрастанию' ? 'asc' : 'desc', selectedGames, selectedRarity)
   }
 
   const toggleFilter = () => {
     setIsFilterOpen(!isFilterOpen);
+  }
+
+  const selectGameChip = (game) => {
+    setCurrentPage(1)
+    setSelectedGames(prevSelected => {
+      const newSelected = prevSelected.includes(game)
+        ? prevSelected.filter(item => item !== game)
+        : [...prevSelected, game];
+
+      // Обновляем данные с новыми фильтрами
+      fetchData(1, selectedFilter === 'По возрастанию' ? 'asc' : 'desc', newSelected, selectedRarity);
+      return newSelected;
+    });
+  };
+
+  const selectRarityChip = (rarity) => {
+    setCurrentPage(1)
+    setSelectedRarity(prevSelected => {
+      const newSelected = prevSelected.includes(rarity)
+        ? prevSelected.filter(item => item !== rarity)
+        : [...prevSelected, rarity];
+
+      // Обновляем данные с новыми фильтрами
+      fetchData(1, selectedFilter === 'По возрастанию' ? 'asc' : 'desc', selectedGames, newSelected);
+      return newSelected;
+    });
+  };
+
+  const resetFilters = () => {
+    setSelectedGames([])
+    setSelectedRarity([])
+    setCurrentPage(1)
+    setSelectedFilter('По возрастанию')
+    fetchData(1, 'asc', [], []);
+  }
+
+  const [gamesOpen, setGamesOpen] = useState(false)
+
+  const openGames = () => {
+    setGamesOpen(!gamesOpen)
   }
 
   return (
@@ -157,29 +222,77 @@ const Shop = () => {
         onRegisterClick={handleRegisterClick} />
       <div className={`${styles.container} container-main`}>
         <BackButton />
-        <div className={styles.title}>
-          <div>
-            {t('shop')}
+        <div>
+          <div className={styles.container__title}>
+            <div className={styles.title}>
+              {t('shop')}
+            </div>
           </div>
+          <div className={styles.container__filter}>
+            <div className={styles.chips}>
+              <div className={styles.chips__container}>
+                {orderedGames.map(game => (
+                  <div
+                    key={game}
+                    className={`${styles.chips__container_item} ${selectedGames.includes(game) ? styles.selected_chips__container_item : ''}`}
+                    onClick={() => selectGameChip(game)}
+                  >
+                    {gameNames[game]}
 
-          <div className={styles.filter}
-            onClick={toggleFilter}>
-            {t('product_filter')}
-            <img src={arrowFilter} alt="" />
+                    <img src={close} alt="" />
+                  </div>
+                ))}
+              </div>
+              <div className={styles.chips__container_divider}>
+                |
+              </div>
+              <div className={styles.chips__container}>
+                {orderedRarities.map(rarity => (
+                  <div
+                    key={rarity}
+                    className={`${styles.chips__container_item} ${selectedRarity.includes(rarity) ? styles.selected_chips__container_item : ''}`}
+                    onClick={() => selectRarityChip(rarity)}
+                  >
+                    {rarityNames[rarity]}
 
-            {isFilterOpen &&
-              <div className={styles.filterWrapper}>
-                <div className={`${styles.filterItem} ${selectedFilter === 'По возрастанию' ? styles.selectedFilter : ''}`}
-                  onClick={() => selectFilter('По возрастанию')}>
-                  По возрастанию
-                </div>
-                <div className={`${styles.filterItem} ${selectedFilter === 'По убыванию' ? styles.selectedFilter : ''}`}
-                  onClick={() => selectFilter('По убыванию')}>
-                  По убыванию
-                </div>
-              </div>}
+                    <img src={close} alt="" />
+                  </div>
+                ))}
+              </div>
+
+              <div onClick={resetFilters} className={styles.reset_filter}>
+                {t('reset_filters')}
+
+                <img src={closeWhite} alt="" />
+              </div>
+            </div>
+
+            <div className={styles.filter}
+              onClick={toggleFilter}>
+              {t('product_filter')}
+              <img src={arrowFilter} alt="" />
+
+              {isFilterOpen &&
+                <div className={styles.filterWrapper}>
+                  <div className={`${styles.filterItem} ${selectedFilter === 'По возрастанию' ? styles.selectedFilter : ''}`}
+                    onClick={() => selectFilter('По возрастанию')}>
+                    По возрастанию
+                  </div>
+                  <div className={`${styles.filterItem} ${selectedFilter === 'По убыванию' ? styles.selectedFilter : ''}`}
+                    onClick={() => selectFilter('По убыванию')}>
+                    По убыванию
+                  </div>
+                </div>}
+            </div>
+
+            <div className={`${styles.filter} ${styles.filterModal}`}
+                 onClick={openGames}>
+              Фильтр
+              <img src={filter} alt="" />
+            </div>
           </div>
         </div>
+
         <div className={styles.wrapper}>
           {
             showLoader ?
@@ -228,6 +341,19 @@ const Shop = () => {
           }
         </div>
       </div>
+      <Filter filterOpen={gamesOpen}
+              selectFilter={selectFilter}
+              selectedFilter={selectedFilter}
+              orderedGames={orderedGames}
+              selectedGames={selectedGames}
+              selectGameChip={selectGameChip}
+              gameNames={gameNames}
+              orderedRarities={orderedRarities}
+              selectedRarity={selectedRarity}
+              selectRarityChip={selectRarityChip}
+              rarityNames={rarityNames}
+              resetFilters={resetFilters}
+              openGames={openGames}/>
       <Footer />
       {isFormOpen ? <Form showLogin={showLogin}
         closeForm={closeForm}
@@ -245,4 +371,4 @@ const Shop = () => {
   )
 }
 
-export default Shop
+export default Shop;
