@@ -77,10 +77,14 @@
     @include body1;
 
     color: #E0E0E0;
-    height: 75px;
+    height: 58px;
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    p:last-child {
+      display: none;
+    }
   }
 
   .labels {
