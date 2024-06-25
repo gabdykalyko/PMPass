@@ -101,8 +101,8 @@ const ActivityHistory = () => {
               <div className={styles.infoTitle}>
                 Причина отмены
               </div>
-              <div dangerouslySetInnerHTML={{ __html: errors[product.giveaway.last_attempt_status] ?
-                  errors[product.giveaway.last_attempt_status] :
+              <div dangerouslySetInnerHTML={{ __html: errors[product?.giveaway?.last_attempt_status] ?
+                  errors[product?.giveaway?.last_attempt_status] :
                   errors.default }} className={styles.infoTxt}>
               </div>
               <div onClick={handleCloseInfo} className={styles.accept}>
@@ -144,7 +144,7 @@ const ActivityHistory = () => {
               <div key={index}
                    className={styles.bodyItem}>
                 <div className={styles.bodyItemName}>
-                  { product?.shop_item?.name }
+                  { product?.shop_item?.name ? product?.shop_item?.name : 'PM баллы' }
                 </div>
                 <div className={styles.bodyItemName}>
                   {-product.amount} points

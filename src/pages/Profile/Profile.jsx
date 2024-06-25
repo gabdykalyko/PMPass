@@ -32,12 +32,13 @@ const Profile = () => {
       <HeaderMob />
       <Account />
       <div className={`${styles.container} container-main ${styles.links}`}>
+        <TradeLink handleTradeClick={handleTradeClick}/>
+
         {
           user?.steam_id ?
             <MatchHistory /> :
             <SteamLogin />
         }
-        <TradeLink handleTradeClick={handleTradeClick}/>
       </div>
 
       <ActivityHistory />
