@@ -17,6 +17,9 @@ import close from '../../assets/images/icons/close-small.svg'
 import closeWhite from '../../assets/images/icons/close-white.svg'
 import filter from '../../assets/images/icons/filter.svg'
 import Filter from './Filter/Filter'
+import OfferRules from "../../components/modals/OfferRules/OfferRules"
+import OfferRulesAccept from '../../components/modals/OfferRulesAccept/OfferRulesAccept'
+import { useSelector } from 'react-redux'
 
 const PER_PAGE = 8
 
@@ -26,6 +29,7 @@ const Shop = () => {
   const [showHelp, setShowHelp] = useState(false)
   const [showOffer, setShowOffer] = useState(false)
   const [showBonus, setShowBonus] = useState(false)
+  const [showOfferRules, setShowOfferRules] = useState(false)
 
   const [showLoader, setShowLoader] = useState(false)
 
@@ -54,6 +58,7 @@ const Shop = () => {
     setShowLogin(false)
     setShowOffer(false)
     setShowBonus(false)
+    setShowOfferRules(false)
   }
 
   const handleHelpClick = () => {
@@ -70,12 +75,18 @@ const Shop = () => {
     setShowBonus(true)
   }
 
+  const handleOfferRulesClick = () => {
+    setIsFormOpen(false)
+    setShowOfferRules(true)
+  }
+
   const closeForm = () => {
     document.body.style.overflow = 'auto'
     setIsFormOpen(false)
     setShowHelp(false)
     setShowOffer(false)
     setShowBonus(false)
+    setShowOfferRules(false)
   }
 
   const scrollToTop = () => {
@@ -213,6 +224,10 @@ const Shop = () => {
   const openGames = () => {
     setGamesOpen(!gamesOpen)
   }
+
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
+
+  const publicOfferAccepted = useSelector(state => state?.auth?.user?.public_offer_accepted)
 
   return (
     <div>
@@ -356,17 +371,24 @@ const Shop = () => {
               openGames={openGames}/>
       <Footer />
       {isFormOpen ? <Form showLogin={showLogin}
-        closeForm={closeForm}
-        onLoginClick={handleLoginClick}
-        onRegisterClick={handleRegisterClick}
-        onHelpClick={handleHelpClick}
-        showHelp={showHelp}
-        onOfferClick={handleOfferClick}
-        onBonusClick={handleBonusClick} />
-        : showOffer ? <Offer closeForm={closeForm}
-          onRegisterClick={handleRegisterClick} />
-          : showBonus ? <Bonus closeForm={closeForm}
-            onRegisterClick={handleRegisterClick} /> : ''}
+                          closeForm={closeForm}
+                          onLoginClick={handleLoginClick}
+                          onRegisterClick={handleRegisterClick}
+                          onHelpClick={handleHelpClick}
+                          showHelp={showHelp}
+                          onOfferClick={handleOfferClick}
+                          onBonusClick={handleBonusClick}
+                          showOfferRules={showOfferRules}
+                          onOfferRulesClick={handleOfferRulesClick}/>
+                          : showOffer ? <Offer closeForm={closeForm}
+                                               onRegisterClick={handleRegisterClick} />
+                          : showBonus ? <Bonus closeForm={closeForm}
+                                               onRegisterClick={handleRegisterClick} />
+                          : showOfferRules ? <OfferRules closeForm={closeForm}
+                                                         onRegisterClick={handleRegisterClick}/> : ''}
+      {isAuthenticated && !publicOfferAccepted
+      ? <OfferRulesAccept />
+      : ''}
     </div>
   )
 }

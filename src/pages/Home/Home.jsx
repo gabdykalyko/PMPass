@@ -20,6 +20,7 @@ import { updateAuth } from '../../slices/authSlice'
 import axios from 'axios'
 import { useTranslation } from 'react-i18next'
 import OfferRules from '../../components/modals/OfferRules/OfferRules'
+import OfferRulesAccept from '../../components/modals/OfferRulesAccept/OfferRulesAccept'
 
 const Home = () => {
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -62,7 +63,6 @@ const Home = () => {
   }
 
   const handleOfferRulesClick = () => {
-    console.log('hello')
     setIsFormOpen(false)
     setShowOfferRules(true)
   }
@@ -77,6 +77,8 @@ const Home = () => {
   }
 
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
+
+  const publicOfferAccepted = useSelector(state => state?.auth?.user?.public_offer_accepted)
 
   const dispatch = useDispatch()
 
@@ -152,6 +154,7 @@ const Home = () => {
                                                onRegisterClick={handleRegisterClick}/>
                           : showOfferRules ? <OfferRules closeForm={closeForm}
                                                          onRegisterClick={handleRegisterClick}/> : ''}
+      {isAuthenticated && !publicOfferAccepted && <OfferRulesAccept />}
     </div>
   )
 }

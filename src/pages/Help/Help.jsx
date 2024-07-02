@@ -11,6 +11,9 @@ import BackButton from "../../components/BackButton/BackButton"
 import telegram from '../../assets/images/social/telegram.svg'
 import phone from '../../assets/images/social/phone.svg'
 import { useTranslation } from 'react-i18next'
+import OfferRules from "../../components/modals/OfferRules/OfferRules"
+import { useSelector } from "react-redux"
+import OfferRulesAccept from '../../components/modals/OfferRulesAccept/OfferRulesAccept'
 
 const Help = () => {
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -18,6 +21,7 @@ const Help = () => {
   const [showHelp, setShowHelp] = useState(false)
   const [showOffer, setShowOffer] = useState(false)
   const [showBonus, setShowBonus] = useState(false)
+  const [showOfferRules, setShowOfferRules] = useState(false)
 
   const { t } = useTranslation(['main', 'faq'])
 
@@ -34,6 +38,7 @@ const Help = () => {
     setShowLogin(false)
     setShowOffer(false)
     setShowBonus(false)
+    setShowOfferRules(false)
   }
 
   const handleHelpClick = () => {
@@ -50,13 +55,23 @@ const Help = () => {
     setShowBonus(true)
   }
 
+  const handleOfferRulesClick = () => {
+    setIsFormOpen(false)
+    setShowOfferRules(true)
+  }
+
   const closeForm = () => {
     document.body.style.overflow = 'auto'
     setIsFormOpen(false)
     setShowHelp(false)
     setShowOffer(false)
     setShowBonus(false)
+    setShowOfferRules(false)
   }
+
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
+
+  const publicOfferAccepted = useSelector(state => state?.auth?.user?.public_offer_accepted)
 
   return (
     <div>
@@ -97,11 +112,18 @@ const Help = () => {
                            onHelpClick={handleHelpClick}
                            showHelp={showHelp}
                            onOfferClick={handleOfferClick}
-                           onBonusClick={handleBonusClick}/>
+                           onBonusClick={handleBonusClick}
+                           showOfferRules={showOfferRules}
+                           onOfferRulesClick={handleOfferRulesClick}/>
                           : showOffer ? <Offer closeForm={closeForm}
                                                onRegisterClick={handleRegisterClick}/> 
                           : showBonus ? <Bonus closeForm={closeForm}
+                                               onRegisterClick={handleRegisterClick}/>
+                          : showOfferRules ? <OfferRules closeForm={closeForm}
                                                onRegisterClick={handleRegisterClick}/> : ''}
+      {isAuthenticated && !publicOfferAccepted
+      ? <OfferRulesAccept />
+      : ''}
     </div>
   )
 }
