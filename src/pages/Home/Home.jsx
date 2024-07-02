@@ -19,6 +19,7 @@ import Toast from '../../components/Toast/Toast'
 import { updateAuth } from '../../slices/authSlice'
 import axios from 'axios'
 import { useTranslation } from 'react-i18next'
+import OfferRules from '../../components/modals/OfferRules/OfferRules'
 
 const Home = () => {
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -26,6 +27,7 @@ const Home = () => {
   const [showHelp, setShowHelp] = useState(false)
   const [showOffer, setShowOffer] = useState(false)
   const [showBonus, setShowBonus] = useState(false)
+  const [showOfferRules, setShowOfferRules] = useState(false)
 
   const { t } = useTranslation(['main', 'notifications'])
 
@@ -42,6 +44,7 @@ const Home = () => {
     setShowLogin(false)
     setShowOffer(false)
     setShowBonus(false)
+    setShowOfferRules(false)
   }
 
   const handleHelpClick = () => {
@@ -58,12 +61,19 @@ const Home = () => {
     setShowBonus(true)
   }
 
+  const handleOfferRulesClick = () => {
+    console.log('hello')
+    setIsFormOpen(false)
+    setShowOfferRules(true)
+  }
+
   const closeForm = () => {
     document.body.style.overflow = 'auto'
     setIsFormOpen(false)
     setShowHelp(false)
     setShowOffer(false)
     setShowBonus(false)
+    setShowOfferRules(false)
   }
 
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
@@ -133,11 +143,15 @@ const Home = () => {
                            onHelpClick={handleHelpClick}
                            showHelp={showHelp}
                            onOfferClick={handleOfferClick}
-                           onBonusClick={handleBonusClick}/>
+                           onBonusClick={handleBonusClick}
+                           showOfferRules={showOfferRules}
+                           onOfferRulesClick={handleOfferRulesClick}/>
                           : showOffer ? <Offer closeForm={closeForm}
                                                onRegisterClick={handleRegisterClick}/> 
                           : showBonus ? <Bonus closeForm={closeForm}
-                                               onRegisterClick={handleRegisterClick}/> : ''}
+                                               onRegisterClick={handleRegisterClick}/>
+                          : showOfferRules ? <OfferRules closeForm={closeForm}
+                                                         onRegisterClick={handleRegisterClick}/> : ''}
     </div>
   )
 }

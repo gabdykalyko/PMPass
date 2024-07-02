@@ -117,7 +117,7 @@ const Account = () => {
                   {t('current_balance')}
                 </div>
                 <div>
-                  {userInfo?.pm_points} GG Points
+                  {userInfo?.pm_points} PM баллы
                 </div>
               </div>
             </div>

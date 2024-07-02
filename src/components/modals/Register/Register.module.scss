@@ -157,6 +157,23 @@
     }
   }
 
+  .regOffer {
+    @include body1;
+
+    color: $c-light-grey;
+    line-height: 150%;
+    text-align: center;
+  }
+
+  .regOfferBtn {
+    @include body1;
+
+    color: $c-yellow;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: underline;
+  }
+
   .rowLast {
     margin-bottom: 0;
   }

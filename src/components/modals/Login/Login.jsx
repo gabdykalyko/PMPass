@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { IMaskInput } from 'react-imask'
 import { useTranslation } from 'react-i18next'
 
-const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
+const Login = ({ onRegisterClick, onHelpClick, closeForm, onOfferRulesClick }) => {
   const { t } = useTranslation(['main', 'errors', 'reg'])
 
   const [isIdValid, setIdIsValid] = useState(true)
@@ -241,6 +241,13 @@ const Login = ({ onRegisterClick, onHelpClick, closeForm }) => {
           onClick={Enter}>
           <Button title={t('to_enter')} />
         </div>
+      </div>
+
+      <div className={styles.regOffer}>
+        Выполняя регистрацию или вход, вы соглашаетесь с
+      </div>
+      <div onClick={onOfferRulesClick} className={styles.regOfferBtn}>
+        Правилами и Условиями Aкции
       </div>
 
       <div className={styles.row}>

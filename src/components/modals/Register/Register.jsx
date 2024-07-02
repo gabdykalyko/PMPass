@@ -12,7 +12,7 @@ import { loginSuccess } from '../../../slices/authSlice'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 
-const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick }) => {
+const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick, onOfferRulesClick }) => {
   const [isOfferChecked, setIsOfferChecked] = useState(false)
   const [isBonusChecked, setIsBonusChecked] = useState(false)
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
@@ -265,6 +265,13 @@ const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick }) => {
           onClick={Enter}>
           <Button title={t('register')} />
         </div>
+      </div>
+
+      <div className={styles.regOffer}>
+        Выполняя регистрацию или вход, вы соглашаетесь с
+      </div>
+      <div onClick={onOfferRulesClick} className={styles.regOfferBtn}>
+        Правилами и Условиями Aкции
       </div>
 
       <div className={`${styles.row} ${styles.rowLast}`}>

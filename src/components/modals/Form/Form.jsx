@@ -11,7 +11,9 @@ const Form = ({ showLogin,
                 onHelpClick,
                 showHelp,
                 onOfferClick,
-                onBonusClick}) => {
+                onBonusClick,
+                onOfferRulesClick,
+                showOfferRules }) => {
   const handleOutsideClick = (event) => {
     if (event.target === event.currentTarget) {
       closeForm()
@@ -28,11 +30,13 @@ const Form = ({ showLogin,
         </div>
         {showHelp ? <Help onLoginClick={onLoginClick}/> : showLogin ? <Login onRegisterClick={onRegisterClick}
                                                   onHelpClick={onHelpClick}
-                                                  closeForm={closeForm}/>
+                                                  closeForm={closeForm}
+                                                  onOfferRulesClick={onOfferRulesClick}/>
                                          : <Register onLoginClick={onLoginClick}
                                                      onOfferClick={onOfferClick}
                                                      onBonusClick={onBonusClick}
-                                                     closeForm={closeForm}/>}
+                                                     closeForm={closeForm}
+                                                     onOfferRulesClick={onOfferRulesClick}/>}
       </div>
     </div>
   )
