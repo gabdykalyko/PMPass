@@ -72,7 +72,7 @@ const Product = ({ onLoginClick, quest }) => {
             status='warning' />, {
             hideProgressBar: true
           })
-        } else if (error.response.data.errors.includes('user_reached_limit_24h')) {
+        } else if (error.response.data.errors.includes('rea_bonus_callback_error') || error.response.data.errors.includes('user_reached_limit_24h')) {
           toast(<Toast message={'К сожалению ваш ежедневный лимит покупок превышен'}
             status='error' />, {
             hideProgressBar: true

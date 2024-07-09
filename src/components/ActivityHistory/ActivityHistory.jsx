@@ -103,7 +103,8 @@ const ActivityHistory = () => {
                 Причина отмены
               </div>
               <div dangerouslySetInnerHTML={{ __html: errors[product?.giveaway?.last_attempt_status] ?
-                  errors[product?.giveaway?.last_attempt_status] :
+                  errors[product?.giveaway?.last_attempt_status] : 
+                  errors[product?.shop_item?.item_type === 'rea_bonus'] ? errors.user_reached_limit_24h :
                   errors.default }} className={styles.infoTxt}>
               </div>
               <div onClick={handleCloseInfo} className={styles.accept}>
