@@ -148,7 +148,7 @@ const ActivityHistory = () => {
                   { product?.shop_item?.name ? product?.shop_item?.name : 'PM баллы' }
                 </div>
                 <div className={styles.bodyItemName}>
-                  {-product.amount} points
+                  {Math.abs(product.amount)} points
                 </div>
                 {renderStatus(product)}
               </div>
