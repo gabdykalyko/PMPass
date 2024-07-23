@@ -48,10 +48,17 @@ const Product = ({ onLoginClick, quest }) => {
         }
       );
 
+      
       if (response.data) {
-        toast(<Toast message={t('notifications:present_send')} />, {
-          hideProgressBar: true
-        })
+        if (type === 'rea_bonus') {
+          toast(<Toast message={t('notifications:present_send_bonus')} />, {
+            hideProgressBar: true
+          });
+        } else {
+          toast(<Toast message={t('notifications:present_send')} />, {
+            hideProgressBar: true
+          });
+        }
 
         const user = await updateUserAuth()
 
@@ -140,4 +147,4 @@ const Product = ({ onLoginClick, quest }) => {
   )
 }
 
-export default Product
+export default Product;
