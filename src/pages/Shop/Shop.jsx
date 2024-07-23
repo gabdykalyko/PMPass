@@ -110,8 +110,7 @@ const Shop = () => {
   };
 
   const typeNames = {
-    rea_bonus: "REA Bonus",
-    
+    rea_bonus: "PM",
   };
 
   const orderedGames = ["dota2", "csgo"];
@@ -123,7 +122,7 @@ const Shop = () => {
     order = "asc",
     games = selectedGames,
     rarities = selectedRarity,
-    types = selectedTypes,
+    types = selectedTypes
   ) => {
     try {
       const response = await axios.get(
@@ -133,10 +132,9 @@ const Shop = () => {
             per_page: PER_PAGE,
             page: page,
             order: order,
-            item_type: types,
+            type: types,
             game: games,
             rarity: rarities,
-            
           },
           withCredentials: true,
           headers: {
@@ -220,8 +218,6 @@ const Shop = () => {
         ? prevSelected.filter((item) => item !== game)
         : [...prevSelected, game];
 
-        
-
       // Обновляем данные с новыми фильтрами
       fetchData(
         1,
@@ -256,11 +252,8 @@ const Shop = () => {
   const selectTypeChip = (type) => {
     setCurrentPage(1);
     setSelectedTypes((prevSelected) => {
-      const newSelected = prevSelected.includes(type)
-        ? prevSelected.filter((item) => item !== type)
-        : [...prevSelected, type];
+      const newSelected = type === prevSelected ? "" : type;
 
-        
       fetchData(
         1,
         selectedFilter === "По возрастанию" ? "asc" : "desc",
@@ -327,6 +320,22 @@ const Shop = () => {
                   </div>
                 ))}
               </div>
+              <div className={styles.chips__container}>
+                {orderedTypes.map((type) => (
+                  <div
+                    key={type}
+                    className={`${styles.chips__container_item} ${
+                      selectedTypes.includes(type)
+                        ? styles.selected_chips__container_item
+                        : ""
+                    }`}
+                    onClick={() => selectTypeChip(type)}
+                  >
+                    {typeNames[type]}
+                    <img src={close} alt="" />
+                  </div>
+                ))}
+              </div>
               <div className={styles.chips__container_divider}>|</div>
               <div className={styles.chips__container}>
                 {orderedRarities.map((rarity) => (
@@ -345,22 +354,6 @@ const Shop = () => {
                 ))}
               </div>
               <div className={styles.chips__container_divider}>|</div>
-              <div className={styles.chips__container}>
-                {orderedTypes.map((type) => (
-                  <div
-                    key={type}
-                    className={`${styles.chips__container_item} ${
-                      selectedTypes.includes(type)
-                        ? styles.selected_chips__container_item
-                        : ""
-                    }`}
-                    onClick={() => selectTypeChip(type)}
-                  >
-                    {typeNames[type]}
-                    <img src={close} alt="" />
-                  </div>
-                ))}
-              </div>
               <div onClick={resetFilters} className={styles.reset_filter}>
                 {t("reset_filters")}
                 <img src={closeWhite} alt="" />

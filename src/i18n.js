@@ -178,6 +178,7 @@ const resources = {
       trade_link_edited: 'Ссылка на обмен изменена',
       steam_edited: 'Steam аккаунт изменен',
       present_send: 'Подарок уже в Steam. Спешите забрать!',
+      present_send_bonus: 'Freebet уже в Parimatch. Спешите активировать!',
       not_enough_cash: 'У вас недостаточно PM баллов для обмена',
       add_trade_link: 'Добавьте в Профиль ссылку на обмен в Steam ',
       technical_issues: 'Идут технические работы. Обмен недоступен.',
