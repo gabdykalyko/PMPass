@@ -110,7 +110,7 @@ const Shop = () => {
   };
 
   const typeNames = {
-    rea_bonus: "PM",
+    rea_bonus: "Freebet",
   };
 
   const orderedGames = ["dota2", "csgo"];

@@ -1,11 +1,11 @@
-@import '../../assets/styles/global.scss';
+@import "../../assets/styles/global.scss";
 
 .container {
-  background-color: rgba(0, 0, 0, .3);
-  border: 1px solid rgba(0, 0, 0, .0);
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0);
   border-radius: 8px;
   padding: 16px;
-  transition: all .2s linear;
+  transition: all 0.2s linear;
 
   .imgWrapper {
     align-items: center;
@@ -18,7 +18,7 @@
   }
 
   .chestTitleWrapper {
-    border-bottom: 1px solid rgba(220, 220, 220, .1);
+    border-bottom: 1px solid rgba(220, 220, 220, 0.1);
     margin-top: 18px;
     padding-bottom: 12px;
 
@@ -30,7 +30,7 @@
       .chestName {
         @include subtitle3b;
 
-        color: #AE6FFF;
+        color: #ae6fff;
         height: 24px;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -44,18 +44,18 @@
       }
 
       .chestStatusActive {
-        background-color: #11362C;
-        color: #07EF9C;
+        background-color: #11362c;
+        color: #07ef9c;
       }
 
       .chestStatusSoon {
         background-color: #333217;
-        color: #EAD40C;
+        color: #ead40c;
       }
 
       .chestStatusCompleted {
-        background-color: #351C1D;
-        color: #F44336;
+        background-color: #351c1d;
+        color: #f44336;
       }
     }
   }
@@ -76,7 +76,7 @@
   .questTask {
     @include body1;
 
-    color: #E0E0E0;
+    color: #e0e0e0;
     height: 58px;
     max-width: 100%;
     overflow: hidden;
@@ -94,52 +94,50 @@
 
     .label {
       border-radius: 8px;
-      font-family: 'Roboto';
+      font-family: "Roboto";
       font-size: 16px;
       font-weight: 500;
       padding: 12px;
     }
 
     .pm {
-      background-color: rgba(241, 248, 19, .15);
-      color: #F1F813;
+      background-color: rgba(241, 248, 19, 0.15);
+      color: #f1f813;
     }
 
     .dota {
-      background-color: rgba(191, 46, 26, .15);
-      color: #BF2E1A;
+      background-color: rgba(191, 46, 26, 0.15);
+      color: #bf2e1a;
     }
   }
 
   .btn {
-
-
     button {
       @include subtitle6m;
 
-      background-color: #EAD40C;
+      background-color: #ead40c;
       border-radius: 8px;
       cursor: pointer;
       margin-top: 16px;
       padding-top: 12px;
       padding-bottom: 12px;
-      transition: all .2s linear;
+      transition: all 0.2s linear;
       width: 100%;
 
       &:hover {
-        background-color: #FFEB31;
+        background-color: #ffeb31;
       }
     }
   }
 
   &:hover {
-    border: 1px solid #EAD40C;
+    border: 1px solid #ead40c;
+    transform: scale(1.02);
   }
 }
 
 @media (max-width: 850px) {
   .container {
-
     .questTask {
       height: unset;
     }

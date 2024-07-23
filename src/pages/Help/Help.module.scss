@@ -1,4 +1,4 @@
-@import '../../assets/styles/global.scss';
+@import "../../assets/styles/global.scss";
 
 .container {
   padding-top: 124px;
@@ -6,7 +6,7 @@
 
   .wrapper {
     align-items: center;
-    background-color: #0000004D;
+    background-color: #0000004d;
     border-radius: 8px;
     display: flex;
     justify-content: center;
@@ -39,33 +39,33 @@
 
         .tg {
           align-items: center;
-          background-color: #19334F;
+          background-color: #19334f;
           border-radius: 8px;
           display: flex;
           justify-content: center;
-          height: 56px;
-          transition: all .2s linear;
-          width: 64px;
-    
+          height: 76px;
+          transition: all 0.2s linear;
+          width: 100px;
+
           &:hover {
             background-color: #244971;
           }
         }
-    
+
         .phone {
           align-items: center;
-          background-color: #3A2159;
+          background-color: #3a2159;
           border-radius: 8px;
-          color: #AE6FFF;
+          color: #ae6fff;
           display: flex;
           gap: 8px;
           justify-content: center;
-          height: 56px;
-          transition: all .2s linear;
+          height: 76px;
+          transition: all 0.2s linear;
           width: 100px;
-    
+
           &:hover {
-            background-color: #4A2C6F;
+            background-color: #4a2c6f;
           }
         }
       }
@@ -79,29 +79,27 @@
     width: 90%;
 
     .wrapper {
-
-      .content {}
+      .content {
+      }
     }
   }
 }
 
 @media (max-width: 850px) {
   .container {
-
     .wrapper {
       padding-bottom: 20px;
       padding-top: 20px;
 
-      .content {}
+      .content {
+      }
     }
   }
 }
 
 @media (max-width: 600px) {
   .container {
-
     .wrapper {
-
       .content {
         padding-left: 34px;
         padding-right: 34px;
