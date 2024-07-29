@@ -5,9 +5,20 @@ import gallery from '../../assets/images/social/gallery.svg'
 import store from '../../assets/images/social/store.svg'
 import ios from '../../assets/images/social/ios.svg'
 import { useTranslation } from 'react-i18next'
+import OfferRules from '../modals/OfferRules/OfferRules'
+import { useState } from 'react'
 
 const Footer = () => {
   const { t } = useTranslation(['main'])
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -61,11 +72,19 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
+        <div className={styles.license_offer}>
         <div className={styles.license}>
           { t('license') }
         </div>
+        <button className={styles.offer} onClick={handleOpenModal}>
+          {t('footer_offer')}
+        </button>
+        </div>
+       
       </div>
+      {isModalOpen && (
+        <OfferRules closeForm={handleCloseModal} onRegisterClick={handleCloseModal} />
+      )}
     </div>
   )
 }
