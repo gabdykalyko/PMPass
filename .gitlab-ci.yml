@@ -1,0 +1,26 @@
+stages:
+  - buildimage-trigger
+
+buildimage trigger:
+  stage: buildimage-trigger
+ 
+  rules:
+    - if: $CI_COMMIT_TAG != null
+    - if: $CI_COMMIT_BRANCH == "develop"
+
+  script:
+    - |
+      if [ -n "$CI_COMMIT_TAG" ]; then
+        VERSION=$CI_COMMIT_TAG
+      else
+        VERSION=$CI_COMMIT_SHA
+      fi
+      echo "VERSION: $VERSION"
+      curl -X POST --fail \
+           -F token=$trigger_token \
+           -F ref=master \
+           -F variables[HASH]=$CI_COMMIT_SHA \
+           -F variables[VERSION]=$VERSION \
+           -F variables[TRIGGER_BY_REPO]=risk-pm-pass-frontend \
+           -F variables[BRANCH]=$CI_COMMIT_BRANCH \
+           $trigger_repo
