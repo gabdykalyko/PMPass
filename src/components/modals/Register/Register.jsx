@@ -268,10 +268,10 @@ const Register = ({ onLoginClick, closeForm, onOfferClick, onBonusClick, onOffer
       </div>
 
       <div className={styles.regOffer}>
-        Выполняя регистрацию или вход, вы соглашаетесь с
+          {t('reg_first')}  
       </div>
       <div onClick={onOfferRulesClick} className={styles.regOfferBtn}>
-        Правилами и Условиями Aкции
+          {t('reg_second')}
       </div>
 
       <div className={`${styles.row} ${styles.rowLast}`}>

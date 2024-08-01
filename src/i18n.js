@@ -58,7 +58,9 @@ const resources = {
       main_info: 'Основная Информация',
       profile_settings: 'Настройки Профиля',
       attach_trade_link: 'Прикрепите вашу ссылку на обмен из Steam',
-      attach_steam: 'Привяжите свой Steam аккаунт.'
+      attach_steam: 'Привяжите свой Steam аккаунт.',
+      reg_first: 'Выполняя регистрацию или вход, вы соглашаетесь с',
+      reg_second: 'Правилами и Условиями Aкции',
     },
     banner: {
       title: 'Фармите с Parimatch',
@@ -151,7 +153,7 @@ const resources = {
       activate_bonus: 'Активировать бонус на первый депозит',
       bonus_offer: 'Условия бонусного предложения',
       have_account: 'Есть аккаунт?',
-      no_account: 'Нет аккаунта?'
+      no_account: 'Нет аккаунта?',
     },
     help: {
       have_trouble: 'Похоже, что у вас возникли проблемы со входом.',
@@ -311,7 +313,9 @@ const resources = {
       main_info: 'Негізгі Ақпарат',
       profile_settings: 'Профиль баптауы',
       attach_trade_link: 'Сіздің Steam-дегі айырбастау сілтемеңізді қосыңыз',
-      attach_steam: 'Өз Steam aккаунтыңызды байлаңыз.'
+      attach_steam: 'Өз Steam aккаунтыңызды байлаңыз.',
+      reg_first: 'Сіз тіркелу немесе кіру арқылы',
+      reg_second: 'Акцияның Ережелері мен Шарттарымен келісесіз.',
     },
     banner: {
       title: 'Parimatch-пен фармдаңыз',
