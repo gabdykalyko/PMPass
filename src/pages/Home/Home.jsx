@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Profiler, useEffect, useState } from 'react'
 import Banner from '../../components/Banner/Banner'
 import Faq from '../../components/Faq/Faq'
 import Footer from '../../components/Footer/Footer'
@@ -6,6 +6,7 @@ import Header from '../../components/Header/Header'
 import HeaderMob from '../../components/HeaderMob/HeaderMob'
 import Prizes from '../../components/Prizes/Prizes'
 import Quests from '../../components/Quests/Quests'
+import Promo from '../../components/Promo/Promo'
 import Rules from '../../components/Rules/Rules'
 import styles from './Home.module.scss'
 import Form from '../../components/modals/Form/Form'
@@ -21,6 +22,7 @@ import axios from 'axios'
 import { useTranslation } from 'react-i18next'
 import OfferRules from '../../components/modals/OfferRules/OfferRules'
 import OfferRulesAccept from '../../components/modals/OfferRulesAccept/OfferRulesAccept'
+
 
 const Home = () => {
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -131,12 +133,13 @@ const Home = () => {
         : 
         <div>
           <Banner onRegisterClick={handleRegisterClick}/>
-          <Rules />
+          <Promo/>
+          {/* <Rules />
           <Prizes />
-          <Quests />
+          <Quests /> */}
         </div>
       }
-      <Faq />
+      {/* <Faq /> */}
       <Footer />
       {isFormOpen ? <Form showLogin={showLogin}
                            closeForm={closeForm}

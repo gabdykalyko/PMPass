@@ -1,15 +1,54 @@
-@import '../../assets/styles/global.scss';
+@import "../../assets/styles/global.scss";
 
 .wrapper {
   // background: rgb(97, 0, 255);
   // background: linear-gradient(0deg, rgba(97, 0, 255, 0) 0%, rgba(97, 0, 255, 0.17) 100%);
   position: relative;
+  background-color: rgba(217, 217, 217, 0.1);
+  
 
   .info {
     @include df-aic;
 
-    height: 100vh;
-
+    .section {
+      margin-left: 150px;
+      margin-top: 260px;
+      margin-bottom: 250px;
+      .group {
+        max-width: 820px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        gap: 20px;
+        .title {
+          font-weight: 900;
+          font-size: 40px;
+          letter-spacing: 0.01em;
+          text-transform: uppercase;
+          color: #ffffff;
+          font-family: "HelveticaNeue";
+        }
+        .subtitle {
+          color: #ffffff;
+          font-weight: 500;
+          font-size: 24px;
+          font-family: "HelveticaNeue";
+        }
+        .btn {
+          border-radius: 8px;
+          width: 113px;
+          height: 50px;
+          background-color: #ead40c;
+          font-family: var(--font-family);
+          font-weight: 500;
+          font-size: 20px;
+          line-height: 130%;
+          text-transform: capitalize;
+          color: #1b1e23;
+        }
+      }
+    }
     .container {
       color: #ffffff;
       z-index: 2;
@@ -38,8 +77,8 @@
       }
 
       .reg {
-        background-color: #EAD40C;
-        color: #1B1E23;
+        background-color: #ead40c;
+        color: #1b1e23;
       }
 
       .platforms {
@@ -52,7 +91,7 @@
   }
 
   .bannerDesk {
-    background-image: url('../../assets/images/banner.png');
+    background-image: url("../../assets/images/banner.png");
     background-size: 50%;
     background-repeat: no-repeat;
     background-position: right;
@@ -70,11 +109,12 @@
 
 @media (max-width: 1000px) {
   .wrapper {
-
     .info {
-
+      .section {
+        margin-left: 50px;
+        margin-top: 100px;
+      }
       .container {
-
         .title {
           width: 50%;
         }
@@ -86,7 +126,11 @@
 @media (max-width: 850px) {
   .wrapper {
     background: rgb(97, 0, 255);
-    background: linear-gradient(0deg, rgba(97, 0, 255, 0) 0%, rgba(97, 0, 255, 0.17) 100%);
+    background: linear-gradient(
+      0deg,
+      rgba(97, 0, 255, 0) 0%,
+      rgba(97, 0, 255, 0.17) 100%
+    );
     display: block;
     padding-top: 100px;
 
@@ -94,7 +138,6 @@
       height: unset;
 
       .container {
-
         .title {
           @include h2;
 
@@ -106,7 +149,6 @@
         }
 
         .platforms {
-
           img {
             width: 180px;
           }
@@ -130,13 +172,27 @@
 
 @media (max-width: 500px) {
   .wrapper {
-
     .info {
+      .section {
+        margin-left: 19px;
+        .group {
+          max-width: 342px;
+          width: 100%;
+          .subtitle {
+            font-size: 20px;
+          }
+          .title {
+            font-size: 25px;
+          }
+          .btn {
+            font-size: 18px;
+          }
+        }
+      }
       .container {
         z-index: 0;
 
         .platforms {
-
           img {
             width: 150px;
           }

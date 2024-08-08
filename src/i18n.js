@@ -6,6 +6,7 @@ const resources = {
     main: {
       begin: 'Начать',
       quests: 'Квесты',
+      tournaments: 'Турниры',
       main: 'Главная',
       shop: 'Магазин',
       enter: 'Вход',
