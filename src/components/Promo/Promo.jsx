@@ -25,7 +25,7 @@ const Promo = () => {
                 </p>
               </div>
             </div>
-            <img src={banner}/>
+            <img src={banner} className={styles.img}/>
           </div>
         </div>
       </div>

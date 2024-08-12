@@ -31,17 +31,70 @@
         gap: 10px;
         justify-content: space-between;
         align-items: center;
+        .img {
+          width: 53%;
+        }
         .desc {
           padding-left: 40px;
           .title {
             font-weight: 700;
             font-size: 40px;
             text-transform: uppercase;
-            color:#ffffff;
-            .subtitles {
-              
+            color: #ffffff;
+          }
+          .subtitles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            .subtitle {
+              font-weight: 500;
+              font-size: 16px;
+              color: #ae6fff;
+              border-radius: 100px;
+              width: auto;
+              height: 44px;
+              background: #221631;
+              display: flex;
+              align-items: center;
+              padding: 10px;
             }
           }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .wrapper {
+    .container {
+      margin-left: 50px;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .wrapper {
+    .container {
+      .section {
+        .group {
+          .img {
+            width: 40%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+    margin-top: 40px;
+    .container {
+      margin-left: 19px;
+      .section {
+        .title {
+          font-size: 25px;
         }
       }
     }
