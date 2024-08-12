@@ -3,7 +3,30 @@
 .container {
   padding-top: 124px;
   transition: all 0.2s linear;
-
+  .container__line {
+    margin-top: 20px;
+    border-radius: 8px;
+    width: 100%;
+    height: 52px;
+    background-image: url("../../assets/images/line_desktop.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0 10px;
+    .title {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 163%;
+      color: #ffc785;
+      padding-top: 10px;
+    }
+  }
+  .container__line_mob {
+    display: none;
+  }
   .container__title {
     @include subtitle5;
     display: flex;
@@ -228,7 +251,6 @@
 
 @media (max-width: 1100px) {
   .container {
-   
     .container__filter {
       align-items: flex-start;
       flex-direction: column;
@@ -252,14 +274,13 @@
   }
 }
 
-@media(max-width: 920px){
-  .container__filter{
-    
-    .chips{
+@media (max-width: 920px) {
+  .container__filter {
+    .chips {
       display: flex;
       flex-direction: column;
     }
-    .chips__container_divider{
+    .chips__container_divider {
       display: none;
     }
   }
@@ -268,17 +289,16 @@
 @media (max-width: 850px) {
   .container {
     padding-top: 104px;
-
     .container__title {
       .title {
         display: block;
         font-size: 36px;
       }
     }
+
     .container__filter {
       align-items: start;
       .filter {
-        
       }
     }
 
@@ -293,6 +313,44 @@
           @include body1;
 
           margin-top: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    .container__line {
+      display: none;
+    }
+    .container__line_mob {
+      margin-top: 20px;
+      display: block;
+      border-radius: 8px;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 112, 0, 0.25);
+      display: flex;
+      gap: 6px;
+      padding: 10px 10px;
+      align-items: center;
+      .mob_line {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .title {
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 168%;
+          color: #fff;
+        }
+        .desc {
+          font-family: var(--second-family);
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 173%;
+          color: #ffc785;
         }
       }
     }

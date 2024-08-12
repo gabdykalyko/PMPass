@@ -24,14 +24,14 @@ const Product = ({ onLoginClick, quest }) => {
   const { t } = useTranslation(['main', 'notifications'])
 
   const buy = async (id, type) => {
-    if (!user.steam_trade_url) {
-      toast(<Toast message={t('notifications:add_trade_link')}
-        status='warning' />, {
-        hideProgressBar: true
-      })
+    // if (!user.steam_trade_url) {
+    //   toast(<Toast message={t('notifications:add_trade_link')}
+    //     status='warning' />, {
+    //     hideProgressBar: true
+    //   })
 
-      return
-    }
+    //   return
+    // }
 
     try {
       setLoading(true)
