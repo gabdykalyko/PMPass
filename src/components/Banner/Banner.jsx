@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import banner from "../../assets/images/banner.png";
 import bannerMob from "../../assets/images/banner-mob.png";
 import { useTranslation } from "react-i18next";
+import banner_pic from '../../assets/images/new_banner_desktop.png';
+import banner_pic_mob from '../../assets/images/new_banner_mob.png'
 
 const Banner = ({ onRegisterClick }) => {
   const { t } = useTranslation("banner");
@@ -29,7 +31,6 @@ const Banner = ({ onRegisterClick }) => {
       <div className={styles.info}>
         <div className={styles.section}>
           <div className={styles.group}>
-            <p className={styles.subtitle}>Играйте с Parimatch</p>
             <h1 className={styles.title}>
               Выполняйте <span style={{ color: "#FFEB31" }}>квесты</span>
             </h1>
@@ -42,6 +43,8 @@ const Banner = ({ onRegisterClick }) => {
             </h1>
             <button className={styles.btn}>Начать</button>
           </div>
+          <img src={banner_pic} className={styles.banner_pic}/>
+          <img src={banner_pic_mob} className={styles.banner_pic_mob}/>
         </div>
       </div>
       {/* <div className={styles.info}>
