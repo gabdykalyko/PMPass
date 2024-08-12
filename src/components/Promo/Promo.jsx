@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Promo.module.scss";
-import banner from "../../assets/images/banner.png"
+import banner from "../../assets/images/banner.png";
+import banner_mob from "../../assets/images/banner-mob.png"
 
 const Promo = () => {
   return (
@@ -26,6 +27,7 @@ const Promo = () => {
               </div>
             </div>
             <img src={banner} className={styles.img}/>
+            <img src={banner_mob} className={styles.img_mob}/>
           </div>
         </div>
       </div>

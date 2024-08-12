@@ -3,16 +3,19 @@
 .wrapper {
   position: relative;
   margin-top: 80px;
+
   .container {
     width: 100%;
     margin-left: 150px;
     display: flex;
     flex-direction: column;
+
     .section {
       display: flex;
       flex-direction: column;
       gap: 20px;
       width: 80%;
+
       .title {
         font-weight: 900;
         font-size: 40px;
@@ -22,6 +25,7 @@
         font-family: "HelveticaNeue";
         line-height: 120%;
       }
+
       .group {
         background: linear-gradient(180deg, #4a2c6f 0%, #1b1e23 100%);
         border-radius: 24px;
@@ -31,21 +35,29 @@
         gap: 10px;
         justify-content: space-between;
         align-items: center;
+
         .img {
           width: 53%;
         }
+        .img_mob {
+          display: none;
+        }
+
         .desc {
           padding-left: 40px;
+
           .title {
             font-weight: 700;
             font-size: 40px;
             text-transform: uppercase;
             color: #ffffff;
           }
+
           .subtitles {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+
             .subtitle {
               font-weight: 500;
               font-size: 16px;
@@ -91,10 +103,47 @@
   .wrapper {
     margin-top: 40px;
     .container {
-      margin-left: 19px;
+      margin: 0px;
       .section {
+        width: 100%;
         .title {
           font-size: 25px;
+          margin-left: 19px;
+        }
+        .group {
+          height: auto;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .img {
+            display: none;
+          }
+          .img_mob {
+            display: block;
+            object-fit: cover;
+            width: 100%;
+          }
+          .desc {
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .title {
+              font-size: 20px;
+              margin-left: 0px;
+            }
+            .subtitles {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              .subtitle {
+                font-size: 14px;
+                height: auto;
+                padding: 8px;
+              }
+            }
+          }
         }
       }
     }
