@@ -22,6 +22,7 @@ import axios from 'axios'
 import { useTranslation } from 'react-i18next'
 import OfferRules from '../../components/modals/OfferRules/OfferRules'
 import OfferRulesAccept from '../../components/modals/OfferRulesAccept/OfferRulesAccept'
+import PromoGroup from '../../components/PromoGroup/PromoGroup'
 
 
 const Home = () => {
@@ -134,6 +135,7 @@ const Home = () => {
         <div>
           <Banner onRegisterClick={handleRegisterClick}/>
           <Promo/>
+          <PromoGroup/>
           {/* <Rules />
           <Prizes />
           <Quests /> */}
