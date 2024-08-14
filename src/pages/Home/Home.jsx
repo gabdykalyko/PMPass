@@ -23,6 +23,7 @@ import { useTranslation } from 'react-i18next'
 import OfferRules from '../../components/modals/OfferRules/OfferRules'
 import OfferRulesAccept from '../../components/modals/OfferRulesAccept/OfferRulesAccept'
 import PromoGroup from '../../components/PromoGroup/PromoGroup'
+import Prefooter from '../../components/Prefooter/Prefooter'
 
 
 const Home = () => {
@@ -136,6 +137,7 @@ const Home = () => {
           <Banner onRegisterClick={handleRegisterClick}/>
           <Promo/>
           <PromoGroup/>
+          <Prefooter/>
           {/* <Rules />
           <Prizes />
           <Quests /> */}
