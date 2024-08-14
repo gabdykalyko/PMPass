@@ -16,8 +16,8 @@ const Promo = () => {
             <div className={styles.desc}>
               <h1 className={styles.title}>Выполняйте квесты</h1>
               <div className={styles.subtitles}>
-                <p className={styles.subtitle}>Пополните счет</p>
                 <p className={styles.subtitle}>Пройдите верификацию</p>
+                <p className={styles.subtitle}>Пополните счет</p>
                 <p className={styles.subtitle}>Соберите экспресс</p>
               </div>
               <button className={styles.button}>Квесты</button>
