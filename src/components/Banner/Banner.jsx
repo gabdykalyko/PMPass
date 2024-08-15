@@ -32,14 +32,13 @@ const Banner = ({ onRegisterClick }) => {
         <div className={styles.section}>
           <div className={styles.group}>
             <h1 className={styles.title}>
-              Выполняйте <span style={{ color: "#FFEB31" }}>квесты</span>
+              {t('title1')} <span style={{ color: "#FFEB31" }}>{t('title1_hg')}</span>
             </h1>
             <h1 className={styles.title}>
-              Зарабатывайте <span style={{ color: "#AE6FFF" }}>баллы</span>
+              {t('title2')} <span style={{ color: "#AE6FFF" }}>{t('title2_hg')}</span>
             </h1>
             <h1 className={styles.title}>
-              Обменивайте на <span style={{ color: "#FFEB31" }}>Freebet</span> и
-              скины
+              {t('title3')} <span style={{ color: "#FFEB31" }}>{t('title3_hg')}</span> {t('title3_suffix')}
             </h1>
             <button className={styles.btn}>Начать</button>
           </div>

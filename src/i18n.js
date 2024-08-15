@@ -66,7 +66,15 @@ const resources = {
     banner: {
       title: 'Фармите с Parimatch',
       subtitle: 'Выполняйте квесты, получайте PM баллы и обменивайте на крутые призы',
-      btn: 'Фармить призы'
+      btn: 'Фармить призы',
+      title1:'Выполняйте',
+      title1_hg: 'квесты',
+      title2: 'Зарабатывайте',
+      title2_hg:'баллы',
+      title3_hg: 'Freebet',
+      title3: 'Обменивайте на',
+      title3_suffix: 'и скины',
+      button: 'Начать'
     },
     rules: {
       title: 'Как это работает',
@@ -265,6 +273,7 @@ const resources = {
     main: {
       begin: 'Бастау',
       quests: 'Квесттер',
+      tournaments: 'Турнирлер',
       main: 'Басты бет',
       shop: 'Дүкен',
       enter: 'Кіру',
