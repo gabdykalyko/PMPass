@@ -40,7 +40,7 @@ const Banner = ({ onRegisterClick }) => {
             <h1 className={styles.title}>
               {t('title3')} <span style={{ color: "#FFEB31" }}>{t('title3_hg')}</span> {t('title3_suffix')}
             </h1>
-            <button className={styles.btn}>Начать</button>
+            <button className={styles.btn}>{t('button')}</button>
           </div>
           <img src={banner_pic} className={styles.banner_pic}/>
           <img src={banner_pic_mob} className={styles.banner_pic_mob}/>

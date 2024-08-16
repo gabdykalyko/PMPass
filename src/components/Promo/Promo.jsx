@@ -2,25 +2,27 @@ import React from "react";
 import styles from "./Promo.module.scss";
 import banner from "../../assets/images/banner.png";
 import banner_mob from "../../assets/images/banner-mob.png";
+import { useTranslation } from "react-i18next";
 
 const Promo = () => {
+  const { t } = useTranslation("promo");
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.section}>
           <h1 className={styles.title}>
-            Зарабатывайте баллы c{" "}
-            <span style={{ color: "#ffff" }}>parimatch</span>
+            {t('title1')}{" "}
+            <span style={{ color: "#ffff" }}>{t('title1_hg')}</span>
           </h1>
           <div className={styles.group}>
             <div className={styles.desc}>
-              <h1 className={styles.title}>Выполняйте квесты</h1>
+              <h1 className={styles.title}>{t('title2')}</h1>
               <div className={styles.subtitles}>
-                <p className={styles.subtitle}>Пройдите верификацию</p>
-                <p className={styles.subtitle}>Пополните счет</p>
-                <p className={styles.subtitle}>Соберите экспресс</p>
+                <p className={styles.subtitle}>{t('patch1')}</p>
+                <p className={styles.subtitle}>{t('patch2')}</p>
+                <p className={styles.subtitle}>{t('patch3')}</p>
               </div>
-              <button className={styles.button}>Квесты</button>
+              <button className={styles.button}>{t('quests')}</button>
             </div>
 
             <img src={banner} className={styles.img} />

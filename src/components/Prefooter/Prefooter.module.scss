@@ -7,9 +7,11 @@
   background-size: cover;
   .section {
     padding: 0 20px;
-    margin-top: 20px;
+    margin-top: 60px;
     display: flex;
     align-items: center;
+    width: 100%;
+    justify-content: space-between;
     .group {
       max-width: 550px;
       width: 100%;

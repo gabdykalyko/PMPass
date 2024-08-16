@@ -1,30 +1,32 @@
 import React from "react";
 import styles from ".//Prefooter.module.scss";
 import pic from "../../assets/images/prefooter_img.png";
+import { useTranslation } from "react-i18next";
 
 const Prefooter = () => {
+  const { t } = useTranslation("prefooter");
   return (
     <div className={styles.wrapper}>
       <div className={styles.section}>
         <div className={styles.group}>
           <h1 className={styles.title}>
-            Стартовый <span style={{ color: "#f8ff13" }}>буст</span>
+            {t('title')} <span style={{ color: "#f8ff13" }}>{t('title_hg')}</span>
           </h1>
           <div className={styles.desc_group}>
             <p className={styles.desc}>
-              Получите{" "}
+              {t('desc1')}{" "}
               <span style={{ color: "#f8ff13", fontWeight: 500 }}>
-                300 PM баллов
+               {t('desc1_hg')} 
               </span>{" "}
-              на старте!
+              {t('desc1_end')}
             </p>
             <p className={styles.desc}>
-              Обменивайте{" "}
+              {t('desc2')}{" "}
               <span style={{ color: "#f8ff13", fontWeight: 500 }}>
-                стартовый буст
+                {t('desc2_hg')}
               </span>{" "}
-              на{" "}
-              <span style={{ color: "#f8ff13", fontWeight: 500 }}>лутбокс</span>
+              {t('na')}{" "}
+              <span style={{ color: "#f8ff13", fontWeight: 500 }}>{t('desc1_end_hg')}</span>
             </p>
           </div>
           <button className={styles.btn}>Старт</button>
