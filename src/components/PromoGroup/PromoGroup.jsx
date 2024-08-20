@@ -3,6 +3,7 @@ import styles from "../PromoGroup/PromoGroup.module.scss";
 import box from "../../assets/images/box_1.png";
 import box_mob from "../../assets/images/box_1_mob.png";
 import { useTranslation } from "react-i18next";
+import { NavLink } from "react-router-dom";
 
 const PromoGroup = () => {
   const { t } = useTranslation("promogroup");
@@ -49,7 +50,9 @@ const PromoGroup = () => {
                   {t("desc_title")}{" "}
                   <span style={{ color: "#f8ff13" }}>{t("desc_title_hg")}</span>
                 </h1>
+                <NavLink to="/shop">
                 <button className={styles.btn}>{t("shop")}</button>
+              </NavLink>
               </div>
             </div>
           </div>

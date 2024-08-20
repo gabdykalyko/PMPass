@@ -181,6 +181,7 @@
               line-height: 130%;
               text-transform: capitalize;
               color: #1b1e23;
+              cursor: pointer;
             }
             .desc_title {
               font-family: "HelveticaNeue";
@@ -254,7 +255,7 @@
             }
           }
           .group_2 {
-            background: linear-gradient(180deg, #2f364a 0%, #1b1e23 100%);;
+            background: linear-gradient(180deg, #2f364a 0%, #1b1e23 100%);
             display: flex;
             flex-direction: column;
             align-items: center;

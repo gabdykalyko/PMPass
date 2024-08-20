@@ -3,6 +3,7 @@ import styles from "./Promo.module.scss";
 import banner from "../../assets/images/banner.png";
 import banner_mob from "../../assets/images/banner-mob.png";
 import { useTranslation } from "react-i18next";
+import { NavLink } from "react-router-dom";
 
 const Promo = () => {
   const { t } = useTranslation("promo");
@@ -22,7 +23,10 @@ const Promo = () => {
                 <p className={styles.subtitle}>{t('patch2')}</p>
                 <p className={styles.subtitle}>{t('patch3')}</p>
               </div>
-              <button className={styles.button}>{t('quests')}</button>
+              
+              <NavLink to="/quests">
+                <button className={styles.button}>{t('quests')}</button>
+              </NavLink>
             </div>
 
             <img src={banner} className={styles.img} />
