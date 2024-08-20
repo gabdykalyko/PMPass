@@ -1,0 +1,67 @@
+@import '../../assets/styles/global.scss';
+
+.wrapper {
+  background-image: url('../../assets/images/tournaments.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 500px;
+  margin-top: 180px;
+
+  .container {
+    margin: 0 auto;
+    width: 80%;
+
+    .header {
+      align-items: center;
+      border-bottom: 1px solid #E0E0E059;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      padding-bottom: 31px;
+
+      .month {
+        @include subtitle1b;
+
+        align-items: center;
+        color: #fff;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+
+        .arrowWrapper {
+          align-items: center;
+          background-color: #FAF9F833;
+          border-radius: 8px;
+          display: flex;
+          height: 32px;
+          justify-content: center;
+          width: 32px;
+        }
+
+        .monthTxt {
+          align-items: center;
+          display: flex;
+          padding-top: 5px;
+        }
+      }
+
+      .filter {
+        align-items: center;
+        display: flex;
+        gap: 12px;
+        justify-content: flex-end;
+
+        .filterWrapper {
+          @include body1;
+
+          align-items: center;
+          background-color: #DCDCDC0D;
+          border-radius: 100px;
+          color: #E0E0E0;
+          display: flex;
+          justify-content: center;
+          padding: 10px 16px;
+        }
+      }
+    }
+  }
+}
