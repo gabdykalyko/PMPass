@@ -1,50 +1,46 @@
-@import '../../../assets/styles/global.scss';
+@import "../../../assets/styles/global.scss";
 
 .container {
   padding-top: 200px;
 
-  .backgroundImg {
-    background-image: url('../../../assets/images/welcome/first.png');
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: 40%;
-    bottom: 0;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 1;
-  }
-
   .wrapper {
     @include subtitle5;
 
-    color: #E0E0E0;
+    color: #e0e0e0;
     position: relative;
-    width: 60%;
+    width: 100%;
     z-index: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .intro_pic {
+      width: auto;
+      height: 100%;
+      max-width: 50%;
+      object-fit: cover;
+    }
 
     .title {
       font-size: 48px;
-      font-weight: 700;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-family: "HelveticaNeue";
 
       .yellow {
-        color: #EAD40C;
+        color: #ead40c;
       }
     }
 
     .info {
-      line-height: 115%;
+      line-height: 1.15;
       margin-top: 24px;
-      width: 85%;
+      width: 100%;
 
       .txt {
         margin-top: 8px;
       }
-    }
-
-    .banner {
-      display: none;
     }
 
     .btn {
@@ -55,14 +51,18 @@
         @include subtitle6m;
 
         align-items: center;
-        background-color: #EAD40C;
+        background-color: #ead40c;
         border-radius: 8px;
         cursor: pointer;
         display: flex;
         gap: 8px;
         height: 46px;
-        padding-left: 22px;
-        padding-right: 22px;
+        padding: 0 22px;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: darken(#ead40c, 10%);
+        }
       }
     }
   }
@@ -72,12 +72,19 @@
   .container {
     padding-top: 104px;
 
-    .backgroundImg {
-      display: none;
-    }
-
     .wrapper {
       width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      .intro_pic {
+        width: auto;
+        height: 100%;
+        max-width: 100%;
+        object-fit: cover;
+        margin-top: 40px;
+      }
 
       .title {
         font-size: 24px;
@@ -88,11 +95,11 @@
         width: 100%;
       }
 
-      .banner {
-        display: block;
-
-        img {
+      .btn {
+        width: 100%;
+        button {
           width: 100%;
+          justify-content: center;
         }
       }
     }
