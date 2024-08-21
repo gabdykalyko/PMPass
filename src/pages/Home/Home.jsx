@@ -134,10 +134,15 @@ const Home = () => {
         <Cards />
         : 
         <div>
-          <Banner onRegisterClick={handleRegisterClick}/>
+          <Banner onRegisterClick={handleRegisterClick}
+                  onLoginClick={handleLoginClick}
+                  onOfferClick={handleOfferClick}
+                  onBonusClick={handleBonusClick}
+                  onHelpClick={handleHelpClick}
+                  onOfferRulesClick={handleOfferRulesClick} />
           <Promo/>
           <PromoGroup/>
-          <Prefooter/>
+          <Prefooter onRegisterClick={handleRegisterClick} />
           {/* <Rules />
           <Prizes />
           <Quests /> */}

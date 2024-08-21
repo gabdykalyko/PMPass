@@ -1,21 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Banner.module.scss";
-import Form from "../modals/Form/Form";
 import banner_pic from '../../assets/images/new_banner_desktop.png';
 import banner_pic_mob from '../../assets/images/new_banner_mob.png';
 import { useTranslation } from "react-i18next";
 
-const Banner = () => {
+const Banner = ({ onRegisterClick }) => {
   const { t } = useTranslation("banner");
-  const [isFormOpen, setIsFormOpen] = useState(false);
-
-  const openForm = () => {
-    setIsFormOpen(true);
-  };
-
-  const closeForm = () => {
-    setIsFormOpen(false);
-  };
 
   return (
     <div className={styles.wrapper}>
@@ -31,7 +21,7 @@ const Banner = () => {
             <h1 className={styles.title}>
               {t('title3')} <span style={{ color: "#FFEB31" }}>{t('title3_hg')}</span> {t('title3_suffix')}
             </h1>
-            <button className={styles.btn} onClick={openForm}>
+            <button className={styles.btn} onClick={onRegisterClick}>
               {t('button')}
             </button>
           </div>
@@ -39,21 +29,6 @@ const Banner = () => {
           <img src={banner_pic_mob} className={styles.banner_pic_mob} alt="Mobile Banner" />
         </div>
       </div>
-
-      {isFormOpen && (
-        <Form 
-          showLogin={false} // Сразу показываем регистрацию
-          closeForm={closeForm}
-          onLoginClick={() => {}}
-          onRegisterClick={() => {}}
-          onHelpClick={() => {}}
-          showHelp={false}
-          onOfferClick={() => {}}
-          onBonusClick={() => {}}
-          onOfferRulesClick={() => {}}
-          showOfferRules={false}
-        />
-      )}
     </div>
   );
 };
