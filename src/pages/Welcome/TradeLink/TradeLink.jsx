@@ -12,6 +12,8 @@ import loader from '../../../assets/images/icons/loader.svg'
 import arrowYellow from '../../../assets/images/icons/arrow-yellow.svg'
 import arrowNext from '../../../assets/images/welcome/arrow-next-yellow.svg'
 import { useTranslation } from 'react-i18next'
+import back_arrow from '../../../assets/images/back_arrow.png'
+import { NavLink } from 'react-router-dom'
 
 const TradeLink = ({ onClickPrevious, onClickNext }) => {
   const { t } = useTranslation(['main', 'welcome', 'notifications'])
@@ -102,8 +104,8 @@ const TradeLink = ({ onClickPrevious, onClickNext }) => {
       <div className={styles.wrapper}>
         <div onClick={onClickPrevious}
           className={styles.back}>
-          <img src={arrowYellow} alt="" />
-          {t('back')}
+          <img src={back_arrow} alt="" />
+          
         </div>
 
         <div className={styles.trade}>
@@ -144,15 +146,13 @@ const TradeLink = ({ onClickPrevious, onClickNext }) => {
           </div>
         </div>
 
-        <div onClick={onClickNext}
-          className={styles.skipBtn}>
-          <button>
-            {t('skip')}
-            <img src={arrowNext} alt="" />
-          </button>
-        </div>
+        <NavLink to="/" className={styles.skipBtn}>
+      <button>
+        {t('skip')}
+        <img src={arrowNext} alt="" />
+      </button>
+    </NavLink>
       </div>
-
       {isFormOpen && <TradeLinkHelp closeForm={closeForm} />}
     </div>
   )

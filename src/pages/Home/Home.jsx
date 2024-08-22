@@ -1,26 +1,29 @@
-import { useEffect, useState } from 'react';
-import Banner from '../../components/Banner/Banner';
-import Faq from '../../components/Faq/Faq';
-import Footer from '../../components/Footer/Footer';
-import Header from '../../components/Header/Header';
-import HeaderMob from '../../components/HeaderMob/HeaderMob';
-import Prizes from '../../components/Prizes/Prizes';
-import Quests from '../../components/Quests/Quests';
-import Rules from '../../components/Rules/Rules';
-import styles from './Home.module.scss';
-import Form from '../../components/modals/Form/Form';
-import Offer from '../../components/modals/Offer/Offer';
-import Bonus from '../../components/modals/Bonus/Bonus';
-import { useDispatch, useSelector } from 'react-redux';
-import Cards from '../../components/Cards/Cards';
+import { Profiler, useEffect, useState } from 'react'
+import Banner from '../../components/Banner/Banner'
+import Faq from '../../components/Faq/Faq'
+import Footer from '../../components/Footer/Footer'
+import Header from '../../components/Header/Header'
+import HeaderMob from '../../components/HeaderMob/HeaderMob'
+import Prizes from '../../components/Prizes/Prizes'
+import Quests from '../../components/Quests/Quests'
+import Promo from '../../components/Promo/Promo'
+import Rules from '../../components/Rules/Rules'
+import styles from './Home.module.scss'
+import Form from '../../components/modals/Form/Form'
+import Offer from '../../components/modals/Offer/Offer'
+import Bonus from '../../components/modals/Bonus/Bonus'
+import { useDispatch, useSelector } from 'react-redux'
+import Cards from '../../components/Cards/Cards'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Toast from '../../components/Toast/Toast';
-import { updateAuth } from '../../slices/authSlice';
-import axios from 'axios';
-import { useTranslation } from 'react-i18next';
-import OfferRules from '../../components/modals/OfferRules/OfferRules';
-import OfferRulesAccept from '../../components/modals/OfferRulesAccept/OfferRulesAccept';
+import Toast from '../../components/Toast/Toast'
+import { updateAuth } from '../../slices/authSlice'
+import axios from 'axios'
+import { useTranslation } from 'react-i18next'
+import OfferRules from '../../components/modals/OfferRules/OfferRules'
+import OfferRulesAccept from '../../components/modals/OfferRulesAccept/OfferRulesAccept'
+import PromoGroup from '../../components/PromoGroup/PromoGroup'
+import Prefooter from '../../components/Prefooter/Prefooter'
 import PeriodicModal from '../../components/modals/PeriodicModal/PeriodicModal';
 
 const Home = () => {
@@ -146,13 +149,21 @@ const Home = () => {
         <Cards />
       ) : (
         <div>
-          <Banner onRegisterClick={handleRegisterClick} />
-          <Rules />
+          <Banner onRegisterClick={handleRegisterClick} 
+                  onLoginClick={handleLoginClick}
+                  onOfferClick={handleOfferClick}
+                  onBonusClick={handleBonusClick}
+                  onHelpClick={handleHelpClick}
+                  onOfferRulesClick={handleOfferRulesClick} />
+          <Promo/>
+          <PromoGroup/>
+          <Prefooter onRegisterClick={handleRegisterClick} />
+          {/* <Rules />
           <Prizes />
-          <Quests />
+          <Quests /> */}
         </div>
       )}
-      <Faq />
+      {/* <Faq /> */}
       <Footer />
       {isFormOpen && (
         <Form showLogin={showLogin}
