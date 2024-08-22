@@ -24,13 +24,6 @@ import OfferRules from '../../components/modals/OfferRules/OfferRules'
 import OfferRulesAccept from '../../components/modals/OfferRulesAccept/OfferRulesAccept'
 import PromoGroup from '../../components/PromoGroup/PromoGroup'
 import Prefooter from '../../components/Prefooter/Prefooter'
-
-import Toast from '../../components/Toast/Toast';
-import { updateAuth } from '../../slices/authSlice';
-import axios from 'axios';
-import { useTranslation } from 'react-i18next';
-import OfferRules from '../../components/modals/OfferRules/OfferRules';
-import OfferRulesAccept from '../../components/modals/OfferRulesAccept/OfferRulesAccept';
 import PeriodicModal from '../../components/modals/PeriodicModal/PeriodicModal';
 
 const Home = () => {
