@@ -1,0 +1,140 @@
+@import '../../../assets/styles/global.scss';
+
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+
+  .wrapper {
+    width: 50%;
+    
+    .back {
+      @include subtitle6m;
+
+      align-items: center;
+      color: #EAD40C;
+      cursor: pointer;
+      display: flex;
+      gap: 16px;
+      margin-bottom: 25px;
+    }
+
+    .steam {
+      background-color: rgba(0, 0, 0, .3);
+      border-radius: 8px;
+      padding: 32px 20px;
+
+      .title {
+        @include h2;
+
+        color: $c-white;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .info {
+        @include subtitle5;
+
+        color: $c-light-grey;
+        line-height: 120%;
+        margin: 0 auto;
+        text-align: center;
+        width: 85%;
+      }
+
+      .btns {
+        @include subtitle4m;
+
+        display: flex;
+        justify-content: center;
+        margin-top: 24px;
+
+        .btn {
+
+          button {
+            @include subtitle6m;
+      
+            align-items: center;
+            background-color: #EAD40C;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            gap: 8px;
+            height: 46px;
+            padding-left: 22px;
+            padding-right: 22px;
+          }
+        }
+      }
+
+      .skipInfo {
+        color: rgba(224, 224, 224, .8);
+        margin-top: 60px;
+        text-align: center;
+      }
+    }
+
+    .skipBtn {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 24px;
+
+      button {
+        @include subtitle6m;
+
+        align-items: center;
+        background-color: #333217;
+        border-radius: 8px;
+        color: #EAD40C;
+        cursor: pointer;
+        display: flex;
+        gap: 8px;
+        height: 46px;
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .container {
+    height: unset;
+    padding-bottom: 100px;
+    padding-top: 104px;
+
+    .wrapper {
+      width: 90%;
+
+      .steam {
+        padding: 20px 14px;
+
+        .title {
+          @include h3;
+        }
+
+        .info {
+          @include body1;
+
+          width: 100%;
+        }
+
+        .btns {
+          @include subtitle6m;
+
+          .btn {
+
+            button {
+              @include subtitle7m;
+
+              height: 36px;
+              padding: 6px 16px;
+              width: unset;
+            }
+          }
+        }
+      }
+    }
+  }
+}

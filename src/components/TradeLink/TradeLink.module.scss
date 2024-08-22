@@ -1,0 +1,154 @@
+@import '../../assets/styles/global.scss';
+
+.trade {
+  background-color: #0000004D;
+  border-radius: 8px;
+  padding: 21px 18px;
+  width: 50%;
+
+  .title {
+    @include subtitle1b;
+
+    align-items: center;
+    border-bottom: 1px solid #DCDCDC26;
+    color: #fff;
+    display: flex;
+    height: 55px;
+    justify-content: space-between;
+    padding-bottom: 16px;
+
+    .titleInfo {
+      align-items: center;
+      display: flex;
+      gap: 8px;
+    }
+
+    .editBtn {
+      align-items: center;
+      background-color: #333217;
+      border-radius: 8px;
+      cursor: pointer; 
+      display: flex;
+      justify-content: center;
+      height: 40px;
+      transition: all .2s linear;
+      width: 40px;
+
+      &:hover {
+        background-color: #494711;
+      }
+    }
+  }
+
+  .txt {
+    @include subtitle5;
+
+    align-items: center;
+    color: #EAD40C;
+    display: flex;
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .input {
+    @include body1;
+
+    color: #E0E0E0;
+    margin-top: 20px;
+
+    .subtitle {
+      margin-bottom: 12px;
+    }
+
+    .inputWrapper {
+      align-items: center;
+      background-color: #DCDCDC1A;
+      border-radius: 8px;
+      display: flex;
+      height: 56px;
+      padding-left: 12px;
+
+      input {
+        @include body1;
+
+        background-color: unset;
+        border: unset;
+        color: #E0E0E0;
+        outline: none;
+        width: 100%;
+
+        &::placeholder {
+          color: #E0E0E0;
+        }
+      }
+    }
+  }
+
+  .instruction {
+    @include subtitle7m;
+
+    color: #EAD40C;
+    cursor: pointer;
+    margin-top: 16px;
+  }
+
+  .success {
+    @include subtitle5;
+
+    color: #fff;
+    margin-top: 24px;
+
+    .attached {
+      align-items: center;
+      display: flex;
+      gap: 8px;
+    }
+
+    .linkWrapper {
+      @include body1;
+
+      color: #E0E0E0;
+      margin-top: 20px;
+
+      .link {
+        background-color: #DCDCDC1A;
+        border-radius: 8px;
+        color: #FFFFFF;
+        margin-top: 12px;
+        padding: 18px 12px;
+        word-wrap: break-word;
+      }
+    }
+  }
+
+  .btns {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .error {
+    border: 1px solid #F44336;
+  }
+}
+
+@media (max-width: 850px) {
+  .trade {
+    margin-bottom: 24px;
+    width: 100%;
+
+    .title {
+      font-size: 20px;
+    }
+
+    .btns {
+
+      button {
+        font-size: 14px;
+        height: 36px;
+        padding: 6px 16px;
+        white-space: nowrap;
+      }
+    }
+  }
+}

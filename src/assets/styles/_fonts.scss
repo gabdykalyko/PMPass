@@ -1,0 +1,107 @@
+@mixin h1 {
+  font-size: 64px;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@mixin h2 {
+  font-size: 48px;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@mixin h3 {
+  font-size: 32px;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@mixin subtitle1b {
+  font-size: 24px;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@mixin subtitle2m {
+  font-size: 24px;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@mixin subtitle3b {
+  font-size: 20px;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@mixin subtitle4m {
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@mixin subtitle5 {
+  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin subtitle6m {
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@mixin subtitle7m {
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@mixin body1 {
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin body2 {
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin buttonlarge {
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@mixin buttonmedium {
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@mixin buttonsmall {
+  font-size: 13px;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@mixin input {
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin helper {
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin tableinput {
+  font-size: 13px;
+  font-weight: 400;
+  font-style: normal;
+}

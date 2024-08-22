@@ -1,0 +1,19 @@
+.wrapper {
+  position: relative;
+
+  .links {
+    display: flex;
+    gap: 24px;
+    justify-content: space-between;
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 850px) {
+ .wrapper {
+
+  .links {
+    display: block;
+  }
+ }
+}

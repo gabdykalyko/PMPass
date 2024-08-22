@@ -1,0 +1,275 @@
+@import '../../../assets/styles/global.scss';
+
+.wrapper {
+
+  .title {
+    @include h2;
+
+    color: #FFFFFF;
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .select {
+    background-color: #DCDCDC1A;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    height: 56px;
+    margin-top: 24px;
+    padding: 1px;
+
+    .selectItem {
+      @include body1;
+
+      align-items: center;
+      color: $c-light-grey;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      width: 33%;
+    }
+
+    .selected {
+      @include subtitle6m;
+
+      background-color: #0000004D;
+      border-radius: 11px;
+      color: $c-white;
+    }
+  }
+
+  .steam {
+    text-align: center;
+  }
+
+  .subtitle {
+    @include subtitle5;
+
+    align-items: center;
+    color: #ffffff;
+    display: flex;
+    gap: 18px;
+    margin-bottom: 24px;
+    margin-top: 24px;
+    white-space: nowrap;
+
+    .line {
+      background-color: rgba(220, 220, 220, .1);
+      height: 1px;
+      width: 100%;
+    }
+  }
+
+  .firstRow {
+    margin-top: 24px;
+  }
+
+  .errorMessage {
+    @include body1;
+
+    color: #F44336;
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .row {
+    margin-bottom: 20px;
+
+    .label {
+      color: #ffffff;
+      margin-bottom: 12px;
+
+      span {
+        color: #F44336;
+      }
+    }
+
+    .input {
+      align-items: center;
+      background-color: rgba(220, 220, 220, .1);
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      height: 56px;
+      padding-left: 12px;
+      padding-right: 12px;
+
+      .inputWrapper {
+        width: 100%;
+
+        input {
+          @include body1;
+
+          background-color: unset;
+          border: unset;
+          color: #E0E0E0;
+          outline: unset;
+          width: 100%;
+
+          &::placeholder {
+            color: #E0E0E0;
+          }
+        }
+      }
+
+      .eye {
+        align-items: center;
+        cursor: pointer;
+        display: flex;
+        transition: all .2s linear;
+
+        svg {
+          path {
+            fill: #E0E0E0;
+          }
+        }
+
+        &:hover svg path {
+          fill: #ffffff;
+        }
+      }
+    }
+
+    .inputFocus {
+      @include borderYellow;
+    }
+
+    .condition {
+      @include body2;
+
+      color: #E0E0E0;
+      margin-top: 8px;
+
+      .conditionItem {
+        align-items: center;
+        display: flex;
+        gap: 4px;
+        margin-bottom: 4px;
+      }
+    }
+
+    .offer {
+      @include body1;
+
+      align-items: center;
+      background-color: rgba(220, 220, 220, .1);
+      border-radius: 8px;
+      color: #E0E0E0;
+      display: flex;
+      gap: 10px;
+      height: 56px;
+      justify-content: space-between;
+      margin-top: 20px;
+      padding-left: 16px;
+      padding-right: 16px;
+
+      span {
+        color: #EAD40C;
+        cursor: pointer;
+      }
+
+      label {
+        cursor: pointer;
+
+        input {
+          display: none;
+        }
+      }
+    }
+
+    .btn {
+      margin-top: 32px;
+
+      button {
+        width: 100%;
+      }
+    }
+
+    .enter {
+      @include subtitle4m;
+
+      color: #ffffff;
+      margin-top: 32px;
+      text-align: center;
+
+      span {
+        color: #EAD40C;
+        cursor: pointer;
+      }
+    }
+
+    .error {
+      border: 1px solid #F44336;
+    }
+
+    .errorTxt {
+      color: #F44336;
+    }
+
+    .help {
+      @include subtitle5;
+
+      color: #EAD40C;
+      cursor: pointer;
+      margin-top: 32px;
+      text-align: center;
+    }
+  }
+
+  .regOffer {
+    @include body1;
+
+    color: $c-light-grey;
+    line-height: 150%;
+    text-align: center;
+  }
+
+  .regOfferBtn {
+    @include body1;
+
+    color: $c-yellow;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: underline;
+  }
+
+  .rowLast {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 850px) {
+  .wrapper {
+    width: 100%;
+
+    .title {
+      font-size: 32px;
+    }
+
+    .select {
+
+      .selectItem {
+        @include tableinput;
+      }
+
+      .selected {
+        @include buttonsmall;
+      }
+    }
+
+    .subtitle {
+      font-size: 16px;
+    }
+
+    .row {
+      .enter {
+        font-size: 16px;
+      }
+
+      .help {
+        font-size: 16px;
+      }
+    }
+  }
+}

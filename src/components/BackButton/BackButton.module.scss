@@ -1,0 +1,10 @@
+@import '../../assets/styles/global.scss';
+
+.wrapper {
+  @include subtitle6m;
+  @include df-aic-g8;
+  color: $c-yellow;
+
+  cursor: pointer;
+  margin-bottom: 24px;
+}

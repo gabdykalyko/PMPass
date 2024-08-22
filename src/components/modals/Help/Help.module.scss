@@ -1,0 +1,86 @@
+@import '../../../assets/styles/global.scss';
+
+.wrapper {
+  padding-bottom: 50px;
+  padding-top: 50px;
+
+  .title {
+    @include h2;
+
+    color: #FFFFFF;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .txt {
+    @include subtitle5;
+
+    color: #E0E0E0;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .social {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 32px;
+
+    .tg {
+      align-items: center;
+      background-color: #19334F;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      height: 56px;
+      transition: all .2s linear;
+      width: 64px;
+
+      &:hover {
+        background-color: #244971;
+      }
+    }
+
+    .phone {
+      align-items: center;
+      background-color: #3A2159;
+      border-radius: 8px;
+      color: #AE6FFF;
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      height: 56px;
+      transition: all .2s linear;
+      width: 100px;
+
+      &:hover {
+        background-color: #4A2C6F;
+      }
+    }
+  }
+
+  .back {
+    cursor: pointer;
+    left: 24px;
+    position: absolute;
+    top: 32px;
+    transition: all .2s linear;
+
+    &:hover path {
+      fill: #ffffff;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .wrapper {
+    
+    .title {
+      font-size: 32px;
+    }
+
+    .txt {
+      font-size: 16px;
+    }
+  }
+}

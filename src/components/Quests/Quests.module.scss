@@ -1,0 +1,89 @@
+@import '../../assets/styles/global.scss';
+
+.wrapper {
+  // background-image: url('../../assets/images/quests.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  // height: 100vh;
+
+  .container {
+    display: flex;
+    gap: 24px;
+
+    .info {
+      align-items: center;
+      display: flex;
+      width: 50%;
+
+      .title {
+        @include h2;
+
+        color: #ffffff;
+        margin-bottom: 32px;
+      }
+
+      .txt {
+        @include subtitle5;
+
+        color: #E0E0E0;
+
+        margin-bottom: 8px;
+
+        width: 85%;
+      }
+
+      .btn {
+        margin-top: 20px;
+      }
+    }
+
+    .img {
+      width: 50%;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .wrapper {
+    .container {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+
+      .info {
+        order: 1;
+        width: 100%;
+
+        .txt {
+          width: 100%;
+        }
+      }
+
+      .img {
+        order: 2;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+    margin-top: 100px;
+
+    .container {
+
+      .info {
+        width: 100%;
+      }
+
+      .img {
+        width: 100%;
+      }
+    }
+  }
+}

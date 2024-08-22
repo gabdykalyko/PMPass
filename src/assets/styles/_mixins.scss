@@ -1,0 +1,39 @@
+@mixin df {
+  display: flex;
+}
+
+@mixin df-aic {
+  align-items: center;
+  display: flex;
+}
+
+@mixin df-aic-g8 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+@mixin df-aic-jcc {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+@mixin df-aic-jcsb {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin hoverYellow {
+  transition: all .2s linear;
+
+  &:hover {
+    color: $c-yellow;
+  }
+}
+
+@mixin borderYellow {
+  border: 1px solid $c-yellow;;
+  transition: all .2s linear;
+}

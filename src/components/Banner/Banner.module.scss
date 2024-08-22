@@ -1,0 +1,147 @@
+@import '../../assets/styles/global.scss';
+
+.wrapper {
+  // background: rgb(97, 0, 255);
+  // background: linear-gradient(0deg, rgba(97, 0, 255, 0) 0%, rgba(97, 0, 255, 0.17) 100%);
+  position: relative;
+
+  .info {
+    @include df-aic;
+
+    height: 100vh;
+
+    .container {
+      color: #ffffff;
+      z-index: 2;
+
+      .title {
+        @include h1;
+
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      .subtitle {
+        @include subtitle5;
+
+        line-height: 120%;
+        margin-bottom: 24px;
+        width: 45%;
+      }
+
+      .btn {
+        @include subtitle6m;
+
+        border-radius: 8px;
+        cursor: pointer;
+        padding: 10px 22px;
+      }
+
+      .reg {
+        background-color: #EAD40C;
+        color: #1B1E23;
+      }
+
+      .platforms {
+        @include df-aic;
+
+        gap: 32px;
+        margin-top: 40px;
+      }
+    }
+  }
+
+  .bannerDesk {
+    background-image: url('../../assets/images/banner.png');
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: right;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .banner {
+    display: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .wrapper {
+
+    .info {
+
+      .container {
+
+        .title {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .wrapper {
+    background: rgb(97, 0, 255);
+    background: linear-gradient(0deg, rgba(97, 0, 255, 0) 0%, rgba(97, 0, 255, 0.17) 100%);
+    display: block;
+    padding-top: 100px;
+
+    .info {
+      height: unset;
+
+      .container {
+
+        .title {
+          @include h2;
+
+          width: 100%;
+        }
+
+        .subtitle {
+          width: 90%;
+        }
+
+        .platforms {
+
+          img {
+            width: 180px;
+          }
+        }
+      }
+    }
+
+    .bannerDesk {
+      display: none;
+    }
+
+    .banner {
+      display: block;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+
+    .info {
+      .container {
+        z-index: 0;
+
+        .platforms {
+
+          img {
+            width: 150px;
+          }
+        }
+      }
+    }
+  }
+}

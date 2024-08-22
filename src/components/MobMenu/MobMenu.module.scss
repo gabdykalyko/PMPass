@@ -1,0 +1,97 @@
+@import '../../assets/styles/global.scss';
+
+.wrapper {
+  background-color: #1B1E23;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  left: 0;
+  padding-bottom: 24px;
+  padding-top: 18px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 2;
+
+  .container {
+    margin: 0 auto;
+    width: 90%;
+
+    .header {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+
+      .right {
+        @include subtitle5;
+
+        align-items: center;
+        color: #ffffff;
+        gap: 24px;
+        display: flex;
+
+        .lang {
+          display: flex;
+          gap: 4px;
+        }
+
+        .yellow {
+          color: #EAD40C;
+        }
+      }
+    }
+  
+    .profile {
+      border-bottom: 1px solid #DCDCDC1A;
+     
+      .info {
+        @include subtitle4m;
+
+        align-items: center;
+        color: #ffffff;
+        display: flex;
+        gap: 8px;
+        margin-top: 40px;
+
+        img {
+          width: 48px;
+        }
+      }
+
+      .points {
+        @include subtitle6m;
+
+        color: #EAD40C;
+        margin-top: 16px;
+        margin-bottom: 24px;
+      }
+    }
+
+    .menu {
+      @include subtitle4m;
+
+      color: #fff;
+      margin-top: 40px;
+
+      .menuItem {
+        margin-bottom: 8px;
+        padding-bottom: 8px;
+        padding-top: 8px;
+      }
+    }
+  }
+
+  .btns {
+    margin: 0 auto;
+    width: 90%;
+
+    .btn {
+      margin-bottom: 20px;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+}

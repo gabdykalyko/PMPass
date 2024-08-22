@@ -1,0 +1,115 @@
+@import "../../assets/styles/global.scss";
+
+.container {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 8px;
+  padding: 12px 16px 21px;
+  transition: all 0.2s linear;
+
+  .imgWrapper {
+    align-items: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    height: 240px;
+    justify-content: center;
+    transition: transform 0.5s;
+  }
+  .imgWrapper:hover {
+    transform: scale(1.07);
+  }
+
+  .chestTitleWrapper {
+    border-bottom: 1px solid rgba(220, 220, 220, 0.1);
+    margin-top: 18px;
+    padding-bottom: 12px;
+
+    .chestTitle {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+
+      .chestName {
+        @include subtitle3b;
+
+        color: $c-yellow;
+        height: 24px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .productName {
+    @include subtitle6m;
+
+    color: #ffffff;
+    // height: 50px;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .questTask {
+    @include body2;
+
+    color: #e0e0e0;
+    height: 45px;
+    margin-bottom: 16px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .productPrice {
+    @include subtitle3b;
+
+    color: $c-yellow;
+    margin-top: 24px;
+  }
+
+  .btn {
+    button {
+      @include subtitle6m;
+
+      background-color: #ead40c;
+      border-radius: 8px;
+      cursor: pointer;
+      height: 46px;
+      transition: all 0.2s linear;
+      width: 100%;
+
+      .loader {
+        animation: spin 0.5s linear infinite;
+        width: 24px;
+      }
+
+      &:hover {
+        background-color: #ffeb31;
+      }
+    }
+  }
+
+  &:hover {
+    border: 1px solid #ead40c;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

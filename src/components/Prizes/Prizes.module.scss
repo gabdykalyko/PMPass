@@ -1,0 +1,94 @@
+@import '../../assets/styles/global.scss';
+
+.wrapper {
+  align-items: center;
+  // background-image: url('../../assets/images/prizes.png');
+  // background-size: contain;
+  // background-repeat: no-repeat;
+  // background-position: right;
+  // background-position-y: 50px;
+  display: flex;
+  // height: 100vh;
+  margin-top: 160px;
+  margin-bottom: 160px;
+
+  .container {
+    display: flex;
+    gap: 24px;
+
+    .info {
+      align-items: center;
+      display: flex;
+      width: 50%;
+
+      .title {
+        @include h2;
+
+        color: #ffffff;
+        margin-bottom: 20px;
+      }
+
+      .txt {
+        @include subtitle5;
+
+        color: #E0E0E0;
+        margin-bottom: 8px;
+        width: 85%;
+      }
+
+      .btn {
+        margin-top: 20px;
+      }
+    }
+
+    .img {
+      width: 50%;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .wrapper {
+    margin-bottom: 100px;
+    margin-top: 100px;
+
+    .container {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+  
+      .info {
+        width: 100%;
+
+        .txt {
+          width: 100%;
+        }
+      }
+  
+      .img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+    margin-top: 100px;
+
+    .container {
+
+      .info {
+        width: 100%;
+      }
+
+      .img {
+        width: 100%;
+      }
+    }
+  }
+}

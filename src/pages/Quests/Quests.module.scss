@@ -1,0 +1,244 @@
+@import '../../assets/styles/global.scss';
+
+.container {
+  padding-top: 124px;
+
+  .title {
+    @include h1;
+
+    align-items: center;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    font-size: 40px;
+
+    .filters {
+      display: flex;
+      gap: 24px;
+
+      .filter {
+        @include subtitle6m;
+
+        align-items: center;
+        background-color: #333217;
+        border-radius: 8px;
+        color: #EAD40C;
+        cursor: pointer;
+        display: flex;
+        gap: 8px;
+        height: 46px;
+        padding: 10px 22px;
+        position: relative;
+        transition: all .2s linear;
+
+        .filterWrapper {
+          @include body1;
+
+          background-color: #242424;
+          border-radius: 8px;
+          color: #E0E0E0;
+          left: 0;
+          padding: 8px 0;
+          position: absolute;
+          top: 120%;
+          width: 170px;
+          z-index: 1;
+
+          .filterItem {
+            cursor: pointer;
+            margin-bottom: 3px;
+            padding: 6px 16px;
+            transition: all .2s linear;
+
+            &:hover {
+              background-color: rgba(220, 220, 220, .1);
+            }
+          }
+
+          .selectedFilter {
+            background-color: rgba(220, 220, 220, .1);
+            color: #fff;
+          }
+        }
+
+        &:hover {
+          background-color: #494711;
+        }
+      }
+
+      .filterBlue {
+        background-color: #193B41;
+        color: #0CDCEA;
+      }
+
+      .filterPurple {
+        background-color: #3A2159;
+        color: #AE6FFF;
+        transition: all .2s linear;
+
+        &:hover {
+          background-color: #4A2C6F;
+        }
+      }
+    }
+  }
+
+  .wrapper {
+    align-items: start;
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 50px;
+
+    .loaderContainer {
+      @include subtitle1b;
+      
+      color: #F9F9F9;
+      display: flex;
+      grid-column: span 4;
+      justify-content: center;
+      margin-top: 50px;
+
+      .loaderWrapper {
+        background-color: $c-white;
+        border-radius: 133px;
+        height: 8px;
+        margin-top: 32px;
+        width: 236px;
+        
+        .loader {
+          background-color: #4A2C6F;
+          border-radius: 133px;
+          height: 100%;
+          animation: loader .5s ease-in-out forwards;
+          width: 0;
+        }
+      }
+    }
+
+    .empty {
+      @include h3;
+
+      color: $c-white;
+      grid-column: span 4;
+      margin-top: 50px;
+      text-align: center;
+
+      .emptyInfo {
+        @include subtitle5;
+
+        margin-top: 20px;
+
+        .link {
+          color: $c-yellow;
+        }
+      }
+    }
+  }
+
+  .more {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    position: relative;
+
+    .btn {
+
+      button {
+        @include subtitle6m;
+  
+        background-color: #333217;
+        border-radius: 8px;
+        color: #EAD40C;
+        cursor: pointer;
+        height: 46px;
+        transition: all .2s linear;
+        width: 107px;
+  
+        .loader {
+          animation: spin .5s linear infinite;
+          width: 24px;
+        }
+
+        &:hover {
+          background-color: #494711;
+        }
+      }
+    }
+  }
+
+  .up {
+    align-items: center;
+    background-color: #3A2159;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    transition: all .2s linear;
+    width: 40px;
+
+    &:hover {
+      background-color: #4A2C6F;
+    }
+  }
+}
+
+@keyframes loader {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1493px) {
+  .container {
+
+    .wrapper {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .container {
+    padding-top: 104px;
+
+    .title {
+      display: block;
+      font-size: 36px;
+
+      .filters {
+        .filter {
+          display: inline-flex;
+          margin-top: 32px;
+          padding: 10px 18px;
+        }
+      }
+    }
+
+    .wrapper {
+      grid-template-columns: 1fr;
+      margin-top: 24px;
+
+      .empty {
+        @include subtitle1b;
+
+        .emptyInfo {
+          @include body1;
+
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

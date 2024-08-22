@@ -1,0 +1,93 @@
+@import url('./assets/fonts/fonts.scss');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.kz {
+  font-family: 'Roboto';
+
+  button,
+  a {
+    font-family: 'Roboto';
+  }
+}
+
+.ru {
+  font-family: 'HelveticaNeue';
+
+  button,
+  a {
+    font-family: 'HelveticaNeue';
+  }
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+body {
+  background-color: #1B1E23;
+}
+
+button {
+  background-color: unset;
+  border: none;
+  outline: none;
+}
+
+.container-main {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.loader {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.Toastify {
+  .Toastify__toast-container {
+    .Toastify__toast {
+      background-color: #11362C;
+
+      .Toastify__close-button {
+        align-items: center;
+        color: #E0E0E0;
+        display: flex;
+        justify-content: center;
+        opacity: 1;
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+
+.yellow {
+  color: #EAD40C;
+}
+
+@media (max-width: 1200px) {
+  .container-main {
+    width: 90%;
+  }
+}

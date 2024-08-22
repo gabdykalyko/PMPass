@@ -1,0 +1,35 @@
+@import '../../assets/styles/global.scss';
+
+.btn {
+  @include buttonlarge;
+
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 12px 22px;
+}
+
+.yellow {
+  background-color: #EAD40C;
+  color: #1B1E23;
+  transition: all .2s linear;
+
+  &:hover {
+    background-color: #FFEB31;
+  }
+}
+
+.brown {
+  background-color: #333217;
+  color: #EAD40C;
+  transition: all .2s linear;
+
+  &:hover {
+    background-color: #494711;
+  }
+}
+
+@media (max-width: 850px) {
+  .btn {
+    padding: 12px 16px;
+  }
+}

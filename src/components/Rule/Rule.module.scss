@@ -1,0 +1,32 @@
+@import '../../assets/styles/global.scss';
+
+.rule {
+  padding-top: 20px;
+  position: relative;
+  text-align: center;
+
+  .img {
+    display: flex;
+    justify-content: center;
+  }
+
+  .title {
+    @include subtitle4m;
+
+    color: #ffffff;
+    margin-top: 20px;
+    margin-bottom: 16px;
+  }
+
+  .txt {
+    color: #E0E0E0;
+    font-weight: 400;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 850px) {
+  .rule {
+    padding-top: 0;
+  }
+}

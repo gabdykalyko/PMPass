@@ -1,0 +1,111 @@
+@import '../../assets/styles/global.scss';
+
+.container {
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding-top: 140px;
+
+    .card {
+      @include subtitle1b;
+
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 8px;
+      color: #ffffff;
+      height: 200px;
+      padding-left: 16px;
+      padding-top: 16px;
+      position: relative;
+
+      transition: all .2s linear;
+
+      .btn {
+        @include subtitle6m;
+
+        align-items: center;
+        bottom: 16px;
+        color: rgba(255, 255, 255, .7);
+        display: flex;
+        left: 16px;
+        position: absolute;
+        transition: all .2s linear;
+
+        &:hover {
+          color: #ffffff;
+        }
+      }
+
+      &:hover {
+        opacity: .7;
+      }
+    }
+
+    .quests {
+      background-image: url('../../assets/images/cards/quests.png');
+    }
+
+    .shop {
+      background-image: url('../../assets/images/cards/shop.png');
+    }
+
+    .profile {
+      background-image: url('../../assets/images/cards/profile.png');
+      // cursor: unset;
+
+      // &:hover {
+      //   opacity: unset;
+      // }
+    }
+
+    .parimatch {
+      background-image: url('../../assets/images/cards/parimatch.png');
+      // cursor: unset;
+
+      // &:hover {
+      //   opacity: unset;
+      // }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .container {
+
+    .wrapper {
+      .quests {
+        background-image: url('../../assets/images/cards/quests-mob.png');
+      }
+
+      .shop {
+        background-image: url('../../assets/images/cards/shop-mob.png');
+      }
+
+      .profile {
+        background-image: url('../../assets/images/cards/profile-mob.png');
+      }
+
+      .parimatch {
+        background-image: url('../../assets/images/cards/parimatch-mob.png');
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    .wrapper {
+      .card {
+
+        .btn {
+          left: 12px;
+          padding-left: unset;
+          padding-right: unset;
+          width: 85%;
+        }
+      }
+    }
+  }
+}

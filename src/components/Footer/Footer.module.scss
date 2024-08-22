@@ -1,0 +1,83 @@
+@import '../../assets/styles/global.scss';
+
+.wrapper {
+  margin-top: 200px;
+  padding-bottom: 50px;
+
+  .container {
+
+    .social {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 60px;
+
+      .left {
+        align-items: center;
+        display: flex;
+        gap: 24px;
+      }
+
+      .right {
+        align-items: center;
+        display: flex;
+        gap: 24px;
+
+        .socialItem {
+          path {
+            transition: all .2s linear;
+          }
+        }
+
+        .socialItem:hover path {
+          fill: #EAD40C;
+        }
+      }
+    }
+
+    .license_offer {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+    
+    .license {
+      @include helper;
+      color: #E0E0E0;
+      text-align: center;
+    }
+    
+    .offer {
+      @include helper;
+      color: #E0E0E0;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .wrapper {
+    margin-top: 100px;
+
+    .container {
+      
+      .social {
+        display: block;
+
+        .left {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          margin: 0 auto;
+          width: 300px;
+        }
+
+        .right {
+          margin: 24px auto;
+          width: 300px;
+        }
+      }
+    }
+  }
+}

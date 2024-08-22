@@ -1,0 +1,168 @@
+@import '../../assets/styles/global.scss';
+
+.wrapper {
+
+  .container {
+    padding-top: 124px;
+
+    .title {
+      @include h2;
+
+      color: #ffffff;
+    }
+
+    .account {
+      background-image: url('../../assets/images/profile.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 8px;
+      padding: 16px 21px;
+
+      .mobEdit {
+        display: none;
+      }
+
+      .header {
+        align-items: center;
+        border-bottom: 1px solid #DCDCDC1A;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 22px;
+
+        .headerLeft {
+          @include subtitle1b;
+
+          align-items: center;
+          color: #ffffff;
+          display: flex;
+          gap: 8px;
+        }
+
+        .headerRight {
+          align-items: center;
+          background-color: #333217;
+          border-radius: 8px;
+          display: flex;
+          justify-content: center;
+          height: 40px;
+          transition: all .2s linear;
+          width: 40px;
+
+          &:hover {
+            background-color: #494711;
+          }
+        }
+      }
+
+      .main {
+        align-items: center;
+        display: flex;
+        gap: 12px;
+        margin-bottom: 24px;
+        margin-top: 20px;
+
+        .profileImg {
+          width: 68px;
+        }
+
+        .name {
+          @include subtitle4m;
+
+          align-items: center;
+          color: #ffffff;
+          display: flex;
+          gap: 5px;
+
+          .id {
+            color: #E0E0E0;
+            font-weight: 400;
+          }
+
+          .copy {
+            cursor: pointer;
+          }
+        }
+
+        .address {
+          @include body1;
+
+          color: #E0E0E0;
+          margin-top: 8px;
+        }
+      }
+
+      .info {
+        display: flex;
+        gap: 80px;
+
+        .infoItem {
+          @include subtitle5;
+
+          color: #E0E0E0;
+          display: flex;
+          gap: 8px;
+
+          .steam {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 8px;
+
+            .copy {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .wrapper {
+
+    .container {
+      padding-top: 104px;
+
+      .title {
+        @include h3;
+      }
+
+      .account {
+
+        .mobEdit {
+          display: flex;
+          justify-content: end;
+          margin-bottom: 12px;
+        }
+
+        .header {
+
+          .headerLeft {
+            @include subtitle3b;
+          }
+        }
+
+        .main {
+          .profileImg {
+            width: 64px;
+          }
+
+          .name {
+            @include subtitle6m;
+          }
+        }
+
+        .info {
+          display: block;
+          margin-top: 24px;
+
+          .infoItem {
+            @include body1;
+
+            margin-bottom: 12px;
+          }
+        }
+      }
+    }
+  }
+}

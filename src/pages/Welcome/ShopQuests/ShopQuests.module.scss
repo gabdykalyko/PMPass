@@ -1,0 +1,114 @@
+@import '../../../assets/styles/global.scss';
+
+.container {
+  padding-top: 140px;
+
+  .backgroundImg {
+    background-image: url('../../../assets/images/welcome/second.png');
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 40%;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+  .wrapper {
+    @include subtitle5;
+
+    color: #E0E0E0;
+    position: relative;
+    width: 60%;
+    z-index: 2;
+
+    .back {
+      @include subtitle6m;
+
+      align-items: center;
+      color: #EAD40C;
+      cursor: pointer;
+      display: flex;
+      gap: 16px;
+      margin-bottom: 78px;
+    }
+
+    .title {
+      font-size: 48px;
+      font-weight: 700;
+
+      .yellow {
+        color: #EAD40C;
+      }
+    }
+
+    .info {
+      line-height: 115%;
+      margin-top: 24px;
+      width: 85%;
+
+      .txt {
+        margin-top: 8px;
+      }
+    }
+
+    .banner {
+      display: none;
+    }
+
+    .btn {
+      display: block;
+      margin-top: 24px;
+
+      button {
+        @include subtitle6m;
+
+        align-items: center;
+        background-color: #EAD40C;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        gap: 8px;
+        height: 46px;
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .container {
+    padding-top: 104px;
+
+    .backgroundImg {
+      display: none;
+    }
+
+    .wrapper {
+      width: 100%;
+
+      .back {
+        margin-bottom: 24px;
+      }
+
+      .title {
+        font-size: 24px;
+      }
+
+      .info {
+        font-size: 16px;
+      }
+
+      .banner {
+        display: block;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

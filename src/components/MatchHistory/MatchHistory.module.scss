@@ -1,0 +1,66 @@
+@import '../../assets/styles/global.scss';
+
+.match {
+  background-color: #0000004D;
+  border-radius: 8px;
+  padding: 21px 18px;
+  width: 50%;
+
+  .title {
+    @include subtitle1b;
+
+    align-items: center;
+    border-bottom: 1px solid #DCDCDC26;
+    color: #fff;
+    display: flex;
+    gap: 8px;
+    padding-bottom: 21px;
+  }
+
+  .txt {
+    @include subtitle5;
+
+    align-items: center;
+    color: #EAD40C;
+    display: flex;
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .info {
+    @include body1;
+
+    color: #E0E0E0;
+    line-height: 130%;
+    margin-top: 29px;
+
+    .infoItem {
+      margin-bottom: 8px;
+    }
+
+    span {
+      font-weight: 500;
+    }
+  }
+
+  .success {
+    @include subtitle5;
+
+    align-items: center;
+    color: #FFFFFF;
+    display: flex;
+    gap: 8px;
+    margin-top: 23px;
+  }
+}
+
+@media (max-width: 850px) {
+  .match {
+    margin-bottom: 24px;
+    width: 100%;
+
+    .title {
+      @include subtitle3b;
+    }
+  }
+}

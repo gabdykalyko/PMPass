@@ -1,0 +1,145 @@
+@import "../../assets/styles/global.scss";
+
+.container {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 8px;
+  padding: 16px;
+  transition: all 0.2s linear;
+
+  .imgWrapper {
+    align-items: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    height: 200px;
+    justify-content: center;
+  }
+
+  .chestTitleWrapper {
+    border-bottom: 1px solid rgba(220, 220, 220, 0.1);
+    margin-top: 18px;
+    padding-bottom: 12px;
+
+    .chestTitle {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+
+      .chestName {
+        @include subtitle3b;
+
+        color: #ae6fff;
+        height: 24px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .chestStatus {
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 8px 20px;
+      }
+
+      .chestStatusActive {
+        background-color: #11362c;
+        color: #07ef9c;
+      }
+
+      .chestStatusSoon {
+        background-color: #333217;
+        color: #ead40c;
+      }
+
+      .chestStatusCompleted {
+        background-color: #351c1d;
+        color: #f44336;
+      }
+    }
+  }
+
+  .questName {
+    @include subtitle1b;
+
+    color: #ffffff;
+    // height: 50px;
+    font-size: 20px;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .questTask {
+    @include body1;
+
+    color: #e0e0e0;
+    height: 58px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    p:last-child {
+      display: none;
+    }
+  }
+
+  .labels {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+
+    .label {
+      border-radius: 8px;
+      font-family: "Roboto";
+      font-size: 16px;
+      font-weight: 500;
+      padding: 12px;
+    }
+
+    .pm {
+      background-color: rgba(241, 248, 19, 0.15);
+      color: #f1f813;
+    }
+
+    .dota {
+      background-color: rgba(191, 46, 26, 0.15);
+      color: #bf2e1a;
+    }
+  }
+
+  .btn {
+    button {
+      @include subtitle6m;
+
+      background-color: #ead40c;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 16px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      transition: all 0.2s linear;
+      width: 100%;
+
+      &:hover {
+        background-color: #ffeb31;
+      }
+    }
+  }
+
+  &:hover {
+    border: 1px solid #ead40c;
+    transform: scale(1.02);
+  }
+}
+
+@media (max-width: 850px) {
+  .container {
+    .questTask {
+      height: unset;
+    }
+  }
+}
