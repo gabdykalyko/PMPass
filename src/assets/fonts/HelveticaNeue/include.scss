@@ -15,3 +15,10 @@
     src: url('./HelveticaNeueCyr-Bold.ttf');
     font-weight: 700;
 }
+
+@font-face {
+    font-family: 'HelveticaNeueBlackCondensed';
+    src: url('./HelveticaNeueBlackCondensed.ttf') format('truetype');
+    font-weight: 900; 
+    font-style: normal;
+  }
