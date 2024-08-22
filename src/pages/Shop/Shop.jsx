@@ -20,7 +20,7 @@ import Filter from "./Filter/Filter";
 import OfferRules from "../../components/modals/OfferRules/OfferRules";
 import OfferRulesAccept from "../../components/modals/OfferRulesAccept/OfferRulesAccept";
 import { useSelector } from "react-redux";
-
+import flame from "../../assets/images/flame.png";
 const PER_PAGE = 8;
 
 const Shop = () => {
@@ -301,6 +301,23 @@ const Shop = () => {
         <div>
           <div className={styles.container__title}>
             <div className={styles.title}>{t("shop")}</div>
+          </div>
+          <div className={styles.container__line}>
+            <img src={flame}/>
+            <div className={styles.title}>
+                Успейте потратить PM баллы! Летний сезон заканчивается 31 августа.
+            </div>
+          </div>
+          <div className={styles.container__line_mob}>
+            <img src={flame}/>
+            <div className={styles.mob_line}>
+            <div className={styles.title}>
+                Успейте потратить PM баллы! 
+            </div>
+            <div className={styles.desc}>
+            Летний сезон заканчивается 31 августа.
+            </div>
+            </div>
           </div>
           <div className={styles.container__filter}>
             <div className={styles.chips}>

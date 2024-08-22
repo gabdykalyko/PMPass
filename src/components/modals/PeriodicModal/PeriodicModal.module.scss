@@ -1,0 +1,61 @@
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.container {
+  background-image: url("../../../assets/images/periodic_modal_bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px;
+  min-height: 300px;
+  text-align: center;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.56;
+  color: #fff;
+}
+
+.content {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.52;
+  color: #fff;
+}
+
+.btn {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 500px) {
+  .container {
+    max-width: 346px;
+    padding: 15px;
+  }
+  .title {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+  .content {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+}
