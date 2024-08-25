@@ -40,7 +40,8 @@
           letter-spacing: 0.01em;
           text-transform: uppercase;
           color: #ffffff;
-          font-family: "HelveticaNeueBlackCondensed";
+          font-family: "HelveticaNeue";
+          line-height: 1.3em;
         }
 
         .subtitle {
@@ -54,7 +55,7 @@
           border-radius: 8px;
           width: 260px;
           height: 50px;
-          background: #f8ff13;
+          background: #EAD40C;
           font-family: var(--font-family);
           font-weight: 500;
           font-size: 20px;
@@ -212,7 +213,8 @@
           }
 
           .title {
-            font-size: 36px;
+            font-size: 28px;
+            text-align: center;
           }
 
           .btn {

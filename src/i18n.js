@@ -66,8 +66,8 @@ const resources = {
       reg_second: "Правилами и Условиями Aкции",
     },
     promo: {
-      title1: 'Зарабатывайте баллы c',
-      title1_hg: 'parimatch',
+      title1: 'Зарабатывайте баллы',
+      title1_hg: 'с parimatch',
       title2: 'Выполняйте квесты',
       patch1:'Пройдите верификацию',
       patch2:'Пополните счет',

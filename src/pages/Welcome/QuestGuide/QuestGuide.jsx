@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import back_arrow from "../../../assets/images/back_arrow.png";
 import pic_one from "../../../assets/images/quest_guide_one.png";
 import pic_two from "../../../assets/images/quest_guide_two.png";
+import { NavLink } from "react-router-dom";
 
 const QuestGuide = ({ onClickPrevious, onClickNext }) => {
   const { t } = useTranslation(["main", "welcome"]);
@@ -40,10 +41,17 @@ const QuestGuide = ({ onClickPrevious, onClickNext }) => {
           </div>
         </div>
         <div onClick={onClickNext} className={styles.btn}>
-          <button>
+
+       <NavLink to="/" className={styles.skipBtn}>
+      <button>
+        {t('skip')}
+        <img src={arrow} alt="" />
+      </button>
+    </NavLink>
+          {/* <button>
             {t("next")}
             <img src={arrow} alt="" />
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
