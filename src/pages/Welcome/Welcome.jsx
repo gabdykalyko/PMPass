@@ -44,12 +44,12 @@ const Welcome = () => {
           onClickNext={handleNextPage}
         />
       )}
-      {page === 4 && (
+      {/* {page === 4 && (
         <TradeLink
           onClickPrevious={handlePreviousPage}
           onClickNext={handleNextPage}
         />
-      )}
+      )} */}
       {/* {page === 4 && <Steam onClickPrevious={handlePreviousPage}
                                 setFirstPage={setFirstPage}/>} */}
     </div>

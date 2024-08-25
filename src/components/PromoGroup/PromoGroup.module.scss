@@ -157,6 +157,8 @@
           flex-direction: row;
           gap: 50px;
           align-items: center;
+          margin-left: 100px;
+          max-width: 1152px;
           .group_2_img {
             width: 50%;
             height: auto;
@@ -173,7 +175,7 @@
               border-radius: 8px;
               width: 260px;
               height: 50px;
-              background: #f8ff13;
+              background: #EAD40C;
               margin-top: 30px;
               font-family: "HelveticaNeue";
               font-weight: 500;
@@ -197,7 +199,7 @@
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
   .wrapper {
     .container {
       .section {
@@ -207,6 +209,9 @@
         .group {
           align-items: center;
           .group_1 {
+            margin-left: 0px;
+          }
+          .group_2 {
             margin-left: 0px;
           }
         }

@@ -25,9 +25,9 @@ const AppRoutes = () => (
         <Settings />
       </PrivateRoute>} />
     <Route path="/welcome"
-      element={<PrivateRoute>
+      element={
         <Welcome />
-      </PrivateRoute>} />
+      } />
   </Routes>
 )
 

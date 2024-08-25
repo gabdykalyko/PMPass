@@ -146,7 +146,7 @@ const TradeLink = ({ onClickPrevious, onClickNext }) => {
           </div>
         </div>
 
-        <NavLink to="/" className={styles.skipBtn}>
+       <NavLink to="/" className={styles.skipBtn}>
       <button>
         {t('skip')}
         <img src={arrowNext} alt="" />

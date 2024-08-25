@@ -43,7 +43,8 @@
         gap: 10px;
         justify-content: space-between;
         align-items: center;
-
+        margin-left: 100px;
+        max-width: 1152px;
         .img {
           width: 53%;
         }
@@ -60,7 +61,7 @@
             border-radius: 8px;
             width: 260px;
             height: 50px;
-            background: #f8ff13;
+            background: #EAD40C;
             margin-top: 30px;
             font-family: "HelveticaNeue";
             font-weight: 500;
@@ -105,11 +106,14 @@
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
   .wrapper {
     .container {
       .section {
         .title {
+          margin-left: 0px;
+        }
+        .group {
           margin-left: 0px;
         }
       }
@@ -174,7 +178,7 @@
               border-radius: 8px;
               width: 118px;
               height: 50px;
-              background: #f8ff13;
+              background:#EAD40C;
               margin-top: 30px;
               font-family: "HelveticaNeue";
               font-weight: 500;
