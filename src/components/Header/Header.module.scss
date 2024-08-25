@@ -1,5 +1,12 @@
 @import '../../assets/styles/global.scss';
 
+.fix {
+  background-color: red;
+  font-weight: 700;
+  padding: 4px;
+  text-align: center;
+}
+
 .container {
   @include subtitle4m;
 
@@ -8,7 +15,7 @@
   justify-content: space-between;
   left: 0;
   margin: 0 auto;
-  padding-top: 26px;
+  padding-top: 40px; // TODO: default 26px, change, when problems fixed
   position: absolute;
   right: 0;
   top: 0;
