@@ -37,9 +37,9 @@ const AppRoutes = () => (
     <Route
       path="/welcome"
       element={
-        <PrivateRoute>
+       
           <Welcome />
-        </PrivateRoute>
+        
       }
     />
   </Routes>

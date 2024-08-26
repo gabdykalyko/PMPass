@@ -4,7 +4,7 @@ import banner_pic from '../../assets/images/new_banner_desktop.png';
 import banner_pic_mob from '../../assets/images/new_banner_mob.png';
 import { useTranslation } from "react-i18next";
 
-const Banner = ({ onRegisterClick }) => {
+const Banner = ({ onLoginClick}) => {
   const { t } = useTranslation("banner");
 
   return (
@@ -21,7 +21,7 @@ const Banner = ({ onRegisterClick }) => {
             <h1 className={styles.title}>
               {t('title3')} <span style={{ color: "#FFEB31" }}>{t('title3_hg')}</span> {t('title3_suffix')}
             </h1>
-            <button className={styles.btn} onClick={onRegisterClick}>
+            <button className={styles.btn} onClick={onLoginClick}>
               {t('button')}
             </button>
           </div>

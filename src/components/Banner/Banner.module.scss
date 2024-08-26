@@ -41,7 +41,7 @@
           text-transform: uppercase;
           color: #ffffff;
           font-family: "HelveticaNeue";
-          line-height: 1.3em;
+          line-height: 1.1em;
         }
 
         .subtitle {
@@ -63,6 +63,7 @@
           text-transform: capitalize;
           color: #1b1e23;
           cursor: pointer;
+          margin-top: 30px;
         }
       }
     }
@@ -188,7 +189,7 @@
     .info {
       .section {
         margin-left: 0px;
-        margin-top: 40px;
+        margin-top: 5px;
         padding: 0 10px;
         display: flex;
         flex-direction: column;
@@ -205,6 +206,8 @@
 
         .group {
           width: 100%;
+          align-items: center;
+          gap: 7px;
           .btn {
             place-self: center;
           }
