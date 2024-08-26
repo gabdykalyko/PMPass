@@ -9,6 +9,7 @@ import Settings from "../pages/Settings/Settings";
 import ShopQuests from "../pages/Welcome/ShopQuests/ShopQuests";
 import Welcome from "../pages/Welcome/Welcome";
 import Help from "../pages/Help/Help";
+import FAQ from "../pages/FAQ/FAQ";
 
 const AppRoutes = () => (
   <Routes>
@@ -16,6 +17,7 @@ const AppRoutes = () => (
     <Route path="/shop" element={<Shop />} />
     <Route path="/quests" element={<Quests />} />
     <Route path="/help" element={<Help />} />
+    <Route path="/faq" element={<FAQ />} />
     <Route
       path="/profile"
       element={
