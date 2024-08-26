@@ -13,9 +13,7 @@ import Bonus from "../../components/modals/Bonus/Bonus";
 import OfferRules from "../../components/modals/OfferRules/OfferRules";
 import OfferRulesAccept from "../../components/modals/OfferRulesAccept/OfferRulesAccept";
 import Form from "../../components/modals/Form/Form";
-import styles from './Tournaments.module.scss'
-import arrowLeft from '../../assets/images/icons/tournaments-arrow-left.svg'
-import arrowRight from '../../assets/images/icons/tournaments-arrow-right.svg'
+import Calendar from "./Calendar/Calendar";
 
 const Tournaments = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -121,37 +119,7 @@ const Tournaments = () => {
       <HeaderMob onLoginClick={handleLoginClick}
         onRegisterClick={handleRegisterClick} />
 
-      <div className={styles.wrapper}>
-        <div className={styles.container}>
-          <div className={styles.header}>
-            <div />
-
-            <div className={styles.month}>
-              <div className={styles.arrowWrapper}>
-                <img src={arrowLeft} alt="" />
-              </div>
-              <div className={styles.monthTxt}>
-                Август 2024
-              </div>
-              <div className={styles.arrowWrapper}>
-                <img src={arrowRight} alt="" />
-              </div>
-            </div>
-
-            <div className={styles.filter}>
-              <div className={styles.filterWrapper}>
-                Dota 2
-              </div>
-              <div className={styles.filterWrapper}>
-                CS 2
-              </div>
-            </div>
-
-            <div />
-
-          </div>
-        </div>
-      </div>
+      <Calendar />
 
       <Footer />
       {isFormOpen && (
