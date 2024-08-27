@@ -68,7 +68,7 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(7, 1fr); /* 7 колонок, по одной для каждого дня недели */
+      grid-template-columns: repeat(7, 1fr);
     }
 
     .dayOfWeek {
@@ -86,27 +86,148 @@
       padding: 6px 12px;
     }
 
-    .day, .dayEmpty {
+    .day,
+    .dayEmpty {
       border: 1px solid #DCDCDC1A;
-      padding: 10px;
+      // padding: 10px;
+      padding-top: 31px;
       color: #fff;
       background-color: #000000A6;
       border-radius: 8px;
       height: 217px;
+      position: relative;
+
+      .dayNum {
+        left: 10px;
+        position: absolute;
+        top: 10px;
+      }
+
+      .game {
+        bottom: 8px;
+        display: flex;
+        gap: 10px;
+        left: 8px;
+        position: absolute;
+
+        .gameItem {
+          align-items: center;
+          background-color: #611D14;
+          border-radius: 100px;
+          display: flex;
+          gap: 4px;
+          font-size: 13px;
+          font-weight: 400;
+          padding: 6px 7px;
+        }
+
+        .gameItemCS {
+          background-color: #614714;
+        }
+      }
     }
 
     .dayEmpty {
-      background-color: transparent; /* Прозрачные ячейки для пустых дней */
+      background-color: transparent;
       border: none;
     }
 
     .event {
-      margin-top: 5px;
-      padding: 2px 4px;
-      border-radius: 4px;
-      background-color: rgba(0, 123, 255, 0.7); /* Цвет для событий */
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      padding: 4px 8px;
+      background-color: rgba(0, 123, 255, 0.7);
       font-size: 12px;
       text-overflow: ellipsis;
+    }
+  }
+
+  .modal {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+
+    .modalWrapper {
+      background-color: #1B1E23;
+      border-radius: 8px;
+      width: 50%;
+
+      .modalImg {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 193px;
+        width: 100%;
+      }
+
+      .modalInfo {
+        padding: 16px 20px;
+
+        .modalTitle {
+          color: #FFFFFF;
+          font-size: 24px;
+          font-weight: 700;
+        }
+
+        .modalGame {
+          align-items: center;
+          border-bottom: 1px solid #E0E0E059;
+
+          display: flex;
+          gap: 16px;
+          margin-top: 16px;
+          padding-bottom: 16px;
+
+
+          .modalGameItem {
+            align-items: center;
+            background-color: #611D14;
+            border-radius: 100px;
+            color: #fff;
+            display: flex;
+            gap: 4px;
+            font-size: 13px;
+            font-weight: 400;
+            padding: 6px 7px;
+          }
+
+          .modalGameItemCS {
+            background-color: #614714;
+          }
+
+          .modalCalendar {
+            align-items: center;
+            color: #FFFFFF;
+            display: flex;
+            font-size: 16px;
+            font-weight: 500;
+          }
+        }
+
+        .modalDescription {
+          color: #E0E0E0;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 150%;
+          margin-top: 16px;
+        }
+        
+        .modalBtns {
+          display: flex;
+          gap: 16px;
+          justify-content: end;
+          margin-top: 20px;
+        }
+      }
     }
   }
 }
