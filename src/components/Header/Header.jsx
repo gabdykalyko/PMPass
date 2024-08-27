@@ -43,90 +43,86 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
   const user = useSelector(state => state.auth.user)
 
   return (
-    <div>
-      <div className={styles.fix}>
-        Идут технические работы. Сайт скоро заработает в штатном режиме.
-      </div>
-      <div className={styles.container}>
-        <div className={styles.left}>
+
+    <div className={styles.container}>
+      <div className={styles.left}>
+        <div>
+          <NavLink to="/">
+            <img src={logo} alt="Parimatch" />
+          </NavLink>
+        </div>
+
+        <div className={styles.nav}>
           <div>
-            <NavLink to="/">
-              <img src={logo} alt="Parimatch" />
+            <NavLink className={styles.hoverY}
+              to="/">
+              {t('main')}
             </NavLink>
           </div>
-
-          <div className={styles.nav}>
-            <div>
-              <NavLink className={styles.hoverY}
-                to="/">
-                {t('main')}
-              </NavLink>
-            </div>
-            <div>
-              <NavLink className={styles.hoverY}
-                to="/shop">
-                {t('shop')}
-              </NavLink>
-            </div>
-            <div>
-              <NavLink className={styles.hoverY}
-                to="/quests">
-                {t('quests')}
-              </NavLink>
-            </div>
-            <div>
-              <NavLink className={styles.hoverY}
-                to="/help">
-                {t('help')}
-              </NavLink>
-            </div>
+          <div>
+            <NavLink className={styles.hoverY}
+              to="/shop">
+              {t('shop')}
+            </NavLink>
+          </div>
+          <div>
+            <NavLink className={styles.hoverY}
+              to="/quests">
+              {t('quests')}
+            </NavLink>
+          </div>
+          <div>
+            <NavLink className={styles.hoverY}
+              to="/help">
+              {t('help')}
+            </NavLink>
           </div>
         </div>
+      </div>
 
-        <div className={styles.right}>
-          <div className={styles.lang}>
-            <div className={`${isKazakh ? '' : styles.yellow} ${styles.langItem}`}
-              onClick={setRussian}>
-              RU
-            </div>
-            <div>
-              |
-            </div>
-            <div className={`${isKazakh ? styles.yellow : ''} ${styles.langItem}`}
-              onClick={setKazakh}>
-              KZ
-            </div>
+      <div className={styles.right}>
+        <div className={styles.lang}>
+          <div className={`${isKazakh ? '' : styles.yellow} ${styles.langItem}`}
+            onClick={setRussian}>
+            RU
           </div>
-          {isAuthenticated ?
-            <div className={styles.auth}>
-              <div>
-                PM баллы: {user?.pm_points}
-              </div>
-              <div className={styles.line}>
+          <div>
+            |
+          </div>
+          <div className={`${isKazakh ? styles.yellow : ''} ${styles.langItem}`}
+            onClick={setKazakh}>
+            KZ
+          </div>
+        </div>
+        {isAuthenticated ?
+          <div className={styles.auth}>
+            <div>
+              PM баллы: {user?.pm_points}
+            </div>
+            <div className={styles.line}>
 
+            </div>
+            <div className={styles.profile}>
+              <div>
+                <img className={styles.profileImg}
+                  src={defaultUserImg} alt="" />
               </div>
-              <div className={styles.profile}>
-                <div>
-                  <img className={styles.profileImg}
-                    src={defaultUserImg} alt="" />
-                </div>
-                <div>
-                  <NavLink className={styles.hoverY}
-                    to='/profile'>
-                    Профиль
-                  </NavLink>
-                </div>
+              <div>
+                <NavLink className={styles.hoverY}
+                  to='/profile'>
+                  Профиль
+                </NavLink>
               </div>
-            </div> :
-            <div className={styles.btns}>
-              <div onClick={onLoginClick}>
-                <Button title={t('enter')} />
-              </div>
-              {/* <div onClick={onRegisterClick}>
+            </div>
+          </div> :
+          <div className={styles.btns}>
+            <div onClick={onLoginClick}>
+              <Button title={t('enter')} />
+            </div>
+            {/* <div onClick={onRegisterClick}>
               <Button title={t('register')} />
             </div> */}
-            </div>}
-        </div>
+          </div>}
       </div>
     </div>
   )
