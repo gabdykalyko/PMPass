@@ -314,9 +314,12 @@ const Calendar = () => {
                 }}>
                   <Button color="brown" title='Отмена' />
                 </div>
-                <Link to={events[selectedEventIndex].url} target='_blank'>
-                  <Button title="Перейти к турниру" />
-                </Link>
+                {
+                  events[selectedEventIndex].url &&
+                  <Link to={events[selectedEventIndex].url} target='_blank'>
+                    <Button title="Перейти к турниру" />
+                  </Link>
+                }
               </div>
             </div>
           </div>
