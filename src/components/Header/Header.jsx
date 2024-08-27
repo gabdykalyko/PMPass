@@ -69,7 +69,7 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
             </NavLink>
           </div>
           <div>
-            <NavLink className={styles.hoverY}>{t("tournaments")}</NavLink>
+            <NavLink className={styles.hoverY} to="/tournaments">{t("tournaments")}</NavLink>
           </div>
           <div>
             <NavLink className={styles.hoverY} to="/help">
