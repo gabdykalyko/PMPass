@@ -12,7 +12,7 @@ const Calendar = () => {
   const [currentMonth, setCurrentMonth] = useState(today.getMonth())
   const [currentYear, setCurrentYear] = useState(today.getFullYear())
 
-  const [data, setData] = useState([])
+  const [events, setEvents] = useState([])
 
   const months = [
     'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
@@ -45,6 +45,46 @@ const Calendar = () => {
     }
   }
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Лист1?alt=json&key=${API_KEY}`;
+
+      try {
+        const response = await fetch(url);
+        const result = await response.json();
+
+        result.values.shift()
+
+        const parsedEvents = result.values.map((event) => {
+          const [dayStart, monthStart, yearStart] = event[0]?.trim().split('.') || [];
+          const [dayEnd, monthEnd, yearEnd] = event[1]?.trim().split('.') || [];
+  
+          const startDate = dayStart && monthStart && yearStart
+            ? new Date(`${yearStart}-${monthStart}-${dayStart}`)
+            : null;
+          
+          const endDate = dayEnd && monthEnd && yearEnd
+            ? new Date(`${yearEnd}-${monthEnd}-${dayEnd}`)
+            : null;
+  
+          return {
+            startDate,
+            endDate,
+            name: event[2]?.trim(),
+            gameType: event[3]?.trim(),
+            prize: event[4]?.trim(),
+          };
+        });
+
+        setEvents(parsedEvents)
+      } catch (error) {
+        console.error("Ошибка при получении данных:", error);
+      }
+    };
+
+    fetchData();
+  }, [])
+
   const renderDaysOfWeek = () => {
     return daysOfWeek.map((day, index) => (
       <div key={index} className={styles.dayOfWeek}>
@@ -58,35 +98,36 @@ const Calendar = () => {
   const renderDays = () => {
     const totalDays = daysInMonth(currentMonth, currentYear);
     const daysArray = [];
-
-    // Добавляем пустые ячейки для начала месяца, чтобы первый день месяца соответствовал дню недели
+  
+    // Добавляем пустые ячейки до начала месяца (для выравнивания)
     for (let i = 0; i < firstDayOfMonth; i++) {
       daysArray.push(<div key={`empty-${i}`} className={styles.dayEmpty}></div>);
     }
-
-    // Заполняем числами дни месяца
+  
+    // Рендерим дни месяца
     for (let day = 1; day <= totalDays; day++) {
-      daysArray.push(<div key={day} className={styles.day}>{day}</div>);
+      const currentDate = new Date(currentYear, currentMonth, day);
+  
+      // Фильтруем события, которые происходят в этот день
+      const eventsForDay = events.filter(event =>
+        currentDate >= event.startDate && currentDate <= event.endDate
+      );
+  
+      daysArray.push(
+        <div key={day} className={styles.day}>
+          <span>{day}</span>
+          {eventsForDay.map((event, index) => (
+            <div key={index} className={styles.event}>
+              {event.name}
+            </div>
+          ))}
+        </div>
+      );
     }
+  
     return daysArray;
-  }
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Лист1?alt=json&key=${API_KEY}`;
-      
-      try {
-        const response = await fetch(url);
-        const result = await response.json();
-        setData(result.values)
-        console.log(result.values)
-      } catch (error) {
-        console.error("Ошибка при получении данных:", error);
-      }
-    };
-
-    fetchData();
-  }, [])
+  };
+  
 
   return (
     <div className={styles.wrapper}>
