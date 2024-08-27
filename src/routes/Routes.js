@@ -9,12 +9,14 @@ import Settings from '../pages/Settings/Settings';
 import ShopQuests from '../pages/Welcome/ShopQuests/ShopQuests';
 import Welcome from '../pages/Welcome/Welcome';
 import Help from '../pages/Help/Help';
+import Tournaments from '../pages/Tournaments/Tournaments';
 
 const AppRoutes = () => (
   <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/shop" element={<Shop />} />
     <Route path="/quests" element={<Quests />} />
+    <Route path="/tournaments" element={<Tournaments />} />
     <Route path="/help" element={<Help />} />
     <Route path="/profile"
       element={<PrivateRoute>

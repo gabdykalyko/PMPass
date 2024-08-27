@@ -1,0 +1,233 @@
+@import '../../../assets/styles/global.scss';
+
+.wrapper {
+  background-image: url('../../../assets/images/tournaments.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 180px;
+  padding-bottom: 80px;
+
+  .container {
+    margin: 0 auto;
+    width: 80%;
+
+    .header {
+      align-items: center;
+      border-bottom: 1px solid #E0E0E059;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      padding-bottom: 31px;
+      margin-bottom: 24px;
+
+      .month {
+        @include subtitle1b;
+
+        align-items: center;
+        color: #fff;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+
+        .arrowWrapper {
+          align-items: center;
+          background-color: #FAF9F833;
+          border-radius: 8px;
+          cursor: pointer;
+          display: flex;
+          height: 32px;
+          justify-content: center;
+          width: 32px;
+        }
+
+        .monthTxt {
+          align-items: center;
+          display: flex;
+          padding-top: 5px;
+        }
+      }
+
+      .filter {
+        align-items: center;
+        display: flex;
+        gap: 12px;
+        justify-content: flex-end;
+
+        .filterWrapper {
+          @include body1;
+
+          align-items: center;
+          background-color: #DCDCDC0D;
+          border-radius: 100px;
+          color: #E0E0E0;
+          display: flex;
+          justify-content: center;
+          padding: 10px 16px;
+        }
+      }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+
+    .dayOfWeek {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .dayOfWeekWrapper {
+      background-color: #FFFFFF;
+      border-radius: 100px;
+      color: #1B1E23;
+      display: inline;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 12px;
+    }
+
+    .day,
+    .dayEmpty {
+      border: 1px solid #DCDCDC1A;
+      // padding: 10px;
+      padding-top: 31px;
+      color: #fff;
+      background-color: #000000A6;
+      border-radius: 8px;
+      height: 217px;
+      position: relative;
+
+      .dayNum {
+        left: 10px;
+        position: absolute;
+        top: 10px;
+      }
+
+      .game {
+        bottom: 8px;
+        display: flex;
+        gap: 10px;
+        left: 8px;
+        position: absolute;
+
+        .gameItem {
+          align-items: center;
+          background-color: #611D14;
+          border-radius: 100px;
+          display: flex;
+          gap: 4px;
+          font-size: 13px;
+          font-weight: 400;
+          padding: 6px 7px;
+        }
+
+        .gameItemCS {
+          background-color: #614714;
+        }
+      }
+    }
+
+    .dayEmpty {
+      background-color: transparent;
+      border: none;
+    }
+
+    .event {
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      padding: 4px 8px;
+      background-color: rgba(0, 123, 255, 0.7);
+      font-size: 12px;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .modal {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+
+    .modalWrapper {
+      background-color: #1B1E23;
+      border-radius: 8px;
+      width: 50%;
+
+      .modalImg {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 193px;
+        width: 100%;
+      }
+
+      .modalInfo {
+        padding: 16px 20px;
+
+        .modalTitle {
+          color: #FFFFFF;
+          font-size: 24px;
+          font-weight: 700;
+        }
+
+        .modalGame {
+          align-items: center;
+          border-bottom: 1px solid #E0E0E059;
+
+          display: flex;
+          gap: 16px;
+          margin-top: 16px;
+          padding-bottom: 16px;
+
+
+          .modalGameItem {
+            align-items: center;
+            background-color: #611D14;
+            border-radius: 100px;
+            color: #fff;
+            display: flex;
+            gap: 4px;
+            font-size: 13px;
+            font-weight: 400;
+            padding: 6px 7px;
+          }
+
+          .modalGameItemCS {
+            background-color: #614714;
+          }
+
+          .modalCalendar {
+            align-items: center;
+            color: #FFFFFF;
+            display: flex;
+            font-size: 16px;
+            font-weight: 500;
+          }
+        }
+
+        .modalDescription {
+          color: #E0E0E0;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 150%;
+          margin-top: 16px;
+        }
+        
+        .modalBtns {
+          display: flex;
+          gap: 16px;
+          justify-content: end;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
