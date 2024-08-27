@@ -43,6 +43,7 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
   const user = useSelector((state) => state.auth.user);
 
   return (
+
     <div className={styles.container}>
       <div className={styles.left}>
         <div>
