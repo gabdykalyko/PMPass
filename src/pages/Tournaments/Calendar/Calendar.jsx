@@ -271,7 +271,7 @@ const Calendar = () => {
               </div>
               <div className={styles.modalGame}>
                 {
-                  events[selectedEventIndex].gameType === 'CS 2'
+                  events[selectedEventIndex].gameType === 'Dota 2'
                     ?
                     <div className={styles.modalGameItem}>
                       <div>
