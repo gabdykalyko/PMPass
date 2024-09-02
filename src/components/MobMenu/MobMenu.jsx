@@ -138,6 +138,12 @@ const MobMenu = ({ closeMenu,
               {t('help')}
             </NavLink>
           </div>
+          <div className={styles.menuItem}
+            onClick={AllowScroll}>
+            <NavLink to="/faq">
+              FAQ
+            </NavLink>
+          </div>
         </div>
       </div>
 

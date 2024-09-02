@@ -40,7 +40,8 @@
           letter-spacing: 0.01em;
           text-transform: uppercase;
           color: #ffffff;
-          font-family: "HelveticaNeueBlackCondensed";
+          font-family: "HelveticaNeue";
+          line-height: 1.1em;
         }
 
         .subtitle {
@@ -54,7 +55,7 @@
           border-radius: 8px;
           width: 260px;
           height: 50px;
-          background: #f8ff13;
+          background: #EAD40C;
           font-family: var(--font-family);
           font-weight: 500;
           font-size: 20px;
@@ -62,6 +63,7 @@
           text-transform: capitalize;
           color: #1b1e23;
           cursor: pointer;
+          margin-top: 30px;
         }
       }
     }
@@ -187,7 +189,7 @@
     .info {
       .section {
         margin-left: 0px;
-        margin-top: 40px;
+        margin-top: 5px;
         padding: 0 10px;
         display: flex;
         flex-direction: column;
@@ -204,6 +206,8 @@
 
         .group {
           width: 100%;
+          align-items: center;
+          gap: 7px;
           .btn {
             place-self: center;
           }
@@ -212,7 +216,8 @@
           }
 
           .title {
-            font-size: 36px;
+            font-size: 28px;
+            text-align: center;
           }
 
           .btn {
