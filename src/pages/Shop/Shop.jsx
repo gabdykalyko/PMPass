@@ -305,7 +305,7 @@ const Shop = () => {
           <div className={styles.container__line}>
             <img src={flame}/>
             <div className={styles.title}>
-                Успейте потратить PM баллы! Летний сезон заканчивается 31 августа.
+                Успейте потратить PM баллы! Летний сезон заканчивается 4 сентября.
             </div>
           </div>
           <div className={styles.container__line_mob}>
@@ -315,7 +315,7 @@ const Shop = () => {
                 Успейте потратить PM баллы! 
             </div>
             <div className={styles.desc}>
-            Летний сезон заканчивается 31 августа.
+            Летний сезон заканчивается 4 сентября.
             </div>
             </div>
           </div>

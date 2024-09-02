@@ -25,7 +25,7 @@ const PeriodicModal = ({ closeForm, onRegisterClick }) => {
         <img src={periodic_modal_flame} alt="Flame" />
         <div className={styles.title}>Успейте потратить PM баллы!</div>
         <div className={styles.content}>
-          <p>Летний сезон заканчивается 31 августа.</p>
+          <p>Летний сезон заканчивается 4 сентября.</p>
         </div>
         <div className={styles.btn} onClick={handleShopClick}>
           <Button title="Магазин" />
